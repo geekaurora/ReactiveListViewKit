@@ -18,7 +18,7 @@ public protocol CZFeedViewModelable: class, NSObjectProtocol, CZListDiffable, NS
 
 extension CZFeedViewModelable {
     public var diffId: String {
-        return NSStringFromClass(type(of: self))
+        return currentClassName
     }
 }
 
