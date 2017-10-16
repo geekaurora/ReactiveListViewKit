@@ -44,7 +44,7 @@ class FeedListViewModel: NSObject {
                 print("Tapped WatchAll button")
             }
             let HotUsersCellModel = CZSectionModel(isHorizontal: true,
-                                                   heightForHorizontal: Constants.userStoriesSectionHeight,
+                                                   heightForHorizontal: Constants.userStoriesSectionHeight + 20,
                                                    feedModels: HotUsersFeedModels,
                                                    headerModel: CZFeedListSupplementaryTextFeedModel(title: "Stories",
                                                                                                      actionButtonText: "Watch All",

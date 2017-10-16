@@ -71,7 +71,7 @@
 		044E03561F74464200849AA2 /* CZReactiveFeedListFacadeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZReactiveFeedListFacadeView.swift; sourceTree = "<group>"; };
 		044E03571F74464200849AA2 /* CZSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZSectionModel.swift; sourceTree = "<group>"; };
 		2A0647261F7F61CE00354083 /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
-		2A16074F1F7DAF0500FC3E9B /* ReactiveListViewKitConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReactiveListViewKitConstants.swift; path = ReactiveListViewKit/Utils/ReactiveListViewKitConstants.swift; sourceTree = "<group>"; };
+		2A16074F1F7DAF0500FC3E9B /* ReactiveListViewKitConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReactiveListViewKitConstants.swift; path = Utils/ReactiveListViewKitConstants.swift; sourceTree = "<group>"; };
 		2A465C751F7F01B800406343 /* CZListDiffableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZListDiffableHelper.swift; path = Utils/CZListDiffableHelper.swift; sourceTree = "<group>"; };
 		2AB3DB8E1F7EC3D8009A5EF9 /* CZDividerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZDividerView.swift; path = TemplateViews/CZDividerView.swift; sourceTree = "<group>"; };
 		2AB3DB8F1F7EC3D8009A5EF9 /* CZFeedListSupplementaryLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZFeedListSupplementaryLineView.swift; path = TemplateViews/CZFeedListSupplementaryLineView.swift; sourceTree = "<group>"; };
@@ -112,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				044E032E1F74458B00849AA2 /* ReactiveListViewKit */,
-				2A16074F1F7DAF0500FC3E9B /* ReactiveListViewKitConstants.swift */,
 				044E03391F74458B00849AA2 /* ReactiveListViewKitTests */,
 				044E032D1F74458B00849AA2 /* Products */,
 				2ADEE4761F7F6F7D00EC6969 /* Frameworks */,
@@ -144,6 +143,7 @@
 				044E03531F74464200849AA2 /* CZFeedViewModelable.swift */,
 				044E03521F74464200849AA2 /* CZFeedViewEvent.swift */,
 				044E03501F74464200849AA2 /* CZFeedListViewStateMachine.swift */,
+				2A16074F1F7DAF0500FC3E9B /* ReactiveListViewKitConstants.swift */,
 				044E03471F74463100849AA2 /* TemplateViews */,
 				044E036E1F74468800849AA2 /* Utils */,
 				2A35A2411F7E01A7008CE3FB /* Support Files */,
