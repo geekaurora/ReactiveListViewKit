@@ -47,7 +47,7 @@ MVVM + FLUX reactive facade ViewKit for feed based app development. Eliminates M
   <img src="./Documents/FLUX.png">
 
 
-### Instagram Demo - [Github](https://github.com/showt1me/CZInstagram)
+### [Instagram Demo](https://github.com/showt1me/CZInstagram)
 Implemented on top of **ReactiveListViewKit**
 
 <img src="./Documents/CZInstagram.gif">
