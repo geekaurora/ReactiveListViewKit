@@ -6,7 +6,6 @@
 //  Copyright © 2016 Cheng Zhang. All rights reserved.
 //
 
-import UIKit
 import CZUtils
 
 /// Convenience class to accomplish JSON serializing/deserializing
