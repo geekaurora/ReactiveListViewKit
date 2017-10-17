@@ -6,7 +6,6 @@
 //  Copyright © 2017 Groupon Inc. All rights reserved.
 //
 
-import UIKit
 import CZUtils
 import ReactiveListViewKit
 import EasyMapping

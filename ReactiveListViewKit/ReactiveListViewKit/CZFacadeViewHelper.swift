@@ -10,7 +10,7 @@ import UIKit
 
 /// Convenience helper class for FacadeView
 public class CZFacadeViewHelper: NSObject {
-    /// Convenience helper class to calculate cell size with input params, adaptive to UIView/UIViewController `viewClass`
+    /// Calculate cell size with input params, adaptive to `viewClass` as UIView/UIViewController/UICollectionViewCell
     public static func sizeThatFits(_ containerSize: CGSize,
                                     viewModel: CZFeedViewModelable,
                                     viewClass: CZFeedCellViewable.Type,

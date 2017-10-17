@@ -7,7 +7,6 @@
 //
 
 import EasyMapping
-import UIKit
 import CZUtils
 import ReactiveListViewKit
 

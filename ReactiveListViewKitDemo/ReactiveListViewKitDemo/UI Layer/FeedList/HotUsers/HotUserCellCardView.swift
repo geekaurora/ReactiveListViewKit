@@ -6,7 +6,6 @@
 //  Copyright © 2017 Cheng Zhang. All rights reserved.
 //
 
-import UIKit
 import CZUtils
 import ReactiveListViewKit
 
@@ -60,9 +59,9 @@ class HotUserCellCardView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
     
     static func sizeThatFits(_ containerSize: CGSize, viewModel: CZFeedViewModelable) -> CGSize {
         return CZFacadeViewHelper.sizeThatFits(containerSize,
-                                               viewModel: viewModel,
-                                               viewClass: HotUserCellCardView.self,
-                                               isHorizontal: true)
+                                                   viewModel: viewModel,
+                                                   viewClass: HotUserCellCardView.self,
+                                                   isHorizontal: true)
     }
     
     @IBAction func tappedFollow(_ sender: UIButton) {

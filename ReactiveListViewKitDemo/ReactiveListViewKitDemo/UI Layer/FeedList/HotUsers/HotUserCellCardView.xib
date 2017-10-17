@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotUserCellCardView" customModule="CZInstagram" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotUserCellCardView" customModule="ReactiveListViewKitDemo" customModuleProvider="target">
             <connections>
                 <outlet property="closeButton" destination="aBi-0L-k4B" id="uY2-zF-Bmm"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="ajl-F7-sni"/>
@@ -73,7 +73,7 @@
                             <rect key="frame" x="14" y="122" width="90" height="20"/>
                             <color key="backgroundColor" red="0.24313725490196078" green="0.59999999999999998" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="90" id="BMJ-Nn-VNi"/>
+                                <constraint firstAttribute="width" priority="749" constant="90" id="BMJ-Nn-VNi"/>
                                 <constraint firstAttribute="height" constant="20" id="GL0-IU-Vb6"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
