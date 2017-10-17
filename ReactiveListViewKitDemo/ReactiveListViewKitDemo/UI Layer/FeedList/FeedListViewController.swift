@@ -34,7 +34,8 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
 fileprivate extension FeedListViewController {
     func setupFeedListView() {
         feedListFacadeView = CZReactiveFeedListFacadeView<FeedListState>(core: core,
-                                                                         sectionModelsResolver: core.state.sectionModelsResolver)
+                                                                         sectionModelsResolver: core.state.sectionModelsResolver,
+                                                                         parentViewController:self)
         feedListFacadeView?.overlayOnSuperViewController(self)
     }
 }

@@ -6,6 +6,8 @@ target 'ReactiveListViewKitDemo' do
   use_frameworks!
 
   # Pods for ReactiveListViewKitDemo
+  pod 'SDWebImage', '~> 4.0'
+  pod 'EasyMapping', '~> 0.20'
   pod ‘Reveal-SDK’
 
 end

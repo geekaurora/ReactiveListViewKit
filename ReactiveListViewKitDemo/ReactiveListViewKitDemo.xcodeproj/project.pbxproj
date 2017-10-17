@@ -8,21 +8,59 @@
 
 /* Begin PBXBuildFile section */
 		18BB6D6255DFF9733BFADB00 /* Pods_ReactiveListViewKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */; };
+		2ADA7C6E1F95D5CD00B8679C /* FeedListEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */; };
+		2ADA7C6F1F95D5CD00B8679C /* FeedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C6C1F95D5CD00B8679C /* FeedListViewController.swift */; };
+		2ADA7C701F95D5CD00B8679C /* FeedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C6D1F95D5CD00B8679C /* FeedListViewModel.swift */; };
+		2ADA7C781F95D5FB00B8679C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C711F95D5FB00B8679C /* Comment.swift */; };
+		2ADA7C791F95D5FB00B8679C /* CZMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C721F95D5FB00B8679C /* CZMocker.swift */; };
+		2ADA7C7A1F95D5FB00B8679C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C731F95D5FB00B8679C /* DataManager.swift */; };
+		2ADA7C7B1F95D5FB00B8679C /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C741F95D5FB00B8679C /* Feed.swift */; };
+		2ADA7C7C1F95D5FB00B8679C /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C751F95D5FB00B8679C /* ImageInfo.swift */; };
+		2ADA7C7D1F95D5FB00B8679C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C761F95D5FB00B8679C /* User.swift */; };
+		2ADA7C7E1F95D5FB00B8679C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C771F95D5FB00B8679C /* UserManager.swift */; };
+		2ADA7C811F95D6DF00B8679C /* CZModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C801F95D6DF00B8679C /* CZModel.swift */; };
+		2ADA7C8B1F95D79E00B8679C /* HotUserCellCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C831F95D79E00B8679C /* HotUserCellCardView.swift */; };
+		2ADA7C8C1F95D79E00B8679C /* HotUserCellCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ADA7C841F95D79E00B8679C /* HotUserCellCardView.xib */; };
+		2ADA7C8D1F95D79E00B8679C /* HotUserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C851F95D79E00B8679C /* HotUserCellView.swift */; };
+		2ADA7C8E1F95D79E00B8679C /* HotUserCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ADA7C861F95D79E00B8679C /* HotUserCellView.xib */; };
+		2ADA7C8F1F95D79E00B8679C /* HotUserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C871F95D79E00B8679C /* HotUserCellViewModel.swift */; };
+		2ADA7C901F95D79E00B8679C /* HotUsersCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C881F95D79E00B8679C /* HotUsersCellViewController.swift */; };
+		2ADA7C911F95D79E00B8679C /* HotUsersCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ADA7C891F95D79E00B8679C /* HotUsersCellViewController.xib */; };
+		2ADA7C921F95D79E00B8679C /* HotUsersCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C8A1F95D79E00B8679C /* HotUsersCellViewModel.swift */; };
+		2ADA7C961F95D7E200B8679C /* SuggestedUserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C941F95D7E200B8679C /* SuggestedUserEvent.swift */; };
+		2ADA7C971F95D7E200B8679C /* UserStoryEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C951F95D7E200B8679C /* UserStoryEvent.swift */; };
+		2ADA7C9B1F95D82500B8679C /* FeedCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C981F95D82500B8679C /* FeedCellView.swift */; };
+		2ADA7C9C1F95D82500B8679C /* FeedCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ADA7C991F95D82500B8679C /* FeedCellView.xib */; };
+		2ADA7C9D1F95D82500B8679C /* FeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C9A1F95D82500B8679C /* FeedCellViewModel.swift */; };
+		2ADA7C9F1F95D87100B8679C /* FeedListEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C9E1F95D87100B8679C /* FeedListEvent.swift */; };
+		2ADCB55A1F95DCED007083CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCB5591F95DCED007083CA /* AppDelegate.swift */; };
+		2ADCB55C1F95DCF3007083CA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCB55B1F95DCF3007083CA /* Constants.swift */; };
+		2ADCB55F1F95DD02007083CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB55D1F95DD02007083CA /* Main.storyboard */; };
+		2ADCB5621F95DD0D007083CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5601F95DD0D007083CA /* LaunchScreen.storyboard */; };
+		2ADCB5641F95DD16007083CA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5631F95DD16007083CA /* Info.plist */; };
+		2ADCB5661F95DD45007083CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5651F95DD45007083CA /* Assets.xcassets */; };
+		2ADCB5681F95E09A007083CA /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5671F95E09A007083CA /* feeds.json */; };
 		2AF920DA1F7F3A8300A5160F /* CZUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF920D91F7F3A8300A5160F /* CZUtils.framework */; };
 		2AF920DB1F7F3A8300A5160F /* CZUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF920D91F7F3A8300A5160F /* CZUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2AF920E31F7F480500A5160F /* FeedListEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF920E21F7F480500A5160F /* FeedListEventHandler.swift */; };
 		C3BBE25C1F7F16E1002576BF /* ReactiveListViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BBE2571F7F16D0002576BF /* ReactiveListViewKit.framework */; };
 		C3BBE25D1F7F16E1002576BF /* ReactiveListViewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3BBE2571F7F16D0002576BF /* ReactiveListViewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C3BBE2621F7F178C002576BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BBE2611F7F178C002576BF /* Constants.swift */; };
-		C3E8440C1F7F1615001ED65A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8440B1F7F1615001ED65A /* AppDelegate.swift */; };
-		C3E844111F7F1615001ED65A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3E8440F1F7F1615001ED65A /* Main.storyboard */; };
-		C3E844131F7F1615001ED65A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3E844121F7F1615001ED65A /* Assets.xcassets */; };
-		C3E844161F7F1615001ED65A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3E844141F7F1615001ED65A /* LaunchScreen.storyboard */; };
-		C3E8441F1F7F163F001ED65A /* FeedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8441D1F7F163F001ED65A /* FeedListViewController.swift */; };
-		C3E844201F7F163F001ED65A /* FeedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8441E1F7F163F001ED65A /* FeedListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2ADCB5A01F95E402007083CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ADCB58A1F95E3E5007083CA /* CZNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 044E02481F74349B00849AA2;
+			remoteInfo = CZNetworking;
+		};
+		2ADCB5A21F95E402007083CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ADCB58A1F95E3E5007083CA /* CZNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 044E02511F74349B00849AA2;
+			remoteInfo = CZNetworkingTests;
+		};
 		C3BBE2561F7F16D0002576BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3BBE2501F7F16D0002576BF /* ReactiveListViewKit.xcodeproj */;
@@ -70,20 +108,44 @@
 
 /* Begin PBXFileReference section */
 		0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveListViewKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListEventHandler.swift; path = "UI Layer/FeedList/FeedListEventHandler.swift"; sourceTree = "<group>"; };
+		2ADA7C6C1F95D5CD00B8679C /* FeedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListViewController.swift; path = "UI Layer/FeedList/FeedListViewController.swift"; sourceTree = "<group>"; };
+		2ADA7C6D1F95D5CD00B8679C /* FeedListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListViewModel.swift; path = "UI Layer/FeedList/FeedListViewModel.swift"; sourceTree = "<group>"; };
+		2ADA7C711F95D5FB00B8679C /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = "Data Layer/Comment.swift"; sourceTree = "<group>"; };
+		2ADA7C721F95D5FB00B8679C /* CZMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZMocker.swift; path = "Data Layer/CZMocker.swift"; sourceTree = "<group>"; };
+		2ADA7C731F95D5FB00B8679C /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = "Data Layer/DataManager.swift"; sourceTree = "<group>"; };
+		2ADA7C741F95D5FB00B8679C /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Feed.swift; path = "Data Layer/Feed.swift"; sourceTree = "<group>"; };
+		2ADA7C751F95D5FB00B8679C /* ImageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageInfo.swift; path = "Data Layer/ImageInfo.swift"; sourceTree = "<group>"; };
+		2ADA7C761F95D5FB00B8679C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = "Data Layer/User.swift"; sourceTree = "<group>"; };
+		2ADA7C771F95D5FB00B8679C /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = "Data Layer/UserManager.swift"; sourceTree = "<group>"; };
+		2ADA7C801F95D6DF00B8679C /* CZModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZModel.swift; path = Utils/CZModel.swift; sourceTree = "<group>"; };
+		2ADA7C831F95D79E00B8679C /* HotUserCellCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotUserCellCardView.swift; path = "UI Layer/FeedList/HotUsers/HotUserCellCardView.swift"; sourceTree = "<group>"; };
+		2ADA7C841F95D79E00B8679C /* HotUserCellCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HotUserCellCardView.xib; path = "UI Layer/FeedList/HotUsers/HotUserCellCardView.xib"; sourceTree = "<group>"; };
+		2ADA7C851F95D79E00B8679C /* HotUserCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotUserCellView.swift; path = "UI Layer/FeedList/HotUsers/HotUserCellView.swift"; sourceTree = "<group>"; };
+		2ADA7C861F95D79E00B8679C /* HotUserCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HotUserCellView.xib; path = "UI Layer/FeedList/HotUsers/HotUserCellView.xib"; sourceTree = "<group>"; };
+		2ADA7C871F95D79E00B8679C /* HotUserCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotUserCellViewModel.swift; path = "UI Layer/FeedList/HotUsers/HotUserCellViewModel.swift"; sourceTree = "<group>"; };
+		2ADA7C881F95D79E00B8679C /* HotUsersCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotUsersCellViewController.swift; path = "UI Layer/FeedList/HotUsers/HotUsersCellViewController.swift"; sourceTree = "<group>"; };
+		2ADA7C891F95D79E00B8679C /* HotUsersCellViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HotUsersCellViewController.xib; path = "UI Layer/FeedList/HotUsers/HotUsersCellViewController.xib"; sourceTree = "<group>"; };
+		2ADA7C8A1F95D79E00B8679C /* HotUsersCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotUsersCellViewModel.swift; path = "UI Layer/FeedList/HotUsers/HotUsersCellViewModel.swift"; sourceTree = "<group>"; };
+		2ADA7C941F95D7E200B8679C /* SuggestedUserEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestedUserEvent.swift; path = FLUX/SuggestedUserEvent.swift; sourceTree = "<group>"; };
+		2ADA7C951F95D7E200B8679C /* UserStoryEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserStoryEvent.swift; path = FLUX/UserStoryEvent.swift; sourceTree = "<group>"; };
+		2ADA7C981F95D82500B8679C /* FeedCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedCellView.swift; path = "UI Layer/FeedList/FeedCellView.swift"; sourceTree = "<group>"; };
+		2ADA7C991F95D82500B8679C /* FeedCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedCellView.xib; path = "UI Layer/FeedList/FeedCellView.xib"; sourceTree = "<group>"; };
+		2ADA7C9A1F95D82500B8679C /* FeedCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedCellViewModel.swift; path = "UI Layer/FeedList/FeedCellViewModel.swift"; sourceTree = "<group>"; };
+		2ADA7C9E1F95D87100B8679C /* FeedListEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListEvent.swift; path = FLUX/FeedListEvent.swift; sourceTree = "<group>"; };
+		2ADCB5591F95DCED007083CA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Supported Files/AppDelegate.swift"; sourceTree = "<group>"; };
+		2ADCB55B1F95DCF3007083CA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utils/Constants.swift; sourceTree = "<group>"; };
+		2ADCB55E1F95DD02007083CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Supported Files/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		2ADCB5611F95DD0D007083CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Supported Files/Base.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		2ADCB5631F95DD16007083CA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Supported Files/Info.plist"; sourceTree = "<group>"; };
+		2ADCB5651F95DD45007083CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Supported Files/Resources/Assets.xcassets"; sourceTree = "<group>"; };
+		2ADCB5671F95E09A007083CA /* feeds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = feeds.json; path = "Supported Files/Resources/feeds.json"; sourceTree = "<group>"; };
+		2ADCB58A1F95E3E5007083CA /* CZNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZNetworking.xcodeproj; path = Utils/CZNetworking/CZNetworking.xcodeproj; sourceTree = "<group>"; };
 		2AF920D91F7F3A8300A5160F /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AF920E21F7F480500A5160F /* FeedListEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListEventHandler.swift; path = FeedList/FeedListEventHandler.swift; sourceTree = "<group>"; };
 		AA07FDAF186FE8BE55F9FA06 /* Pods-ReactiveListViewKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveListViewKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveListViewKitDemo/Pods-ReactiveListViewKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AF66D1BFAFC30D1DD31A02B9 /* Pods-ReactiveListViewKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveListViewKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveListViewKitDemo/Pods-ReactiveListViewKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 		C3BBE2501F7F16D0002576BF /* ReactiveListViewKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveListViewKit.xcodeproj; path = ../ReactiveListViewKit/ReactiveListViewKit.xcodeproj; sourceTree = "<group>"; };
-		C3BBE2611F7F178C002576BF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3E844081F7F1615001ED65A /* ReactiveListViewKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveListViewKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3E8440B1F7F1615001ED65A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C3E844101F7F1615001ED65A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C3E844121F7F1615001ED65A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C3E844151F7F1615001ED65A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C3E844171F7F1615001ED65A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3E8441D1F7F163F001ED65A /* FeedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListViewController.swift; path = FeedList/FeedListViewController.swift; sourceTree = "<group>"; };
-		C3E8441E1F7F163F001ED65A /* FeedListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListViewModel.swift; path = FeedList/FeedListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +162,105 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2ADA7C681F95D58000B8679C /* Data Layer */ = {
+			isa = PBXGroup;
+			children = (
+				2ADA7C741F95D5FB00B8679C /* Feed.swift */,
+				2ADA7C761F95D5FB00B8679C /* User.swift */,
+				2ADA7C751F95D5FB00B8679C /* ImageInfo.swift */,
+				2ADA7C711F95D5FB00B8679C /* Comment.swift */,
+				2ADA7C731F95D5FB00B8679C /* DataManager.swift */,
+				2ADA7C771F95D5FB00B8679C /* UserManager.swift */,
+				2ADA7C721F95D5FB00B8679C /* CZMocker.swift */,
+			);
+			name = "Data Layer";
+			sourceTree = "<group>";
+		};
+		2ADA7C6A1F95D58500B8679C /* UI Layer */ = {
+			isa = PBXGroup;
+			children = (
+				C3E844211F7F1641001ED65A /* FeedList */,
+			);
+			name = "UI Layer";
+			sourceTree = "<group>";
+		};
+		2ADA7C7F1F95D6CC00B8679C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCB55B1F95DCF3007083CA /* Constants.swift */,
+				2ADA7C801F95D6DF00B8679C /* CZModel.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		2ADA7C821F95D79300B8679C /* HotUsersCell */ = {
+			isa = PBXGroup;
+			children = (
+				2ADA7CA61F95DAFF00B8679C /* CellView */,
+				2ADA7CA71F95DB0800B8679C /* CellViewController */,
+			);
+			name = HotUsersCell;
+			sourceTree = "<group>";
+		};
+		2ADA7C931F95D7C900B8679C /* FLUX */ = {
+			isa = PBXGroup;
+			children = (
+				2ADA7C9E1F95D87100B8679C /* FeedListEvent.swift */,
+				2ADA7C941F95D7E200B8679C /* SuggestedUserEvent.swift */,
+				2ADA7C951F95D7E200B8679C /* UserStoryEvent.swift */,
+			);
+			name = FLUX;
+			sourceTree = "<group>";
+		};
+		2ADA7CA61F95DAFF00B8679C /* CellView */ = {
+			isa = PBXGroup;
+			children = (
+				2ADA7C851F95D79E00B8679C /* HotUserCellView.swift */,
+				2ADA7C861F95D79E00B8679C /* HotUserCellView.xib */,
+				2ADA7C871F95D79E00B8679C /* HotUserCellViewModel.swift */,
+				2ADA7C831F95D79E00B8679C /* HotUserCellCardView.swift */,
+				2ADA7C841F95D79E00B8679C /* HotUserCellCardView.xib */,
+			);
+			name = CellView;
+			sourceTree = "<group>";
+		};
+		2ADA7CA71F95DB0800B8679C /* CellViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2ADA7C881F95D79E00B8679C /* HotUsersCellViewController.swift */,
+				2ADA7C891F95D79E00B8679C /* HotUsersCellViewController.xib */,
+				2ADA7C8A1F95D79E00B8679C /* HotUsersCellViewModel.swift */,
+			);
+			name = CellViewController;
+			sourceTree = "<group>";
+		};
+		2ADCB54D1F95DB90007083CA /* FeedCell */ = {
+			isa = PBXGroup;
+			children = (
+				2ADA7C981F95D82500B8679C /* FeedCellView.swift */,
+				2ADA7C991F95D82500B8679C /* FeedCellView.xib */,
+				2ADA7C9A1F95D82500B8679C /* FeedCellViewModel.swift */,
+			);
+			name = FeedCell;
+			sourceTree = "<group>";
+		};
+		2ADCB5561F95DC85007083CA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCB5671F95E09A007083CA /* feeds.json */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2ADCB59C1F95E402007083CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCB5A11F95E402007083CA /* CZNetworking.framework */,
+				2ADCB5A31F95E402007083CA /* CZNetworkingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		549D3ECA39F4761C43AEBD3E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,9 +291,13 @@
 		C3BBE2631F7F179F002576BF /* Supported Files */ = {
 			isa = PBXGroup;
 			children = (
-				C3E844121F7F1615001ED65A /* Assets.xcassets */,
-				C3E844141F7F1615001ED65A /* LaunchScreen.storyboard */,
-				C3E844171F7F1615001ED65A /* Info.plist */,
+				2ADCB5561F95DC85007083CA /* Resources */,
+				2ADCB5591F95DCED007083CA /* AppDelegate.swift */,
+				2ADCB5631F95DD16007083CA /* Info.plist */,
+				2ADCB55D1F95DD02007083CA /* Main.storyboard */,
+				2ADCB5601F95DD0D007083CA /* LaunchScreen.storyboard */,
+				2ADCB58A1F95E3E5007083CA /* CZNetworking.xcodeproj */,
+				2ADCB5651F95DD45007083CA /* Assets.xcassets */,
 			);
 			name = "Supported Files";
 			sourceTree = "<group>";
@@ -159,10 +324,10 @@
 		C3E8440A1F7F1615001ED65A /* ReactiveListViewKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				C3E844211F7F1641001ED65A /* FeedList */,
-				C3BBE2611F7F178C002576BF /* Constants.swift */,
-				C3E8440B1F7F1615001ED65A /* AppDelegate.swift */,
-				C3E8440F1F7F1615001ED65A /* Main.storyboard */,
+				2ADA7C931F95D7C900B8679C /* FLUX */,
+				2ADA7C6A1F95D58500B8679C /* UI Layer */,
+				2ADA7C681F95D58000B8679C /* Data Layer */,
+				2ADA7C7F1F95D6CC00B8679C /* Utils */,
 				C3BBE2631F7F179F002576BF /* Supported Files */,
 			);
 			path = ReactiveListViewKitDemo;
@@ -171,9 +336,11 @@
 		C3E844211F7F1641001ED65A /* FeedList */ = {
 			isa = PBXGroup;
 			children = (
-				C3E8441D1F7F163F001ED65A /* FeedListViewController.swift */,
-				C3E8441E1F7F163F001ED65A /* FeedListViewModel.swift */,
-				2AF920E21F7F480500A5160F /* FeedListEventHandler.swift */,
+				2ADCB54D1F95DB90007083CA /* FeedCell */,
+				2ADA7C821F95D79300B8679C /* HotUsersCell */,
+				2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */,
+				2ADA7C6C1F95D5CD00B8679C /* FeedListViewController.swift */,
+				2ADA7C6D1F95D5CD00B8679C /* FeedListViewModel.swift */,
 			);
 			name = FeedList;
 			sourceTree = "<group>";
@@ -234,6 +401,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 2ADCB59C1F95E402007083CA /* Products */;
+					ProjectRef = 2ADCB58A1F95E3E5007083CA /* CZNetworking.xcodeproj */;
+				},
+				{
 					ProductGroup = C3BBE2511F7F16D0002576BF /* Products */;
 					ProjectRef = C3BBE2501F7F16D0002576BF /* ReactiveListViewKit.xcodeproj */;
 				},
@@ -246,6 +417,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		2ADCB5A11F95E402007083CA /* CZNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CZNetworking.framework;
+			remoteRef = 2ADCB5A01F95E402007083CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2ADCB5A31F95E402007083CA /* CZNetworkingTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CZNetworkingTests.xctest;
+			remoteRef = 2ADCB5A21F95E402007083CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C3BBE2571F7F16D0002576BF /* ReactiveListViewKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -267,9 +452,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3E844161F7F1615001ED65A /* LaunchScreen.storyboard in Resources */,
-				C3E844131F7F1615001ED65A /* Assets.xcassets in Resources */,
-				C3E844111F7F1615001ED65A /* Main.storyboard in Resources */,
+				2ADCB5641F95DD16007083CA /* Info.plist in Resources */,
+				2ADA7C8E1F95D79E00B8679C /* HotUserCellView.xib in Resources */,
+				2ADA7C911F95D79E00B8679C /* HotUsersCellViewController.xib in Resources */,
+				2ADCB55F1F95DD02007083CA /* Main.storyboard in Resources */,
+				2ADA7C8C1F95D79E00B8679C /* HotUserCellCardView.xib in Resources */,
+				2ADCB5621F95DD0D007083CA /* LaunchScreen.storyboard in Resources */,
+				2ADCB5661F95DD45007083CA /* Assets.xcassets in Resources */,
+				2ADA7C9C1F95D82500B8679C /* FeedCellView.xib in Resources */,
+				2ADCB5681F95E09A007083CA /* feeds.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,11 +507,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ReactiveListViewKitDemo/Pods-ReactiveListViewKitDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EasyMapping/EasyMapping.framework",
 				"${PODS_ROOT}/Reveal-SDK/RevealServer-11/iOS/RevealServer.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyMapping.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -334,11 +529,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3E8441F1F7F163F001ED65A /* FeedListViewController.swift in Sources */,
-				C3E844201F7F163F001ED65A /* FeedListViewModel.swift in Sources */,
-				C3E8440C1F7F1615001ED65A /* AppDelegate.swift in Sources */,
-				C3BBE2621F7F178C002576BF /* Constants.swift in Sources */,
-				2AF920E31F7F480500A5160F /* FeedListEventHandler.swift in Sources */,
+				2ADCB55C1F95DCF3007083CA /* Constants.swift in Sources */,
+				2ADCB55A1F95DCED007083CA /* AppDelegate.swift in Sources */,
+				2ADA7C9B1F95D82500B8679C /* FeedCellView.swift in Sources */,
+				2ADA7C9D1F95D82500B8679C /* FeedCellViewModel.swift in Sources */,
+				2ADA7C7C1F95D5FB00B8679C /* ImageInfo.swift in Sources */,
+				2ADA7C811F95D6DF00B8679C /* CZModel.swift in Sources */,
+				2ADA7C7B1F95D5FB00B8679C /* Feed.swift in Sources */,
+				2ADA7C7A1F95D5FB00B8679C /* DataManager.swift in Sources */,
+				2ADA7C901F95D79E00B8679C /* HotUsersCellViewController.swift in Sources */,
+				2ADA7C781F95D5FB00B8679C /* Comment.swift in Sources */,
+				2ADA7C6E1F95D5CD00B8679C /* FeedListEventHandler.swift in Sources */,
+				2ADA7C7E1F95D5FB00B8679C /* UserManager.swift in Sources */,
+				2ADA7C961F95D7E200B8679C /* SuggestedUserEvent.swift in Sources */,
+				2ADA7C791F95D5FB00B8679C /* CZMocker.swift in Sources */,
+				2ADA7C6F1F95D5CD00B8679C /* FeedListViewController.swift in Sources */,
+				2ADA7C9F1F95D87100B8679C /* FeedListEvent.swift in Sources */,
+				2ADA7C971F95D7E200B8679C /* UserStoryEvent.swift in Sources */,
+				2ADA7C8F1F95D79E00B8679C /* HotUserCellViewModel.swift in Sources */,
+				2ADA7C8D1F95D79E00B8679C /* HotUserCellView.swift in Sources */,
+				2ADA7C8B1F95D79E00B8679C /* HotUserCellCardView.swift in Sources */,
+				2ADA7C921F95D79E00B8679C /* HotUsersCellViewModel.swift in Sources */,
+				2ADA7C701F95D5CD00B8679C /* FeedListViewModel.swift in Sources */,
+				2ADA7C7D1F95D5FB00B8679C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,18 +571,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C3E8440F1F7F1615001ED65A /* Main.storyboard */ = {
+		2ADCB55D1F95DD02007083CA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C3E844101F7F1615001ED65A /* Base */,
+				2ADCB55E1F95DD02007083CA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		C3E844141F7F1615001ED65A /* LaunchScreen.storyboard */ = {
+		2ADCB5601F95DD0D007083CA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C3E844151F7F1615001ED65A /* Base */,
+				2ADCB5611F95DD0D007083CA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -479,7 +692,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
-				INFOPLIST_FILE = ReactiveListViewKitDemo/Info.plist;
+				INFOPLIST_FILE = "ReactiveListViewKitDemo/Supported Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKitDemo;
@@ -495,7 +708,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
-				INFOPLIST_FILE = ReactiveListViewKitDemo/Info.plist;
+				INFOPLIST_FILE = "ReactiveListViewKitDemo/Supported Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKitDemo;
