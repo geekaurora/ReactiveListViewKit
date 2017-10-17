@@ -290,6 +290,7 @@
 		B46F42819E49C1D66E9D8E22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */,
 				2AF920D91F7F3A8300A5160F /* CZUtils.framework */,
 				0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */,
 			);
@@ -322,7 +323,6 @@
 		C3E843FF1F7F1615001ED65A = {
 			isa = PBXGroup;
 			children = (
-				2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */,
 				C3BBE2501F7F16D0002576BF /* ReactiveListViewKit.xcodeproj */,
 				C3E8440A1F7F1615001ED65A /* ReactiveListViewKitDemo */,
 				C3E844091F7F1615001ED65A /* Products */,
