@@ -15,7 +15,6 @@
 		2ADA7C6E1F95D5CD00B8679C /* FeedListEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */; };
 		2ADA7C6F1F95D5CD00B8679C /* FeedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C6C1F95D5CD00B8679C /* FeedListViewController.swift */; };
 		2ADA7C701F95D5CD00B8679C /* FeedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C6D1F95D5CD00B8679C /* FeedListViewModel.swift */; };
-		2ADA7C781F95D5FB00B8679C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C711F95D5FB00B8679C /* Comment.swift */; };
 		2ADA7C791F95D5FB00B8679C /* CZMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C721F95D5FB00B8679C /* CZMocker.swift */; };
 		2ADA7C7B1F95D5FB00B8679C /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C741F95D5FB00B8679C /* Feed.swift */; };
 		2ADA7C7C1F95D5FB00B8679C /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C751F95D5FB00B8679C /* ImageInfo.swift */; };
@@ -130,7 +129,6 @@
 		2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListEventHandler.swift; path = "UI Layer/FeedList/FeedListEventHandler.swift"; sourceTree = "<group>"; };
 		2ADA7C6C1F95D5CD00B8679C /* FeedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListViewController.swift; path = "UI Layer/FeedList/FeedListViewController.swift"; sourceTree = "<group>"; };
 		2ADA7C6D1F95D5CD00B8679C /* FeedListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListViewModel.swift; path = "UI Layer/FeedList/FeedListViewModel.swift"; sourceTree = "<group>"; };
-		2ADA7C711F95D5FB00B8679C /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = "Data Layer/Comment.swift"; sourceTree = "<group>"; };
 		2ADA7C721F95D5FB00B8679C /* CZMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZMocker.swift; path = "Data Layer/CZMocker.swift"; sourceTree = "<group>"; };
 		2ADA7C741F95D5FB00B8679C /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Feed.swift; path = "Data Layer/Feed.swift"; sourceTree = "<group>"; };
 		2ADA7C751F95D5FB00B8679C /* ImageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageInfo.swift; path = "Data Layer/ImageInfo.swift"; sourceTree = "<group>"; };
@@ -184,11 +182,11 @@
 		2ADA7C681F95D58000B8679C /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
+				2ADA7C801F95D6DF00B8679C /* CZModel.swift */,
 				2ADA7C721F95D5FB00B8679C /* CZMocker.swift */,
 				2ADA7C741F95D5FB00B8679C /* Feed.swift */,
 				2ADA7C761F95D5FB00B8679C /* User.swift */,
 				2ADA7C751F95D5FB00B8679C /* ImageInfo.swift */,
-				2ADA7C711F95D5FB00B8679C /* Comment.swift */,
 			);
 			name = "Data Layer";
 			sourceTree = "<group>";
@@ -204,7 +202,6 @@
 		2ADA7C7F1F95D6CC00B8679C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				2ADA7C801F95D6DF00B8679C /* CZModel.swift */,
 				2ADCB55B1F95DCF3007083CA /* Constants.swift */,
 			);
 			name = Utils;
@@ -557,7 +554,6 @@
 				2ADA7C811F95D6DF00B8679C /* CZModel.swift in Sources */,
 				2ADA7C7B1F95D5FB00B8679C /* Feed.swift in Sources */,
 				2ADA7C901F95D79E00B8679C /* HotUsersCellViewController.swift in Sources */,
-				2ADA7C781F95D5FB00B8679C /* Comment.swift in Sources */,
 				2ADA7C6E1F95D5CD00B8679C /* FeedListEventHandler.swift in Sources */,
 				2ADA7C961F95D7E200B8679C /* SuggestedUserEvent.swift in Sources */,
 				2ADA7C791F95D5FB00B8679C /* CZMocker.swift in Sources */,
