@@ -21,7 +21,7 @@ class Feed: CZModel {
     var _userHasLiked: NSNumber?
     var content: String?
     var imageInfo: ImageInfo?
-    var createTime: String?     // “create_time”: “1279340983”
+    var createTime: String?    
     var commentsCount: Int? {return _commentsCount?.intValue}
     var likesCount: Int? {return _likesCount?.intValue}
     var _commentsCount: NSNumber?

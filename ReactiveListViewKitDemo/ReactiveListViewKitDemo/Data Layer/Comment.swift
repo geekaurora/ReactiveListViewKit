@@ -15,7 +15,7 @@ class Comment: CZModel {
     lazy var commentId: String = ""
     var user: User?
     var content: String?
-    var createTime: String?     // “create_time”: “1279340983”
+    var createTime: String?     
 
     override init() { super.init() }
     required init(dictionary: CZDictionary) {

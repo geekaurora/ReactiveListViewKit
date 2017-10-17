@@ -13,11 +13,9 @@
 		2ADA7C701F95D5CD00B8679C /* FeedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C6D1F95D5CD00B8679C /* FeedListViewModel.swift */; };
 		2ADA7C781F95D5FB00B8679C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C711F95D5FB00B8679C /* Comment.swift */; };
 		2ADA7C791F95D5FB00B8679C /* CZMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C721F95D5FB00B8679C /* CZMocker.swift */; };
-		2ADA7C7A1F95D5FB00B8679C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C731F95D5FB00B8679C /* DataManager.swift */; };
 		2ADA7C7B1F95D5FB00B8679C /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C741F95D5FB00B8679C /* Feed.swift */; };
 		2ADA7C7C1F95D5FB00B8679C /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C751F95D5FB00B8679C /* ImageInfo.swift */; };
 		2ADA7C7D1F95D5FB00B8679C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C761F95D5FB00B8679C /* User.swift */; };
-		2ADA7C7E1F95D5FB00B8679C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C771F95D5FB00B8679C /* UserManager.swift */; };
 		2ADA7C811F95D6DF00B8679C /* CZModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C801F95D6DF00B8679C /* CZModel.swift */; };
 		2ADA7C8B1F95D79E00B8679C /* HotUserCellCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C831F95D79E00B8679C /* HotUserCellCardView.swift */; };
 		2ADA7C8C1F95D79E00B8679C /* HotUserCellCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ADA7C841F95D79E00B8679C /* HotUserCellCardView.xib */; };
@@ -120,11 +118,9 @@
 		2ADA7C6D1F95D5CD00B8679C /* FeedListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListViewModel.swift; path = "UI Layer/FeedList/FeedListViewModel.swift"; sourceTree = "<group>"; };
 		2ADA7C711F95D5FB00B8679C /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = "Data Layer/Comment.swift"; sourceTree = "<group>"; };
 		2ADA7C721F95D5FB00B8679C /* CZMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZMocker.swift; path = "Data Layer/CZMocker.swift"; sourceTree = "<group>"; };
-		2ADA7C731F95D5FB00B8679C /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = "Data Layer/DataManager.swift"; sourceTree = "<group>"; };
 		2ADA7C741F95D5FB00B8679C /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Feed.swift; path = "Data Layer/Feed.swift"; sourceTree = "<group>"; };
 		2ADA7C751F95D5FB00B8679C /* ImageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageInfo.swift; path = "Data Layer/ImageInfo.swift"; sourceTree = "<group>"; };
 		2ADA7C761F95D5FB00B8679C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = "Data Layer/User.swift"; sourceTree = "<group>"; };
-		2ADA7C771F95D5FB00B8679C /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = "Data Layer/UserManager.swift"; sourceTree = "<group>"; };
 		2ADA7C801F95D6DF00B8679C /* CZModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZModel.swift; path = Utils/CZModel.swift; sourceTree = "<group>"; };
 		2ADA7C831F95D79E00B8679C /* HotUserCellCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HotUserCellCardView.swift; path = "UI Layer/FeedList/HotUsers/HotUserCellCardView.swift"; sourceTree = "<group>"; };
 		2ADA7C841F95D79E00B8679C /* HotUserCellCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HotUserCellCardView.xib; path = "UI Layer/FeedList/HotUsers/HotUserCellCardView.xib"; sourceTree = "<group>"; };
@@ -176,8 +172,6 @@
 				2ADA7C761F95D5FB00B8679C /* User.swift */,
 				2ADA7C751F95D5FB00B8679C /* ImageInfo.swift */,
 				2ADA7C711F95D5FB00B8679C /* Comment.swift */,
-				2ADA7C731F95D5FB00B8679C /* DataManager.swift */,
-				2ADA7C771F95D5FB00B8679C /* UserManager.swift */,
 				2ADA7C721F95D5FB00B8679C /* CZMocker.swift */,
 			);
 			name = "Data Layer";
@@ -544,11 +538,9 @@
 				2ADA7C7C1F95D5FB00B8679C /* ImageInfo.swift in Sources */,
 				2ADA7C811F95D6DF00B8679C /* CZModel.swift in Sources */,
 				2ADA7C7B1F95D5FB00B8679C /* Feed.swift in Sources */,
-				2ADA7C7A1F95D5FB00B8679C /* DataManager.swift in Sources */,
 				2ADA7C901F95D79E00B8679C /* HotUsersCellViewController.swift in Sources */,
 				2ADA7C781F95D5FB00B8679C /* Comment.swift in Sources */,
 				2ADA7C6E1F95D5CD00B8679C /* FeedListEventHandler.swift in Sources */,
-				2ADA7C7E1F95D5FB00B8679C /* UserManager.swift in Sources */,
 				2ADA7C961F95D7E200B8679C /* SuggestedUserEvent.swift in Sources */,
 				2ADA7C791F95D5FB00B8679C /* CZMocker.swift in Sources */,
 				2ADA7C6F1F95D5CD00B8679C /* FeedListViewController.swift in Sources */,
