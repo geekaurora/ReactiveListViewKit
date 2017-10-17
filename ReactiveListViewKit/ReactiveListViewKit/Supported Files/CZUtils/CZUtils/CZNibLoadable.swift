@@ -171,7 +171,7 @@ extension UIView {
         )
     }
 
-    public func overlayOnSuperViewController(_ controller: UIViewController) {
+    public func overlayOnSuperViewController(_ controller: UIViewController, insets: UIEdgeInsets = .zero) {
         guard let containerView = controller.view else {
             assertionFailure("\(#function): superview is nil.")
             return
@@ -181,11 +181,10 @@ extension UIView {
         }
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            //topAnchor.constraint(equalTo: controller.topLayoutGuide.bottomAnchor),
-            topAnchor.constraint(equalTo: controller.view.topAnchor, constant: 64),
-            bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: insets.left),
+            trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -insets.right),
+            topAnchor.constraint(equalTo: controller.topLayoutGuide.bottomAnchor, constant: insets.top),
+            bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -insets.bottom)
             ]
         )
     }
