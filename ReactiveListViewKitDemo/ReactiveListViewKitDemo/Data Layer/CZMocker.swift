@@ -14,12 +14,14 @@ import ReactiveListViewKit
 class CZMocker: NSObject {
     static let shared = CZMocker()
 
-    /// Mock feeds with JSON file
+    /// Mocked feeds with JSON file
     var feeds: [Feed] {
         do {
             let jsonString = try String(contentsOfFile: Bundle.main.path(forResource: "feeds", ofType: "json")!)
             let jsonData = jsonString.data(using: .utf8)
-            guard let feedsArray = CZHTTPJsonSerializer.deserializedObject(with: jsonData) as? [CZDictionary] else {fatalError()}
+            guard let feedsArray = CZHTTPJsonSerializer.deserializedObject(with: jsonData) as? [CZDictionary] else {
+                preconditionFailure()
+            }
             return feedsArray.flatMap{ Feed(dictionary: $0) }
         } catch {
             print("Failed to deserialize feeds with JSON file. Error: \(error.localizedDescription)")
@@ -27,7 +29,7 @@ class CZMocker: NSObject {
         return []
     }
     
-    /// Mock hotUsers
+    /// Mocked hotUsers
     var hotUsers: [User] {
         let portraitUrls = [
             "https://scontent-sjc2-1.cdninstagram.com/t51.2885-19/s150x150/15876365_735808813238573_5209783394333884416_n.jpg",
