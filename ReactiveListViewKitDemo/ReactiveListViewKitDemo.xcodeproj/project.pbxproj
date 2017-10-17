@@ -332,8 +332,8 @@
 			isa = PBXGroup;
 			children = (
 				2ADA7C931F95D7C900B8679C /* FLUX */,
-				2ADA7C6A1F95D58500B8679C /* UI Layer */,
 				2ADA7C681F95D58000B8679C /* Data Layer */,
+				2ADA7C6A1F95D58500B8679C /* UI Layer */,
 				2ADA7C7F1F95D6CC00B8679C /* Utils */,
 				C3BBE2631F7F179F002576BF /* Supported Files */,
 			);
