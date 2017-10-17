@@ -47,6 +47,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2AD5C7BF1F95EF220086E58D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ADCB58A1F95E3E5007083CA /* CZNetworking.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 044E02471F74349B00849AA2;
+			remoteInfo = CZNetworking;
+		};
 		2ADCB5A01F95E402007083CA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2ADCB58A1F95E3E5007083CA /* CZNetworking.xcodeproj */;
@@ -363,6 +370,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2AD5C7C01F95EF220086E58D /* PBXTargetDependency */,
 				C3BBE25B1F7F16DA002576BF /* PBXTargetDependency */,
 				C3BBE25F1F7F16E1002576BF /* PBXTargetDependency */,
 			);
@@ -558,6 +566,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2AD5C7C01F95EF220086E58D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CZNetworking;
+			targetProxy = 2AD5C7BF1F95EF220086E58D /* PBXContainerItemProxy */;
+		};
 		C3BBE25B1F7F16DA002576BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ReactiveListViewKit;
