@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		18BB6D6255DFF9733BFADB00 /* Pods_ReactiveListViewKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */; };
+		2ACDACBB1F95F1D500CD11CB /* CZNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADCB5A11F95E402007083CA /* CZNetworking.framework */; };
+		2ACDACBC1F95F1D500CD11CB /* CZNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADCB5A11F95E402007083CA /* CZNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ACDACC11F95F1F800CD11CB /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */; };
+		2ACDACC21F95F1F800CD11CB /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ADA7C6E1F95D5CD00B8679C /* FeedListEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */; };
 		2ADA7C6F1F95D5CD00B8679C /* FeedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C6C1F95D5CD00B8679C /* FeedListViewController.swift */; };
 		2ADA7C701F95D5CD00B8679C /* FeedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA7C6D1F95D5CD00B8679C /* FeedListViewModel.swift */; };
@@ -45,6 +49,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2ACDACBD1F95F1D500CD11CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ADCB58A1F95E3E5007083CA /* CZNetworking.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 044E02471F74349B00849AA2;
+			remoteInfo = CZNetworking;
+		};
 		2AD5C7BF1F95EF220086E58D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2ADCB58A1F95E3E5007083CA /* CZNetworking.xcodeproj */;
@@ -103,8 +114,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2ACDACC21F95F1F800CD11CB /* CommonCrypto.framework in Embed Frameworks */,
 				C3BBE25D1F7F16E1002576BF /* ReactiveListViewKit.framework in Embed Frameworks */,
 				2AF920DB1F7F3A8300A5160F /* CZUtils.framework in Embed Frameworks */,
+				2ACDACBC1F95F1D500CD11CB /* CZNetworking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +126,7 @@
 
 /* Begin PBXFileReference section */
 		0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveListViewKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListEventHandler.swift; path = "UI Layer/FeedList/FeedListEventHandler.swift"; sourceTree = "<group>"; };
 		2ADA7C6C1F95D5CD00B8679C /* FeedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListViewController.swift; path = "UI Layer/FeedList/FeedListViewController.swift"; sourceTree = "<group>"; };
 		2ADA7C6D1F95D5CD00B8679C /* FeedListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListViewModel.swift; path = "UI Layer/FeedList/FeedListViewModel.swift"; sourceTree = "<group>"; };
@@ -159,6 +173,8 @@
 				2AF920DA1F7F3A8300A5160F /* CZUtils.framework in Frameworks */,
 				18BB6D6255DFF9733BFADB00 /* Pods_ReactiveListViewKitDemo.framework in Frameworks */,
 				C3BBE25C1F7F16E1002576BF /* ReactiveListViewKit.framework in Frameworks */,
+				2ACDACC11F95F1F800CD11CB /* CommonCrypto.framework in Frameworks */,
+				2ACDACBB1F95F1D500CD11CB /* CZNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,11 +184,11 @@
 		2ADA7C681F95D58000B8679C /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
+				2ADA7C721F95D5FB00B8679C /* CZMocker.swift */,
 				2ADA7C741F95D5FB00B8679C /* Feed.swift */,
 				2ADA7C761F95D5FB00B8679C /* User.swift */,
 				2ADA7C751F95D5FB00B8679C /* ImageInfo.swift */,
 				2ADA7C711F95D5FB00B8679C /* Comment.swift */,
-				2ADA7C721F95D5FB00B8679C /* CZMocker.swift */,
 			);
 			name = "Data Layer";
 			sourceTree = "<group>";
@@ -188,8 +204,8 @@
 		2ADA7C7F1F95D6CC00B8679C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				2ADCB55B1F95DCF3007083CA /* Constants.swift */,
 				2ADA7C801F95D6DF00B8679C /* CZModel.swift */,
+				2ADCB55B1F95DCF3007083CA /* Constants.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -306,6 +322,7 @@
 		C3E843FF1F7F1615001ED65A = {
 			isa = PBXGroup;
 			children = (
+				2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */,
 				C3BBE2501F7F16D0002576BF /* ReactiveListViewKit.xcodeproj */,
 				C3E8440A1F7F1615001ED65A /* ReactiveListViewKitDemo */,
 				C3E844091F7F1615001ED65A /* Products */,
@@ -326,8 +343,8 @@
 			isa = PBXGroup;
 			children = (
 				2ADA7C931F95D7C900B8679C /* FLUX */,
-				2ADA7C681F95D58000B8679C /* Data Layer */,
 				2ADA7C6A1F95D58500B8679C /* UI Layer */,
+				2ADA7C681F95D58000B8679C /* Data Layer */,
 				2ADA7C7F1F95D6CC00B8679C /* Utils */,
 				C3BBE2631F7F179F002576BF /* Supported Files */,
 			);
@@ -339,9 +356,9 @@
 			children = (
 				2ADCB54D1F95DB90007083CA /* FeedCell */,
 				2ADA7C821F95D79300B8679C /* HotUsersCell */,
-				2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */,
 				2ADA7C6C1F95D5CD00B8679C /* FeedListViewController.swift */,
 				2ADA7C6D1F95D5CD00B8679C /* FeedListViewModel.swift */,
+				2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */,
 			);
 			name = FeedList;
 			sourceTree = "<group>";
@@ -367,6 +384,7 @@
 				2AD5C7C01F95EF220086E58D /* PBXTargetDependency */,
 				C3BBE25B1F7F16DA002576BF /* PBXTargetDependency */,
 				C3BBE25F1F7F16E1002576BF /* PBXTargetDependency */,
+				2ACDACBE1F95F1D500CD11CB /* PBXTargetDependency */,
 			);
 			name = ReactiveListViewKitDemo;
 			productName = ReactiveListViewKitDemo;
@@ -558,6 +576,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2ACDACBE1F95F1D500CD11CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CZNetworking;
+			targetProxy = 2ACDACBD1F95F1D500CD11CB /* PBXContainerItemProxy */;
+		};
 		2AD5C7C01F95EF220086E58D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CZNetworking;
