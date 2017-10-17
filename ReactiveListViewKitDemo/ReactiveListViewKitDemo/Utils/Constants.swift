@@ -10,6 +10,6 @@ import UIKit
 
 enum Constants {
     static let userStoriesSectionHeight: CGFloat = 40
-    static let suggestedUsersCellHeight: CGFloat = 90
+    static let suggestedUsersCellHeight: CGFloat = 110 //90
     static let suggestedUsersCellBGColor = UIColor(white: 250.0 / 255.0, alpha: 1)
 }
