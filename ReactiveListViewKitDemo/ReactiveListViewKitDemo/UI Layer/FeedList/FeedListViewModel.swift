@@ -32,7 +32,7 @@ class FeedListViewModel: NSObject, CopyableState {
     override init() {
         super.init()
         
-        /// Initialize sectionModelsResolver, mapping Feeds to SectionModels
+        /// SectionModelsResolver closure -  mapping feeds to sectionModels
         sectionModelsResolver = { (feeds: [Any]) -> [CZSectionModel] in
             guard let feeds = feeds as? [Feed] else { fatalError() }
             var sectionModels = [CZSectionModel]()
