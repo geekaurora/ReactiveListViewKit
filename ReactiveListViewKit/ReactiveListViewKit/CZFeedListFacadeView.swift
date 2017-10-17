@@ -317,9 +317,17 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
             assertionFailure("Couldn't find matched cell/feedModel at \(indexPath)")
             return .zero
         }
+        
         // UICollectionView has .zero frame at this point
         let collectionViewSize = collectionView.bounds.size
-        let size = feedModel.viewClass.sizeThatFits(collectionViewSize, viewModel: feedModel.viewModel)
+        
+        // Adjust containerViewSize based on sectionInsets
+        var containerViewSize = collectionViewSize
+        if let sectionInset = viewModel.sectionModels[indexPath.section].sectionInset {
+            containerViewSize = CGSize(width: collectionViewSize.width - sectionInset.left - sectionInset.right,
+                                       height: collectionViewSize.height - sectionInset.top - sectionInset.bottom)
+        }
+        let size = feedModel.viewClass.sizeThatFits(containerViewSize, viewModel: feedModel.viewModel)
         return size
     }
 

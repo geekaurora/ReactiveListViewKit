@@ -39,7 +39,7 @@ public class CZFacadeViewHelper: NSObject {
         
         var calculatedSize = tmpView.systemLayoutSizeFitting(containerSize)
         if isHorizontal {
-            calculatedSize.height = containerSize.height / 2.0
+            calculatedSize.height = containerSize.height - 10
         } else {
             calculatedSize.width = containerSize.width
         }
