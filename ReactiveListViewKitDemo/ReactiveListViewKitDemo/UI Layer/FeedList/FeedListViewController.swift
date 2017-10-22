@@ -10,11 +10,11 @@ import UIKit
 import ReactiveListViewKit
 
 class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator {
-    fileprivate var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?
+    fileprivate var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?    
     fileprivate var core: Core<FeedListState>
     
     required init?(coder aDecoder: NSCoder) {
-        // Setup `Core` of FLUX pattern
+        // Set up `Core` of FLUX pattern
         let feedListState = FeedListState()
         let eventHandler = FeedListEventHandler()
         core = Core<FeedListState>(state: feedListState, middlewares: [eventHandler])
@@ -36,7 +36,7 @@ fileprivate extension FeedListViewController {
         feedListFacadeView = CZReactiveFeedListFacadeView<FeedListState>(core: core,
                                                                          sectionModelsResolver: core.state.sectionModelsResolver,
                                                                          parentViewController:self)
-        feedListFacadeView?.overlayOnSuperViewController(self)
+        feedListFacadeView?.overlayOnSuperViewController(self, insets: Constants.feedListViewInsets)
     }
 }
 
