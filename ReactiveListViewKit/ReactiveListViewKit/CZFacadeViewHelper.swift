@@ -19,13 +19,16 @@ public class CZFacadeViewHelper: NSObject {
         let tmpView: UIView
         switch tmpComponent {
         case let tmpComponent as UIView:
+            // Component is UIView
             tmpView = tmpComponent
         case let tmpComponent as UIViewController:
+            // Component is UIViewController
             tmpView = tmpComponent.view
         case let tmpComponent as UICollectionViewCell:
+            // Component is UICollectionViewCell
             tmpView = tmpComponent.contentView
         default:
-            assertionFailure("\(viewClass) should be subclass or UIView or UIViewController.")
+            assertionFailure("\(viewClass) should be subclass of UICollectionViewCell/UIView/UIViewController.")
             return .zero
         }        
         tmpView.translatesAutoresizingMaskIntoConstraints = false
