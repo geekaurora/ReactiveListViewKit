@@ -1,9 +1,9 @@
 # ReactiveListViewKit
 
-MVVM + FLUX reactive facade ViewKit for feed based app development. Eliminates Massive View Controller in unidirectional Event/State flow manner.
+* **MVVM + FLUX reactive facade ViewKit** for feed based app development
+* **Eliminates Massive View Controller** in unidirectional Event/State flow manner
 
-#### MVVM + FLUX
-#### Massive View Controller Terminator
+### Massive View Controller Terminator
  * No more UICollectionViewDataSource/UICollectionViewDelegate overhead
  * No more long if statement to manage model/cell mapping, event handling
  * No more delegation - event driven, loosely coupled pattern
@@ -12,37 +12,37 @@ MVVM + FLUX reactive facade ViewKit for feed based app development. Eliminates M
    * Event Propagration
    * Data Binding
 
-#### FeedList/FeedDetails Facade View Class wrapping complex UICollectionView
- * Implement Instagram feedList within 50 lines of code
- * Embedded `HorizontalSectionAdapterView` makes nested horizontal ListView implementation within 10 lines of code
+### FeedList/FeedDetails Facade ViewClass wraps complex UICollectionView
+ * Implement Instagram FeedList within 50 lines of code
+ * Embedded `HorizontalSectionAdapterView` makes nested horizontal ListView implementation within 10 lines code
  * Adaptive to various CellComponent classes:
    * UICollectionViewCell
    * UIView
-   * UIViewController - Domained event handling for complex cell
+   * UIViewController - domained event handling for complex cell
  * Embedded pagination events 
-   * `CZFeedListViewEvent` - `pullToRefresh`/`loadMore`
+   * `CZFeedListViewEvent` - `pullToRefresh`/`loadMore` etc.
 
  
-#### Unidirectional Data Flow
+### Unidirectional Data Flow
  * **Dispatcher:** Propagates domained events
 
- * **Store:** Maintains the State tree
+ * **Store:** Maintains the `State` tree
 
- * **Subscriber:** Subscribes to Store and update Components/Views with new State
+ * **Subscriber:** Subscribes to `Store` and update Components/Views with new State
 
- * **Event:** Event driven - more loosely coupled than Delegation
+ * **Event:** Event driven - more loosely coupled than `Delegation`
     
  * **State:**
    * Waterfall reacting flow
-   * Composition: RootState is composited by subStates
-   * React(to:) Event and outputs new State, propagates Event to its children substate nodes
+   * Composition: `rootState` is composited of `subStates`
+   * Reacts to `Event` and outputs new `State`, propagates `Event` to its children nodes via `State` tree
 
-#### Automatic Batch Update
-  * UICollectionView CellState diff algorithm on top of Longest Common Subsequence
+### Automatic Batch Update
+  * Smart Diff Algorithm for ListView batch update on top of Longest Common Subsequence
   * Perform Insert/Delete/Move sections/cells based on internal models diff algorithm
 
-#### Declarative/Immutable/Predictable
-  * Efficient ViewModel tree diff algorithm on top of Longest Common Subsequence
+### Declarative/Immutable/Predictable
+  * Efficient ViewModel tree diff algorithm, no more imperative manual cells update coding
 
   <img src="./Documents/FLUX.png">
 
