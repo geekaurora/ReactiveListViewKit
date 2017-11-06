@@ -85,7 +85,7 @@ extension FeedListViewModel: State {
         
         switch event {
         case let CZFeedListViewEvent.selectedCell(feedModel):
-            print(feedModel)
+            break
         default:
             break
         }

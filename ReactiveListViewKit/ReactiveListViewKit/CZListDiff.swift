@@ -240,16 +240,17 @@ public struct MovedSection {
             return !insertedSections.contains(indexPath.section)
         })
 
-        print("\n******************************\nCZFeedListView DiffResult\n******************************")
-        SectionResultKey.allEnums.forEach { print("\($0): \(sectionCount(for: sectionsDiff[$0])); ") }
-        print("**************************")
-        ResultKey.allEnums.forEach { print("\($0): \(rowsDiff[$0]?.count ?? 0); ") }
-        print("**************************")
+        dbgPrint("\n******************************\nCZFeedListView DiffResult\n******************************")
+        SectionResultKey.allEnums.forEach { dbgPrint("\($0): \(sectionCount(for: sectionsDiff[$0])); ") }
+        dbgPrint("**************************")
+        ResultKey.allEnums.forEach { dbgPrint("\($0): \(rowsDiff[$0]?.count ?? 0); ") }
+        dbgPrint("**************************")
         
-        SectionResultKey.allEnums.forEach { print("\($0): \(sectionsDiff[$0] ?? []); ") }
-        print("**************************")
-        ResultKey.allEnums.forEach { print("\($0): \(rowsDiff[$0] ?? []); ") }
-        print("**************************")
+        SectionResultKey.allEnums.forEach { dbgPrint("\($0): \(sectionsDiff[$0] ?? []); ") }
+        dbgPrint("**************************")
+        ResultKey.allEnums.forEach { dbgPrint("\($0): \(rowsDiff[$0] ?? []); ") }
+        dbgPrint("**************************")
+        
         return (sectionsDiff, rowsDiff)
     }
 

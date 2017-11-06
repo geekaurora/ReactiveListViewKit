@@ -375,12 +375,12 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
 extension CZFeedListFacadeView: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let amount = viewModel.numberOfItems(inSection: section)
-        print("numberOfItems in section\(section): \(amount)")
+        dbgPrint("numberOfItems in section\(section): \(amount)")
         return amount
     }
 
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print("viewModel.numberOfSections(): \(viewModel.numberOfSections())")
+        dbgPrint("viewModel.numberOfSections(): \(viewModel.numberOfSections())")
         return viewModel.numberOfSections()
     }
 

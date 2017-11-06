@@ -138,7 +138,7 @@ public class Core<StateType: CopyableState> {
     
     public func fire(event: Event) {
         let eventString = String(describing: event).components(separatedBy: "\n").first
-        print("Reactor - Fired event: \(eventString!)")
+        dbgPrint("Reactor - Fired event: \(eventString!)")
         internalDispatch(.async, queue: jobQueue) {
             self.state.react(to: event)
             let state = self.state
