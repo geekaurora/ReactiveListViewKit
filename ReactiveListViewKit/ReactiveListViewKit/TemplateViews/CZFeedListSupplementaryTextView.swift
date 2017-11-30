@@ -30,7 +30,6 @@ open class CZFeedListSupplementaryTextFeedModel: CZFeedModel {
 }
 
 open class CZFeedListSupplementaryTextViewModel: NSObject, CZFeedViewModelable {
-    /// diffId is used for diff algorithm of incremental update, compare whether two involved viewModels equal
     let title: String
     let actionButtonText: String?
     let actionButtonClosure: CZFeedListSupplementaryTextView.ActionButtonClosure?

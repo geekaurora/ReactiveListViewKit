@@ -31,7 +31,7 @@ open class CZHorizontalSectionAdapterView: UIView, CZFeedCellViewSizeCalculatabl
         config(with: viewModel)
     }
     
-    public required init?(coder aDecoder: NSCoder) { fatalError("Should call designated initializer `init(viewModel:onEvent:)`") }
+    public required init?(coder aDecoder: NSCoder) { fatalError("Must call designated initializer `init(viewModel:onEvent:)`") }
     
     public func setup() {
         translatesAutoresizingMaskIntoConstraints = false
@@ -95,7 +95,7 @@ open class CZHorizontalSectionAdapterView: UIView, CZFeedCellViewSizeCalculatabl
     
     public static func sizeThatFits(_ containerSize: CGSize, viewModel: CZFeedViewModelable) -> CGSize {
         guard let viewModel = viewModel as? CZHorizontalSectionAdapterViewModel else {
-            fatalError("Incorrect ViewModel type.")
+            fatalError("Invalid ViewModel type.")
         }
         return CGSize(width: containerSize.width, height: viewModel.viewHeight)
     }

@@ -8,14 +8,14 @@
 
 import UIKit
 
-/// Elegant Facade class encapsulating UICollectionview/UIMapView for reusable cells
+/// Elegant Facade class encapsulating `UICollectionview`/`UIMapView` for reusable cells
 ///
 /// - Features:
 ///   - Pagination
 ///   - Event driven: more loosely coupled than delegation
 ///   - Stateful
 open class CZFeedListFacadeView: UIView {
-    // Resolver closure transforming [Feed] to [CZSectionModel]
+    // Resolver closure that transforms `Feed` array to `CZSectionModel` array
     public typealias SectionModelsResolver = ([Any]) -> [CZSectionModel]
     internal var onEvent: OnEvent?
     var viewModel: CZFeedListViewModel {
@@ -46,7 +46,7 @@ open class CZFeedListFacadeView: UIView {
     fileprivate lazy var registeredCellReuseIds: Set<String> = []
     fileprivate lazy var hasPulledToRefresh: Bool = false
     static let kLoadMoreThreshold = 0
-    /// Threshold indexes distance from the last cell, before triggers `loadMore`event
+    /// Threshold of `loadMore`event, indicates distance from the last cell
     fileprivate var loadMoreThreshold: Int = kLoadMoreThreshold
     var sectionModelsResolver: SectionModelsResolver?
     fileprivate var hasInvokedWillDisplayCell: Bool = false
@@ -54,7 +54,7 @@ open class CZFeedListFacadeView: UIView {
     fileprivate var hasSetup: Bool = false
     public var isLoading: Bool = false {
         willSet {
-            guard isLoading != newValue else {return}
+            guard isLoading != newValue else { return }
             if newValue {
                 hasPulledToRefresh = true
                 collectionView.refreshControl?.beginRefreshing()
@@ -64,7 +64,7 @@ open class CZFeedListFacadeView: UIView {
             }
         }
     }
-    // KVO
+    // KVO context
     fileprivate var kvoContext: UInt8 = 0
     fileprivate var prevVisibleIndexPaths: [IndexPath] = []
     
@@ -105,12 +105,12 @@ open class CZFeedListFacadeView: UIView {
         setup()
     }
     
-    public override init(frame: CGRect) { fatalError("Should call designated initializer `init(sectionModelsResolver: onEvent)`") }
+    public override init(frame: CGRect) { fatalError("Must call designated initializer `init(sectionModelsResolver: onEvent)`") }
 
-    required public init?(coder: NSCoder) { fatalError("Should call designated initializer `init(sectionModelsResolver: onEvent)`") }
+    required public init?(coder: NSCoder) { fatalError("Must call designated initializer `init(sectionModelsResolver: onEvent)`") }
 
     public func setup() {
-        guard !hasSetup else {return}
+        guard !hasSetup else { return }
         hasSetup = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
@@ -131,7 +131,7 @@ open class CZFeedListFacadeView: UIView {
 
     public func batchUpdate(withSectionModels sectionModels: [CZSectionModel], animated: Bool = true) {
         // Filter empty sectionModels to avoid inconsistent amount of sections/rows crash
-        // Because default empty section is counted as 1 before reloadListView, leads to crash
+        // Because default empty section is counted as 1 before `reloadListView`, leads to crash
         let sectionModels = adjustSectionModels(sectionModels)
 
         self.registerCellClassesIfNeeded(for: sectionModels)
@@ -140,7 +140,7 @@ open class CZFeedListFacadeView: UIView {
     }
     
     fileprivate func adjustSectionModels(_ sectionModels: [CZSectionModel]) -> [CZSectionModel] {
-        var res = sectionModels.filter {!$0.isEmpty}
+        var res = sectionModels.filter { !$0.isEmpty }
         res = res.flatMap { sectionModel in
             if sectionModel.isHorizontal {
                 let horizontalFeedModel = CZFeedModel(viewClass: CZHorizontalSectionAdapterCell.self,
@@ -165,6 +165,7 @@ open class CZFeedListFacadeView: UIView {
 }
 
 // MARK: - Private methods
+
 fileprivate extension CZFeedListFacadeView  {
     func registerCellClassesIfNeeded(for sectionModels: [CZSectionModel]) {
         [CZFeedModel](sectionModels.flatMap({$0.feedModels})).forEach {
@@ -197,7 +198,8 @@ fileprivate extension CZFeedListFacadeView  {
         } else {
             let batchUpdate = {
                 // Sections: inserted sections
-                // Insert all items inside automatically, shouldn't insert items to avoid inconsistent number crash
+                // this operation inserts all items inside section implicitly, shouldn't insert items explicitly again
+                // to avoid inconsistent number crash
                 if let insertedSections = sectionsDiff[.insertedSections] as? IndexSet,
                     insertedSections.count > 0 {
                     self.collectionView.insertSections(insertedSections)
@@ -251,7 +253,6 @@ fileprivate extension CZFeedListFacadeView  {
     }
 
     func setupCollectionView() {
-        // Initialization
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.scrollDirection = isHorizontal ? .horizontal : .vertical
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
@@ -270,12 +271,9 @@ fileprivate extension CZFeedListFacadeView  {
             collectionView.refreshControl?.addTarget(self, action: #selector(refreshControlValueChanged), for: UIControlEvents.valueChanged)
         }
 
-        // Datasource/delegate
+        // Datasource/Delegate
         collectionView.dataSource = self
         collectionView.delegate = self
-        if #available(iOS 10.0, *) {
-            collectionView.prefetchDataSource = self
-        }
 
         // Register cells
         registerCellClassIfNeeded(CZFeedListCell.self)
@@ -288,29 +286,11 @@ fileprivate extension CZFeedListFacadeView  {
         collectionView.register(CZFeedListSupplementaryView.self,
                                 forSupplementaryViewOfKind: UICollectionElementKindSectionFooter,
                                 withReuseIdentifier: CZFeedListSupplementaryView.reuseId)
-        
-        updateVisibleIndexPathsIfNeeded()
-    }
-    
-    func updateVisibleIndexPathsIfNeeded() {
-//        let sortClosure = { (indexPath0: IndexPath, indexPath1: IndexPath) -> Bool in
-//            if indexPath0.section < indexPath1.section {
-//                return true
-//            } else if indexPath0.section == indexPath1.section {
-//                return indexPath0.row < indexPath1.row
-//            } else {
-//                return false
-//            }
-//        }                
-//        let newVisibleIndexPaths = collectionView.indexPathsForVisibleItems.sorted(by: sortClosure)
-//        if prevVisibleIndexPaths != newVisibleIndexPaths {
-//            prevVisibleIndexPaths = newVisibleIndexPaths
-//            onEvent?(CZFeedListViewEvent.visibleIndexPathsChanged(newValue: newVisibleIndexPaths))
-//        }
     }
 }
 
-// UICollectionViewFlowLayout
+// MARK: - UICollectionViewFlowLayout
+
 extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let feedModel = viewModel.feedModel(at: indexPath) else {
@@ -384,14 +364,14 @@ extension CZFeedListFacadeView: UICollectionViewDataSource {
         return viewModel.numberOfSections()
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {        
         let cellClass: AnyClass
         if let feedModel = viewModel.feedModel(at: indexPath) {
             if let viewClass = feedModel.viewClass as? UICollectionViewCell.Type {
-                // if viewClass is Cell, it will be dequeued to reuse
+                // if is Cell, dequeue it to reuse
                 cellClass = viewClass
             } else {
-                // if viewClass is UIView, it will be automatically added/overlapped to embeded Cell
+                // if is UIView, overlap it on the embeded Cell
                 cellClass = CZFeedListCell.self
             }
 
@@ -449,30 +429,14 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
         if !hasInvokedWillDisplayCell &&
             collectionView.indexPathsForVisibleItems.count > 0 {
             hasInvokedWillDisplayCell = true
-            updateVisibleIndexPathsIfNeeded()
         }
     }
     
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        updateVisibleIndexPathsIfNeeded()
-    }
-}
-
-extension CZFeedListFacadeView: UICollectionViewDataSourcePrefetching {
-    public func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        //onEvent?(CZFeedListViewEvent.prefetch(indexPaths))
-    }
-
-    public func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-        //onEvent?(CZFeedListViewEvent.cancelPrefetching(indexPaths))
     }
 }
 
 extension CZFeedListFacadeView: UIScrollViewDelegate {
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //updateVisibleIndexPathsIfNeeded()
-    }
-    
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         isLoadingMore = false
     }

@@ -29,7 +29,7 @@ public class CZHorizontalSectionAdapterCell: UICollectionViewCell, CZFeedCellVie
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        fatalError("Should call designated initializer `init(viewModel:onEvent:)`")
+        fatalError("Must call designated initializer `init(viewModel:onEvent:)`")
     }
     
     public func setupViewsIfNeeded() {

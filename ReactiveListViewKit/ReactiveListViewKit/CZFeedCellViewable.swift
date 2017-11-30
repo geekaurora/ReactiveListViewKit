@@ -8,38 +8,36 @@
 
 import UIKit
 
+/// Fundamental protocol of eventful Component
 public protocol CZEventable: class {
     var onEvent: OnEvent? {get set}
 }
 
-/// Basic CellView protocol, compatible with both View/ViewController. e.g. FeedDetailsCellViewController
+/// Fundamental CellView protocol, compatible with UICollectionViewCell/View/ViewController
 ///
-/// - NOTE: CZFeedCellViewable is flexible to be Cell/UIView/UIViewController
-///        - In CZFeedListFacadeView:
-///           - if CZFeedCellViewable is Cell, it will be dequeued to reuse. Recommended if there're more than one type of Cell involved for reusable performance.
-///           - if CZFeedCellViewable is UIView, it will be automatically added/overlapped to embeded Cell. Recommended if there's only one type of Cell involved.
-///           - if CZFeedCellViewable is UIViewController, its `didMove(to:)` parentViewController method will be invoked and its `view` will be automatically added/overlapped to embeded Cell
+/// - In CZFeedListFacadeView
+///     - if CZFeedCellViewable is `UICollectionViewCell`, it will be dequeued to reuse. Recommended if there're more than one type of Cell involved in ListView
+///     - if CZFeedCellViewable is `UIView`, it will be automatically overlayed on embeded Cell. Recommended if there's only one type of Cell involved in ListView
+///     - if CZFeedCellViewable is `UIViewController`, its `didMove(to:)` parentViewController method will be invoked and its `view` will be automatically overlayed on embeded Cell
 ///
-///        - In CZFeedDetailsFacadeView:
-///           - if CZFeedCellViewable is UIView, it will be appended to underlying UIStackView
-///           - if CZFeedCellViewable is UIViewController, its view will be ppended to underlying UIStackView, and itself will be moved(toParentVC:) with containerViewController
+/// - In CZFeedDetailsFacadeView
+///     - if CZFeedCellViewable is `UIView`, it will be appended to underlying UIStackView
+///     - if CZFeedCellViewable is `UIViewController`, its `didMove(to:)` parentViewController method will be invoked and its `view` will be automatically appended to UIStackView
 ///
 public protocol CZFeedCellViewable: class, NSObjectProtocol, CZEventable {
-    // diffId is used to match view and ViewModel if corresponding ViewModel differs
+    // diffId is used to match view and ViewModel if corresponding ViewModel changes
     var diffId: String {get}
-    // Event hanlder 
+    // Event hanlder closure
     var onEvent: OnEvent? {get set}
 
     /// Initializer of FeedCellView
     ///
     /// - Parameters:
     ///   - viewModel: ViewModel of FeedCellView
-    ///   - onEvent: Event handler for events of cellView, cellView can propagate custom event via this hanlder. e.g. OptionSelect, like/share button
+    ///   - onEvent: Event handler for events of cellView, cellView can propagate customEvent
+    ///              e.g. `OptionSelect`, like/comment/share
     init(viewModel: CZFeedViewModelable?, onEvent: OnEvent?)
-
     func config(with viewModel: CZFeedViewModelable?)
-
-    /// prevViewModel is used for diff Algo
     func config(with viewModel: CZFeedViewModelable?, prevViewModel: CZFeedViewModelable?)
 }
 
@@ -49,10 +47,13 @@ extension CZFeedCellViewable {
     }
 }
 
-/// CellView protocol which returns cellSize based on input params. P.S. Required by UICollection, not UIStackView. e.g. FeedListCellView
+/// CellView protocol that returns cellSize based on input params, required for CellClass in `CZFeedListFacadeView`
 public protocol CZFeedCellViewSizeCalculatable: CZFeedCellViewable {
     static func sizeThatFits(_ containerSize: CGSize, viewModel: CZFeedViewModelable) -> CGSize
 }
+
+
+
 
 
 

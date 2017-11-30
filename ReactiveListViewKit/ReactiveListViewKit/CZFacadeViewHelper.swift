@@ -1,6 +1,6 @@
 //
 //  CZFacadeViewHelper.swift
-//  CZInstagram
+//  ReactiveListViewKit
 //
 //  Created by Cheng Zhang on 1/3/17.
 //  Copyright © 2017 Cheng Zhang. All rights reserved.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-/// Convenience helper class for FacadeView
+/// Convenience helper class for `FacadeView`
 public class CZFacadeViewHelper: NSObject {
-    /// Calculate cell size with input params, adaptive to `viewClass` as UIView/UIViewController/UICollectionViewCell
+    /// Calculate cell size based on input params, adaptive to `UICollectionViewCell`/`UIView`/`UIViewController`
     public static func sizeThatFits(_ containerSize: CGSize,
                                     viewModel: CZFeedViewModelable,
                                     viewClass: CZFeedCellViewable.Type,
@@ -28,7 +28,7 @@ public class CZFacadeViewHelper: NSObject {
             // Component is UICollectionViewCell
             tmpView = tmpComponent.contentView
         default:
-            assertionFailure("\(viewClass) should be subclass of UICollectionViewCell/UIView/UIViewController.")
+            assertionFailure("\(viewClass) must be subclass of UICollectionViewCell/UIView/UIViewController")
             return .zero
         }        
         tmpView.translatesAutoresizingMaskIntoConstraints = false

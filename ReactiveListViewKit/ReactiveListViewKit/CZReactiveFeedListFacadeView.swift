@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Reactive view class of FeedDetailsFacadeView, supports FLUX pattern
+/// Reactive view class of `FeedDetailsFacadeView`, supports FLUX pattern
 open class CZReactiveFeedListFacadeView<StateType: CopyableState>: CZFeedListFacadeView {
     var core: Core<StateType>
     
@@ -27,7 +27,7 @@ open class CZReactiveFeedListFacadeView<StateType: CopyableState>: CZFeedListFac
     }
 
     public required init?(coder: NSCoder) {
-        fatalError("Should call designated initializer.")
+        fatalError("Must call designated initializer.")
     }
 }
 

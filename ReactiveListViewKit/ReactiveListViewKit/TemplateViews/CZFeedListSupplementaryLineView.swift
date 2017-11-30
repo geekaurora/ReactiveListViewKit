@@ -20,7 +20,6 @@ open class CZFeedListSupplementaryLineFeedModel: CZFeedModel {
 }
 
 open class CZFeedListSupplementaryLineViewModel: NSObject, CZFeedViewModelable {
-    /// diffId is used for diff algorithm of incremental update, compare whether two involved viewModels equal
     public let isHorizontal: Bool
     public lazy var diffId: String = self.currentClassName
     public let inset: UIEdgeInsets

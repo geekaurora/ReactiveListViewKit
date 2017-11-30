@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// ViewModel/State of section, grouping cellFeedModels inside accordingly 
+/// ViewModel/State of Section, groups cellFeedModels inside the section accordingly
 public class CZSectionModel: NSObject, NSCopying, CZListDiffable {
     fileprivate(set) var isHorizontal: Bool
     fileprivate(set) var heightForHorizontal: CGFloat

@@ -4,7 +4,7 @@
 * **Eliminates Massive View Controller** in unidirectional Event/State flow manner
 
 ### Massive View Controller Terminator
- * No more UICollectionViewDataSource/UICollectionViewDelegate overhead
+ * No more `UICollectionViewDataSource`/`UICollectionViewDelegate` overhead
  * No more long if statement to manage model/cell mapping, event handling
  * No more delegation - event driven, loosely coupled pattern
  * FLUX one way data flow solves core problems of MVC: 
@@ -26,9 +26,9 @@
 ### Unidirectional Data Flow
  * **Dispatcher:** Propagates domained events
 
- * **Store:** Maintains the `State` tree
+ * **Store:** Maintains `State` tree
 
- * **Subscriber:** Subscribes to `Store` and update Components/Views with new State
+ * **Subscriber:** Subscribes to `Store` and updates Components/Views with new State
 
  * **Event:** Event driven - more loosely coupled than `Delegation`
     
@@ -39,15 +39,15 @@
 
 ### Automatic Batch Update
   * Smart Diff Algorithm for ListView batch update on top of Longest Common Subsequence
-  * Perform Insert/Delete/Move sections/cells based on internal models diff algorithm
+  * Perform Insert/Delete/Move/Update sections/cells based on internal models diff algorithm
 
-### Declarative/Immutable/Predictable
-  * Efficient ViewModel tree diff algorithm, no more imperative manual cells update coding
+### Declarative/Stateful/Immutable/Predictable
+  * Efficient ViewModel tree diff algorithm, no more imperative manual cells update code
 
-  <img src="./Documents/FLUX.png">
+  <img src="./Docs/FLUX.png">
 
 
 ### [Instagram Demo](https://github.com/showt1me/CZInstagram)
 Implemented on top of **ReactiveListViewKit**
 
-<img src="./Documents/CZInstagram.gif">
+<img src="./Docs/CZInstagram.gif">

@@ -21,7 +21,6 @@ open class CZSimpleTextFeedModel: CZFeedModel {
 }
 
 open class CZTextFeedViewModel: NSObject, CZFeedViewModelable {
-    /// diffId is used for diff algorithm of incremental update, compare whether two involved viewModels equal
     public let text: String
     public let isHorizontal: Bool
     public var diffId: String {

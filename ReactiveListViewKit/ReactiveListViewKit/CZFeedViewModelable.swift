@@ -8,9 +8,9 @@
 
 import UIKit
 
-/// Protocol for CellView of CZFeedListView/CZFeedDetailsView
+/// Fundamental protocol for CellView of `CZFeedListFacadeView`/`CZFeedDetailsFacadeView`
 public protocol CZFeedViewModelable: class, NSObjectProtocol, CZListDiffable, NSCopying {
-    /// diffId is used for diff algorithm of incremental update, compare whether two involved viewModels equal
+    /// `diffId` is used for diff algorithm of batch update, verify whether two involved viewModels equal
     var diffId: String {get}
     func isEqual(toDiffableObj object: AnyObject) -> Bool
     func copy(with zone: NSZone?) -> Any
@@ -28,10 +28,9 @@ public extension CZFeedViewModelable {
     }
 }
 
-/// - Note:
-///   - When compare properties, should invoke `isEqual(toDiffableObj: :)` or `isEqual(to:)` in OC, instead of `isEqualTo` which compares hashvalue
+/// Fundamental protocol for ViewModel involved in ListView, verify whether two viewModels equal
 public protocol CZListDiffable {
-    /// Workaround of `Equatable`, because `Equatable` function uses associatedType `Self` as type, which makes `Equatable` SubProtocol can only be used as generic constraint
+    /// Workaround of `Equatable`, because `Equatable` uses associatedType `Self`, which makes `Equatable` can only be used as generic constraint
     func isEqual(toDiffableObj object: AnyObject) -> Bool
 }
 

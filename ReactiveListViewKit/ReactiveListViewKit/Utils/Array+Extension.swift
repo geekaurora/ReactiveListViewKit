@@ -9,7 +9,7 @@
 import UIKit
 
 extension Array where Element: CZListDiffableObject {
-    /// Check whether elements of two involved arrays equal
+    /// Check whether elements in two arrays equal
     public func isEqual(toDiffableObj object: Any) -> Bool {
         guard let object = object as? [Element],
             count == object.count  else {

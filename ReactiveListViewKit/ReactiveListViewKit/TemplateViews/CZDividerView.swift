@@ -22,7 +22,7 @@ public final class CZDividerView: UIView {
     }
     
     public required init?(coder: NSCoder) {
-        fatalError("Should call designated initializer.")
+        fatalError("Must call designated initializer.")
     }
 }
 

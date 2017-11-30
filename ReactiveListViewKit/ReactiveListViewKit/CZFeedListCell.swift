@@ -8,10 +8,10 @@
 
 import CZUtils
 
-/// Internal convenience UICollectionViewCell class wrapping CellView of `CZFeedModel`
+/// Internal convenience `UICollectionViewCell` class wrapping input CellView
 internal class CZFeedListCell: UICollectionViewCell {
     fileprivate var model: CZFeedModel?
-    // Adaptive to UIView or UIViewController
+    // Adaptive to `UIView`/`UIViewController`
     fileprivate var cellComponent: CZFeedCellViewSizeCalculatable?
 
     open func config(with model: CZFeedModel, onEvent: OnEvent?, parentViewController: UIViewController? = nil) {
@@ -20,7 +20,7 @@ internal class CZFeedListCell: UICollectionViewCell {
             cellComponent?.config(with: model.viewModel)
         }
 
-        // Reset cellView if cellViewClass differs from the current one
+        // Reset cellView if previous cellViewClass differs from the current one
         if let cellComponent = cellComponent,
             let currModel = self.model,
             currModel.viewClass != model.viewClass {
@@ -52,7 +52,7 @@ internal class CZFeedListCell: UICollectionViewCell {
                     assertionFailure("`parentViewController` should be set in `CZFeedDetailsFacadeView` initializer if cellComponent is `UIViewController`!")
                 }
             default:
-                fatalError("\(model.viewClass) should be subClass of UIView or UIViewController!")
+                fatalError("\(model.viewClass) should be subclass of UIView or UIViewController!")
                 break
             }
             cellView.overlayOnSuperview(contentView)

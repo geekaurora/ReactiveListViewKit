@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// ViewModel/State class for CZFeedListView
+/// ViewModel/State class for `CZFeedListFacadeView`
 public class CZFeedListViewModel: NSObject, NSCopying {
     fileprivate(set) var sectionModels: [CZSectionModel]
 
@@ -17,7 +17,7 @@ public class CZFeedListViewModel: NSObject, NSCopying {
         self.sectionModels = sectionModels ?? []
     }
     
-    /// Convenient initializer for single section ListView
+    /// Convenience initializer for single section ListView
     public init(feedModels: [CZFeedModel]? = nil) {
         self.sectionModels = []
         super.init()
@@ -41,6 +41,7 @@ public class CZFeedListViewModel: NSObject, NSCopying {
     }
 
     // MARK: - UICollectionView DataSource
+    
     public func numberOfSections() -> Int{
         return sectionModels.count
     }
@@ -50,7 +51,7 @@ public class CZFeedListViewModel: NSObject, NSCopying {
         return sectionModel.isHorizontal ? 1 : sectionModel.feedModels.count
     }
 
-    // UICollectionElementKindSectionHeader/UICollectionElementKindSectionFooter
+    // SectionHeader/SectionFooter
     public func supplementaryModel(inSection section: Int, kind: String) -> CZFeedModel? {
         return (kind == UICollectionElementKindSectionHeader) ? sectionModels[section].headerModel : sectionModels[section].footerModel
     }
@@ -66,33 +67,14 @@ public class CZFeedListViewModel: NSObject, NSCopying {
     }
 
     // MARK: - NSCopying
+    
     public func copy(with zone: NSZone? = nil) -> Any {
         guard let sectionModelsCopy = sectionModels.copy() as? [CZSectionModel] else {
-            fatalError("Failure of copy function.")
+            fatalError("Failed to copy the instance.")
         }
         let viewModel = type(of: self).init(sectionModels: sectionModelsCopy)
         return viewModel
     }
 }
 
-/// ViewModel/State class for CZFeedDetailsView
-open class CZFeedDetailsViewModel: NSObject, NSCopying {
-    fileprivate var _feedModels: [CZFeedModelable]
-    required public init(feedModels: [CZFeedModelable]? = nil) {
-        _feedModels = feedModels ?? []
-    }
-    public func batchUpdate(with feedModels: [CZFeedModelable]) {
-        _feedModels.removeAll()
-        _feedModels.append(contentsOf: feedModels)
-    }
-    // MARK: - NSCopying
-    public func copy(with zone: NSZone? = nil) -> Any {
-        let feedModels = _feedModels.flatMap{ $0.copy() as? CZFeedModelable}
-        let viewModel = type(of: self).init(feedModels: feedModels)
-        return viewModel
-    }
-    public var feedModels: [CZFeedDetailsModel] {
-        return (_feedModels as? [CZFeedDetailsModel]) ?? []
-    }
-}
 

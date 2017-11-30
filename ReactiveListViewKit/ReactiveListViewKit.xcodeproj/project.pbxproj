@@ -24,6 +24,8 @@
 		044E03661F74464200849AA2 /* CZReactiveFeedListFacadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E03561F74464200849AA2 /* CZReactiveFeedListFacadeView.swift */; };
 		044E03671F74464200849AA2 /* CZSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E03571F74464200849AA2 /* CZSectionModel.swift */; };
 		2A0647271F7F61CE00354083 /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0647261F7F61CE00354083 /* Reactor.swift */; };
+		2A14FA3B1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14FA3A1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift */; };
+		2A14FA3E1FCF50B800914C8E /* CZFeedDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14FA3D1FCF50B800914C8E /* CZFeedDetailsModel.swift */; };
 		2A1607501F7DAF0500FC3E9B /* ReactiveListViewKitConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16074F1F7DAF0500FC3E9B /* ReactiveListViewKitConstants.swift */; };
 		2A465C761F7F01B800406343 /* CZListDiffableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A465C751F7F01B800406343 /* CZListDiffableHelper.swift */; };
 		2AB3DB961F7EC3D8009A5EF9 /* CZDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3DB8E1F7EC3D8009A5EF9 /* CZDividerView.swift */; };
@@ -93,6 +95,8 @@
 		044E03561F74464200849AA2 /* CZReactiveFeedListFacadeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZReactiveFeedListFacadeView.swift; sourceTree = "<group>"; };
 		044E03571F74464200849AA2 /* CZSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZSectionModel.swift; sourceTree = "<group>"; };
 		2A0647261F7F61CE00354083 /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
+		2A14FA3A1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZFeedDetailsViewModel.swift; sourceTree = "<group>"; };
+		2A14FA3D1FCF50B800914C8E /* CZFeedDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZFeedDetailsModel.swift; sourceTree = "<group>"; };
 		2A16074F1F7DAF0500FC3E9B /* ReactiveListViewKitConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReactiveListViewKitConstants.swift; path = Utils/ReactiveListViewKitConstants.swift; sourceTree = "<group>"; };
 		2A465C751F7F01B800406343 /* CZListDiffableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZListDiffableHelper.swift; path = Utils/CZListDiffableHelper.swift; sourceTree = "<group>"; };
 		2AB3DB8E1F7EC3D8009A5EF9 /* CZDividerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZDividerView.swift; path = TemplateViews/CZDividerView.swift; sourceTree = "<group>"; };
@@ -161,10 +165,12 @@
 				044E03561F74464200849AA2 /* CZReactiveFeedListFacadeView.swift */,
 				044E03551F74464200849AA2 /* CZReactiveFeedDetailsFacadeView.swift */,
 				044E034F1F74464200849AA2 /* CZFeedListViewModel.swift */,
+				2A14FA3A1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift */,
 				044E03571F74464200849AA2 /* CZSectionModel.swift */,
 				044E03491F74464200849AA2 /* CZFeedCellViewable.swift */,
 				044E034B1F74464200849AA2 /* CZFeedListCell.swift */,
 				044E03511F74464200849AA2 /* CZFeedModel.swift */,
+				2A14FA3D1FCF50B800914C8E /* CZFeedDetailsModel.swift */,
 				044E03531F74464200849AA2 /* CZFeedViewModelable.swift */,
 				044E03521F74464200849AA2 /* CZFeedViewEvent.swift */,
 				044E03501F74464200849AA2 /* CZFeedListViewStateMachine.swift */,
@@ -392,6 +398,7 @@
 				044E035C1F74464200849AA2 /* CZFeedListFacadeView.swift in Sources */,
 				2A0647271F7F61CE00354083 /* Reactor.swift in Sources */,
 				044E03581F74464200849AA2 /* CZFacadeViewHelper.swift in Sources */,
+				2A14FA3E1FCF50B800914C8E /* CZFeedDetailsModel.swift in Sources */,
 				2AB3DB9C1F7EC3D8009A5EF9 /* CZTextFeedCellView.swift in Sources */,
 				2AB3DB991F7EC3D8009A5EF9 /* CZFeedListSupplementaryView.swift in Sources */,
 				044E03601F74464200849AA2 /* CZFeedListViewStateMachine.swift in Sources */,
@@ -402,6 +409,7 @@
 				044E03651F74464200849AA2 /* CZReactiveFeedDetailsFacadeView.swift in Sources */,
 				044E03611F74464200849AA2 /* CZFeedModel.swift in Sources */,
 				2AD7DCB81FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift in Sources */,
+				2A14FA3B1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift in Sources */,
 				2AB3DB981F7EC3D8009A5EF9 /* CZFeedListSupplementaryTextView.swift in Sources */,
 				2AB3DB9D1F7EC3D8009A5EF9 /* CZTextFeedViewModel.swift in Sources */,
 				044E035A1F74464200849AA2 /* CZFeedDetailsFacadeView.swift in Sources */,

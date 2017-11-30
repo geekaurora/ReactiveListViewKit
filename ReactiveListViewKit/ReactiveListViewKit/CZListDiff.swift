@@ -20,9 +20,9 @@ public struct MovedSection {
 
 /// List diff algorithm implementation class
 ///
-/// - Moved:
-///    - Only pairs exchange? Otherwise it will be moved automatically after insert/delete
-///    - Only change ascending order: 0,2=>2, 0
+/// - moved
+///    - only if pairs exchange, otherwise it will be moved automatically after insert/delete
+///    - only changes in ascending order: 0,2 => 2,0
  public class CZListDiff: NSObject {
     public enum ResultKey: Int, CaseCountable {
         case deleted = 0, unchanged, moved, updated, inserted // Rows
@@ -47,7 +47,7 @@ public struct MovedSection {
         }
     }
 
-    /// Compare current/prev CZSectionModels and output different sections/rows based on Model
+    /// Compare current/previous `CZSectionModel`s, output different sections/rows based  on `ListDiffable`
     public typealias SectionModelsDiffResult = (sections: [SectionResultKey: [CZSectionModel]], rows: [ResultKey: [CZFeedModel]])
     fileprivate static func diffSectionModels(current: [CZSectionModel],
                                               prev: [CZSectionModel]) ->
@@ -58,9 +58,8 @@ public struct MovedSection {
 
         var sectionsDiff = [SectionResultKey: [CZSectionModel]]()
 
-        /** Sections Diff **/
-        // inserted
-        // FeedModels in current's whole section doesn't exist in prev sectionModels
+        /*- Sections Diff -*/
+        // inserted: FeedModels in current's whole section doesn't exist in prev sectionModels
         let insertedSections = current.filter { currSectionModel in
             !currSectionModel.feedModels.contains{ currSectionFeedModel in
                 prevFeedModels.contains { prevFeedModel in
@@ -70,8 +69,7 @@ public struct MovedSection {
         }
         sectionsDiff[.insertedSections] = insertedSections
                                                 
-        // deleted
-        // FeedModels in prev's whole section doesn't exist in current sectionModels
+        // deleted: FeedModels in prev's whole section doesn't exist in current sectionModels
         let deletedSections = prev.filter { prevSectionModel in
             !prevSectionModel.feedModels.contains{ prevSectionFeedModel in
                 currentFeedModels.contains { currFeedModel in
@@ -84,8 +82,7 @@ public struct MovedSection {
         // unchanged
         var unchangedSections = [CZSectionModel]()
                                                 
-        // moved
-        // 1) Content doesn't change 2) index changes
+        // moved: 1) Content doesn't change 2) index changes
         var movedSections = [CZSectionModel]()
         for (i, currSectionModel) in current.enumerated() {
             if let oldIndex = prev.index(where: { $0.isEqual(toDiffableObj: currSectionModel)}) {
@@ -105,15 +102,15 @@ public struct MovedSection {
      public static func diffFeedModels<FeedModelType: CZFeedModelable>(current currentFeedModels: [FeedModelType],
                                                                 prev prevFeedModels: [FeedModelType]) -> [ResultKey: [FeedModelType]] {
         var rowsDiff = [ResultKey: [FeedModelType]]()
-
-        /** Rows Diff **/
-        // Deleted
+        
+        /*- Rows Diff -*/
+        // deleted
         let removedModels = prevFeedModels.filter{ oldFeedModel in
             !currentFeedModels.contains { $0.viewModel.diffId == oldFeedModel.viewModel.diffId }
         }
         rowsDiff[.deleted] = removedModels
 
-        // Unchanged
+        // unchanged
         let unchangedModels = currentFeedModels.filter{ newFeedModel in
             prevFeedModels.contains {
                 $0.viewModel.diffId == newFeedModel.viewModel.diffId &&
@@ -121,7 +118,7 @@ public struct MovedSection {
         }
         rowsDiff[.unchanged] = unchangedModels
 
-        // Updated
+        // updated
         let updatedModels = currentFeedModels.filter{ newFeedModel in
             prevFeedModels.contains {
                 $0.viewModel.diffId == newFeedModel.viewModel.diffId &&
@@ -129,7 +126,7 @@ public struct MovedSection {
         }
         rowsDiff[.updated] = updatedModels
 
-        // Inserted
+        // inserted
         let insertedModels = currentFeedModels.filter{ newFeedModel in
             !prevFeedModels.contains {
                 $0.viewModel.diffId == newFeedModel.viewModel.diffId
@@ -140,8 +137,6 @@ public struct MovedSection {
         return rowsDiff
     }
 
-    // moved items should build a circle: fromSet == toSet
-    // NO: from is based on prevSections, to is basedon currentSections
     public static func validatedMovedSections(_ sections: [MovedSection]) -> [MovedSection] {
         return sections
 //        let fromIndexSet = Set(sections.flatMap {$0.from})
@@ -158,8 +153,14 @@ public struct MovedSection {
     }
     
     // MARK: - Diff function returns IndexPaths/IndexSet
-    /// Return tuple: (sectionDiff, rowDiff)
     public typealias SectionIndexDiffResult = (sections: [SectionResultKey: Any], rows: [ResultKey: [Any]])
+    
+    /// Compare prev/current SectionModels and output the difference
+    ///
+    /// - Parameters:
+    ///   - current     : current SectionModels
+    ///   - prev        : prev SectionModels
+    /// - Returns       : Tuple - (sectionDiff, rowDiff)
     public static func diffSectionModels(current: [CZSectionModel], prev: [CZSectionModel]) -> SectionIndexDiffResult {
         var sectionsDiff: [SectionResultKey: Any] = [:]
         var rowsDiff: [ResultKey: [Any]] = [:]
@@ -167,11 +168,11 @@ public struct MovedSection {
         let sectionModelsDiffRes = modelsDiffRes.sections
         let rowModelsDiffRes = modelsDiffRes.rows
 
-        /** Sections Diff **/
+        /*- Sections Diff -*/
         var insertedSections: IndexSet? = nil
         var deletedSections: IndexSet? = nil
+        // deleted
         if let deletedSectionModels = sectionModelsDiffRes[.deletedSections] {
-            // deleted
             deletedSections = IndexSet(deletedSectionModels.flatMap {sectionModel in
                 prev.index(where: { $0.isEqual(toDiffableObj: sectionModel) })
             })
@@ -188,25 +189,27 @@ public struct MovedSection {
             sectionsDiff[.movedSections] = validatedMovedSections(res)
         }
 
+        // inserted
         if let insertedSectionModels = sectionModelsDiffRes[.insertedSections] {
-            // inserted
             insertedSections = IndexSet(insertedSectionModels.flatMap {sectionModel in
                 current.index(where: { $0.isEqual(toDiffableObj: sectionModel) })
             })
             sectionsDiff[.insertedSections] = insertedSections
         }
 
-        /** Rows Diff **/
+        /*- Rows Diff -*/
         // deleted
         rowsDiff[.deleted] = rowModelsDiffRes[.deleted]?.flatMap({
             indexPath(forFeedModel: $0, inSectionModels: prev)
-        }).filter({// Excludes "deletedSection" elements
+        }).filter({
+            // exclude "deletedSection" elements
             guard let deletedSections = deletedSections, let indexPath = $0 as? IndexPath else {return true}
             return !deletedSections.contains(indexPath.section)
         })
 
         // unchanged
-        rowsDiff[.unchanged] = rowModelsDiffRes[.unchanged]?.flatMap { // Exclude "moved"
+        rowsDiff[.unchanged] = rowModelsDiffRes[.unchanged]?.flatMap {
+            // exclude "moved"
             guard movedIndexPath(forFeedModel: $0, oldSectionModels: prev, newSectionModels: current) == nil else {return nil}
             return indexPath(forFeedModel: $0, inSectionModels: current)
         }
@@ -216,10 +219,9 @@ public struct MovedSection {
         let updated = rowModelsDiffRes[.updated] ?? []
         let movedRows = [unchanged, updated].joined().flatMap {
             movedIndexPath(forFeedModel: $0, oldSectionModels: prev, newSectionModels: current)
-            }.filter({// Excludes "inserted" section
-                guard let insertedSections = insertedSections else {
-                        return true
-                }
+            }.filter({
+                // exclude "inserted" section
+                guard let insertedSections = insertedSections else { return true }
                 return !insertedSections.contains($0.to.section)
             })
         rowsDiff[.moved] = validatedMovedIndexPathes(movedRows)
@@ -227,7 +229,8 @@ public struct MovedSection {
         // updated
         rowsDiff[.updated] = rowModelsDiffRes[.updated]?.flatMap ({
             indexPath(forFeedModel: $0, inSectionModels: current)
-        }).filter({//Exclude "moved" rows
+        }).filter({
+            // exclude "moved" rows
             guard let indexPath = $0 as? IndexPath, let movedItems = rowsDiff[.moved] as? [MovedIndexPath] else {return true}
             return !movedItems.contains(where: {$0.to == indexPath})
         })
@@ -235,23 +238,15 @@ public struct MovedSection {
         // inserted
         rowsDiff[.inserted] = rowModelsDiffRes[.inserted]?.flatMap ({
             indexPath(forFeedModel: $0, inSectionModels: current)
-        }).filter({// Excludes "inserted" section
+        }).filter({
+            // exclude "inserted" section
             guard let insertedSections = insertedSections, let indexPath = $0 as? IndexPath else {return true}
             return !insertedSections.contains(indexPath.section)
         })
 
-        dbgPrint("\n******************************\nCZFeedListView DiffResult\n******************************")
-        SectionResultKey.allEnums.forEach { dbgPrint("\($0): \(sectionCount(for: sectionsDiff[$0])); ") }
-        dbgPrint("**************************")
-        ResultKey.allEnums.forEach { dbgPrint("\($0): \(rowsDiff[$0]?.count ?? 0); ") }
-        dbgPrint("**************************")
-        
-        SectionResultKey.allEnums.forEach { dbgPrint("\($0): \(sectionsDiff[$0] ?? []); ") }
-        dbgPrint("**************************")
-        ResultKey.allEnums.forEach { dbgPrint("\($0): \(rowsDiff[$0] ?? []); ") }
-        dbgPrint("**************************")
-        
-        return (sectionsDiff, rowsDiff)
+        let sectionIndexDiffResult = (sectionsDiff, rowsDiff)
+        CZListDiff.prettyPrint(sectionIndexDiffResult: sectionIndexDiffResult)
+        return sectionIndexDiffResult
     }
 
     public static func sectionCount(for sectionDiffValue: Any?) -> Int {
@@ -284,17 +279,31 @@ public struct MovedSection {
                 return IndexPath(row: row, section: i)
             }
         }
-        //assertionFailure("Couldn't find matched model \(feedModel)")
         return nil
+    }
+    
+    fileprivate static func prettyPrint(sectionIndexDiffResult: SectionIndexDiffResult) {
+        let sectionsDiff = sectionIndexDiffResult.sections
+        let rowsDiff = sectionIndexDiffResult.rows
+        dbgPrint("\n******************************\nFeedListFacadeView DiffResult\n******************************")
+        SectionResultKey.allEnums.forEach { dbgPrint("\($0): \(sectionCount(for: sectionsDiff[$0])); ") }
+        dbgPrint("**************************")
+        ResultKey.allEnums.forEach { dbgPrint("\($0): \(rowsDiff[$0]?.count ?? 0); ") }
+        dbgPrint("**************************")
+        
+        SectionResultKey.allEnums.forEach { dbgPrint("\($0): \(sectionsDiff[$0] ?? []); ") }
+        dbgPrint("**************************")
+        ResultKey.allEnums.forEach { dbgPrint("\($0): \(rowsDiff[$0] ?? []); ") }
+        dbgPrint("**************************")
     }
 }
 
-/// Protocol for enum provideing the count of enumation
+/// Protocol for enum providing the count of enumation
 public protocol CaseCountable {
     static func countCases() -> Int
 }
 
-// provide a default implementation to count the cases for Int enums assuming starting at 0 and contiguous
+// Provide default implementation to count the cases for Int enums assuming starting at 0 and contiguous
 extension CaseCountable where Self : RawRepresentable, Self.RawValue == Int {
     // count the number of cases in the enum
     public static func countCases() -> Int {

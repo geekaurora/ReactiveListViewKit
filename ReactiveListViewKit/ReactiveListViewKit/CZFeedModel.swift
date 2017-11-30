@@ -8,18 +8,18 @@
 
 import UIKit
 
-/// NSCopying should be deep copy, so that newViewModel/oldViewModel are comparable
+/// Fundamental protocol defines common behavior of `FeedModel`
 public protocol CZFeedModelable: class, NSObjectProtocol, CZListDiffable, NSCopying {
     var  viewModel: CZFeedViewModelable {get}
     func isEqual(toDiffableObj object: AnyObject) -> Bool
     func copy(with zone: NSZone?) -> Any
 }
 
-/// Base building block of CZFeedListView, highly decouples View/ViewModel layers
+/// Base building block for `CZFeedListFacadeView`, highly decouples View/ViewModel layers
 ///
 /// Composed of:
 /// - viewClass: CZFeedCellViewSizeCalculatable
-/// - voewModel: CZFeedViewModelable
+/// - viewModel: CZFeedViewModelable
 ///
 open class CZFeedModel: NSObject, CZFeedModelable {
     let viewClass: CZFeedCellViewSizeCalculatable.Type
@@ -60,34 +60,5 @@ open class CZFeedModel: NSObject, CZFeedModelable {
             break
         }
         return cellView
-    }
-}
-
-/// Base building block of CZFeedDetailsView, highly decouples View/ViewModel layers
-///
-/// Composed of:
-/// - viewClass: CZFeedCellViewSizeCalculatable
-/// - voewModel: CZFeedViewModelable
-///
-public class CZFeedDetailsModel: NSObject, CZFeedModelable {
-    public let viewClass: CZFeedCellViewable.Type
-    public let  viewModel: CZFeedViewModelable
-    public required init(viewClass: CZFeedCellViewable.Type, viewModel: CZFeedViewModelable) {
-        self.viewClass = viewClass
-        self.viewModel = viewModel
-        super.init()
-    }
-
-    public func isEqual(toDiffableObj object: AnyObject) -> Bool {
-        guard let object = object as? CZFeedDetailsModel else {return false}
-        return viewClass == object.viewClass &&
-               viewModel.isEqual(toDiffableObj: object.viewModel)
-    }
-
-    public func copy(with zone: NSZone? = nil) -> Any {
-        let viewClassCopy = viewClass
-        let viewModelCopy = viewModel.copy(with: zone) as! CZFeedViewModelable
-        return type(of: self).init(viewClass: viewClassCopy,
-                                   viewModel: viewModelCopy)
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 private var kViewModelObserverContext: Int = 0
 
-/// Elegant facade class encapsulating UIStackView for non-reusable cells
+/// Elegant Facade class encapsulating UIStackView for non-reusable cells
 @objc open class CZFeedDetailsFacadeView: UIView {
     var onEvent: OnEvent?
     var viewModel: CZFeedDetailsViewModel {
@@ -22,7 +22,7 @@ private var kViewModelObserverContext: Int = 0
     fileprivate var stackView: UIStackView!
     fileprivate var scrollView: UIScrollView?
     fileprivate var onScrollView: Bool = true
-    // CZFeedCellViewable can be UIViewController or UIView
+    // `CZFeedCellViewable` can be `UICollectionViewCell`/`UIView`/`UIViewController`
     public lazy var components: [CZFeedCellViewable] = []
     var containerViewController: UIViewController?
     fileprivate var hasSetup = false
@@ -46,7 +46,7 @@ private var kViewModelObserverContext: Int = 0
 
     public func batchUpdate(with feedModels: [CZFeedModelable]) {
         guard let _ = try? checkDuplicatediffId(in: feedModels) else {
-            assertionFailure("Should not have duplicate diffId for each section.")
+            assertionFailure("Found duplicate `diffId` in one section.")
             return
         }
         viewModel.batchUpdate(with: feedModels)
@@ -106,7 +106,7 @@ private var kViewModelObserverContext: Int = 0
         if let insertedItemModels = diffResult[.inserted] {
             if insertedItemModels.count > 0 {
                 // The remaining components in stackView should be `updated`, according to nature of number,
-                // it's safe to insert component at i to stackView exactly as the order in newViewModel without exception
+                // it's safe to insert component at i to stackView exactly as the order in `newViewModel` without exception
                 let insertedSet = Set<CZFeedDetailsModel>(insertedItemModels)
                 viewModel.feedModels.filter({insertedSet.contains($0)}).forEach { model in
                     guard let i = viewModel.feedModels.index(of: model) else {return}
@@ -132,6 +132,7 @@ private var kViewModelObserverContext: Int = 0
 }
 
 // MARK: - Private methods
+
 fileprivate extension CZFeedDetailsFacadeView  {
     struct Constants {
         static let stackViewBottomMargin: CGFloat = 12
@@ -151,7 +152,7 @@ fileprivate extension CZFeedDetailsFacadeView  {
         }
         for (key, value) in mapper {
             if value.count > 1 {
-                let reason = "Duplicate values found in the same key '\(key)'."
+                let reason = "found duplicate values for same key '\(key)'."
                 assertionFailure("diffId should be unique for each section. \n Reason: \(reason)")
                 throw(DuplicatediffIdError.custom(reason: reason))
             }
@@ -178,7 +179,8 @@ fileprivate extension CZFeedDetailsFacadeView  {
         stackView.spacing = Constants.stackViewSpacing
 
         rootView.addSubview(stackView)
-        // stackView's leading/trailing anchor should stick to parentView, instead of scrollView to avoid layout issue. e.g. trailing inset
+        // stackView's leading/trailing anchor should stick to its `parentView`,
+        // instead of `scrollView` to avoid layout issue
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),

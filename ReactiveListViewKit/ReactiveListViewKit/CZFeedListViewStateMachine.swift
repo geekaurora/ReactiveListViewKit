@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Elegant state machine for CZFeedListView
+/// Elegant State Machine for `CZFeedListFacadeView`
 public class CZFeedListViewStateMachine {
     public enum State {
         case `init`
@@ -38,7 +38,6 @@ public class CZFeedListViewStateMachine {
         self.state = state
     }
     
-    /// Set state via message to manage logic, instead of state itself
     public func sendEvent(_ event: Event) {
         switch event {
         case .resetingViewModels:

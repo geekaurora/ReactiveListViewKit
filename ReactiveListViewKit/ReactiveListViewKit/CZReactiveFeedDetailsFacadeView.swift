@@ -10,7 +10,7 @@ import UIKit
 
 private var kViewModelObserverContext: Int = 0
 
-/// Reactive view class of FeedDetailsFacadeView, supports FLUX pattern
+/// Reactive view class of `FeedDetailsFacadeView`, supports FLUX pattern
 open class CZReactiveFeedDetailsFacadeView<StateType: CopyableState>: CZFeedDetailsFacadeView {
     var core: Core<StateType>?
     public override var onEvent: OnEvent? {
