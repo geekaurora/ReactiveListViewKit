@@ -10,7 +10,7 @@ import UIKit
 
 /// Constants of ReactiveListViewKit
 public enum ReactiveListViewKit {
-    /// Indicates whether DebugMode is on, set to false to turn off debugging log
+    /// Indicates whether DebugMode is on, controls debug logging
     public static let isDebugMode = true
     public static let incrementalUpdateOn = false
 

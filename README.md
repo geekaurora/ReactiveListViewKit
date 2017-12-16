@@ -16,9 +16,9 @@
  * Implement Instagram FeedList within 50 lines of code
  * Embedded `HorizontalSectionAdapterView` makes nested horizontal ListView implementation within 10 lines code
  * Adaptive to various CellComponent classes:
-   * UICollectionViewCell
-   * UIView
-   * UIViewController - domained event handling for complex cell
+   * `UICollectionViewCell`
+   * `UIView`
+   * `UIViewController` - Handles domained events of complex cell
  * Embedded pagination events 
    * `CZFeedListViewEvent` - `pullToRefresh`/`loadMore` etc.
 
@@ -28,7 +28,7 @@
 
  * **Store:** Maintains `State` tree
 
- * **Subscriber:** Subscribes to `Store` and updates Components/Views with new State
+ * **Subscriber:** Subscribes to `Store` and updates Components with new `State`
 
  * **Event:** Event driven - more loosely coupled than `Delegation`
     
