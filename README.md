@@ -1,5 +1,10 @@
 # ReactiveListViewKit
 
+[![CI Status](http://img.shields.io/travis/geekaurora/ReactiveListViewKit.svg?style=flat)](https://travis-ci.org/geekaurora/ReactiveListViewKit)
+[![Version](https://img.shields.io/cocoapods/v/ReactiveListViewKit.svg?style=flat)](http://cocoapods.org/pods/ReactiveListViewKit)
+[![License](https://img.shields.io/cocoapods/l/ReactiveListViewKit.svg?style=flat)](http://cocoapods.org/pods/ReactiveListViewKit)
+[![Platform](https://img.shields.io/cocoapods/p/ReactiveListViewKit.svg?style=flat)](http://cocoapods.org/pods/ReactiveListViewKit)
+
 * **MVVM + FLUX reactive facade ViewKit** for feed based app development
 * **Eliminates Massive View Controller** in unidirectional Event/State flow manner
 
