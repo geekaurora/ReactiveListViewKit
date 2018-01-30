@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		18BB6D6255DFF9733BFADB00 /* Pods_ReactiveListViewKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */; };
+		2A3FFF15200D47E800717636 /* ReactiveListViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A101B071FEF033E001AC915 /* ReactiveListViewKit.framework */; };
+		2A3FFF16200D47E800717636 /* ReactiveListViewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A101B071FEF033E001AC915 /* ReactiveListViewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ACDACBB1F95F1D500CD11CB /* CZNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADCB5A11F95E402007083CA /* CZNetworking.framework */; };
 		2ACDACBC1F95F1D500CD11CB /* CZNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADCB5A11F95E402007083CA /* CZNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ACDACC11F95F1F800CD11CB /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */; };
@@ -60,6 +62,13 @@
 			remoteGlobalIDString = 044E03351F74458B00849AA2;
 			remoteInfo = ReactiveListViewKitTests;
 		};
+		2A3FFF17200D47E800717636 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A101B001FEF033E001AC915 /* ReactiveListViewKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 044E032B1F74458B00849AA2;
+			remoteInfo = ReactiveListViewKit;
+		};
 		2AB659901FEF093A001A8835 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A101B001FEF033E001AC915 /* ReactiveListViewKit.xcodeproj */;
@@ -107,6 +116,7 @@
 				2ACDACC21F95F1F800CD11CB /* CommonCrypto.framework in Embed Frameworks */,
 				2AF920DB1F7F3A8300A5160F /* CZUtils.framework in Embed Frameworks */,
 				2ACDACBC1F95F1D500CD11CB /* CZNetworking.framework in Embed Frameworks */,
+				2A3FFF16200D47E800717636 /* ReactiveListViewKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +170,7 @@
 			files = (
 				2AF920DA1F7F3A8300A5160F /* CZUtils.framework in Frameworks */,
 				18BB6D6255DFF9733BFADB00 /* Pods_ReactiveListViewKitDemo.framework in Frameworks */,
+				2A3FFF15200D47E800717636 /* ReactiveListViewKit.framework in Frameworks */,
 				2ACDACC11F95F1F800CD11CB /* CommonCrypto.framework in Frameworks */,
 				2ACDACBB1F95F1D500CD11CB /* CZNetworking.framework in Frameworks */,
 			);
@@ -370,6 +381,7 @@
 				2AB659911FEF093A001A8835 /* PBXTargetDependency */,
 				2AD5C7C01F95EF220086E58D /* PBXTargetDependency */,
 				2ACDACBE1F95F1D500CD11CB /* PBXTargetDependency */,
+				2A3FFF18200D47E800717636 /* PBXTargetDependency */,
 			);
 			name = ReactiveListViewKitDemo;
 			productName = ReactiveListViewKitDemo;
@@ -560,6 +572,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2A3FFF18200D47E800717636 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ReactiveListViewKit;
+			targetProxy = 2A3FFF17200D47E800717636 /* PBXContainerItemProxy */;
+		};
 		2AB659911FEF093A001A8835 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ReactiveListViewKit;
