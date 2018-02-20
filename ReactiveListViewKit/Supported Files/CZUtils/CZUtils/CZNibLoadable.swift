@@ -73,7 +73,7 @@ public protocol CZNibLoadable: class {
     }
 }
 
-// MARK: - CZNibLoadableCollectionViewCells
+// MARK: - CZNibLoadableCollectionViewCell
 @objc open class CZNibLoadableCollectionViewCell: UICollectionViewCell, CZNibLoadable {
     open var nibContentView: UIView!
     open var xibName: String? { return nil }
@@ -155,7 +155,7 @@ extension UIView {
         return views
     }
     
-    /// Overlap on superView, being added as subview of `superviewIn` if receiver has no superview
+    /// Overlap on `superviewIn`, added to `superviewIn` if invoker has no superview
     public func overlayOnSuperview(_ superviewIn: UIView? = nil, inset: UIEdgeInsets = .zero) {
         if superview == nil {
             superviewIn?.addSubview(self)
@@ -170,7 +170,7 @@ extension UIView {
             ]
         )
     }
-
+    
     public func overlayOnSuperViewController(_ controller: UIViewController, insets: UIEdgeInsets = .zero) {
         guard let containerView = controller.view else {
             assertionFailure("\(#function): superview is nil.")

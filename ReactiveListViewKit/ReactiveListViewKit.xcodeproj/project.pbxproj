@@ -53,23 +53,23 @@
 			remoteGlobalIDString = 044E032B1F74458B00849AA2;
 			remoteInfo = ReactiveListViewKit;
 		};
-		2A3FFEFB200C3C4900717636 /* PBXContainerItemProxy */ = {
+		2A5D41BF203BA820001E5DD6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A3FFEF6200C3C4900717636 /* CZUtils.xcodeproj */;
+			containerPortal = 2A5D41BA203BA81F001E5DD6 /* CZUtils.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C39982CA1F7739EA00775B6C;
 			remoteInfo = CZUtils;
 		};
-		2A3FFEFD200C3C4900717636 /* PBXContainerItemProxy */ = {
+		2A5D41C1203BA820001E5DD6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A3FFEF6200C3C4900717636 /* CZUtils.xcodeproj */;
+			containerPortal = 2A5D41BA203BA81F001E5DD6 /* CZUtils.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C39982D31F7739EA00775B6C;
 			remoteInfo = CZUtilsTests;
 		};
-		2A3FFEFF200C3C5700717636 /* PBXContainerItemProxy */ = {
+		2A5D41C3203BA825001E5DD6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A3FFEF6200C3C4900717636 /* CZUtils.xcodeproj */;
+			containerPortal = 2A5D41BA203BA81F001E5DD6 /* CZUtils.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = C39982C91F7739EA00775B6C;
 			remoteInfo = CZUtils;
@@ -100,8 +100,8 @@
 		2A14FA3A1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZFeedDetailsViewModel.swift; sourceTree = "<group>"; };
 		2A14FA3D1FCF50B800914C8E /* CZFeedDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZFeedDetailsModel.swift; sourceTree = "<group>"; };
 		2A16074F1F7DAF0500FC3E9B /* ReactiveListViewKitConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReactiveListViewKitConstants.swift; path = Utils/ReactiveListViewKitConstants.swift; sourceTree = "<group>"; };
-		2A3FFEF6200C3C4900717636 /* CZUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZUtils.xcodeproj; path = ../../Example/ReactiveListViewKitDemo/Utils/CZUtils/CZUtils.xcodeproj; sourceTree = "<group>"; };
 		2A465C751F7F01B800406343 /* CZListDiffableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZListDiffableHelper.swift; path = Utils/CZListDiffableHelper.swift; sourceTree = "<group>"; };
+		2A5D41BA203BA81F001E5DD6 /* CZUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZUtils.xcodeproj; path = "Supported Files/CZUtils/CZUtils.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		2AB3DB8E1F7EC3D8009A5EF9 /* CZDividerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZDividerView.swift; path = TemplateViews/CZDividerView.swift; sourceTree = "<group>"; };
 		2AB3DB8F1F7EC3D8009A5EF9 /* CZFeedListSupplementaryLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZFeedListSupplementaryLineView.swift; path = TemplateViews/CZFeedListSupplementaryLineView.swift; sourceTree = "<group>"; };
 		2AB3DB901F7EC3D8009A5EF9 /* CZFeedListSupplementaryTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZFeedListSupplementaryTextView.swift; path = TemplateViews/CZFeedListSupplementaryTextView.swift; sourceTree = "<group>"; };
@@ -226,16 +226,16 @@
 				2AD7D7A51FEEFF8D003C3A49 /* Info.plist */,
 				2AD7D7A41FEEFF8D003C3A49 /* ReactiveListViewKit.h */,
 				2A101AFD1FEF0305001AC915 /* ReactiveListViewKit.podspec */,
-				2A3FFEF6200C3C4900717636 /* CZUtils.xcodeproj */,
+				2A5D41BA203BA81F001E5DD6 /* CZUtils.xcodeproj */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
 		};
-		2A3FFEF7200C3C4900717636 /* Products */ = {
+		2A5D41BB203BA81F001E5DD6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A3FFEFC200C3C4900717636 /* CZUtils.framework */,
-				2A3FFEFE200C3C4900717636 /* CZUtilsTests.xctest */,
+				2A5D41C0203BA820001E5DD6 /* CZUtils.framework */,
+				2A5D41C2203BA820001E5DD6 /* CZUtilsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -274,7 +274,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				2A3FFF00200C3C5700717636 /* PBXTargetDependency */,
+				2A5D41C4203BA825001E5DD6 /* PBXTargetDependency */,
 			);
 			name = ReactiveListViewKit;
 			productName = ReactiveListViewKit;
@@ -334,8 +334,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2A3FFEF7200C3C4900717636 /* Products */;
-					ProjectRef = 2A3FFEF6200C3C4900717636 /* CZUtils.xcodeproj */;
+					ProductGroup = 2A5D41BB203BA81F001E5DD6 /* Products */;
+					ProjectRef = 2A5D41BA203BA81F001E5DD6 /* CZUtils.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -347,18 +347,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2A3FFEFC200C3C4900717636 /* CZUtils.framework */ = {
+		2A5D41C0203BA820001E5DD6 /* CZUtils.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CZUtils.framework;
-			remoteRef = 2A3FFEFB200C3C4900717636 /* PBXContainerItemProxy */;
+			remoteRef = 2A5D41BF203BA820001E5DD6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2A3FFEFE200C3C4900717636 /* CZUtilsTests.xctest */ = {
+		2A5D41C2203BA820001E5DD6 /* CZUtilsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = CZUtilsTests.xctest;
-			remoteRef = 2A3FFEFD200C3C4900717636 /* PBXContainerItemProxy */;
+			remoteRef = 2A5D41C1203BA820001E5DD6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -436,10 +436,10 @@
 			target = 044E032B1F74458B00849AA2 /* ReactiveListViewKit */;
 			targetProxy = 044E03371F74458B00849AA2 /* PBXContainerItemProxy */;
 		};
-		2A3FFF00200C3C5700717636 /* PBXTargetDependency */ = {
+		2A5D41C4203BA825001E5DD6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CZUtils;
-			targetProxy = 2A3FFEFF200C3C5700717636 /* PBXContainerItemProxy */;
+			targetProxy = 2A5D41C3203BA825001E5DD6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Thread-safe dictionary class
+/// Elegant thread-safe Dictionary on top of CZMutexLock
 open class ThreadSafeDictionary<Key: Hashable, Value: Any>: NSObject, Collection, ExpressibleByDictionaryLiteral {
     public typealias DictionaryType = Dictionary<Key, Value>
     fileprivate var protectedCache: CZMutexLock<DictionaryType>
@@ -28,7 +28,7 @@ open class ThreadSafeDictionary<Key: Hashable, Value: Any>: NSObject, Collection
     
     // MAKR: - ExpressibleByDictionaryLiteral
     
-    /// Creates an instance initialized with the given key-value pairs.
+    /// Creates an instance initialized with the given key-value pairs
     public required init(dictionaryLiteral elements: (Key, Value)...) {
         var dictionary = DictionaryType()
         for (key, value) in elements {
@@ -51,7 +51,7 @@ open class ThreadSafeDictionary<Key: Hashable, Value: Any>: NSObject, Collection
     public var keys: LazyMapCollection<[Key : Value], Key> {
         return protectedCache.readLock { $0.keys } ?? emptyDictionary.keys
     }
-
+    
     public var values: LazyMapCollection<[Key : Value], Value> {
         return protectedCache.readLock { $0.values } ?? emptyDictionary.values
     }
@@ -67,9 +67,9 @@ open class ThreadSafeDictionary<Key: Hashable, Value: Any>: NSObject, Collection
     }
     
     public func removeAll(keepingCapacity keepCapacity: Bool = false) {
-         protectedCache.writeLock { $0.removeAll(keepingCapacity: keepCapacity) }
+        protectedCache.writeLock { $0.removeAll(keepingCapacity: keepCapacity) }
     }
-
+    
     public func values(for keys: [Key]) -> [Value] {
         return protectedCache.readLock{ cache in
             return keys.flatMap{ (key) -> Value? in
@@ -84,7 +84,7 @@ open class ThreadSafeDictionary<Key: Hashable, Value: Any>: NSObject, Collection
             return protectedCache.readLock { $0[key] }
         }
         set {
-             protectedCache.writeLock { (cache) -> Value? in
+            protectedCache.writeLock { (cache) -> Value? in
                 cache[key] = newValue
                 return newValue
             }
@@ -100,7 +100,7 @@ open class ThreadSafeDictionary<Key: Hashable, Value: Any>: NSObject, Collection
     public var startIndex: DictionaryIndex<Key, Value> {
         return protectedCache.readLock { $0.startIndex } ?? emptyDictionary.startIndex
     }
-
+    
     public var endIndex: DictionaryIndex<Key, Value> {
         return protectedCache.readLock { $0.endIndex } ?? emptyDictionary.endIndex
     }
@@ -121,7 +121,7 @@ open class ThreadSafeDictionary<Key: Hashable, Value: Any>: NSObject, Collection
             return temp.remove(at: index)
         }
     }
-
+    
     // MARK: - CustomStringConvertable
     
     open override var description: String {
@@ -135,7 +135,7 @@ open class ThreadSafeDictionary<Key: Hashable, Value: Any>: NSObject, Collection
             }
             description += "]"
             return description
-        } ?? ""
+            } ?? ""
     }
 }
 
@@ -147,10 +147,6 @@ public extension ThreadSafeDictionary where Key : Hashable, Value : Equatable {
     public func isEqual(toDictionary dictionary: DictionaryType) -> Bool {
         return underlyingDictionary == dictionary
     }
-}
-
-fileprivate extension ThreadSafeDictionary {
-    
 }
 
 

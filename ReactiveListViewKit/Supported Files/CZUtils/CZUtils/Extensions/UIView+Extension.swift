@@ -9,8 +9,8 @@ import UIKit
 
 /// Constants for UIView extensions
 public enum UIViewConstants {
-    public static let fadeInDuration: TimeInterval = 0.4
-    public static let fadeInAnimationName = "com.tony.animation.fadein"
+    static let fadeInDuration: TimeInterval = 0.4
+    static let fadeInAnimationName = "com.tony.animation.fadein"
 }
 
 // MARK: - Corner/Border

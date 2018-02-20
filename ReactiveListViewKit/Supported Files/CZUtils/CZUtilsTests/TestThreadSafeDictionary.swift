@@ -10,22 +10,22 @@ import XCTest
 @testable import CZUtils
 
 class TestThreadSafeDictionary: XCTestCase {
-    fileprivate static let queueLabel = "com.tony.test,threadSafeDictionary"
+    fileprivate static let queueLabel = "com.tony.test.threadSafeDictionary"
     
     fileprivate var originalDict: [Int: Int] = {
         var originalDict = [Int: Int]()
-        for (i, value) in (0 ..< 10).enumerated() {// 100000
+        for (i, value) in (0 ..< 10).enumerated() {
             originalDict[i] = value
         }
         return originalDict
     }()
     
-    func testInitializerithoutGCD() {
+    func testSingleThreadInitializ() {
         let threadSafeDict = ThreadSafeDictionary<Int, Int>(dictionary: originalDict)
         XCTAssert(threadSafeDict.isEqual(toDictionary: originalDict), "Result of ThreadSafeDictionary should same as the original dictionary.")
     }
     
-    func testSetValueWithoutGCD() {
+    func testSingleThreadSetValue() {
         let threadSafeDict = ThreadSafeDictionary<Int, Int>()
         for (key, value) in originalDict {
             threadSafeDict[key] = value
@@ -33,7 +33,7 @@ class TestThreadSafeDictionary: XCTestCase {
         XCTAssert(threadSafeDict.isEqual(toDictionary: originalDict), "Result of ThreadSafeDictionary should same as the original dictionary.")
     }
     
-    func testSetValueWithGCD() {
+    func testMultiThreadSetValue() {
         // 1. GIVEN(Condition) - some context: Describes the system's tate before any processing
         // Initialize ThreadSafeDictionary
         let threadSafeDict = ThreadSafeDictionary<Int, Int>()

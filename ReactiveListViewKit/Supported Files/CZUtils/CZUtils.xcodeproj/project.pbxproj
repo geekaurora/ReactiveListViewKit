@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A3EA2CE203BA72500A6D561 /* CZUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EA2CD203BA72400A6D561 /* CZUtils.swift */; };
 		2A901E3A1F7EC016004DAAC5 /* CZUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A901E381F7EC016004DAAC5 /* CZUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A901E3B1F7EC016004DAAC5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A901E391F7EC016004DAAC5 /* Info.plist */; };
 		2A901E441F7EC10B004DAAC5 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A901E3C1F7EC10B004DAAC5 /* Date+Extension.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A3EA2CD203BA72400A6D561 /* CZUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZUtils.swift; sourceTree = "<group>"; };
 		2A901E381F7EC016004DAAC5 /* CZUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZUtils.h; path = "Supported Files/CZUtils.h"; sourceTree = "<group>"; };
 		2A901E391F7EC016004DAAC5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Supported Files/Info.plist"; sourceTree = "<group>"; };
 		2A901E3C1F7EC10B004DAAC5 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Extension.swift"; path = "Extensions/Date+Extension.swift"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				2A901E591F7EC169004DAAC5 /* CZFileHelper.swift */,
 				2A901E5D1F7EC169004DAAC5 /* NSNullGuard.swift */,
 				2A901E581F7EC169004DAAC5 /* CZConcurrentOperation.swift */,
+				2A3EA2CD203BA72400A6D561 /* CZUtils.swift */,
 				2AEC189C1F7C5CA5007A5DF1 /* Investigation */,
 			);
 			name = Core;
@@ -339,6 +342,7 @@
 				2A901E621F7EC169004DAAC5 /* CZMainQueueScheduler.swift in Sources */,
 				2A901E571F7EC136004DAAC5 /* CZDispatchGroup.swift in Sources */,
 				2A901E481F7EC10B004DAAC5 /* UIImage+Extension.swift in Sources */,
+				2A3EA2CE203BA72500A6D561 /* CZUtils.swift in Sources */,
 				2A901E531F7EC12D004DAAC5 /* CZTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
