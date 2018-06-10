@@ -88,9 +88,9 @@ class FeedListViewModel: NSObject, CopyableState {
 }
 
 extension FeedListViewModel: State {
-    /// Update itself based on input `Event`
+    /// Reacts to fired events
     func react(to event: Event) {
-        feeds.forEach {$0.react(to: event)}
+        feeds.forEach { $0.react(to: event) }
         switch event {
         case let CZFeedListViewEvent.selectedCell(feedModel):
             break

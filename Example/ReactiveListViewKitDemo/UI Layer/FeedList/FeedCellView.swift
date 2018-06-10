@@ -30,7 +30,7 @@ class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
     @IBOutlet var stackViewWidthConstraint: NSLayoutConstraint!
 
     fileprivate var viewModel: FeedCellViewModel    
-    var diffId: String {return viewModel.diffId}
+    var diffId: String { return viewModel.diffId }
     var onEvent: OnEvent?
     static let imageRatio: CGFloat = 1.0
 
@@ -52,6 +52,8 @@ class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
         guard let viewModel = viewModel as? FeedCellViewModel else {
             fatalError("Incorrect ViewModel type.")
         }
+        self.viewModel = viewModel
+
         if let portraitUrl = viewModel.portraitUrl {
             portaitView.sd_setImage(with: portraitUrl)
             portaitView.roundToCircleWithFrame()
@@ -65,9 +67,7 @@ class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
 
         likeButton.setTitle("", for: .normal)
         likeButton.setImage(UIImage(named: viewModel.userHasLiked ? "Liked" : "Like"), for: .normal)
-
         bottomDivider.isHidden = !viewModel.isInFeedDetails
-        
         stackViewWidthConstraint.constant = UIScreen.currWidth
     }
 

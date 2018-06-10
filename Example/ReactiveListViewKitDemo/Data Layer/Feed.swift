@@ -52,5 +52,14 @@ class Feed: CZModel {
 
 extension Feed: State {
     func react(to event: Event) {
+        switch event {
+        case let event as LikeFeedEvent:
+            // React to `LikeFeedEvent`: flip `userHasLiked` flag
+            if  event.feed.feedId == feedId {
+                _userHasLiked = NSNumber(value: !userHasLiked)
+            }
+        default:
+            break
+        }
     }
 }

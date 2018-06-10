@@ -12,7 +12,7 @@ import UIKit
 public enum ReactiveListViewKit {
     /// Indicates whether DebugMode is on, controls debug logging
     public static let isDebugMode = true
-    public static let incrementalUpdateOn = false
+    public static var incrementalUpdateOn = false
 
     public static let ClearBGColor = UIColor.clear
     public static let GreyBGColor = UIColor(white: 240.0 / 255.0, alpha: 1.0)
