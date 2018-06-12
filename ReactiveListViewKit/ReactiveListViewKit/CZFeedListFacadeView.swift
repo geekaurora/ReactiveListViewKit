@@ -18,14 +18,8 @@ open class CZFeedListFacadeView: UIView {
     // Resolver closure that transforms `Feed` array to `CZSectionModel` array
     public typealias SectionModelsResolver = ([Any]) -> [CZSectionModel]
     internal var onEvent: OnEvent?
-    var viewModel: CZFeedListViewModel {
-        return _viewModel
-    }
-    fileprivate var _viewModel: CZFeedListViewModel!
-    fileprivate var prevViewModel: CZFeedListViewModel = {
-        let viewModel = CZFeedListViewModel()
-        return viewModel
-    }()
+    fileprivate(set) lazy var viewModel = CZFeedListViewModel()
+    fileprivate(set) lazy var newViewModel = CZFeedListViewModel()
     fileprivate(set) var collectionView: UICollectionView!
     fileprivate let parentViewController: UIViewController?
     fileprivate var collectionViewBGColor: UIColor?
@@ -114,13 +108,12 @@ open class CZFeedListFacadeView: UIView {
         hasSetup = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
-        _viewModel = CZFeedListViewModel(sectionModels: nil)
         setupCollectionView()
     }
 
     public func batchUpdate(withFeeds feeds: [Any], animated: Bool = true) {
         if let sectionModels = sectionModelsResolver?(feeds) {
-            batchUpdate(withSectionModels: sectionModels)
+            batchUpdate(withSectionModels: sectionModels, animated: animated)
         }
     }
 
@@ -130,13 +123,18 @@ open class CZFeedListFacadeView: UIView {
 
 
     public func batchUpdate(withSectionModels sectionModels: [CZSectionModel], animated: Bool = true) {
-        // Filter empty sectionModels to avoid inconsistent amount of sections/rows crash
-        // Because default empty section is counted as 1 before `reloadListView`, leads to crash
+        // Filter empty sectionModels to avoid inconsistent amount of sections/rows crash,
+        // because default empty section is counted as 1 before `reloadListView` which leads to crash
         let sectionModels = adjustSectionModels(sectionModels)
 
-        self.registerCellClassesIfNeeded(for: sectionModels)
-        self.viewModel.batchUpdate(withSectionModels: sectionModels)
-        self.reloadListView(animated: animated)
+        // Automatically register Cell classes from ViewModels inside SectionModels
+        registerCellClassesIfNeeded(for: sectionModels)
+
+        // Update `newViewModel` instead of `viewModel`, to keep collectionViewDataSource unchanged before actual batch update
+        newViewModel.reset(withSectionModels: sectionModels)
+
+        // Reload listView by incremental updating
+        reloadListView(animated: animated)
     }
     
     fileprivate func adjustSectionModels(_ sectionModels: [CZSectionModel]) -> [CZSectionModel] {
@@ -183,7 +181,7 @@ fileprivate extension CZFeedListFacadeView  {
     }
 
     func reloadListView(animated: Bool) {
-        let (sectionsDiff, rowsDiff) = CZListDiff.diffSectionModels(current: viewModel.sectionModels, prev: prevViewModel.sectionModels)
+        let (sectionsDiff, rowsDiff) = CZListDiff.diffSectionModelIndexes(current: newViewModel.sectionModels, prev: viewModel.sectionModels)
         guard CZListDiff.sectionCount(for: sectionsDiff[.insertedSections]) > 0 ||
             CZListDiff.sectionCount(for: sectionsDiff[.deletedSections]) > 0 ||
             rowsDiff[.deleted]?.count ?? 0 > 0 ||
@@ -193,13 +191,21 @@ fileprivate extension CZFeedListFacadeView  {
                 return
         }
 
-        if !ReactiveListViewKit.incrementalUpdateOn || !animated {
-            self.collectionView.reloadData()
+        // Update current `viewModel` with `newViewModel` after diffing calculation, to ensure consistent state before/after collectionView batchUpdate
+        let isPrevViewModelEmpty = viewModel.sectionModels.isEmpty
+        self.viewModel = self.newViewModel.copy() as! CZFeedListViewModel
+
+        /**
+         There's a bug of CollectionView even on iOS 11, first batchUpdate with inserted sections causes inconsistency crash, so call reloadData directly to solve it
+         https://stackoverflow.com/questions/19199985/invalid-update-invalid-number-of-items-on-uicollectionview/19202953#19202953
+         https://fangpenlin.com/posts/2016/04/29/uicollectionview-invalid-number-of-items-crash-issue/
+         */
+        if isPrevViewModelEmpty || !ReactiveListViewKit.incrementalUpdateOn || !animated {
+            collectionView.reloadData()
         } else {
             let batchUpdate = {
-                // Sections: inserted sections
-                // this operation inserts all items inside section implicitly, shouldn't insert items explicitly again
-                // to avoid inconsistent number crash
+                // Sections: inserted
+                // Note: insert all items inside section implicitly, shouldn't insert items explicitly again to avoid inconsistent number of section crash
                 if let insertedSections = sectionsDiff[.insertedSections] as? IndexSet,
                     insertedSections.count > 0 {
                     self.collectionView.insertSections(insertedSections)
@@ -210,6 +216,7 @@ fileprivate extension CZFeedListFacadeView  {
                     removedIndexPathes.count > 0 {
                     self.collectionView.deleteItems(at: removedIndexPathes)
                 }
+
                 // Rows: unchanged
                 let unchangedIndexPaths = rowsDiff[.unchanged]
 
@@ -241,7 +248,6 @@ fileprivate extension CZFeedListFacadeView  {
             }
             collectionView.performBatchUpdates(batchUpdate, completion: nil)
         }
-        prevViewModel = viewModel.copy() as! CZFeedListViewModel
 
         for indexPath in viewedIndexPaths {
             if indexPath.section > viewModel.sectionModels.count - 1 ||

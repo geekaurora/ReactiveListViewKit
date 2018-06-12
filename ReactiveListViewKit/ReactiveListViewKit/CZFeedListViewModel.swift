@@ -22,22 +22,21 @@ public class CZFeedListViewModel: NSObject, NSCopying {
         self.sectionModels = []
         super.init()
         if let feedModels = feedModels {
-            batchUpdate(with: feedModels)
+            reset(withFeedModels: feedModels)
         }
     }
     
     /// Method for multiple section ListView
     @objc(resetWithSectionModels:)
-    public func batchUpdate(withSectionModels sectionModels: [CZSectionModel]) {
-        self.sectionModels.removeAll()
-        self.sectionModels.append(contentsOf: sectionModels)
+    public func reset(withSectionModels sectionModels: [CZSectionModel]) {
+        self.sectionModels = sectionModels
     }
 
     /// Convenient method for single section ListView
     @objc(resetWithFeedModels:)
-    public func batchUpdate(with feedModels: [CZFeedModel]) {
+    public func reset(withFeedModels feedModels: [CZFeedModel]) {
         let sectionModels = [CZSectionModel(feedModels: feedModels)]
-        batchUpdate(withSectionModels: sectionModels)
+        reset(withSectionModels: sectionModels)
     }
 
     // MARK: - UICollectionView DataSource

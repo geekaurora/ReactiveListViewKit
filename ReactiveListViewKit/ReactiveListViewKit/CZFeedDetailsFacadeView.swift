@@ -67,7 +67,7 @@ private var kViewModelObserverContext: Int = 0
     }
 
     public func reloadListView() {
-        let diffResult: [CZListDiff.ResultKey: [CZFeedDetailsModel]] = CZListDiff.diffFeedModels(current: viewModel.feedModels,
+        let diffResult: [CZListDiff.RowDiffResultKey: [CZFeedDetailsModel]] = CZListDiff.diffFeedModels(current: viewModel.feedModels,
                                                                                                     prev: prevViewModel.feedModels)
 
         // deleted

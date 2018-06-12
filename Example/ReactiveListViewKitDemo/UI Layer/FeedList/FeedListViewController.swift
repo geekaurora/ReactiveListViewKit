@@ -15,9 +15,9 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
     fileprivate var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?
     /// `Core` of FLUX, composed of `Dispatcher` and `Store`
     fileprivate var core: Core<FeedListState>
-    
+
     required init?(coder aDecoder: NSCoder) {
-        // set up `Core` for FLUX pattern
+        // Set up `Core` for FLUX pattern
         let feedListState = FeedListState()
         // Event handler: coordinator pattern decouples user action handling from ViewController
         let eventHandler = FeedListEventHandler()
@@ -39,9 +39,10 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
 
 fileprivate extension FeedListViewController {
     func setupFeedListView() {
-        feedListFacadeView = CZReactiveFeedListFacadeView<FeedListState>(core: core,
-                                                                         sectionModelsResolver: core.state.sectionModelsResolver,
-                                                                         parentViewController:self)
+        feedListFacadeView = CZReactiveFeedListFacadeView<FeedListState>(
+            core: core,
+            sectionModelsResolver: core.state.sectionModelsResolver,
+            parentViewController:self)
         feedListFacadeView?.overlayOnSuperViewController(self, insets: Constants.feedListViewInsets)
     }
 }
