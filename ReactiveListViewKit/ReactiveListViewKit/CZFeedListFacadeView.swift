@@ -121,7 +121,6 @@ open class CZFeedListFacadeView: UIView {
         batchUpdate(withSectionModels: [CZSectionModel(feedModels: feedModels)])
     }
 
-
     public func batchUpdate(withSectionModels sectionModels: [CZSectionModel], animated: Bool = true) {
         // Filter empty sectionModels to avoid inconsistent amount of sections/rows crash,
         // because default empty section is counted as 1 before `reloadListView` which leads to crash

@@ -24,10 +24,12 @@ open class CZTextFeedViewModel: NSObject, CZFeedViewModelable {
     public let text: String
     public let isHorizontal: Bool
     public var diffId: String {
-        return currentClassName + text
+        return presetDiffId ?? (currentClassName + text)
     }
+    private var presetDiffId: String?
 
-    public required init(text: String, isHorizontal: Bool = false) {
+    public required init(diffId: String? = nil, text: String, isHorizontal: Bool = false) {
+        self.presetDiffId = diffId
         self.text = text
         self.isHorizontal = isHorizontal
         super.init()

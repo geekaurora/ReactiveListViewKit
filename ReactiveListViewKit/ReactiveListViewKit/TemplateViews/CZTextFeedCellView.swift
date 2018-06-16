@@ -9,7 +9,7 @@
 import UIKit
 
 /// Convenience text based CellView class
-open class CZTextFeedListCell: UICollectionViewCell, CZFeedCellViewSizeCalculatable {
+open class CZTextFeedCell: UICollectionViewCell, CZFeedCellViewSizeCalculatable {
     open var onEvent: OnEvent? {
         didSet {
             cellView?.onEvent = onEvent

@@ -8,14 +8,30 @@
 
 import UIKit
 
-public struct MovedIndexPath {
+public struct MovedIndexPath: Equatable, Hashable {
     let from: IndexPath
     let to: IndexPath
+
+    public static func == (lhs: MovedIndexPath, rhs: MovedIndexPath) -> Bool {
+        return (lhs.from == rhs.from && lhs.to == rhs.to)
+    }
+
+    public var hashValue: Int {
+        return from.hashValue * 1375365 + to.hashValue
+    }
 }
 
-public struct MovedSection {
+public struct MovedSection: Equatable, Hashable {
     let from: Int
     let to: Int
+
+    public static func == (lhs: MovedSection, rhs: MovedSection) -> Bool {
+        return (lhs.from == rhs.from && lhs.to == rhs.to)
+    }
+
+    public var hashValue: Int {
+        return from * 13753 + to
+    }
 }
 
 /// List diff algorithm implementation class
