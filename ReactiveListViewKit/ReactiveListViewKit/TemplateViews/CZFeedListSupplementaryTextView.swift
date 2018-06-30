@@ -156,8 +156,8 @@ open class CZFeedListSupplementaryTextView: UIView, CZFeedCellViewSizeCalculatab
             
             if let actionButtonText = viewModel.actionButtonText {
                 let attributedTitle  = NSAttributedString(string: actionButtonText,
-                                                          attributes: [NSFontAttributeName: ReactiveListViewKit.FeedListSupplementaryTextView.titleFont,
-                                                                       NSForegroundColorAttributeName: ReactiveListViewKit.FeedListSupplementaryTextView.actionButtonColor
+                                                          attributes: [NSAttributedStringKey.font: ReactiveListViewKit.FeedListSupplementaryTextView.titleFont,
+                                                                       NSAttributedStringKey.foregroundColor: ReactiveListViewKit.FeedListSupplementaryTextView.actionButtonColor
                     ])
                 actionButton.setAttributedTitle(attributedTitle, for: .normal)
             }

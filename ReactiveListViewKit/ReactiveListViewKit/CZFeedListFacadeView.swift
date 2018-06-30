@@ -39,7 +39,7 @@ open class CZFeedListFacadeView: UIView {
 
     fileprivate lazy var registeredCellReuseIds: Set<String> = []
     fileprivate lazy var hasPulledToRefresh: Bool = false
-    static let kLoadMoreThreshold = 0
+    public static let kLoadMoreThreshold = 0
     /// Threshold of `loadMore`event, indicates distance from the last cell
     fileprivate var loadMoreThreshold: Int = kLoadMoreThreshold
     var sectionModelsResolver: SectionModelsResolver?
@@ -157,7 +157,7 @@ open class CZFeedListFacadeView: UIView {
     }
 
     public func reuseId(with cellClass: AnyClass) -> String {
-        return NSStringFromClass(object_getClass(cellClass))
+        return NSStringFromClass(object_getClass(cellClass)!)
     }
 }
 

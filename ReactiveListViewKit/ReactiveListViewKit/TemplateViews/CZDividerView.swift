@@ -31,7 +31,7 @@ fileprivate extension CZDividerView {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = self.bgColor
         let sizeContrait = heightAnchor.constraint(equalToConstant: size)
-        sizeContrait.priority = 749
+        sizeContrait.priority = UILayoutPriority(rawValue: 749)
         sizeContrait.isActive = true
     }
 }
