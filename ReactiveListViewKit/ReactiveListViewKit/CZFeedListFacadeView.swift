@@ -422,19 +422,29 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
 
     // MARK: - Load More
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        viewedIndexPaths.insert(indexPath)
-        let isLastRow = indexPath.section == (viewModel.sectionModels.count - 1) &&
-            indexPath.row >= (viewModel.sectionModels.last?.feedModels.count ?? 0) - 1 - loadMoreThreshold
+        let sectionCount = viewModel.sectionModels.count
+        let distanceFromBottom = (indexPath.section..<sectionCount).reduce(0) { (prevSum, section) -> Int in
+            let currSum: Int = {
+                if indexPath.section == section {
+                    return viewModel.sectionModels[section].feedModels.count - indexPath.row - 1
+                } else {
+                    return viewModel.sectionModels[section].feedModels.count
+                }
+            }()
+            return prevSum + currSum
+        }
+        
         if allowLoadMore &&
-            isLastRow &&
+            (distanceFromBottom >= loadMoreThreshold) &&
             !viewedIndexPaths.contains(indexPath) {
             onEvent?(CZFeedListViewEvent.loadMore)
         }
         
-        if !hasInvokedWillDisplayCell &&
-            collectionView.indexPathsForVisibleItems.count > 0 {
+        if !hasInvokedWillDisplayCell && collectionView.indexPathsForVisibleItems.count > 0 {
             hasInvokedWillDisplayCell = true
         }
+
+        viewedIndexPaths.insert(indexPath)
     }
     
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
