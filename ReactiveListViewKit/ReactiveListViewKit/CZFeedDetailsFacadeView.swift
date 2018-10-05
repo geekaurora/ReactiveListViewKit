@@ -45,7 +45,7 @@ private var kViewModelObserverContext: Int = 0
     }
 
     public func batchUpdate(with feedModels: [CZFeedModelable]) {
-        guard let _ = try? checkDuplicatediffId(in: feedModels) else {
+        guard let _ = try? checkDuplicateDiffId(in: feedModels) else {
             assertionFailure("Found duplicate `diffId` in one section.")
             return
         }
@@ -138,12 +138,12 @@ fileprivate extension CZFeedDetailsFacadeView  {
         static let stackViewBottomMargin: CGFloat = 12
         static let stackViewSpacing: CGFloat = 12
     }
-    enum DuplicatediffIdError: Error {
+    enum DuplicateDiffIdError: Error {
         case regular
         case custom(reason: String)
     }
     @discardableResult
-    func checkDuplicatediffId(in componentModels: [CZFeedModelable]) throws ->  Bool  {
+    func checkDuplicateDiffId(in componentModels: [CZFeedModelable]) throws ->  Bool  {
         var mapper: [String: [CZFeedModelable]] = [:]
         componentModels.forEach {
             let diffId = $0.viewModel.diffId
@@ -154,7 +154,7 @@ fileprivate extension CZFeedDetailsFacadeView  {
             if value.count > 1 {
                 let reason = "found duplicate values for same key '\(key)'."
                 assertionFailure("diffId should be unique for each section. \n Reason: \(reason)")
-                throw(DuplicatediffIdError.custom(reason: reason))
+                throw(DuplicateDiffIdError.custom(reason: reason))
             }
         }
         return false

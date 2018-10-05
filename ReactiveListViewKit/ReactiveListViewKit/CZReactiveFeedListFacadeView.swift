@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Reactive view class of `FeedDetailsFacadeView`, supports FLUX pattern
+/// Reactive view class of `FeedListFacadeView`, supports FLUX pattern
 open class CZReactiveFeedListFacadeView<StateType: CopyableState>: CZFeedListFacadeView {
     var core: Core<StateType>
     

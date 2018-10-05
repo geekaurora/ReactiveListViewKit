@@ -6,7 +6,7 @@
 //  Copyright © 2017 Cheng Zhang. All rights reserved.
 //
 
-import CZUtils
+import UIKit
 
 /// Internal convenience `UICollectionViewCell` class wrapping input CellView
 internal class CZFeedListCell: UICollectionViewCell {

@@ -16,7 +16,7 @@ protocol CZDictionaryable: NSObjectProtocol {
     init(dictionary: CZDictionary)
 }
 
-/// Base Model class conforming `CZListDiffable`
+/// Base Model class that conforms to `CZListDiffable`
 class CZModel: NSObject, EKMappingProtocol, NSCopying, CZDictionaryable {
     fileprivate var serializedObject: CZDictionary?
 

@@ -13,7 +13,7 @@ import ReactiveListViewKit
 class CZMocker: NSObject {
     static let shared = CZMocker()
 
-    /// Mocked feeds with JSON file
+    /// Mock feeds from JSON file
     var feeds: [Feed] {
         do {
             let jsonFileUrl = Bundle.main.url(forResource: "feeds", withExtension: "json")!
@@ -28,7 +28,7 @@ class CZMocker: NSObject {
         return []
     }
     
-    /// Mocked hotUsers
+    /// Mock hotUsers
     var hotUsers: [User] {
         let portraitUrls = [
             "https://d37t5b145o82az.cloudfront.net/portriats/fallinlight.jpg",

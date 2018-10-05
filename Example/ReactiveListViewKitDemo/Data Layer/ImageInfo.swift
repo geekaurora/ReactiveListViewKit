@@ -10,7 +10,7 @@ import CZUtils
 import ReactiveListViewKit
 import EasyMapping
 
-/// Model of info related with image
+/// Model of image
 class ImageInfo: CZModel {
     var url: String? 
     var width: Int? {return _width?.intValue}

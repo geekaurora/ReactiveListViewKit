@@ -28,7 +28,7 @@ class FeedListViewModel: NSObject, CopyableState {
     }()
     /// Current page number
     fileprivate(set) var page: Int = 0
-    /// Indicating whether is loading feeds
+    /// Indicates whether is loading feeds
     fileprivate(set) var isLoadingFeeds: Bool = false
     /// Last minimum FeedId, used as baseId for feeds request
     fileprivate(set) var lastMinFeedId: String = "-1"

@@ -39,7 +39,7 @@ class HotUserCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("Should invoke designated initializer `init(viewModel:onEvent:)`")
+        fatalError("Must call designated initializer `init(viewModel:onEvent:)`")
     }
 
     func config(with viewModel: CZFeedViewModelable?) {
