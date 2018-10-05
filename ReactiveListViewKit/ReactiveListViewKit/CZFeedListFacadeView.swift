@@ -172,11 +172,15 @@ fileprivate extension CZFeedListFacadeView  {
 
     func registerCellClassIfNeeded(_ cellClass: AnyClass) {
         let reuseId = self.reuseId(with: cellClass)
-        guard cellClass is UICollectionViewCell.Type else {
+        guard !registeredCellReuseIds.contains(reuseId) else {
             return
         }
-        collectionView.register(cellClass, forCellWithReuseIdentifier: reuseId)
         registeredCellReuseIds.insert(reuseId)
+        if cellClass is UICollectionViewCell.Type {
+            collectionView.register(cellClass, forCellWithReuseIdentifier: reuseId)
+        } else {
+            collectionView.register(CZFeedListCell.self, forCellWithReuseIdentifier: reuseId)
+        }
     }
 
     func reloadListView(animated: Bool) {
@@ -370,17 +374,13 @@ extension CZFeedListFacadeView: UICollectionViewDataSource {
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {        
-        let cellClass: AnyClass
         if let feedModel = viewModel.feedModel(at: indexPath) {
-            if let viewClass = feedModel.viewClass as? UICollectionViewCell.Type {
-                // if is Cell, dequeue it to reuse
-                cellClass = viewClass
-            } else {
-                // if is UIView, overlap it on the embeded Cell
-                cellClass = CZFeedListCell.self
-            }
-
-            let reuseCellId = reuseId(with: cellClass)
+            /**
+             - If feedModel.viewClass is Cell, dequeue it to reuse
+             - If feedModel.viewClass is UIView, overlap it on embeded Cell `CZFeedListCell`. `reuseCellId` is viewClass.className to ensure
+               deqeued cell contains corresponding `viewClass`
+             */
+            let reuseCellId = reuseId(with: feedModel.viewClass)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseCellId, for: indexPath)
             if let cell = cell as? CZFeedListCell {
                 cell.config(with: feedModel, onEvent: onEvent, parentViewController: parentViewController)
