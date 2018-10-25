@@ -15,7 +15,8 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
     fileprivate var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?
     /// `Core` of FLUX, composed of `Dispatcher` and `Store`
     fileprivate var core: Core<FeedListState>
-
+    private var fpsHelper = FPSHelper()
+    
     required init?(coder aDecoder: NSCoder) {
         // Set up `Core` for FLUX pattern
         let feedListState = FeedListState()

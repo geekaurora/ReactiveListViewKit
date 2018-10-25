@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18BB6D6255DFF9733BFADB00 /* Pods_ReactiveListViewKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */; };
+		2A2C19D0218143F7008EB915 /* FPSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C19CD218143F6008EB915 /* FPSHelper.swift */; };
 		2A3FFF15200D47E800717636 /* ReactiveListViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A101B071FEF033E001AC915 /* ReactiveListViewKit.framework */; };
 		2A3FFF16200D47E800717636 /* ReactiveListViewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A101B071FEF033E001AC915 /* ReactiveListViewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ACDACBB1F95F1D500CD11CB /* CZNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADCB5A11F95E402007083CA /* CZNetworking.framework */; };
@@ -126,6 +127,7 @@
 /* Begin PBXFileReference section */
 		0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveListViewKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A101B001FEF033E001AC915 /* ReactiveListViewKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveListViewKit.xcodeproj; path = ../ReactiveListViewKit/ReactiveListViewKit.xcodeproj; sourceTree = "<group>"; };
+		2A2C19CD218143F6008EB915 /* FPSHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FPSHelper.swift; path = "../../../TestDemos/____Opensource/_Core/CZFPSLabel/CZFPSLabel/CZFPSLabel/FPSHelper.swift"; sourceTree = "<group>"; };
 		2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListEventHandler.swift; path = "UI Layer/FeedList/FeedListEventHandler.swift"; sourceTree = "<group>"; };
 		2ADA7C6C1F95D5CD00B8679C /* FeedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListViewController.swift; path = "UI Layer/FeedList/FeedListViewController.swift"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				2ADCB55B1F95DCF3007083CA /* Constants.swift */,
+				2A2C19CD218143F6008EB915 /* FPSHelper.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				2ADA7C971F95D7E200B8679C /* UserStoryEvent.swift in Sources */,
 				2ADA7C8F1F95D79E00B8679C /* HotUserCellViewModel.swift in Sources */,
 				2ADA7C8D1F95D79E00B8679C /* HotUserCellView.swift in Sources */,
+				2A2C19D0218143F7008EB915 /* FPSHelper.swift in Sources */,
 				2ADA7C8B1F95D79E00B8679C /* HotUserCellCardView.swift in Sources */,
 				2ADA7C921F95D79E00B8679C /* HotUsersCellViewModel.swift in Sources */,
 				2ADA7C701F95D5CD00B8679C /* FeedListViewModel.swift in Sources */,
