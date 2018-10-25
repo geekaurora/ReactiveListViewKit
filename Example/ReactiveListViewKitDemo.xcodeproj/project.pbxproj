@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		18BB6D6255DFF9733BFADB00 /* Pods_ReactiveListViewKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */; };
-		2A2C19D0218143F7008EB915 /* FPSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C19CD218143F6008EB915 /* FPSHelper.swift */; };
+		2A2C19D421814ABC008EB915 /* FPSMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C19D321814ABB008EB915 /* FPSMonitor.swift */; };
+		2A2C19DB218179DC008EB915 /* KSScrollPerformanceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C19DA218179DC008EB915 /* KSScrollPerformanceDetector.m */; };
+		2A2C19DD21817A05008EB915 /* TestOC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C19DC21817A05008EB915 /* TestOC.m */; };
+		2A2C19DF21817A3A008EB915 /* TestOC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C19DE21817A3A008EB915 /* TestOC2.m */; };
 		2A3FFF15200D47E800717636 /* ReactiveListViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A101B071FEF033E001AC915 /* ReactiveListViewKit.framework */; };
 		2A3FFF16200D47E800717636 /* ReactiveListViewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A101B071FEF033E001AC915 /* ReactiveListViewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ACDACBB1F95F1D500CD11CB /* CZNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADCB5A11F95E402007083CA /* CZNetworking.framework */; };
@@ -127,7 +130,12 @@
 /* Begin PBXFileReference section */
 		0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveListViewKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A101B001FEF033E001AC915 /* ReactiveListViewKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveListViewKit.xcodeproj; path = ../ReactiveListViewKit/ReactiveListViewKit.xcodeproj; sourceTree = "<group>"; };
-		2A2C19CD218143F6008EB915 /* FPSHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FPSHelper.swift; path = "../../../TestDemos/____Opensource/_Core/CZFPSLabel/CZFPSLabel/CZFPSLabel/FPSHelper.swift"; sourceTree = "<group>"; };
+		2A2C19D321814ABB008EB915 /* FPSMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FPSMonitor.swift; path = "../../../TestDemos/____Opensource/_Core/CZFPSLabel/CZFPSLabel/CZFPSLabel/FPSMonitor.swift"; sourceTree = "<group>"; };
+		2A2C19D9218179DB008EB915 /* KSScrollPerformanceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSScrollPerformanceDetector.h; path = "../../../TestDemos/____Opensource/_Core/CZFPSLabel/CZFPSLabel/CZFPSLabel/KSScrollPerformanceDetector.h"; sourceTree = "<group>"; };
+		2A2C19DA218179DC008EB915 /* KSScrollPerformanceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSScrollPerformanceDetector.m; path = "../../../TestDemos/____Opensource/_Core/CZFPSLabel/CZFPSLabel/CZFPSLabel/KSScrollPerformanceDetector.m"; sourceTree = "<group>"; };
+		2A2C19DC21817A05008EB915 /* TestOC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestOC.m; sourceTree = "<group>"; };
+		2A2C19DE21817A3A008EB915 /* TestOC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestOC2.m; sourceTree = "<group>"; };
+		2A2C19E221817B73008EB915 /* ReactiveListViewKitDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactiveListViewKitDemo-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListEventHandler.swift; path = "UI Layer/FeedList/FeedListEventHandler.swift"; sourceTree = "<group>"; };
 		2ADA7C6C1F95D5CD00B8679C /* FeedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListViewController.swift; path = "UI Layer/FeedList/FeedListViewController.swift"; sourceTree = "<group>"; };
@@ -214,7 +222,11 @@
 			isa = PBXGroup;
 			children = (
 				2ADCB55B1F95DCF3007083CA /* Constants.swift */,
-				2A2C19CD218143F6008EB915 /* FPSHelper.swift */,
+				2A2C19D321814ABB008EB915 /* FPSMonitor.swift */,
+				2A2C19D9218179DB008EB915 /* KSScrollPerformanceDetector.h */,
+				2A2C19DA218179DC008EB915 /* KSScrollPerformanceDetector.m */,
+				2A2C19DE21817A3A008EB915 /* TestOC2.m */,
+				2A2C19DC21817A05008EB915 /* TestOC.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -311,6 +323,7 @@
 			children = (
 				2ADCB5561F95DC85007083CA /* Resources */,
 				2ADCB5591F95DCED007083CA /* AppDelegate.swift */,
+				2A2C19E221817B73008EB915 /* ReactiveListViewKitDemo-Bridging-Header.h */,
 				2ADCB5631F95DD16007083CA /* Info.plist */,
 				2ADCB55D1F95DD02007083CA /* Main.storyboard */,
 				2ADCB5601F95DD0D007083CA /* LaunchScreen.storyboard */,
@@ -549,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A2C19DF21817A3A008EB915 /* TestOC2.m in Sources */,
 				2ADCB55C1F95DCF3007083CA /* Constants.swift in Sources */,
 				2ADCB55A1F95DCED007083CA /* AppDelegate.swift in Sources */,
 				2ADA7C9B1F95D82500B8679C /* FeedCellView.swift in Sources */,
@@ -562,10 +576,12 @@
 				2ADA7C791F95D5FB00B8679C /* CZMocker.swift in Sources */,
 				2ADA7C6F1F95D5CD00B8679C /* FeedListViewController.swift in Sources */,
 				2ADA7C9F1F95D87100B8679C /* FeedListEvent.swift in Sources */,
+				2A2C19DD21817A05008EB915 /* TestOC.m in Sources */,
 				2ADA7C971F95D7E200B8679C /* UserStoryEvent.swift in Sources */,
 				2ADA7C8F1F95D79E00B8679C /* HotUserCellViewModel.swift in Sources */,
+				2A2C19DB218179DC008EB915 /* KSScrollPerformanceDetector.m in Sources */,
 				2ADA7C8D1F95D79E00B8679C /* HotUserCellView.swift in Sources */,
-				2A2C19D0218143F7008EB915 /* FPSHelper.swift in Sources */,
+				2A2C19D421814ABC008EB915 /* FPSMonitor.swift in Sources */,
 				2ADA7C8B1F95D79E00B8679C /* HotUserCellCardView.swift in Sources */,
 				2ADA7C921F95D79E00B8679C /* HotUsersCellViewModel.swift in Sources */,
 				2ADA7C701F95D5CD00B8679C /* FeedListViewModel.swift in Sources */,
@@ -725,6 +741,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ReactiveListViewKitDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -741,6 +758,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ReactiveListViewKitDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

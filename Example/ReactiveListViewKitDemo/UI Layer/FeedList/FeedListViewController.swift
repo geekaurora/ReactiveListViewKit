@@ -15,7 +15,13 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
     fileprivate var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?
     /// `Core` of FLUX, composed of `Dispatcher` and `Store`
     fileprivate var core: Core<FeedListState>
-    private var fpsHelper = FPSHelper()
+    private lazy var fpsMonitor = FPSMonitor()
+    
+    private lazy var performanceDetector: KSScrollPerformanceDetector = {
+        let performanceDetector = KSScrollPerformanceDetector()
+        performanceDetector.delegate = self
+        return performanceDetector
+    }()
     
     required init?(coder aDecoder: NSCoder) {
         // Set up `Core` for FLUX pattern
@@ -27,12 +33,23 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
         
         super.init(coder: aDecoder)
         eventHandler.coordinator = self
+        
+        //KSScrollPerformanceDetector.init
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFeedListView()
         core.add(subscriber: self)
+        
+        //fpsMonitor.resume()
+        performanceDetector.resume()
+    }
+}
+
+extension FeedListViewController: KSScrollPerformanceDetectorDelegate {
+    func framesDropped(_ framesDroppedCount: Int, cumulativeFramesDropped: Int, cumulativeFrameDropEvents: Int) {
+        print("framesDroppedCount: \(framesDroppedCount); cumulativeFramesDropped: \(cumulativeFramesDropped); cumulativeFrameDropEvents: \(cumulativeFrameDropEvents)")
     }
 }
 
