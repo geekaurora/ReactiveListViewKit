@@ -15,7 +15,12 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
     fileprivate var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?
     /// `Core` of FLUX, composed of `Dispatcher` and `Store`
     fileprivate var core: Core<FeedListState>
-    private lazy var fpsMonitor = FPSMonitor()
+    
+    private lazy var fpsMonitor: FPSMonitor = {
+        let fpsMonitor = FPSMonitor()
+        fpsMonitor.delegate = self
+        return fpsMonitor
+    }()
     
     private lazy var performanceDetector: KSScrollPerformanceDetector = {
         let performanceDetector = KSScrollPerformanceDetector()
@@ -33,8 +38,6 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
         
         super.init(coder: aDecoder)
         eventHandler.coordinator = self
-        
-        //KSScrollPerformanceDetector.init
     }
     
     override func viewDidLoad() {
@@ -42,13 +45,19 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
         setupFeedListView()
         core.add(subscriber: self)
         
-        //fpsMonitor.resume()
+        fpsMonitor.resume()
         performanceDetector.resume()
     }
 }
 
-extension FeedListViewController: KSScrollPerformanceDetectorDelegate {
+extension FeedListViewController: FPSMonitorDelegate {
     func framesDropped(_ framesDroppedCount: Int, cumulativeFramesDropped: Int, cumulativeFrameDropEvents: Int) {
+        print("framesDroppedCount: \(framesDroppedCount); cumulativeFramesDropped: \(cumulativeFramesDropped); cumulativeFrameDropEvents: \(cumulativeFrameDropEvents) [FPSMonitor]")
+    }
+}
+
+extension FeedListViewController: KSScrollPerformanceDetectorDelegate {
+    func framesDropped2(_ framesDroppedCount: Int, cumulativeFramesDropped: Int, cumulativeFrameDropEvents: Int) {
         print("framesDroppedCount: \(framesDroppedCount); cumulativeFramesDropped: \(cumulativeFramesDropped); cumulativeFrameDropEvents: \(cumulativeFrameDropEvents)")
     }
 }
