@@ -64,7 +64,7 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
 }
 
 extension FeedListViewController: FPSMonitorDelegate {
-    func framesDropped(_ framesDroppedCount: Int, cumulativeFramesDropped: Int, cumulativeFrameDropEvents: Int) {
+    func framesDropped(_ framesDroppedCount: Double, cumulativeFramesDropped: Double, cumulativeFrameDropEvents: Int) {
         print("framesDroppedCount: \(framesDroppedCount); cumulativeFramesDropped: \(cumulativeFramesDropped); cumulativeFrameDropEvents: \(cumulativeFrameDropEvents) [FPSMonitor]")
     }
 }

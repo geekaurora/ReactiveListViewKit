@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		18BB6D6255DFF9733BFADB00 /* Pods_ReactiveListViewKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */; };
-		2A2C19D421814ABC008EB915 /* FPSMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C19D321814ABB008EB915 /* FPSMonitor.swift */; };
 		2A2C19DB218179DC008EB915 /* KSScrollPerformanceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C19DA218179DC008EB915 /* KSScrollPerformanceDetector.m */; };
 		2A2C19E42182DC6F008EB915 /* AutoScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C19E32182DC6F008EB915 /* AutoScrollManager.swift */; };
+		2A2C1A0E2182EFEC008EB915 /* TestFeedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C1A0D2182EFEC008EB915 /* TestFeedList.swift */; };
+		2A2C1A4C21838CBF008EB915 /* FPSMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C1A4B21838CBF008EB915 /* FPSMonitor.swift */; };
 		2A3FFF15200D47E800717636 /* ReactiveListViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A101B071FEF033E001AC915 /* ReactiveListViewKit.framework */; };
 		2A3FFF16200D47E800717636 /* ReactiveListViewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A101B071FEF033E001AC915 /* ReactiveListViewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ACDACBB1F95F1D500CD11CB /* CZNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADCB5A11F95E402007083CA /* CZNetworking.framework */; };
@@ -129,11 +130,12 @@
 /* Begin PBXFileReference section */
 		0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveListViewKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A101B001FEF033E001AC915 /* ReactiveListViewKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveListViewKit.xcodeproj; path = ../ReactiveListViewKit/ReactiveListViewKit.xcodeproj; sourceTree = "<group>"; };
-		2A2C19D321814ABB008EB915 /* FPSMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FPSMonitor.swift; path = "../../../TestDemos/____Opensource/_Core/CZFPSLabel/CZFPSLabel/CZFPSLabel/FPSMonitor.swift"; sourceTree = "<group>"; };
 		2A2C19D9218179DB008EB915 /* KSScrollPerformanceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSScrollPerformanceDetector.h; path = "../../../TestDemos/____Opensource/_Core/CZFPSLabel/CZFPSLabel/CZFPSLabel/KSScrollPerformanceDetector.h"; sourceTree = "<group>"; };
 		2A2C19DA218179DC008EB915 /* KSScrollPerformanceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSScrollPerformanceDetector.m; path = "../../../TestDemos/____Opensource/_Core/CZFPSLabel/CZFPSLabel/CZFPSLabel/KSScrollPerformanceDetector.m"; sourceTree = "<group>"; };
 		2A2C19E221817B73008EB915 /* ReactiveListViewKitDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactiveListViewKitDemo-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		2A2C19E32182DC6F008EB915 /* AutoScrollManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoScrollManager.swift; sourceTree = "<group>"; };
+		2A2C1A0D2182EFEC008EB915 /* TestFeedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFeedList.swift; sourceTree = "<group>"; };
+		2A2C1A4B21838CBF008EB915 /* FPSMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FPSMonitor.swift; path = Utils/FPSMonitor.swift; sourceTree = "<group>"; };
 		2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListEventHandler.swift; path = "UI Layer/FeedList/FeedListEventHandler.swift"; sourceTree = "<group>"; };
 		2ADA7C6C1F95D5CD00B8679C /* FeedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListViewController.swift; path = "UI Layer/FeedList/FeedListViewController.swift"; sourceTree = "<group>"; };
@@ -196,6 +198,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2A2C1A082182EF87008EB915 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2A2C1A0C2182EF9A008EB915 /* UnitTests */,
+				2A2C1A0B2182EF90008EB915 /* UITests */,
+			);
+			name = Tests;
+			path = ReactiveListViewKitDemo;
+			sourceTree = "<group>";
+		};
+		2A2C1A0B2182EF90008EB915 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				2A2C1A0D2182EFEC008EB915 /* TestFeedList.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
+		2A2C1A0C2182EF9A008EB915 /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
 		2ADA7C681F95D58000B8679C /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,7 +248,7 @@
 			children = (
 				2A2C19E32182DC6F008EB915 /* AutoScrollManager.swift */,
 				2ADCB55B1F95DCF3007083CA /* Constants.swift */,
-				2A2C19D321814ABB008EB915 /* FPSMonitor.swift */,
+				2A2C1A4B21838CBF008EB915 /* FPSMonitor.swift */,
 				2A2C19D9218179DB008EB915 /* KSScrollPerformanceDetector.h */,
 				2A2C19DA218179DC008EB915 /* KSScrollPerformanceDetector.m */,
 			);
@@ -335,6 +362,7 @@
 			children = (
 				2A101B001FEF033E001AC915 /* ReactiveListViewKit.xcodeproj */,
 				C3E8440A1F7F1615001ED65A /* ReactiveListViewKitDemo */,
+				2A2C1A082182EF87008EB915 /* Tests */,
 				C3E844091F7F1615001ED65A /* Products */,
 				549D3ECA39F4761C43AEBD3E /* Pods */,
 				B46F42819E49C1D66E9D8E22 /* Frameworks */,
@@ -563,6 +591,7 @@
 				2ADCB55A1F95DCED007083CA /* AppDelegate.swift in Sources */,
 				2ADA7C9B1F95D82500B8679C /* FeedCellView.swift in Sources */,
 				2ADA7C9D1F95D82500B8679C /* FeedCellViewModel.swift in Sources */,
+				2A2C1A4C21838CBF008EB915 /* FPSMonitor.swift in Sources */,
 				2ADA7C7C1F95D5FB00B8679C /* ImageInfo.swift in Sources */,
 				2ADA7C811F95D6DF00B8679C /* CZModel.swift in Sources */,
 				2ADA7C7B1F95D5FB00B8679C /* Feed.swift in Sources */,
@@ -572,12 +601,12 @@
 				2ADA7C961F95D7E200B8679C /* SuggestedUserEvent.swift in Sources */,
 				2ADA7C791F95D5FB00B8679C /* CZMocker.swift in Sources */,
 				2ADA7C6F1F95D5CD00B8679C /* FeedListViewController.swift in Sources */,
+				2A2C1A0E2182EFEC008EB915 /* TestFeedList.swift in Sources */,
 				2ADA7C9F1F95D87100B8679C /* FeedListEvent.swift in Sources */,
 				2ADA7C971F95D7E200B8679C /* UserStoryEvent.swift in Sources */,
 				2ADA7C8F1F95D79E00B8679C /* HotUserCellViewModel.swift in Sources */,
 				2A2C19DB218179DC008EB915 /* KSScrollPerformanceDetector.m in Sources */,
 				2ADA7C8D1F95D79E00B8679C /* HotUserCellView.swift in Sources */,
-				2A2C19D421814ABC008EB915 /* FPSMonitor.swift in Sources */,
 				2ADA7C8B1F95D79E00B8679C /* HotUserCellCardView.swift in Sources */,
 				2ADA7C921F95D79E00B8679C /* HotUsersCellViewModel.swift in Sources */,
 				2ADA7C701F95D5CD00B8679C /* FeedListViewModel.swift in Sources */,
