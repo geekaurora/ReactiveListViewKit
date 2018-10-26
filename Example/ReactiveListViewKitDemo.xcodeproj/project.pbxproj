@@ -10,7 +10,6 @@
 		18BB6D6255DFF9733BFADB00 /* Pods_ReactiveListViewKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */; };
 		2A2C19DB218179DC008EB915 /* KSScrollPerformanceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C19DA218179DC008EB915 /* KSScrollPerformanceDetector.m */; };
 		2A2C19E42182DC6F008EB915 /* AutoScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C19E32182DC6F008EB915 /* AutoScrollManager.swift */; };
-		2A2C1A0E2182EFEC008EB915 /* TestFeedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C1A0D2182EFEC008EB915 /* TestFeedList.swift */; };
 		2A2C1A4C21838CBF008EB915 /* FPSMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C1A4B21838CBF008EB915 /* FPSMonitor.swift */; };
 		2A3FFF15200D47E800717636 /* ReactiveListViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A101B071FEF033E001AC915 /* ReactiveListViewKit.framework */; };
 		2A3FFF16200D47E800717636 /* ReactiveListViewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A101B071FEF033E001AC915 /* ReactiveListViewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -47,6 +46,8 @@
 		2ADCB5641F95DD16007083CA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5631F95DD16007083CA /* Info.plist */; };
 		2ADCB5661F95DD45007083CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5651F95DD45007083CA /* Assets.xcassets */; };
 		2ADCB5681F95E09A007083CA /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5671F95E09A007083CA /* feeds.json */; };
+		2AE8DDCD2183DA7600C8D172 /* ReactiveListViewKitDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8DDCC2183DA7600C8D172 /* ReactiveListViewKitDemoUITests.swift */; };
+		2AE8DDD62183DA7B00C8D172 /* FeedListUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C1A0D2182EFEC008EB915 /* FeedListUITest.swift */; };
 		2AF920DA1F7F3A8300A5160F /* CZUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF920D91F7F3A8300A5160F /* CZUtils.framework */; };
 		2AF920DB1F7F3A8300A5160F /* CZUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF920D91F7F3A8300A5160F /* CZUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -108,6 +109,13 @@
 			remoteGlobalIDString = 044E02511F74349B00849AA2;
 			remoteInfo = CZNetworkingTests;
 		};
+		2AE8DDCF2183DA7600C8D172 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3E844001F7F1615001ED65A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3E844071F7F1615001ED65A;
+			remoteInfo = ReactiveListViewKitDemo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -134,7 +142,7 @@
 		2A2C19DA218179DC008EB915 /* KSScrollPerformanceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSScrollPerformanceDetector.m; path = "../../../TestDemos/____Opensource/_Core/CZFPSLabel/CZFPSLabel/CZFPSLabel/KSScrollPerformanceDetector.m"; sourceTree = "<group>"; };
 		2A2C19E221817B73008EB915 /* ReactiveListViewKitDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactiveListViewKitDemo-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		2A2C19E32182DC6F008EB915 /* AutoScrollManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoScrollManager.swift; sourceTree = "<group>"; };
-		2A2C1A0D2182EFEC008EB915 /* TestFeedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFeedList.swift; sourceTree = "<group>"; };
+		2A2C1A0D2182EFEC008EB915 /* FeedListUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListUITest.swift; sourceTree = "<group>"; };
 		2A2C1A4B21838CBF008EB915 /* FPSMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FPSMonitor.swift; path = Utils/FPSMonitor.swift; sourceTree = "<group>"; };
 		2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListEventHandler.swift; path = "UI Layer/FeedList/FeedListEventHandler.swift"; sourceTree = "<group>"; };
@@ -167,6 +175,9 @@
 		2ADCB5651F95DD45007083CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Supported Files/Resources/Assets.xcassets"; sourceTree = "<group>"; };
 		2ADCB5671F95E09A007083CA /* feeds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = feeds.json; path = "Supported Files/Resources/feeds.json"; sourceTree = "<group>"; };
 		2ADCB58A1F95E3E5007083CA /* CZNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZNetworking.xcodeproj; path = Utils/CZNetworking/CZNetworking.xcodeproj; sourceTree = "<group>"; };
+		2AE8DDCA2183DA7500C8D172 /* ReactiveListViewKitDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveListViewKitDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AE8DDCC2183DA7600C8D172 /* ReactiveListViewKitDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveListViewKitDemoUITests.swift; sourceTree = "<group>"; };
+		2AE8DDCE2183DA7600C8D172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AF920D91F7F3A8300A5160F /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA07FDAF186FE8BE55F9FA06 /* Pods-ReactiveListViewKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveListViewKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveListViewKitDemo/Pods-ReactiveListViewKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AF66D1BFAFC30D1DD31A02B9 /* Pods-ReactiveListViewKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveListViewKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveListViewKitDemo/Pods-ReactiveListViewKitDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +185,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2AE8DDC72183DA7500C8D172 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3E844051F7F1615001ED65A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -211,7 +229,7 @@
 		2A2C1A0B2182EF90008EB915 /* UITests */ = {
 			isa = PBXGroup;
 			children = (
-				2A2C1A0D2182EFEC008EB915 /* TestFeedList.swift */,
+				2A2C1A0D2182EFEC008EB915 /* FeedListUITest.swift */,
 			);
 			path = UITests;
 			sourceTree = "<group>";
@@ -323,6 +341,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2AE8DDCB2183DA7600C8D172 /* ReactiveListViewKitDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2AE8DDCC2183DA7600C8D172 /* ReactiveListViewKitDemoUITests.swift */,
+				2AE8DDCE2183DA7600C8D172 /* Info.plist */,
+			);
+			path = ReactiveListViewKitDemoUITests;
+			sourceTree = "<group>";
+		};
 		549D3ECA39F4761C43AEBD3E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +390,7 @@
 				2A101B001FEF033E001AC915 /* ReactiveListViewKit.xcodeproj */,
 				C3E8440A1F7F1615001ED65A /* ReactiveListViewKitDemo */,
 				2A2C1A082182EF87008EB915 /* Tests */,
+				2AE8DDCB2183DA7600C8D172 /* ReactiveListViewKitDemoUITests */,
 				C3E844091F7F1615001ED65A /* Products */,
 				549D3ECA39F4761C43AEBD3E /* Pods */,
 				B46F42819E49C1D66E9D8E22 /* Frameworks */,
@@ -373,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				C3E844081F7F1615001ED65A /* ReactiveListViewKitDemo.app */,
+				2AE8DDCA2183DA7500C8D172 /* ReactiveListViewKitDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -404,6 +433,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2AE8DDC92183DA7500C8D172 /* ReactiveListViewKitDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AE8DDD52183DA7600C8D172 /* Build configuration list for PBXNativeTarget "ReactiveListViewKitDemoUITests" */;
+			buildPhases = (
+				2AE8DDC62183DA7500C8D172 /* Sources */,
+				2AE8DDC72183DA7500C8D172 /* Frameworks */,
+				2AE8DDC82183DA7500C8D172 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2AE8DDD02183DA7600C8D172 /* PBXTargetDependency */,
+			);
+			name = ReactiveListViewKitDemoUITests;
+			productName = ReactiveListViewKitDemoUITests;
+			productReference = 2AE8DDCA2183DA7500C8D172 /* ReactiveListViewKitDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		C3E844071F7F1615001ED65A /* ReactiveListViewKitDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3E8441A1F7F1615001ED65A /* Build configuration list for PBXNativeTarget "ReactiveListViewKitDemo" */;
@@ -435,10 +482,16 @@
 		C3E844001F7F1615001ED65A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Cheng Zhang";
 				TargetAttributes = {
+					2AE8DDC92183DA7500C8D172 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 55RDUQ8X48;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C3E844071F7F1615001ED65A;
+					};
 					C3E844071F7F1615001ED65A = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 55RDUQ8X48;
@@ -470,6 +523,7 @@
 			projectRoot = "";
 			targets = (
 				C3E844071F7F1615001ED65A /* ReactiveListViewKitDemo */,
+				2AE8DDC92183DA7500C8D172 /* ReactiveListViewKitDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -506,6 +560,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2AE8DDC82183DA7500C8D172 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3E844061F7F1615001ED65A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -583,6 +644,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2AE8DDC62183DA7500C8D172 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AE8DDCD2183DA7600C8D172 /* ReactiveListViewKitDemoUITests.swift in Sources */,
+				2AE8DDD62183DA7B00C8D172 /* FeedListUITest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3E844041F7F1615001ED65A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -601,7 +671,6 @@
 				2ADA7C961F95D7E200B8679C /* SuggestedUserEvent.swift in Sources */,
 				2ADA7C791F95D5FB00B8679C /* CZMocker.swift in Sources */,
 				2ADA7C6F1F95D5CD00B8679C /* FeedListViewController.swift in Sources */,
-				2A2C1A0E2182EFEC008EB915 /* TestFeedList.swift in Sources */,
 				2ADA7C9F1F95D87100B8679C /* FeedListEvent.swift in Sources */,
 				2ADA7C971F95D7E200B8679C /* UserStoryEvent.swift in Sources */,
 				2ADA7C8F1F95D79E00B8679C /* HotUserCellViewModel.swift in Sources */,
@@ -637,6 +706,11 @@
 			name = CZNetworking;
 			targetProxy = 2AD5C7BF1F95EF220086E58D /* PBXContainerItemProxy */;
 		};
+		2AE8DDD02183DA7600C8D172 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3E844071F7F1615001ED65A /* ReactiveListViewKitDemo */;
+			targetProxy = 2AE8DDCF2183DA7600C8D172 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -659,6 +733,58 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2AE8DDD12183DA7600C8D172 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55RDUQ8X48;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ReactiveListViewKitDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKitDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ReactiveListViewKitDemo;
+			};
+			name = Debug;
+		};
+		2AE8DDD22183DA7600C8D172 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55RDUQ8X48;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ReactiveListViewKitDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKitDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ReactiveListViewKitDemo;
+			};
+			name = Release;
+		};
 		C3E844181F7F1615001ED65A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -791,6 +917,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2AE8DDD52183DA7600C8D172 /* Build configuration list for PBXNativeTarget "ReactiveListViewKitDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AE8DDD12183DA7600C8D172 /* Debug */,
+				2AE8DDD22183DA7600C8D172 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C3E844031F7F1615001ED65A /* Build configuration list for PBXProject "ReactiveListViewKitDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
