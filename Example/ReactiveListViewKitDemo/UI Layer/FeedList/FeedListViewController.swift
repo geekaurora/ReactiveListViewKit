@@ -16,10 +16,10 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
     /// `Core` of FLUX, composed of `Dispatcher` and `Store`
     fileprivate var core: Core<FeedListState>
     
-//    private lazy var autoScrollManager: AutoScrollManager = {
-//        let autoScrollManager = AutoScrollManager(collectionView: feedListFacadeView!.collectionView)
-//        return autoScrollManager
-//    }()
+    private lazy var autoScrollManager: AutoScrollManager = {
+        let autoScrollManager = AutoScrollManager(collectionView: self.feedListFacadeView!.collectionView)
+        return autoScrollManager
+    }()
     
     private lazy var fpsMonitor: FPSMonitor = {
         let fpsMonitor = FPSMonitor()
@@ -56,7 +56,10 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //autoScrollManager.startScroll()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.autoScrollManager.startScroll()
+        }
     }
 }
 

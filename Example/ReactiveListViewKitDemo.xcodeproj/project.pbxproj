@@ -219,8 +219,8 @@
 		2ADA7C7F1F95D6CC00B8679C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				2ADCB55B1F95DCF3007083CA /* Constants.swift */,
 				2A2C19E32182DC6F008EB915 /* AutoScrollManager.swift */,
+				2ADCB55B1F95DCF3007083CA /* Constants.swift */,
 				2A2C19D321814ABB008EB915 /* FPSMonitor.swift */,
 				2A2C19D9218179DB008EB915 /* KSScrollPerformanceDetector.h */,
 				2A2C19DA218179DC008EB915 /* KSScrollPerformanceDetector.m */,
@@ -738,7 +738,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ReactiveListViewKitDemo-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -755,7 +755,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ReactiveListViewKitDemo-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

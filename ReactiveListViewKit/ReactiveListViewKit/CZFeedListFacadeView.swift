@@ -8,6 +8,19 @@
 
 import UIKit
 
+fileprivate var scrollDelegateProxyPointer: Int8 = 0
+public extension UICollectionView {
+    public var scrollDelegateProxy: UIScrollViewDelegate? {
+        get {
+            return objc_getAssociatedObject(self, &scrollDelegateProxyPointer) as? UIScrollViewDelegate
+        }
+        set {
+            objc_setAssociatedObject(self, &scrollDelegateProxyPointer, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+}
+
+
 /// Elegant Facade class encapsulating `UICollectionview`/`UIMapView` for reusable cells
 ///
 /// - Features:
@@ -454,7 +467,14 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
 extension CZFeedListFacadeView: UIScrollViewDelegate {
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         isLoadingMore = false
+        print("\(collectionView.scrollDelegateProxy)")
+        collectionView.scrollDelegateProxy?.scrollViewDidEndDecelerating?(scrollView)
     }
+    
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        collectionView.scrollDelegateProxy?.scrollViewDidEndScrollingAnimation?(scrollView)
+    }
+    
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
     }
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
