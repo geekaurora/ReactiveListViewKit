@@ -31,6 +31,7 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFeedListView()
+        setupAccessibility()
         core.add(subscriber: self)
     }
 }
@@ -44,6 +45,11 @@ fileprivate extension FeedListViewController {
             sectionModelsResolver: core.state.sectionModelsResolver,
             parentViewController:self)
         feedListFacadeView?.overlayOnSuperViewController(self, insets: Constants.feedListViewInsets)
+    }
+    func setupAccessibility() {
+        feedListFacadeView?.collectionView?.accessibilityLabel = AccessibilityLabel.feedListCollectionView
+        feedListFacadeView?.collectionView?.accessibilityIdentifier = AccessibilityLabel.feedListCollectionView
+        feedListFacadeView?.collectionView?.isAccessibilityElement = true
     }
 }
 

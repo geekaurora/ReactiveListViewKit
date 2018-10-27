@@ -15,3 +15,7 @@ enum Constants {
     static let suggestedUsersCellHeight: CGFloat = 110
     static let suggestedUsersCellBGColor = UIColor(white: 250.0 / 255.0, alpha: 1)
 }
+
+enum AccessibilityLabel {
+    static let feedListCollectionView = "feedListCollectionView"
+}

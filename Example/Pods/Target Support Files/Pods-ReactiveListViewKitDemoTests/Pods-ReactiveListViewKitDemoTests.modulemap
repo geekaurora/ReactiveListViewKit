@@ -1,0 +1,6 @@
+framework module Pods_ReactiveListViewKitDemoTests {
+  umbrella header "Pods-ReactiveListViewKitDemoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -68,7 +68,7 @@ class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
         likeButton.setTitle("", for: .normal)
         likeButton.setImage(UIImage(named: viewModel.userHasLiked ? "Liked" : "Like"), for: .normal)
         bottomDivider.isHidden = !viewModel.isInFeedDetails
-        stackViewWidthConstraint.constant = UIScreen.currWidth
+        stackViewWidthConstraint.constant = UIScreen.currWidth    
     }
 
     static func sizeThatFits(_ containerSize: CGSize, viewModel: CZFeedViewModelable) -> CGSize {

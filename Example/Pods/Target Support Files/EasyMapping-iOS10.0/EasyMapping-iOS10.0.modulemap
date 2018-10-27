@@ -1,5 +1,5 @@
 framework module EasyMapping {
-  umbrella header "EasyMapping-umbrella.h"
+  umbrella header "EasyMapping-iOS10.0-umbrella.h"
 
   export *
   module * { export * }

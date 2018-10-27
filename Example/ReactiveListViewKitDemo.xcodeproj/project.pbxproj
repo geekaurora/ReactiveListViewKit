@@ -10,6 +10,9 @@
 		18BB6D6255DFF9733BFADB00 /* Pods_ReactiveListViewKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */; };
 		2A3FFF15200D47E800717636 /* ReactiveListViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A101B071FEF033E001AC915 /* ReactiveListViewKit.framework */; };
 		2A3FFF16200D47E800717636 /* ReactiveListViewKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A101B071FEF033E001AC915 /* ReactiveListViewKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2A6006862183F1690024C22D /* ReactiveListViewKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6006852183F1690024C22D /* ReactiveListViewKitUITests.swift */; };
+		2A600699218424BE0024C22D /* KIFUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A600698218424BE0024C22D /* KIFUtils.swift */; };
+		2A60069B21843DEC0024C22D /* CZUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A60069A21843DEC0024C22D /* CZUITest.swift */; };
 		2ACDACBB1F95F1D500CD11CB /* CZNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADCB5A11F95E402007083CA /* CZNetworking.framework */; };
 		2ACDACBC1F95F1D500CD11CB /* CZNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADCB5A11F95E402007083CA /* CZNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ACDACC11F95F1F800CD11CB /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */; };
@@ -45,6 +48,8 @@
 		2ADCB5681F95E09A007083CA /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5671F95E09A007083CA /* feeds.json */; };
 		2AF920DA1F7F3A8300A5160F /* CZUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF920D91F7F3A8300A5160F /* CZUtils.framework */; };
 		2AF920DB1F7F3A8300A5160F /* CZUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF920D91F7F3A8300A5160F /* CZUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B9BEC741147BA1B00595893 /* Pods_ReactiveListViewKitDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E62945B31D75A3555DE1B4C /* Pods_ReactiveListViewKitDemoTests.framework */; };
+		B9D21CD284BABC7C3060F143 /* Pods_ReactiveListViewKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE8DDF52183E87400C8D172 /* Pods_ReactiveListViewKitDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +73,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 044E032B1F74458B00849AA2;
 			remoteInfo = ReactiveListViewKit;
+		};
+		2A6006882183F1690024C22D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3E844001F7F1615001ED65A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3E844071F7F1615001ED65A;
+			remoteInfo = ReactiveListViewKitDemo;
 		};
 		2AB659901FEF093A001A8835 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -126,6 +138,11 @@
 /* Begin PBXFileReference section */
 		0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveListViewKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A101B001FEF033E001AC915 /* ReactiveListViewKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveListViewKit.xcodeproj; path = ../ReactiveListViewKit/ReactiveListViewKit.xcodeproj; sourceTree = "<group>"; };
+		2A6006832183F1690024C22D /* ReactiveListViewKitDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveListViewKitDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A6006852183F1690024C22D /* ReactiveListViewKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveListViewKitUITests.swift; sourceTree = "<group>"; };
+		2A6006872183F1690024C22D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A600698218424BE0024C22D /* KIFUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KIFUtils.swift; sourceTree = "<group>"; };
+		2A60069A21843DEC0024C22D /* CZUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZUITest.swift; sourceTree = "<group>"; };
 		2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADA7C6B1F95D5CD00B8679C /* FeedListEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListEventHandler.swift; path = "UI Layer/FeedList/FeedListEventHandler.swift"; sourceTree = "<group>"; };
 		2ADA7C6C1F95D5CD00B8679C /* FeedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedListViewController.swift; path = "UI Layer/FeedList/FeedListViewController.swift"; sourceTree = "<group>"; };
@@ -157,13 +174,30 @@
 		2ADCB5651F95DD45007083CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Supported Files/Resources/Assets.xcassets"; sourceTree = "<group>"; };
 		2ADCB5671F95E09A007083CA /* feeds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = feeds.json; path = "Supported Files/Resources/feeds.json"; sourceTree = "<group>"; };
 		2ADCB58A1F95E3E5007083CA /* CZNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZNetworking.xcodeproj; path = Utils/CZNetworking/CZNetworking.xcodeproj; sourceTree = "<group>"; };
+		2AE8DDF52183E87400C8D172 /* Pods_ReactiveListViewKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ReactiveListViewKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AE8DDF72183EA6600C8D172 /* EasyMapping.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EasyMapping.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AE8DDF92183EAC900C8D172 /* EasyMapping.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EasyMapping.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF920D91F7F3A8300A5160F /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DB58FF8297311ABD0558403 /* Pods-ReactiveListViewKitDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveListViewKitDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveListViewKitDemoUITests/Pods-ReactiveListViewKitDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		41D14FED2B7A5F4FEFD49EB0 /* Pods-ReactiveListViewKitDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveListViewKitDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveListViewKitDemoUITests/Pods-ReactiveListViewKitDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7D236B1CAFBC7DE443BFEE08 /* Pods-ReactiveListViewKitDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveListViewKitDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveListViewKitDemoTests/Pods-ReactiveListViewKitDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		9E62945B31D75A3555DE1B4C /* Pods_ReactiveListViewKitDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveListViewKitDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA07FDAF186FE8BE55F9FA06 /* Pods-ReactiveListViewKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveListViewKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveListViewKitDemo/Pods-ReactiveListViewKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AF66D1BFAFC30D1DD31A02B9 /* Pods-ReactiveListViewKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveListViewKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveListViewKitDemo/Pods-ReactiveListViewKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B73E0F998059BC7F00E08E17 /* Pods-ReactiveListViewKitDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveListViewKitDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveListViewKitDemoTests/Pods-ReactiveListViewKitDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3E844081F7F1615001ED65A /* ReactiveListViewKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveListViewKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4AA3F7A28FE642CA80B3FCF /* Pods_ReactiveListViewKitDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveListViewKitDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2A6006802183F1690024C22D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B9BEC741147BA1B00595893 /* Pods_ReactiveListViewKitDemoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3E844051F7F1615001ED65A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,6 +207,7 @@
 				2A3FFF15200D47E800717636 /* ReactiveListViewKit.framework in Frameworks */,
 				2ACDACC11F95F1F800CD11CB /* CommonCrypto.framework in Frameworks */,
 				2ACDACBB1F95F1D500CD11CB /* CZNetworking.framework in Frameworks */,
+				B9D21CD284BABC7C3060F143 /* Pods_ReactiveListViewKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +221,25 @@
 				2A101B091FEF033E001AC915 /* ReactiveListViewKitTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2A6006842183F1690024C22D /* ReactiveListViewKitUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2A6006852183F1690024C22D /* ReactiveListViewKitUITests.swift */,
+				2A600695218424A80024C22D /* Utils */,
+				2A6006872183F1690024C22D /* Info.plist */,
+			);
+			path = ReactiveListViewKitUITests;
+			sourceTree = "<group>";
+		};
+		2A600695218424A80024C22D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2A600698218424BE0024C22D /* KIFUtils.swift */,
+				2A60069A21843DEC0024C22D /* CZUITest.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		2ADA7C681F95D58000B8679C /* Data Layer */ = {
@@ -289,6 +343,10 @@
 			children = (
 				AA07FDAF186FE8BE55F9FA06 /* Pods-ReactiveListViewKitDemo.debug.xcconfig */,
 				AF66D1BFAFC30D1DD31A02B9 /* Pods-ReactiveListViewKitDemo.release.xcconfig */,
+				41D14FED2B7A5F4FEFD49EB0 /* Pods-ReactiveListViewKitDemoUITests.debug.xcconfig */,
+				2DB58FF8297311ABD0558403 /* Pods-ReactiveListViewKitDemoUITests.release.xcconfig */,
+				B73E0F998059BC7F00E08E17 /* Pods-ReactiveListViewKitDemoTests.debug.xcconfig */,
+				7D236B1CAFBC7DE443BFEE08 /* Pods-ReactiveListViewKitDemoTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -296,9 +354,14 @@
 		B46F42819E49C1D66E9D8E22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2AE8DDF92183EAC900C8D172 /* EasyMapping.framework */,
+				2AE8DDF72183EA6600C8D172 /* EasyMapping.framework */,
+				2AE8DDF52183E87400C8D172 /* Pods_ReactiveListViewKitDemo.framework */,
 				2ACDACC01F95F1F800CD11CB /* CommonCrypto.framework */,
 				2AF920D91F7F3A8300A5160F /* CZUtils.framework */,
 				0B921A31645CBBC61EB361DD /* Pods_ReactiveListViewKitDemo.framework */,
+				D4AA3F7A28FE642CA80B3FCF /* Pods_ReactiveListViewKitDemoUITests.framework */,
+				9E62945B31D75A3555DE1B4C /* Pods_ReactiveListViewKitDemoTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -322,6 +385,7 @@
 			children = (
 				2A101B001FEF033E001AC915 /* ReactiveListViewKit.xcodeproj */,
 				C3E8440A1F7F1615001ED65A /* ReactiveListViewKitDemo */,
+				2A6006842183F1690024C22D /* ReactiveListViewKitUITests */,
 				C3E844091F7F1615001ED65A /* Products */,
 				549D3ECA39F4761C43AEBD3E /* Pods */,
 				B46F42819E49C1D66E9D8E22 /* Frameworks */,
@@ -332,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				C3E844081F7F1615001ED65A /* ReactiveListViewKitDemo.app */,
+				2A6006832183F1690024C22D /* ReactiveListViewKitDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -363,6 +428,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2A6006822183F1690024C22D /* ReactiveListViewKitDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A60068A2183F1690024C22D /* Build configuration list for PBXNativeTarget "ReactiveListViewKitDemoTests" */;
+			buildPhases = (
+				041991897627A4FED94642C3 /* [CP] Check Pods Manifest.lock */,
+				2A60067F2183F1690024C22D /* Sources */,
+				2A6006802183F1690024C22D /* Frameworks */,
+				2A6006812183F1690024C22D /* Resources */,
+				6FA69372CACCB6EC1DEC4622 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A6006892183F1690024C22D /* PBXTargetDependency */,
+			);
+			name = ReactiveListViewKitDemoTests;
+			productName = ReactiveListViewKitDemoTests;
+			productReference = 2A6006832183F1690024C22D /* ReactiveListViewKitDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C3E844071F7F1615001ED65A /* ReactiveListViewKitDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3E8441A1F7F1615001ED65A /* Build configuration list for PBXNativeTarget "ReactiveListViewKitDemo" */;
@@ -372,7 +457,6 @@
 				C3E844051F7F1615001ED65A /* Frameworks */,
 				C3E844061F7F1615001ED65A /* Resources */,
 				F88AEC87282ED62CA8EA5C4D /* [CP] Embed Pods Frameworks */,
-				E5E4ADA411BC66747D6200F2 /* [CP] Copy Pods Resources */,
 				C3BBE2601F7F16E1002576BF /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -394,10 +478,16 @@
 		C3E844001F7F1615001ED65A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Cheng Zhang";
 				TargetAttributes = {
+					2A6006822183F1690024C22D = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 55RDUQ8X48;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C3E844071F7F1615001ED65A;
+					};
 					C3E844071F7F1615001ED65A = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 55RDUQ8X48;
@@ -429,6 +519,7 @@
 			projectRoot = "";
 			targets = (
 				C3E844071F7F1615001ED65A /* ReactiveListViewKitDemo */,
+				2A6006822183F1690024C22D /* ReactiveListViewKitDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -465,6 +556,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2A6006812183F1690024C22D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3E844061F7F1615001ED65A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -484,6 +582,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		041991897627A4FED94642C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReactiveListViewKitDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6FA69372CACCB6EC1DEC4622 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ReactiveListViewKitDemoTests/Pods-ReactiveListViewKitDemoTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EasyMapping-iOS11.2/EasyMapping.framework",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-11/iOS/RevealServer.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage-iOS11.2/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/KIF/KIF.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyMapping.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KIF.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReactiveListViewKitDemoTests/Pods-ReactiveListViewKitDemoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8A17652236720298C0050CCE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -502,21 +642,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E5E4ADA411BC66747D6200F2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReactiveListViewKitDemo/Pods-ReactiveListViewKitDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F88AEC87282ED62CA8EA5C4D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -524,9 +649,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ReactiveListViewKitDemo/Pods-ReactiveListViewKitDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EasyMapping/EasyMapping.framework",
+				"${BUILT_PRODUCTS_DIR}/EasyMapping-iOS10.0/EasyMapping.framework",
 				"${PODS_ROOT}/Reveal-SDK/RevealServer-11/iOS/RevealServer.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage-iOS10.0/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -542,6 +667,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2A60067F2183F1690024C22D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A600699218424BE0024C22D /* KIFUtils.swift in Sources */,
+				2A6006862183F1690024C22D /* ReactiveListViewKitUITests.swift in Sources */,
+				2A60069B21843DEC0024C22D /* CZUITest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3E844041F7F1615001ED65A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -576,6 +711,11 @@
 			isa = PBXTargetDependency;
 			name = ReactiveListViewKit;
 			targetProxy = 2A3FFF17200D47E800717636 /* PBXContainerItemProxy */;
+		};
+		2A6006892183F1690024C22D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3E844071F7F1615001ED65A /* ReactiveListViewKitDemo */;
+			targetProxy = 2A6006882183F1690024C22D /* PBXContainerItemProxy */;
 		};
 		2AB659911FEF093A001A8835 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -614,6 +754,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2A60068B2183F1690024C22D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B73E0F998059BC7F00E08E17 /* Pods-ReactiveListViewKitDemoTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55RDUQ8X48;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ReactiveListViewKitUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKitDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactiveListViewKitDemo.app/ReactiveListViewKitDemo";
+			};
+			name = Debug;
+		};
+		2A60068C2183F1690024C22D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D236B1CAFBC7DE443BFEE08 /* Pods-ReactiveListViewKitDemoTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55RDUQ8X48;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ReactiveListViewKitUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKitDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactiveListViewKitDemo.app/ReactiveListViewKitDemo";
+			};
+			name = Release;
+		};
 		C3E844181F7F1615001ED65A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -744,6 +940,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2A60068A2183F1690024C22D /* Build configuration list for PBXNativeTarget "ReactiveListViewKitDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A60068B2183F1690024C22D /* Debug */,
+				2A60068C2183F1690024C22D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C3E844031F7F1615001ED65A /* Build configuration list for PBXProject "ReactiveListViewKitDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

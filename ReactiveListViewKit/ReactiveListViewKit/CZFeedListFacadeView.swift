@@ -17,10 +17,10 @@ import UIKit
 open class CZFeedListFacadeView: UIView {
     // Resolver closure that transforms `Feed` array to `CZSectionModel` array
     public typealias SectionModelsResolver = ([Any]) -> [CZSectionModel]
-    internal var onEvent: OnEvent?
+    fileprivate(set) var onEvent: OnEvent?
     fileprivate(set) lazy var viewModel = CZFeedListViewModel()
     fileprivate(set) lazy var newViewModel = CZFeedListViewModel()
-    fileprivate(set) var collectionView: UICollectionView!
+    public fileprivate(set) var collectionView: UICollectionView!
     fileprivate let parentViewController: UIViewController?
     fileprivate var collectionViewBGColor: UIColor?
     fileprivate var minimumLineSpacing: CGFloat
