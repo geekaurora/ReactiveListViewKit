@@ -16,8 +16,9 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
     /// `Core` of FLUX, composed of `Dispatcher` and `Store`
     fileprivate var core: Core<FeedListState>
     
-    private lazy var autoScrollManager: AutoScrollManager = {
+    fileprivate lazy var autoScrollManager: AutoScrollManager = {
         let autoScrollManager = AutoScrollManager(collectionView: self.feedListFacadeView!.collectionView)
+        autoScrollManager.delegate = self
         return autoScrollManager
     }()
     
@@ -25,12 +26,6 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
         let fpsMonitor = FPSMonitor()
         fpsMonitor.delegate = self
         return fpsMonitor
-    }()
-    
-    private lazy var performanceDetector: KSScrollPerformanceDetector = {
-        let performanceDetector = KSScrollPerformanceDetector()
-        performanceDetector.delegate = self
-        return performanceDetector
     }()
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,27 +46,10 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
         core.add(subscriber: self)
         
         fpsMonitor.resume()
-        performanceDetector.resume()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.autoScrollManager.startScroll()
-        }
-    }
-}
-
-extension FeedListViewController: FPSMonitorDelegate {
-    func framesDropped(_ framesDroppedCount: Double, cumulativeFramesDropped: Double, cumulativeFrameDropEvents: Int) {
-        print("framesDroppedCount: \(framesDroppedCount); cumulativeFramesDropped: \(cumulativeFramesDropped); cumulativeFrameDropEvents: \(cumulativeFrameDropEvents) [FPSMonitor]")
-    }
-}
-
-extension FeedListViewController: KSScrollPerformanceDetectorDelegate {
-    func framesDropped2(_ framesDroppedCount: Int, cumulativeFramesDropped: Int, cumulativeFrameDropEvents: Int) {
-        print("framesDroppedCount: \(framesDroppedCount); cumulativeFramesDropped: \(cumulativeFramesDropped); cumulativeFrameDropEvents: \(cumulativeFrameDropEvents)")
     }
 }
 
@@ -93,7 +71,21 @@ extension FeedListViewController: Subscriber {
     /// Notify FacadeListView to batch update automatically
     func update(with state: FeedListState, prevState: FeedListState?) {
         feedListFacadeView?.batchUpdate(withFeeds: core.state.feeds)
+        
+        autoScrollManager.refreshIndexPathsForVisibleItems()
     }
 }
 
+
+extension FeedListViewController: FPSMonitorDelegate {
+    func framesDropped(_ framesDroppedCount: Double, cumulativeFramesDropped: Double, cumulativeFrameDropEvents: Int) {
+        print("framesDroppedCount: \(framesDroppedCount); cumulativeFramesDropped: \(cumulativeFramesDropped); cumulativeFrameDropEvents: \(cumulativeFrameDropEvents) [FPSMonitor]")
+    }
+}
+
+extension FeedListViewController: AutoScrollManagerDelegate {
+    func indexPathsForVisibleItemsDidChange(_ indexPathsForVisibleItems: [IndexPath]) {
+        print("indexPathsForVisibleItems:\(indexPathsForVisibleItems)")
+    }
+}
 

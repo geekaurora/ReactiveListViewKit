@@ -465,6 +465,10 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
 }
 
 extension CZFeedListFacadeView: UIScrollViewDelegate {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+         collectionView.scrollDelegateProxy?.scrollViewDidScroll?(scrollView)
+    }
+    
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         isLoadingMore = false
         print("\(collectionView.scrollDelegateProxy)")
