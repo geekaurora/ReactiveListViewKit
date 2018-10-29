@@ -16,8 +16,8 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
     /// `Core` of FLUX, composed of `Dispatcher` and `Store`
     fileprivate var core: Core<FeedListState>
     
-    fileprivate lazy var autoScrollManager: AutoScrollManager = {
-        let autoScrollManager = AutoScrollManager(collectionView: self.feedListFacadeView!.collectionView)
+    fileprivate lazy var autoScrollManager: CollectionViewScrollMonitor = {
+        let autoScrollManager = CollectionViewScrollMonitor(collectionView: self.feedListFacadeView!.collectionView)
         autoScrollManager.delegate = self
         return autoScrollManager
     }()
@@ -83,7 +83,7 @@ extension FeedListViewController: FPSMonitorDelegate {
     }
 }
 
-extension FeedListViewController: AutoScrollManagerDelegate {
+extension FeedListViewController: CollectionViewScrollMonitorDelegate {
     func indexPathsForVisibleItemsDidChange(_ indexPathsForVisibleItems: [IndexPath]) {
         print("indexPathsForVisibleItems:\(indexPathsForVisibleItems)")
     }

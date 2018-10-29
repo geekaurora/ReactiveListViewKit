@@ -27,7 +27,7 @@
 		2A14FA3B1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14FA3A1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift */; };
 		2A14FA3E1FCF50B800914C8E /* CZFeedDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14FA3D1FCF50B800914C8E /* CZFeedDetailsModel.swift */; };
 		2A1607501F7DAF0500FC3E9B /* ReactiveListViewKitConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A16074F1F7DAF0500FC3E9B /* ReactiveListViewKitConstants.swift */; };
-		2A2C19FD2182EA34008EB915 /* AutoScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C19FB2182EA34008EB915 /* AutoScrollManager.swift */; };
+		2A2C19FD2182EA34008EB915 /* CollectionViewScrollMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C19FB2182EA34008EB915 /* CollectionViewScrollMonitor.swift */; };
 		2A465C761F7F01B800406343 /* CZListDiffableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A465C751F7F01B800406343 /* CZListDiffableHelper.swift */; };
 		2AB3DB961F7EC3D8009A5EF9 /* CZDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3DB8E1F7EC3D8009A5EF9 /* CZDividerView.swift */; };
 		2AB3DB971F7EC3D8009A5EF9 /* CZFeedListSupplementaryLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3DB8F1F7EC3D8009A5EF9 /* CZFeedListSupplementaryLineView.swift */; };
@@ -101,7 +101,7 @@
 		2A14FA3A1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZFeedDetailsViewModel.swift; sourceTree = "<group>"; };
 		2A14FA3D1FCF50B800914C8E /* CZFeedDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZFeedDetailsModel.swift; sourceTree = "<group>"; };
 		2A16074F1F7DAF0500FC3E9B /* ReactiveListViewKitConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReactiveListViewKitConstants.swift; path = Utils/ReactiveListViewKitConstants.swift; sourceTree = "<group>"; };
-		2A2C19FB2182EA34008EB915 /* AutoScrollManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoScrollManager.swift; path = ../../Example/ReactiveListViewKitDemo/AutoScrollManager.swift; sourceTree = "<group>"; };
+		2A2C19FB2182EA34008EB915 /* CollectionViewScrollMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewScrollMonitor.swift; path = ../../Example/ReactiveListViewKitDemo/CollectionViewScrollMonitor.swift; sourceTree = "<group>"; };
 		2A465C751F7F01B800406343 /* CZListDiffableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZListDiffableHelper.swift; path = Utils/CZListDiffableHelper.swift; sourceTree = "<group>"; };
 		2A5D41BA203BA81F001E5DD6 /* CZUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZUtils.xcodeproj; path = "Supported Files/CZUtils/CZUtils.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		2AB3DB8E1F7EC3D8009A5EF9 /* CZDividerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZDividerView.swift; path = TemplateViews/CZDividerView.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 				2A465C751F7F01B800406343 /* CZListDiffableHelper.swift */,
 				2AB3DB9E1F7EC407009A5EF9 /* Array+Extension.swift */,
 				2AD7DCB71FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift */,
-				2A2C19FB2182EA34008EB915 /* AutoScrollManager.swift */,
+				2A2C19FB2182EA34008EB915 /* CollectionViewScrollMonitor.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -428,7 +428,7 @@
 				044E03611F74464200849AA2 /* CZFeedModel.swift in Sources */,
 				2AD7DCB81FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift in Sources */,
 				2A14FA3B1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift in Sources */,
-				2A2C19FD2182EA34008EB915 /* AutoScrollManager.swift in Sources */,
+				2A2C19FD2182EA34008EB915 /* CollectionViewScrollMonitor.swift in Sources */,
 				2AB3DB981F7EC3D8009A5EF9 /* CZFeedListSupplementaryTextView.swift in Sources */,
 				2AB3DB9D1F7EC3D8009A5EF9 /* CZTextFeedViewModel.swift in Sources */,
 				044E035A1F74464200849AA2 /* CZFeedDetailsFacadeView.swift in Sources */,

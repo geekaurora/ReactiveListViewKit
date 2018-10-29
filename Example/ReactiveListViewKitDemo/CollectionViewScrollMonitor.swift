@@ -1,5 +1,5 @@
 //
-//  AutoScrollManager.swift
+//  CollectionViewScrollMonitor.swift
 //
 //  Created by Cheng Zhang on 10/25/18.
 //  Copyright © 2018 LinkedIn. All rights reserved.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-public protocol AutoScrollManagerDelegate: class {
+public protocol CollectionViewScrollMonitorDelegate: class {
     func indexPathsForVisibleItemsDidChange(_ indexPathsForVisibleItems: [IndexPath])
 }
 
 /**
  Auto scroll UICollectionView from top to bottom
  */
-public class AutoScrollManager: NSObject {
-    fileprivate static let logPrefix = "[AutoScrollManager] "
+public class CollectionViewScrollMonitor: NSObject {
+    fileprivate static let logPrefix = "[CollectionViewScrollMonitor] "
     fileprivate let collectionView: UICollectionView
     fileprivate let sectionsPerScroll: Int
     fileprivate let maxSections: Int
@@ -23,7 +23,7 @@ public class AutoScrollManager: NSObject {
     fileprivate var lastScrolledSection = 0
     fileprivate var shouldAutoScroll = false
     
-    public weak var delegate: AutoScrollManagerDelegate?
+    public weak var delegate: CollectionViewScrollMonitorDelegate?
     fileprivate var indexPathsForVisibleItems: [IndexPath] = []
     
     public init(collectionView: UICollectionView,
@@ -50,7 +50,7 @@ public class AutoScrollManager: NSObject {
     }
 }
 
-extension AutoScrollManager: UIScrollViewDelegate {
+extension CollectionViewScrollMonitor: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         checkIndexPathsForVisibleItems()
     }
