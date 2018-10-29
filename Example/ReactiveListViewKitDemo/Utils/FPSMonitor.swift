@@ -116,8 +116,8 @@ fileprivate extension FPSMonitor {
             name: .UIApplicationWillResignActive,
             object: nil)
     }
-    
+
     func roundDouble(_ number: Double) -> Double {
-        return floor(number * 10) / 10
+        return Double(Int(number))
     }
 }
