@@ -22,7 +22,7 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
         return autoScrollManager
     }()
     
-    private lazy var fpsMonitor: FPSMonitor = {
+    fileprivate lazy var fpsMonitor: FPSMonitor = {
         let fpsMonitor = FPSMonitor()
         fpsMonitor.delegate = self
         return fpsMonitor
@@ -76,16 +76,16 @@ extension FeedListViewController: Subscriber {
     }
 }
 
-
 extension FeedListViewController: FPSMonitorDelegate {
     func framesDropped(_ framesDroppedCount: Double, cumulativeFramesDropped: Double, cumulativeFrameDropEvents: Int) {
-        print("framesDroppedCount: \(framesDroppedCount); cumulativeFramesDropped: \(cumulativeFramesDropped); cumulativeFrameDropEvents: \(cumulativeFrameDropEvents) [FPSMonitor]")
+        print("[FPSMonitor] framesDroppedCount: \(framesDroppedCount); cumulativeFramesDropped: \(cumulativeFramesDropped); cumulativeFrameDropEvents: \(cumulativeFrameDropEvents)")
     }
 }
 
 extension FeedListViewController: CollectionViewScrollMonitorDelegate {
     func indexPathsForVisibleItemsDidChange(_ indexPathsForVisibleItems: [IndexPath]) {
-        print("[threshold] indexPathsForVisibleItems:\(indexPathsForVisibleItems)")
+        print("[FPSMonitor] [threshold] indexPathsForVisibleItems:\(indexPathsForVisibleItems); dropped frames: \(fpsMonitor.currentFrameDropCount)")
+        fpsMonitor.reset()
     }
 }
 

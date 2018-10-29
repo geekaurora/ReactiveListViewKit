@@ -14,12 +14,12 @@ public protocol FPSMonitorDelegate: class {
 public class FPSMonitor: NSObject {
     fileprivate static let logPrefix = "[FPSMonitor]"
     fileprivate static let durationOffset: Double = 0.1
-
+    
     fileprivate var lastTime: CFTimeInterval?
-    fileprivate var count: Double = 0
-    fileprivate var currentFrameDropCount: Double = 0
-    fileprivate var currentFrameDropEventCount = 0
-    fileprivate let workerQueue = DispatchQueue(label: "com.fps-monitor.serial")
+    public var count: Double = 0
+    public var currentFrameDropCount: Double = 0
+    public var currentFrameDropEventCount = 0
+    //fileprivate let workerQueue = DispatchQueue(label: "com.fps-monitor.serial")
     public weak var delegate: FPSMonitorDelegate?
 
     fileprivate lazy var displaylink: CADisplayLink = {
@@ -47,29 +47,36 @@ public class FPSMonitor: NSObject {
     public func pause() {
         displaylink.isPaused = true
     }
-
+    
+    /**
+     Reset dropped frames count
+     */
+    public func reset() {
+        count = 0
+        currentFrameDropCount = 0
+        currentFrameDropEventCount = 0
+    }
+    
     @objc
     func tick(link: CADisplayLink) {
-        workerQueue.async {
-            guard let lastTime = self.lastTime else {
-                self.lastTime = link.timestamp
-                return
-            }
-
-            let duration = link.duration
-            guard duration > 0 else {
-                return
-            }
-            /**
-             `duration` is regular duration between two frames, generally is 16ms for 60 FPS,
-             link.timestamp - lastTime is time gap between last rendering and current rendering(Frame),
-             `framesSinceLastRender` should be 1 for 60 FPS, if `framesSinceLastRender` islarger than 1, meaning there're frames dropped
-             droppedFrames = framesSinceLastRender - 1
-             */
-            let framesSinceLastRender = self.roundDouble((link.timestamp - lastTime) / duration)
+        guard let lastTime = self.lastTime else {
             self.lastTime = link.timestamp
-            self.calculateDroppedFrames(framesSinceLastRender)
+            return
         }
+        
+        let duration = link.duration
+        guard duration > 0 else {
+            return
+        }
+        /**
+         `duration` is regular duration between two frames, generally is 16ms for 60 FPS,
+         link.timestamp - lastTime is time gap between last rendering and current rendering(Frame),
+         `framesSinceLastRender` should be 1 for 60 FPS, if `framesSinceLastRender` islarger than 1, meaning there're frames dropped
+         droppedFrames = framesSinceLastRender - 1
+         */
+        let framesSinceLastRender = self.roundDouble((link.timestamp - lastTime) / duration)
+        self.lastTime = link.timestamp
+        self.calculateDroppedFrames(framesSinceLastRender)
     }
 
     @objc
