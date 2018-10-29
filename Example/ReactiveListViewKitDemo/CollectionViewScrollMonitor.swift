@@ -11,27 +11,17 @@ public protocol CollectionViewScrollMonitorDelegate: class {
     func indexPathsForVisibleItemsDidChange(_ indexPathsForVisibleItems: [IndexPath])
 }
 
-/**
- Auto scroll UICollectionView from top to bottom
- */
 public class CollectionViewScrollMonitor: NSObject {
-    fileprivate static let logPrefix = "[CollectionViewScrollMonitor] "
     fileprivate let collectionView: UICollectionView
-    fileprivate let sectionsPerScroll: Int
-    fileprivate let maxSections: Int
-    
-    fileprivate var lastScrolledSection = 0
-    fileprivate var shouldAutoScroll = false
-    
+    fileprivate var scrolledSectionsThreshold: Int
+    fileprivate var lastVisibleSection: Int = 0
     public weak var delegate: CollectionViewScrollMonitorDelegate?
     fileprivate var indexPathsForVisibleItems: [IndexPath] = []
     
     public init(collectionView: UICollectionView,
-                sectionsPerScroll: Int = 1, // 3 sections = 1 screen
-        maxSections: Int = 10) {
+                scrolledSectionsThreshold: Int = 3) {
         self.collectionView = collectionView
-        self.sectionsPerScroll = sectionsPerScroll
-        self.maxSections = maxSections
+        self.scrolledSectionsThreshold = scrolledSectionsThreshold
         super.init()
         collectionView.scrollDelegateProxy = self
     }
@@ -42,10 +32,21 @@ public class CollectionViewScrollMonitor: NSObject {
     
     fileprivate func checkIndexPathsForVisibleItems() {
         let curIndexPathsForVisibleItems = collectionView.indexPathsForVisibleItems.sorted()
-        if curIndexPathsForVisibleItems != indexPathsForVisibleItems &&
+        if !curIndexPathsForVisibleItems.isEmpty &&
+            curIndexPathsForVisibleItems != indexPathsForVisibleItems &&
             (indexPathsForVisibleItems.isEmpty || curIndexPathsForVisibleItems.last != indexPathsForVisibleItems.last) {
-            delegate?.indexPathsForVisibleItemsDidChange(curIndexPathsForVisibleItems)
+            
+            let bottomIndexPath = curIndexPathsForVisibleItems.last!
+            let expectedVisibleSection = lastVisibleSection + scrolledSectionsThreshold
+            let bottomVisibleSection = (bottomIndexPath.section == 1) ? bottomIndexPath.row : -1
+            
+            // Verify bottomVisibleSection >= expectedVisibleSection
+            if bottomVisibleSection >= expectedVisibleSection {
+                delegate?.indexPathsForVisibleItemsDidChange(curIndexPathsForVisibleItems)
+                lastVisibleSection = expectedVisibleSection
+            }
             indexPathsForVisibleItems = curIndexPathsForVisibleItems
+            print("indexPathsForVisibleItems:\(indexPathsForVisibleItems)")
         }
     }
 }

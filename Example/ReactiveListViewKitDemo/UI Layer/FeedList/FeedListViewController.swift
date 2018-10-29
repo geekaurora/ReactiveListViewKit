@@ -85,7 +85,7 @@ extension FeedListViewController: FPSMonitorDelegate {
 
 extension FeedListViewController: CollectionViewScrollMonitorDelegate {
     func indexPathsForVisibleItemsDidChange(_ indexPathsForVisibleItems: [IndexPath]) {
-        print("indexPathsForVisibleItems:\(indexPathsForVisibleItems)")
+        print("[threshold] indexPathsForVisibleItems:\(indexPathsForVisibleItems)")
     }
 }
 
