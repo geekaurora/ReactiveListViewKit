@@ -14,7 +14,7 @@ public protocol CollectionViewScrollMonitorDelegate: class {
 public class CollectionViewScrollMonitor: NSObject {
     fileprivate let collectionView: UICollectionView
     fileprivate var scrolledSectionsThreshold: Int
-    fileprivate var lastVisibleSection: Int = -1
+    fileprivate var lastVisibleSection: Int = 0
     fileprivate var seenDiffSectionCount: Int = 0
     public weak var delegate: CollectionViewScrollMonitorDelegate?
     fileprivate var indexPathsForVisibleItems: [IndexPath] = []
@@ -30,7 +30,8 @@ public class CollectionViewScrollMonitor: NSObject {
     public func refreshIndexPathsForVisibleItems() {
         checkIndexPathsForVisibleItems()
     }
-    
+
+#if true
     fileprivate func checkIndexPathsForVisibleItems() {
         let curIndexPathsForVisibleItems = collectionView.indexPathsForVisibleItems.sorted()
         if !curIndexPathsForVisibleItems.isEmpty &&
@@ -38,8 +39,7 @@ public class CollectionViewScrollMonitor: NSObject {
             (indexPathsForVisibleItems.isEmpty || curIndexPathsForVisibleItems.last != indexPathsForVisibleItems.last) {
             
             let bottomIndexPath = curIndexPathsForVisibleItems.last!
-            //let expectedVisibleSection = lastVisibleSection + scrolledSectionsThreshold
-            let bottomVisibleSection = (bottomIndexPath.section == 1) ? bottomIndexPath.row : -1
+            let bottomVisibleSection = (bottomIndexPath.section == 1) ? bottomIndexPath.row : 0
 
             // Increment diffSection counter
             if bottomVisibleSection != lastVisibleSection {
@@ -47,16 +47,35 @@ public class CollectionViewScrollMonitor: NSObject {
                 lastVisibleSection = bottomVisibleSection
             }
 
-            //if bottomVisibleSection >= expectedVisibleSection {
             if seenDiffSectionCount >= scrolledSectionsThreshold  {
                 delegate?.indexPathsForVisibleItemsDidChange(curIndexPathsForVisibleItems)
-                //lastVisibleSection = expectedVisibleSection
                 seenDiffSectionCount = 0
             }
             indexPathsForVisibleItems = curIndexPathsForVisibleItems
             print("indexPathsForVisibleItems:\(indexPathsForVisibleItems)")
         }
     }
+#else
+    fileprivate func checkIndexPathsForVisibleItems() {
+        let curIndexPathsForVisibleItems = collectionView.indexPathsForVisibleItems.sorted()
+        if !curIndexPathsForVisibleItems.isEmpty &&
+            curIndexPathsForVisibleItems != indexPathsForVisibleItems &&
+            (indexPathsForVisibleItems.isEmpty || curIndexPathsForVisibleItems.last != indexPathsForVisibleItems.last) {
+
+            let bottomIndexPath = curIndexPathsForVisibleItems.last!
+            let expectedVisibleSection = lastVisibleSection + scrolledSectionsThreshold
+            let bottomVisibleSection = (bottomIndexPath.section == 1) ? bottomIndexPath.row : -1
+
+            // Verify bottomVisibleSection >= expectedVisibleSection
+            if bottomVisibleSection >= expectedVisibleSection {
+                delegate?.indexPathsForVisibleItemsDidChange(curIndexPathsForVisibleItems)
+                lastVisibleSection = expectedVisibleSection
+            }
+            indexPathsForVisibleItems = curIndexPathsForVisibleItems
+            print("indexPathsForVisibleItems:\(indexPathsForVisibleItems)")
+        }
+    }
+#endif
 }
 
 extension CollectionViewScrollMonitor: UIScrollViewDelegate {

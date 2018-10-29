@@ -84,7 +84,7 @@ extension FeedListViewController: FPSMonitorDelegate {
 
 extension FeedListViewController: CollectionViewScrollMonitorDelegate {
     func indexPathsForVisibleItemsDidChange(_ indexPathsForVisibleItems: [IndexPath]) {
-        print("[FPSMonitor] [threshold] indexPathsForVisibleItems:\(indexPathsForVisibleItems); dropped frames: \(fpsMonitor.currentFrameDropCount)")
+        print("[FPSMonitor] [threshold] Dropped frames: \(fpsMonitor.currentFrameDropCount); indexPathsForVisibleItems:\(indexPathsForVisibleItems)")
         fpsMonitor.reset()
     }
 }
