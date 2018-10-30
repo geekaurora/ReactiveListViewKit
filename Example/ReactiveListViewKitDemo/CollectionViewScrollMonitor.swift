@@ -16,9 +16,10 @@ public class CollectionViewScrollMonitor: NSObject {
     fileprivate var scrolledSectionsThreshold: Int
     fileprivate var lastVisibleSection: Int = 0
     fileprivate var seenDiffSectionCount: Int = 0
-    public weak var delegate: CollectionViewScrollMonitorDelegate?
     fileprivate var indexPathsForVisibleItems: [IndexPath] = []
-    
+    public weak var delegate: CollectionViewScrollMonitorDelegate?
+    public var isFeed = false
+
     public init(collectionView: UICollectionView,
                 scrolledSectionsThreshold: Int = 3) {
         self.collectionView = collectionView
@@ -39,7 +40,13 @@ public class CollectionViewScrollMonitor: NSObject {
             (indexPathsForVisibleItems.isEmpty || curIndexPathsForVisibleItems.last != indexPathsForVisibleItems.last) {
             
             let bottomIndexPath = curIndexPathsForVisibleItems.last!
-            let bottomVisibleSection = (bottomIndexPath.section == 1) ? bottomIndexPath.row : 0
+            let bottomVisibleSection: Int = {
+                if self.isFeed {
+                    return bottomIndexPath.section
+                } else {
+                    return (bottomIndexPath.section == 1) ? bottomIndexPath.row : 0
+                }
+            }()
 
             // Increment diffSection counter
             if bottomVisibleSection != lastVisibleSection {
@@ -81,5 +88,17 @@ public class CollectionViewScrollMonitor: NSObject {
 extension CollectionViewScrollMonitor: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         checkIndexPathsForVisibleItems()
+    }
+}
+
+fileprivate var scrollDelegateProxyPointer: Int8 = 0
+public extension UICollectionView {
+    public var scrollDelegateProxy: UIScrollViewDelegate? {
+        get {
+            return objc_getAssociatedObject(self, &scrollDelegateProxyPointer) as? UIScrollViewDelegate
+        }
+        set {
+            objc_setAssociatedObject(self, &scrollDelegateProxyPointer, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
     }
 }

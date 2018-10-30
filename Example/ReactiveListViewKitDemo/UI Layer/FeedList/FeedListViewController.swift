@@ -16,10 +16,10 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
     /// `Core` of FLUX, composed of `Dispatcher` and `Store`
     fileprivate var core: Core<FeedListState>
     
-    fileprivate lazy var autoScrollManager: CollectionViewScrollMonitor = {
-        let autoScrollManager = CollectionViewScrollMonitor(collectionView: self.feedListFacadeView!.collectionView)
-        autoScrollManager.delegate = self
-        return autoScrollManager
+    fileprivate lazy var collectionViewScrollMonitor: CollectionViewScrollMonitor = {
+        let collectionViewScrollMonitor = CollectionViewScrollMonitor(collectionView: self.feedListFacadeView!.collectionView)
+        collectionViewScrollMonitor.delegate = self
+        return collectionViewScrollMonitor
     }()
     
     fileprivate lazy var fpsMonitor: FPSMonitor = {
@@ -72,7 +72,7 @@ extension FeedListViewController: Subscriber {
     func update(with state: FeedListState, prevState: FeedListState?) {
         feedListFacadeView?.batchUpdate(withFeeds: core.state.feeds)
         
-        autoScrollManager.refreshIndexPathsForVisibleItems()
+        collectionViewScrollMonitor.refreshIndexPathsForVisibleItems()
     }
 }
 
@@ -83,7 +83,7 @@ extension FeedListViewController: FPSMonitorDelegate {
 }
 
 extension FeedListViewController: CollectionViewScrollMonitorDelegate {
-    func indexPathsForVisibleItemsDidChange(_ indexPathsForVisibleItems: [IndexPath]) {
+    public func indexPathsForVisibleItemsDidChange(_ indexPathsForVisibleItems: [IndexPath]) {
         print("[FPSMonitor] [threshold] Dropped frames: \(fpsMonitor.currentFrameDropCount); indexPathsForVisibleItems:\(indexPathsForVisibleItems)")
         fpsMonitor.reset()
     }

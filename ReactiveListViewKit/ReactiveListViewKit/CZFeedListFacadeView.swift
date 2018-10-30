@@ -8,19 +8,6 @@
 
 import UIKit
 
-fileprivate var scrollDelegateProxyPointer: Int8 = 0
-public extension UICollectionView {
-    public var scrollDelegateProxy: UIScrollViewDelegate? {
-        get {
-            return objc_getAssociatedObject(self, &scrollDelegateProxyPointer) as? UIScrollViewDelegate
-        }
-        set {
-            objc_setAssociatedObject(self, &scrollDelegateProxyPointer, newValue, .OBJC_ASSOCIATION_RETAIN)
-        }
-    }
-}
-
-
 /// Elegant Facade class encapsulating `UICollectionview`/`UIMapView` for reusable cells
 ///
 /// - Features:

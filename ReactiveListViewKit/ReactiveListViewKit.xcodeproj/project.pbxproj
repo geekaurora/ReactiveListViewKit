@@ -43,6 +43,7 @@
 		2AD7DCB81FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD7DCB71FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift */; };
 		2ADEE4781F7F6F7D00EC6969 /* CZUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADEE4771F7F6F7D00EC6969 /* CZUtils.framework */; };
 		2AF920E71F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF920E61F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift */; };
+		DF33989F2187D40D00782BE0 /* FPSMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF33989D2187D40D00782BE0 /* FPSMonitor.swift */; };
 		DFE04B1320D46A7500428D0A /* ListDiffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE04B1220D46A7500428D0A /* ListDiffTests.swift */; };
 		DFE04B1620D4764800428D0A /* CZListDiff+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE04B1520D4764800428D0A /* CZListDiff+.swift */; };
 /* End PBXBuildFile section */
@@ -118,6 +119,7 @@
 		2AD7DCB71FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReactiveListViewKitHelper.swift; path = Utils/ReactiveListViewKitHelper.swift; sourceTree = "<group>"; };
 		2ADEE4771F7F6F7D00EC6969 /* CZUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CZUtils.framework; path = "../../../Users/mac/Library/Developer/Xcode/DerivedData/ReactiveListViewKitDemo-fiwgffcwywcqpecmptdmpbitbkkp/Build/Products/Debug-iphoneos/CZUtils.framework"; sourceTree = "<group>"; };
 		2AF920E61F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZHorizontalSectionAdapterCell.swift; path = TemplateViews/CZHorizontalSectionAdapterCell.swift; sourceTree = "<group>"; };
+		DF33989D2187D40D00782BE0 /* FPSMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FPSMonitor.swift; path = ../../Example/ReactiveListViewKitDemo/Utils/FPSMonitor.swift; sourceTree = "<group>"; };
 		DFE04B1220D46A7500428D0A /* ListDiffTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDiffTests.swift; sourceTree = "<group>"; };
 		DFE04B1520D4764800428D0A /* CZListDiff+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CZListDiff+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,6 +224,7 @@
 				2AB3DB9E1F7EC407009A5EF9 /* Array+Extension.swift */,
 				2AD7DCB71FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift */,
 				2A2C19FB2182EA34008EB915 /* CollectionViewScrollMonitor.swift */,
+				DF33989D2187D40D00782BE0 /* FPSMonitor.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				2AD7DCB81FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift in Sources */,
 				2A14FA3B1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift in Sources */,
 				2A2C19FD2182EA34008EB915 /* CollectionViewScrollMonitor.swift in Sources */,
+				DF33989F2187D40D00782BE0 /* FPSMonitor.swift in Sources */,
 				2AB3DB981F7EC3D8009A5EF9 /* CZFeedListSupplementaryTextView.swift in Sources */,
 				2AB3DB9D1F7EC3D8009A5EF9 /* CZTextFeedViewModel.swift in Sources */,
 				044E035A1F74464200849AA2 /* CZFeedDetailsFacadeView.swift in Sources */,
