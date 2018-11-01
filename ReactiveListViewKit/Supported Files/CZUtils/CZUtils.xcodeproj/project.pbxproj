@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2A3EA2CE203BA72500A6D561 /* CZUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EA2CD203BA72400A6D561 /* CZUtils.swift */; };
 		2A901E3A1F7EC016004DAAC5 /* CZUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A901E381F7EC016004DAAC5 /* CZUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A901E3B1F7EC016004DAAC5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A901E391F7EC016004DAAC5 /* Info.plist */; };
 		2A901E441F7EC10B004DAAC5 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A901E3C1F7EC10B004DAAC5 /* Date+Extension.swift */; };
 		2A901E451F7EC10B004DAAC5 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A901E3D1F7EC10B004DAAC5 /* Dictionary+Extension.swift */; };
 		2A901E461F7EC10B004DAAC5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A901E3E1F7EC10B004DAAC5 /* String+Extension.swift */; };
@@ -301,7 +300,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A901E3B1F7EC016004DAAC5 /* Info.plist in Resources */,
 				2AB659E81FF02C95001A8835 /* CZUtils.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
