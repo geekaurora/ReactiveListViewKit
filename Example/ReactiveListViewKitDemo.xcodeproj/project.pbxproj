@@ -43,7 +43,6 @@
 		2ADCB55C1F95DCF3007083CA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCB55B1F95DCF3007083CA /* Constants.swift */; };
 		2ADCB55F1F95DD02007083CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB55D1F95DD02007083CA /* Main.storyboard */; };
 		2ADCB5621F95DD0D007083CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5601F95DD0D007083CA /* LaunchScreen.storyboard */; };
-		2ADCB5641F95DD16007083CA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5631F95DD16007083CA /* Info.plist */; };
 		2ADCB5661F95DD45007083CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5651F95DD45007083CA /* Assets.xcassets */; };
 		2ADCB5681F95E09A007083CA /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5671F95E09A007083CA /* feeds.json */; };
 		2AF920DA1F7F3A8300A5160F /* CZUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF920D91F7F3A8300A5160F /* CZUtils.framework */; };
@@ -567,7 +566,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2ADCB5641F95DD16007083CA /* Info.plist in Resources */,
 				2ADA7C8E1F95D79E00B8679C /* HotUserCellView.xib in Resources */,
 				2ADA7C911F95D79E00B8679C /* HotUsersCellViewController.xib in Resources */,
 				2ADCB55F1F95DD02007083CA /* Main.storyboard in Resources */,

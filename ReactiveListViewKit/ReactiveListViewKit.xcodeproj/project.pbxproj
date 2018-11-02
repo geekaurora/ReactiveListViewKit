@@ -38,7 +38,6 @@
 		2AB3DB9D1F7EC3D8009A5EF9 /* CZTextFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3DB951F7EC3D8009A5EF9 /* CZTextFeedViewModel.swift */; };
 		2AB3DB9F1F7EC407009A5EF9 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB3DB9E1F7EC407009A5EF9 /* Array+Extension.swift */; };
 		2AD7D7A61FEEFF8D003C3A49 /* ReactiveListViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AD7D7A41FEEFF8D003C3A49 /* ReactiveListViewKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2AD7D7A71FEEFF8D003C3A49 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AD7D7A51FEEFF8D003C3A49 /* Info.plist */; };
 		2AD7DCB81FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD7DCB71FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift */; };
 		2ADEE4781F7F6F7D00EC6969 /* CZUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADEE4771F7F6F7D00EC6969 /* CZUtils.framework */; };
 		2AF920E71F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF920E61F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift */; };
@@ -379,7 +378,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AD7D7A71FEEFF8D003C3A49 /* Info.plist in Resources */,
 				2A101AFE1FEF0305001AC915 /* ReactiveListViewKit.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
