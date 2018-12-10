@@ -88,7 +88,7 @@ class FeedListViewModel: NSObject, CopyableState {
 }
 
 extension FeedListViewModel: State {
-    /// Reacts to fired events
+    /// Reacts to event
     func react(to event: Event) {
         feeds.forEach { $0.react(to: event) }
         switch event {

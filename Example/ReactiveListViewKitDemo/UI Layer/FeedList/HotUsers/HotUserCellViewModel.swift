@@ -40,6 +40,6 @@ class HotUserCellViewModel: NSObject, CZFeedViewModelable {
 
 extension HotUserCellViewModel: State {
     func react(to event: Event) {
-
+        // no-op
     }
 }

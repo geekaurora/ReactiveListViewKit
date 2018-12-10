@@ -9,7 +9,7 @@
 import UIKit
 import ReactiveListViewKit
 
-/// ViewController of FeedList, acts as dumb container that mediates nothing
+/// ViewController of FeedList, acts as dumb/thin container - mediates nothing
 class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator {
     /// Facade list view
     fileprivate var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?
