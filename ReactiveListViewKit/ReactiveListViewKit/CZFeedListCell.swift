@@ -10,9 +10,9 @@ import UIKit
 
 /// Internal convenience `UICollectionViewCell` class wrapping input CellView
 internal class CZFeedListCell: UICollectionViewCell {
-    fileprivate var model: CZFeedModel?
+    private var model: CZFeedModel?
     // Adaptive to `UIView`/`UIViewController`
-    fileprivate var cellComponent: CZFeedCellViewSizeCalculatable?
+    private var cellComponent: CZFeedCellViewSizeCalculatable?
 
     open func config(with model: CZFeedModel, onEvent: OnEvent?, parentViewController: UIViewController? = nil) {
         defer {
@@ -28,7 +28,7 @@ internal class CZFeedListCell: UICollectionViewCell {
             case let cellComponent as UIView:
                 cellComponent.removeFromSuperview()
             case let cellComponent as UIViewController:
-                cellComponent.didMove(toParentViewController: nil)
+                cellComponent.didMove(toParent: nil)
                 cellComponent.view.removeFromSuperview()
             default:
                 break
@@ -47,7 +47,7 @@ internal class CZFeedListCell: UICollectionViewCell {
             case let cellComponent as UIViewController:
                 cellView = cellComponent.view
                 if let parentViewController = parentViewController {
-                    cellComponent.didMove(toParentViewController: parentViewController)
+                    cellComponent.didMove(toParent: parentViewController)
                 } else {
                     assertionFailure("`parentViewController` should be set in `CZFeedDetailsFacadeView` initializer if cellComponent is `UIViewController`!")
                 }

@@ -143,13 +143,9 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/EasyMapping-iOS10.0/EasyMapping.framework"
-  install_framework "${PODS_ROOT}/Reveal-SDK/RevealServer-11/iOS/RevealServer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage-iOS10.0/SDWebImage.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/EasyMapping-iOS10.0/EasyMapping.framework"
-  install_framework "${PODS_ROOT}/Reveal-SDK/RevealServer-11/iOS/RevealServer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage-iOS10.0/SDWebImage.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

@@ -11,14 +11,14 @@ import UIKit
 /// ViewModel class of `CZHorizontalSectionAdapterView`
 public class CZHorizontalSectionAdapterViewModel: NSObject, CZFeedViewModelable, State {
     public lazy var diffId: String = self.currentClassName
-    fileprivate(set) var feedModels: [CZFeedModel]
-    fileprivate(set) var headerModel: CZFeedModel?
-    fileprivate(set) var footerModel: CZFeedModel?
-    fileprivate(set) var viewHeight: CGFloat
-    fileprivate(set) var backgroundColor: UIColor
-    fileprivate(set) var showTopDivider: Bool
-    fileprivate(set) var showBottomDivider: Bool
-    fileprivate(set) var isUserInteractionEnabled: Bool
+    private(set) var feedModels: [CZFeedModel]
+    private(set) var headerModel: CZFeedModel?
+    private(set) var footerModel: CZFeedModel?
+    private(set) var viewHeight: CGFloat
+    private(set) var backgroundColor: UIColor
+    private(set) var showTopDivider: Bool
+    private(set) var showBottomDivider: Bool
+    private(set) var isUserInteractionEnabled: Bool
     
     public required init(_ feedModels: [CZFeedModel],
                          headerModel: CZFeedModel? = nil,

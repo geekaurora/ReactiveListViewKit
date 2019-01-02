@@ -5,12 +5,12 @@
 //  Copyright © 2016 Cheng Zhang. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /// Convenience Error class  
 open class CZError: NSError {    
     public init(domain: String, code: Int = 99, description: String? = nil) {
-        var userInfo: [AnyHashable: Any]? = nil
+        var userInfo: [String: Any]? = nil
         if let description = description {
             userInfo = [NSLocalizedDescriptionKey: description]
         }

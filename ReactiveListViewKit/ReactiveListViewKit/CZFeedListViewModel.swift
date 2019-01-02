@@ -10,7 +10,7 @@ import UIKit
 
 /// ViewModel/State class for `CZFeedListFacadeView`
 public class CZFeedListViewModel: NSObject, NSCopying {
-    fileprivate(set) var sectionModels: [CZSectionModel]
+    private(set) var sectionModels: [CZSectionModel]
 
     /// Initializer for multiple section ListView
     public required init(sectionModels: [CZSectionModel]?) {
@@ -52,7 +52,7 @@ public class CZFeedListViewModel: NSObject, NSCopying {
 
     // SectionHeader/SectionFooter
     public func supplementaryModel(inSection section: Int, kind: String) -> CZFeedModel? {
-        return (kind == UICollectionElementKindSectionHeader) ? sectionModels[section].headerModel : sectionModels[section].footerModel
+        return (kind == UICollectionView.elementKindSectionHeader) ? sectionModels[section].headerModel : sectionModels[section].footerModel
     }
 
     public func feedModel(at indexPath: IndexPath) -> CZFeedModel? {

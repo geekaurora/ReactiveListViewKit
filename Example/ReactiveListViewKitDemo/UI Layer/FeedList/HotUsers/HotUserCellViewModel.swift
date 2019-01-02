@@ -13,7 +13,7 @@ class HotUserCellViewModel: NSObject, CZFeedViewModelable {
     var diffId: String {
         return currentClassName + (user.userId ?? "")
     }
-    fileprivate(set) var user: User
+    private(set) var user: User
     var userName: String? {return user.userName}
     var fullName: String? {return user.fullName}
 

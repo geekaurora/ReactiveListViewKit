@@ -32,7 +32,7 @@ public class CZFeedListViewStateMachine {
         case userRequestedRetry
         case showingLoadingScreen
     }
-    fileprivate(set) var state: State
+    private(set) var state: State
     
     public init(state: State = .`init`) {
         self.state = state

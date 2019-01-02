@@ -76,14 +76,14 @@ open class CZFeedListSupplementaryTextViewModel: NSObject, CZFeedViewModelable {
 open class CZFeedListSupplementaryTextView: UIView, CZFeedCellViewSizeCalculatable {
     public typealias ActionButtonClosure = (UIButton) -> Void
     public var onEvent: OnEvent?
-    fileprivate var titleLabel: UILabel!
-    fileprivate lazy var actionButton: UIButton = UIButton(frame: .zero)
-    fileprivate let topDivider = CZDividerView()
-    fileprivate let bottomDivider = CZDividerView()
-    fileprivate var stackContainerView: UIStackView!
-    fileprivate var contentContainerView: UIView!
+    private var titleLabel: UILabel!
+    private lazy var actionButton: UIButton = UIButton(frame: .zero)
+    private let topDivider = CZDividerView()
+    private let bottomDivider = CZDividerView()
+    private var stackContainerView: UIStackView!
+    private var contentContainerView: UIView!
     
-    fileprivate lazy var hasSetup: Bool = false
+    private lazy var hasSetup: Bool = false
     public var viewModel: CZFeedListSupplementaryTextViewModel?
     public var diffId: String {
         return viewModel?.diffId ?? ""
@@ -156,8 +156,8 @@ open class CZFeedListSupplementaryTextView: UIView, CZFeedCellViewSizeCalculatab
             
             if let actionButtonText = viewModel.actionButtonText {
                 let attributedTitle  = NSAttributedString(string: actionButtonText,
-                                                          attributes: [NSAttributedStringKey.font: ReactiveListViewKit.FeedListSupplementaryTextView.titleFont,
-                                                                       NSAttributedStringKey.foregroundColor: ReactiveListViewKit.FeedListSupplementaryTextView.actionButtonColor
+                                                          attributes: [NSAttributedString.Key.font: ReactiveListViewKit.FeedListSupplementaryTextView.titleFont,
+                                                                       NSAttributedString.Key.foregroundColor: ReactiveListViewKit.FeedListSupplementaryTextView.actionButtonColor
                     ])
                 actionButton.setAttributedTitle(attributedTitle, for: .normal)
             }

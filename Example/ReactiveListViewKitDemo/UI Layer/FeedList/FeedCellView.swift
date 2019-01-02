@@ -29,7 +29,7 @@ class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
     @IBOutlet var userActionContainerView: UIView!
     @IBOutlet var stackViewWidthConstraint: NSLayoutConstraint!
 
-    fileprivate var viewModel: FeedCellViewModel    
+    private var viewModel: FeedCellViewModel    
     var diffId: String { return viewModel.diffId }
     var onEvent: OnEvent?
     static let imageRatio: CGFloat = 1.0
@@ -82,7 +82,7 @@ class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
 
 // MARK: - Private methods
 
-fileprivate extension FeedCellView {
+private extension FeedCellView {
     @IBAction func tappedLike(_ sender: UIButton) {
         let event = LikeFeedEvent(feed: viewModel.feed)
         onEvent?(event)

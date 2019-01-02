@@ -6,7 +6,7 @@
 //  Copyright © 2016 Cheng Zhang. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public extension Date {
     var simpleString: String {
@@ -18,7 +18,7 @@ public extension Date {
     }
 }
 
-fileprivate extension Date {
+private extension Date {
     func string(withFormatterStr formatterStr: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formatterStr

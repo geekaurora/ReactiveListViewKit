@@ -17,35 +17,35 @@ import UIKit
 open class CZFeedListFacadeView: UIView {
     // Resolver closure that transforms `Feed` array to `CZSectionModel` array
     public typealias SectionModelsResolver = ([Any]) -> [CZSectionModel]
-    fileprivate(set) var onEvent: OnEvent?
-    fileprivate(set) lazy var viewModel = CZFeedListViewModel()
-    fileprivate(set) lazy var newViewModel = CZFeedListViewModel()
-    public fileprivate(set) var collectionView: UICollectionView!
-    fileprivate let parentViewController: UIViewController?
-    fileprivate var collectionViewBGColor: UIColor?
-    fileprivate var minimumLineSpacing: CGFloat
-    fileprivate var minimumInteritemSpacing: CGFloat
-    fileprivate var sectionInset: UIEdgeInsets
-    fileprivate var showsVerticalScrollIndicator: Bool
-    fileprivate var showsHorizontalScrollIndicator: Bool
+    private(set) var onEvent: OnEvent?
+    private(set) lazy var viewModel = CZFeedListViewModel()
+    private(set) lazy var newViewModel = CZFeedListViewModel()
+    public private(set) var collectionView: UICollectionView!
+    private let parentViewController: UIViewController?
+    private var collectionViewBGColor: UIColor?
+    private var minimumLineSpacing: CGFloat
+    private var minimumInteritemSpacing: CGFloat
+    private var sectionInset: UIEdgeInsets
+    private var showsVerticalScrollIndicator: Bool
+    private var showsHorizontalScrollIndicator: Bool
 
-    fileprivate var stateMachine: CZFeedListViewStateMachine!
-    fileprivate var isHorizontal: Bool
-    fileprivate var prevLoadMoreScrollOffset: CGFloat = 0
-    fileprivate var isLoadingMore: Bool = false
-    fileprivate var viewedIndexPaths = Set<IndexPath>()
-    fileprivate var allowPullToRefresh: Bool
-    fileprivate var allowLoadMore: Bool
+    private var stateMachine: CZFeedListViewStateMachine!
+    private var isHorizontal: Bool
+    private var prevLoadMoreScrollOffset: CGFloat = 0
+    private var isLoadingMore: Bool = false
+    private var viewedIndexPaths = Set<IndexPath>()
+    private var allowPullToRefresh: Bool
+    private var allowLoadMore: Bool
 
-    fileprivate lazy var registeredCellReuseIds: Set<String> = []
-    fileprivate lazy var hasPulledToRefresh: Bool = false
+    private lazy var registeredCellReuseIds: Set<String> = []
+    private lazy var hasPulledToRefresh: Bool = false
     public static let kLoadMoreThreshold = 0
     /// Threshold of `loadMore`event, indicates distance from the last cell
-    fileprivate var loadMoreThreshold: Int = kLoadMoreThreshold
+    private var loadMoreThreshold: Int = kLoadMoreThreshold
     var sectionModelsResolver: SectionModelsResolver?
-    fileprivate var hasInvokedWillDisplayCell: Bool = false
+    private var hasInvokedWillDisplayCell: Bool = false
     
-    fileprivate var hasSetup: Bool = false
+    private var hasSetup: Bool = false
     public var isLoading: Bool = false {
         willSet {
             guard isLoading != newValue else { return }
@@ -59,8 +59,8 @@ open class CZFeedListFacadeView: UIView {
         }
     }
     // KVO context
-    fileprivate var kvoContext: UInt8 = 0
-    fileprivate var prevVisibleIndexPaths: [IndexPath] = []
+    private var kvoContext: UInt8 = 0
+    private var prevVisibleIndexPaths: [IndexPath] = []
     
     public init(sectionModelsResolver: SectionModelsResolver?,
                 onEvent: OnEvent? = nil,
@@ -136,9 +136,9 @@ open class CZFeedListFacadeView: UIView {
         reloadListView(animated: animated)
     }
     
-    fileprivate func adjustSectionModels(_ sectionModels: [CZSectionModel]) -> [CZSectionModel] {
+    private func adjustSectionModels(_ sectionModels: [CZSectionModel]) -> [CZSectionModel] {
         var res = sectionModels.filter { !$0.isEmpty }
-        res = res.flatMap { sectionModel in
+        res = res.compactMap { sectionModel in
             if sectionModel.isHorizontal {
                 let horizontalFeedModel = CZFeedModel(viewClass: CZHorizontalSectionAdapterCell.self,
                                                       viewModel: CZHorizontalSectionAdapterViewModel(sectionModel.feedModels,
@@ -163,7 +163,7 @@ open class CZFeedListFacadeView: UIView {
 
 // MARK: - Private methods
 
-fileprivate extension CZFeedListFacadeView  {
+private extension CZFeedListFacadeView  {
     func registerCellClassesIfNeeded(for sectionModels: [CZSectionModel]) {
         [CZFeedModel](sectionModels.flatMap({$0.feedModels})).forEach {
             registerCellClassIfNeeded($0.viewClass)
@@ -221,7 +221,7 @@ fileprivate extension CZFeedListFacadeView  {
                 }
 
                 // Rows: unchanged
-                let unchangedIndexPaths = rowsDiff[.unchanged]
+                _ = rowsDiff[.unchanged]
 
                 // Rows: inserted
                 if let insertedIndexPaths = rowsDiff[.inserted] as? [IndexPath],
@@ -277,7 +277,7 @@ fileprivate extension CZFeedListFacadeView  {
         // refreshControl
         if allowPullToRefresh {
             collectionView.refreshControl = UIRefreshControl()
-            collectionView.refreshControl?.addTarget(self, action: #selector(refreshControlValueChanged), for: UIControlEvents.valueChanged)
+            collectionView.refreshControl?.addTarget(self, action: #selector(refreshControlValueChanged), for: UIControl.Event.valueChanged)
         }
 
         // Datasource/Delegate
@@ -289,11 +289,11 @@ fileprivate extension CZFeedListFacadeView  {
 
         // Register headerView
         collectionView.register(CZFeedListSupplementaryView.self,
-                                forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: CZFeedListSupplementaryView.reuseId)
         // Register footerView
         collectionView.register(CZFeedListSupplementaryView.self,
-                                forSupplementaryViewOfKind: UICollectionElementKindSectionFooter,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: CZFeedListSupplementaryView.reuseId)
     }
 }
@@ -321,7 +321,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        guard let supplymentaryModel = viewModel.supplementaryModel(inSection: section, kind: UICollectionElementKindSectionHeader) else {
+        guard let supplymentaryModel = viewModel.supplementaryModel(inSection: section, kind: UICollectionView.elementKindSectionHeader) else {
             return .zero
         }
         let collectionViewSize = CGSize(width: UIScreen.main.bounds.size.width, height: 0)
@@ -330,7 +330,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        guard let supplymentaryModel = viewModel.supplementaryModel(inSection: section, kind: UICollectionElementKindSectionFooter) else {
+        guard let supplymentaryModel = viewModel.supplementaryModel(inSection: section, kind: UICollectionView.elementKindSectionFooter) else {
             return .zero
         }
         let collectionViewSize = CGSize(width: UIScreen.main.bounds.size.width, height: 0)

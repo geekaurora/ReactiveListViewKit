@@ -8,9 +8,12 @@
 
 import UIKit
 
-fileprivate var controlHandlerKey: Int8 = 0
+private var controlHandlerKey: Int8 = 0
 public extension UIButton {
-    public func addHandler(for controlEvents: UIControlEvents, handler: @escaping (UIButton) -> ()) {
+    /**
+      Add self-contained action handler for button
+     */
+    public func addHandler(for controlEvents: UIControl.Event, handler: @escaping (UIButton) -> ()) {
         if let oldTarget = objc_getAssociatedObject(self, &controlHandlerKey) as? CocoaTarget<UIButton> {
             self.removeTarget(oldTarget, action: #selector(oldTarget.sendNext), for: controlEvents)
         }
@@ -19,9 +22,20 @@ public extension UIButton {
         objc_setAssociatedObject(self, &controlHandlerKey, target, .OBJC_ASSOCIATION_RETAIN)
         self.addTarget(target, action: #selector(target.sendNext), for: controlEvents)
     }
+    
+    /**
+      Set image with tintColor for desired controlState
+     */
+    public func setImage(_ imageName: String, for controlState: UIControl.State = .normal, tintColor: UIColor) {
+        let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        setImage(image, for: controlState)
+        self.tintColor = tintColor
+    }
 }
 
-/// A target that accepts action messages
+/**
+  A target that accepts action messages
+ */
 public final class CocoaTarget<T>: NSObject {
     private let action: (T) -> ()
     

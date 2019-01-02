@@ -5,7 +5,7 @@
 //  Copyright © 2016 Cheng Zhang. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public extension String {
     /**
@@ -20,7 +20,7 @@ public extension String {
         URLUserAllowedCharacterSet      "#%/:<>?@[\]^`
      */
     public func urlEncoded()-> String {
-        guard characters.index(of: "%") == nil else { return self }
+        guard index(of: "%") == nil else { return self }
         let mutableString = NSMutableString(string: self)
         let urlEncoded = mutableString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         return urlEncoded ?? ""

@@ -14,7 +14,7 @@ class FeedCellViewModel: NSObject, CZFeedViewModelable {
     var diffId: String {
         return currentClassName + feed.feedId
     }
-    fileprivate(set) var feed: Feed
+    private(set) var feed: Feed
     var isInFeedDetails: Bool = false
 
     var userName: String? {return feed.user?.userName}
@@ -29,7 +29,7 @@ class FeedCellViewModel: NSObject, CZFeedViewModelable {
         return URL(string: urlStr)
     }
     var likesCount: Int {
-        return feed.likesCount ?? 0
+        return feed.likesCount
     }
     var userHasLiked: Bool {
         return feed.userHasLiked

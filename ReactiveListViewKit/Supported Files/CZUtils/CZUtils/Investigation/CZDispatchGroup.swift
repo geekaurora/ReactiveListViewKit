@@ -6,16 +6,16 @@
 //  Copyright © 2017 Cheng Zhang. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /// Manage grouped concurrent executions completion, with same functionality as `DispatchGroup` class
 public final class CZDispatchGroup: NSObject {
-    fileprivate static let underlyingQueueLabel = "com.tony.dispatchGroup"
-    fileprivate var underlyingQueue: DispatchQueue
-    fileprivate var semaphore: DispatchSemaphore?
-    fileprivate var executionCountLock = CZMutexLock<Int>(0)
-    fileprivate var notifyQueue: DispatchQueue?
-    fileprivate var notifyBlock: (() -> Void)?
+    private static let underlyingQueueLabel = "com.tony.dispatchGroup"
+    private var underlyingQueue: DispatchQueue
+    private var semaphore: DispatchSemaphore?
+    private var executionCountLock = CZMutexLock<Int>(0)
+    private var notifyQueue: DispatchQueue?
+    private var notifyBlock: (() -> Void)?
 
     override init() {
         underlyingQueue = DispatchQueue(label: CZDispatchGroup.underlyingQueueLabel,

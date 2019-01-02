@@ -9,11 +9,11 @@
 import CZUtils
 
 public class CZHorizontalSectionAdapterCell: UICollectionViewCell, CZFeedCellViewSizeCalculatable {
-    fileprivate var viewModel: CZHorizontalSectionAdapterViewModel?
+    private var viewModel: CZHorizontalSectionAdapterViewModel?
     open var diffId: String { return viewModel?.diffId ?? "" }
     open var onEvent: OnEvent?
-    fileprivate var horizontalSectionAdapterView: CZHorizontalSectionAdapterView!
-    fileprivate var hasSetup: Bool = false
+    private var horizontalSectionAdapterView: CZHorizontalSectionAdapterView!
+    private var hasSetup: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -5,7 +5,7 @@
 //  Copyright © 2016 Cheng Zhang. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /// An abstract class that makes subclassing ConcurrentOperation easy to udpate KVO props `isReady`/`isExecuting`/`isFinished` automatically
 ///
@@ -18,7 +18,7 @@ import UIKit
 @objc open class CZConcurrentOperation: Operation {
     /// Concurrent DispatchQueue acting as mutex read/write lock of rawState
     private let stateQueue = DispatchQueue(label: "com.tony.operation.state", attributes: [.concurrent])
-    fileprivate var rawState: OperationState = .ready
+    private var rawState: OperationState = .ready
     @objc private dynamic var state: OperationState {
         get {
             return stateQueue.sync{ rawState}

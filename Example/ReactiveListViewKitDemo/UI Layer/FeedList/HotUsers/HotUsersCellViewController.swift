@@ -13,14 +13,14 @@ class HotUsersCellViewController: UIViewController, CZFeedCellViewSizeCalculatab
     var diffId: String {
         return viewModel.diffId
     }
-    fileprivate var viewModel: HotUsersCellViewModel
+    private var viewModel: HotUsersCellViewModel
     var onEvent: OnEvent?
-    fileprivate var containerStackView: UIStackView!
-    fileprivate var sectionHeaderView: CZFeedListSupplementaryTextView!
-    fileprivate var horizontalListView: CZHorizontalSectionAdapterView!
-    fileprivate static let headerTitle = "Suggestions for you"
-    fileprivate static let seeAllText = "See All"
-    fileprivate static let suggestedUsersSectionViewBGColor = UIColor(white: 250.0 / 255.0, alpha: 1)
+    private var containerStackView: UIStackView!
+    private var sectionHeaderView: CZFeedListSupplementaryTextView!
+    private var horizontalListView: CZHorizontalSectionAdapterView!
+    private static let headerTitle = "Suggestions for you"
+    private static let seeAllText = "See All"
+    private static let suggestedUsersSectionViewBGColor = UIColor(white: 250.0 / 255.0, alpha: 1)
     
     required init(viewModel: CZFeedViewModelable?, onEvent: OnEvent?) {
         self.viewModel = viewModel as! HotUsersCellViewModel
@@ -34,7 +34,7 @@ class HotUsersCellViewController: UIViewController, CZFeedCellViewSizeCalculatab
     
     func config(with viewModel: CZFeedViewModelable?) {
         guard let viewModel = viewModel as? HotUsersCellViewModel else {preconditionFailure()}
-        let feedModels = viewModel.users.flatMap { user in
+        let feedModels = viewModel.users.compactMap { user in
             CZFeedModel(viewClass: HotUserCellCardView.self,
                         viewModel: HotUserCellViewModel(user))
         }
@@ -58,7 +58,7 @@ class HotUsersCellViewController: UIViewController, CZFeedCellViewSizeCalculatab
     }
 }
 
-fileprivate extension HotUsersCellViewController {
+private extension HotUsersCellViewController {
     func setupViews () {
         view.backgroundColor = HotUsersCellViewController.suggestedUsersSectionViewBGColor
 

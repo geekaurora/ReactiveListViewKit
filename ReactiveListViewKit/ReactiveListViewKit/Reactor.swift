@@ -155,11 +155,11 @@ public class Core<StateType: CopyableState> {
 
 // MARK: - Internal Adapative Dispatch
 
-fileprivate var shouldUseGCD: Bool = false
-fileprivate enum DispatchType {
+private var shouldUseGCD: Bool = false
+private enum DispatchType {
     case sync, async
 }
-fileprivate func internalDispatch<T>(_ type: DispatchType, queue: DispatchQueue, closure: @escaping ()->T) -> T? {
+private func internalDispatch<T>(_ type: DispatchType, queue: DispatchQueue, closure: @escaping ()->T) -> T? {
     var queue = queue
     var useGCD: Bool = shouldUseGCD
     if !Thread.current.isMainThread &&

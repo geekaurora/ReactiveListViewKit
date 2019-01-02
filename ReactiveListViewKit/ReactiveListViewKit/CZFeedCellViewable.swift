@@ -24,7 +24,7 @@ public protocol CZEventable: class {
 ///     - if CZFeedCellViewable is `UIView`, it will be appended to underlying UIStackView
 ///     - if CZFeedCellViewable is `UIViewController`, its `didMove(to:)` parentViewController method will be invoked and its `view` will be automatically appended to UIStackView
 ///
-public protocol CZFeedCellViewable: class, NSObjectProtocol, CZEventable {
+public protocol CZFeedCellViewable: NSObjectProtocol, CZEventable {
     // diffId is used to match view and ViewModel if corresponding ViewModel changes
     var diffId: String {get}
     // Event hanlder closure

@@ -9,8 +9,8 @@ import UIKit
 
 /// Constants for UIView extensions
 public enum UIViewConstants {
-    static let fadeInDuration: TimeInterval = 0.4
-    static let fadeInAnimationName = "com.tony.animation.fadein"
+    public static let fadeInDuration: TimeInterval = 0.4
+    public static let fadeInAnimationName = "com.tony.animation.fadein"
 }
 
 // MARK: - Corner/Border
@@ -50,8 +50,8 @@ public extension UIView {
                        duration: TimeInterval = UIViewConstants.fadeInDuration) {
         let transition = CATransition()
         transition.duration = duration
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        transition.type = kCATransitionFade
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
         layer.add(transition, forKey: animationName)
     }
 }

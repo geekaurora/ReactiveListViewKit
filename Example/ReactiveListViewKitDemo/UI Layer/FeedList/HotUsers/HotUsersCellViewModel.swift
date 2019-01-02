@@ -13,7 +13,7 @@ class HotUsersCellViewModel: NSObject, CZFeedViewModelable {
     var diffId: String {
         return currentClassName
     }
-    fileprivate(set) var users: [User]
+    private(set) var users: [User]
 
     required init(_ users: [User]) {
         self.users = users

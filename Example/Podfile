@@ -10,8 +10,6 @@ target 'ReactiveListViewKitDemo' do
   # Pods for ReactiveListViewKitDemo
   # pod 'ReactiveListViewKit'
   pod 'SDWebImage', '~> 4.0'
-  pod 'EasyMapping', '~> 0.20'
-  pod ‘Reveal-SDK’
 end
 
 target 'ReactiveListViewKitDemoTests' do
@@ -22,7 +20,5 @@ target 'ReactiveListViewKitDemoTests' do
     # pod 'ReactiveListViewKit'
     pod 'KIF', :configurations => ['Debug']
     pod 'SDWebImage', '~> 4.0'
-    pod 'EasyMapping', '~> 0.20'
-    pod ‘Reveal-SDK’
 end
 
