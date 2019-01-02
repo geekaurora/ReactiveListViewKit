@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import CZUtils
 import ReactiveListViewKit
 
 /// ViewController of FeedList, acts as dumb/thin container - mediates nothing
 class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator {
     /// Facade list view
-    fileprivate var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?
+    private var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?
     /// `Core` of FLUX, composed of `Dispatcher` and `Store`
-    fileprivate var core: Core<FeedListState>
+    private var core: Core<FeedListState>
 
     required init?(coder aDecoder: NSCoder) {
         // Set up `Core` for FLUX pattern
@@ -38,7 +39,7 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
 
 // Mark: - Private Methods
 
-fileprivate extension FeedListViewController {
+private extension FeedListViewController {
     func setupFeedListView() {
         feedListFacadeView = CZReactiveFeedListFacadeView<FeedListState>(
             core: core,

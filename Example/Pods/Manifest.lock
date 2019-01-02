@@ -1,34 +1,24 @@
 PODS:
-  - EasyMapping (0.21.2):
-    - EasyMapping/Core (= 0.21.2)
-  - EasyMapping/Core (0.21.2)
-  - KIF (3.6.0):
-    - KIF/Core (= 3.6.0)
-  - KIF/Core (3.6.0)
-  - Reveal-SDK (11)
-  - SDWebImage (4.1.2):
-    - SDWebImage/Core (= 4.1.2)
-  - SDWebImage/Core (4.1.2)
+  - KIF (3.7.4):
+    - KIF/Core (= 3.7.4)
+  - KIF/Core (3.7.4)
+  - SDWebImage (4.4.3):
+    - SDWebImage/Core (= 4.4.3)
+  - SDWebImage/Core (4.4.3)
 
 DEPENDENCIES:
-  - EasyMapping (~> 0.20)
   - KIF
-  - Reveal-SDK
   - SDWebImage (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - EasyMapping
     - KIF
-    - Reveal-SDK
     - SDWebImage
 
 SPEC CHECKSUMS:
-  EasyMapping: 93c1f054da1bc5dff6aa332477b040bea7767841
-  KIF: bd770edd8ce49bc7308501e4871e58a02d137be3
-  Reveal-SDK: 7fa13d04bb55db61ff2342a990cf731d5159361d
-  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
+  KIF: f3d01c109ee9d1cfe6b0f2bb2aa278e807e971e2
+  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
-PODFILE CHECKSUM: 42ae3cb6bef97641b1f3dda6a86886f7d9dc5fba
+PODFILE CHECKSUM: f9833d596baaa796cd65997d5326893aef988d57
 
 COCOAPODS: 1.5.3

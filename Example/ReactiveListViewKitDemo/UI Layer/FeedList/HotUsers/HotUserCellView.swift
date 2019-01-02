@@ -24,7 +24,7 @@ class HotUserCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
     @IBOutlet var nameLabel: UILabel?
     @IBOutlet var detailsLabel: UILabel?
     
-    fileprivate var viewModel: HotUserCellViewModel    
+    private var viewModel: HotUserCellViewModel    
     var diffId: String {return viewModel.diffId}
     var onEvent: OnEvent?
 

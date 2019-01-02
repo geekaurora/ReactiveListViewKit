@@ -8,58 +8,85 @@
 
 import CZUtils
 import ReactiveListViewKit
-import EasyMapping
 
 /// Model of feed
-class Feed: CZModel {
-    lazy var feedId: String = ""
-    var type: String?           
-    var user: User?
-    var userHasLiked: Bool {
-        return _userHasLiked?.boolValue ?? false
-    }
-    var _userHasLiked: NSNumber?
-    var content: String?
-    var imageInfo: ImageInfo?
-    var createTime: String?    
-    var commentsCount: Int? {return _commentsCount?.intValue}
-    var likesCount: Int? {return _likesCount?.intValue}
-    var _commentsCount: NSNumber?
-    var _likesCount: NSNumber?
+class Feed: ReactiveListDiffable {
+    let feedId: String
+    let content: String?
+    var userHasLiked: Bool
+    let likesCount: Int
+    let imageInfo: ImageInfo?
+    let user: User?
 
-    override init() { super.init() }
-    required init(dictionary: CZDictionary) {
-        super.init(dictionary: dictionary)        
+    // MARK: - CZListDiffable
+    func isEqual(toDiffableObj object: AnyObject) -> Bool {
+        return isEqual(toCodable: object)
     }
-
-    override class func objectMapping() -> EKObjectMapping {
-        let allMapping = super.objectMapping()
-        let mapping = EKObjectMapping(objectClass: self)
-        mapping.mapProperties(from: ["id": "feedId",
-                                     "type": "type",
-                                     "caption.text": "content",
-                                     "createTime": "createTime",
-                                     "user_has_liked": "_userHasLiked",
-                                     "comments.count": "_commentsCount",
-                                     "likes.count": "_likesCount",
-                                     ])
-        mapping.hasOne(User.self, forKeyPath: "user", forProperty: "user")
-        mapping.hasOne(ImageInfo.self, forKeyPath: "images.standard_resolution", forProperty: "imageInfo")
-        allMapping.mapProperties(fromMappingObject: mapping)
-        return allMapping
+    
+    // MARK: - NSCopying
+    func copy(with zone: NSZone? = nil) -> Any {
+        return codableCopy(with: zone)
+    }
+    
+    // MARK: - Decodable
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        feedId = try values.decode(String.self, forKey: .feedId)
+        userHasLiked = try values.decode(Bool.self, forKey: .userHasLiked)
+        user = try values.decode(User.self, forKey: .user)
+        
+        let caption = try values.nestedContainer(keyedBy: CodingKeys.self, forKey: .caption)
+        content = try caption.decode(String.self, forKey: .content)
+        
+        let likes = try values.nestedContainer(keyedBy: CodingKeys.self, forKey: .likes)
+        likesCount = try likes.decode(Int.self, forKey: .likesCount)
+        
+        let images = try values.nestedContainer(keyedBy: CodingKeys.self, forKey: .images)
+        imageInfo = try images.decode(ImageInfo.self, forKey: .imageInfo)
     }
 }
 
+// MARK: - State
 extension Feed: State {
     func react(to event: Event) {
         switch event {
         case let event as LikeFeedEvent:
             // React to `LikeFeedEvent`: flip `userHasLiked` flag
             if  event.feed.feedId == feedId {
-                _userHasLiked = NSNumber(value: !userHasLiked)
+                userHasLiked = !userHasLiked
             }
         default:
             break
         }
+    }
+}
+
+// MARK: - Encodable
+extension Feed {
+    enum CodingKeys: String, CodingKey {
+        case feedId = "id"
+        case userHasLiked = "user_has_liked"
+        case caption = "caption"
+        case content = "text"
+        case images = "images"
+        case imageInfo = "standard_resolution"
+        case likes = "likes"
+        case likesCount = "count"
+        case user
+    }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(feedId, forKey: .feedId)
+        try container.encode(userHasLiked, forKey: .userHasLiked)
+        try container.encode(user, forKey: .user)
+        
+        var caption = container.nestedContainer(keyedBy: CodingKeys.self, forKey: .caption)
+        try caption.encode(content, forKey: .content)
+        
+        var likes = container.nestedContainer(keyedBy: CodingKeys.self, forKey: .likes)
+        try likes.encode(likesCount, forKey: .likesCount)
+        
+        var images = container.nestedContainer(keyedBy: CodingKeys.self, forKey: .images)
+        try images.encode(imageInfo, forKey: .imageInfo)
     }
 }

@@ -5,12 +5,12 @@
 //  Copyright © 2016 Cheng Zhang. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /// Generic multi-thread mutex lock on top of DispatchQueue sync/barrier
 public class CZMutexLock<Item>: NSObject {
-    fileprivate lazy var lock = CZDispatchReadWriteLock()
-    fileprivate var item: Item
+    private lazy var lock = CZDispatchReadWriteLock()
+    private var item: Item
     
     public init(_ item: Item) {
         self.item = item
@@ -42,7 +42,7 @@ public class CZMutexLock<Item>: NSObject {
 }
 
 public class CZDispatchReadWriteLock {
-    fileprivate let syncQueue = DispatchQueue(label: "com.tony.mutexLock", attributes: .concurrent)
+    private let syncQueue = DispatchQueue(label: "com.tony.mutexLock", attributes: .concurrent)
     public init () {}
     
     @discardableResult
@@ -68,7 +68,7 @@ public class CZDispatchReadWriteLock {
 // MARK: - Bridging class for Objective-C
 
 @objc public class CZMutexLockOC: NSObject {
-    fileprivate var lock: CZMutexLock<Any>
+    private var lock: CZMutexLock<Any>
     init(_ item: Any) {
         lock = CZMutexLock<Any>(item)
     }

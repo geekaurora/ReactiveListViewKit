@@ -47,7 +47,7 @@ open class CZFeedListSupplementaryLineView: UIView, CZFeedCellViewSizeCalculatab
     public var onEvent: OnEvent?
     public var lineView: UIView!
 
-    fileprivate lazy var hasSetup: Bool = false
+    private lazy var hasSetup: Bool = false
     public var viewModel: CZFeedViewModelable?
     public var diffId: String {
         return viewModel?.diffId ?? ""

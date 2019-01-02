@@ -5,7 +5,7 @@
 //  Copyright © 2016 Cheng Zhang. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /// Convenience class for scheduling sync/async execution on main queue
 open class CZMainQueueScheduler: NSObject {

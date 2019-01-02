@@ -11,7 +11,16 @@
 #import <UIKit/UIKit.h>
 #import "UIView-KIFAdditions.h"
 
+
+#if DEPRECATE_KIF_TESTER
+// Add `-DDEPRECATE_KIF_TESTER=1` to OTHER_CFLAGS if you'd like to prevent usage of `tester`.
+@class KIFUITestActor;
+KIFUITestActor *_KIF_tester() __attribute__((deprecated("Use of `tester` has been deprecated; Use `viewTester` instead.")));
+#define tester _KIF_tester()
+#else
 #define tester KIFActorWithClass(KIFUITestActor)
+#endif
+
 
 /*!
  @enum KIFSwipeDirection
@@ -110,7 +119,6 @@ typedef NS_ENUM(NSUInteger, KIFPullToRefreshTiming) {
  @param traits The accessibility traits of the element to wait for. Elements that do not include at least these traits are ignored.
  */
 - (UIView *)waitForViewWithAccessibilityLabel:(NSString *)label traits:(UIAccessibilityTraits)traits;
-
 
 /*!
  @abstract Waits until a view or accessibility element is present.
@@ -570,6 +578,13 @@ typedef NS_ENUM(NSUInteger, KIFPullToRefreshTiming) {
  @discussion Use this to dissmiss a location services authorization dialog or a photos access dialog by tapping the 'Allow' button. No action is taken if no alert is present.
  */
 - (BOOL)acknowledgeSystemAlert;
+
+/*!
+ @abstract If present, dismisses a system alert with the button at the given index, if any exists, usually 'Allow'. Returns YES if a dialog was dismissed, NO otherwise.
+ @discussion Use this to dissmiss a location services authorization dialog or a photos access dialog by tapping a button at the specified index. No action is taken if no alert is present.
+*/
+- (BOOL)acknowledgeSystemAlertWithIndex:(NSUInteger)index;
+
 #endif
 
 /*!
@@ -808,5 +823,18 @@ typedef NS_ENUM(NSUInteger, KIFPullToRefreshTiming) {
  @param duration Amount of time for a background event before the app becomes active again
  */
 - (void)deactivateAppForDuration:(NSTimeInterval)duration KIF_DEPRECATED("Use [system deactivateAppForDuration:] instead.");
+
+/*!
+ @method testActorAnimationsEnabled
+ @abstract Flag to disable/enable animations done by the UITestActor, by default this value is YES. This doesn't affect animations performed by the app being tested.
+ @discussion To change the default value of this flag, call +setTestActorAnimationsEnabled: with a different value.
+ */
++ (BOOL)testActorAnimationsEnabled;
+
+/*!
+ @method setTestActorAnimationsEnabled:
+ @abstract Sets the flag value to enable or disable animations done by the UITestActor.
+ */
++ (void)setTestActorAnimationsEnabled:(BOOL)animationsEnabled;
 
 @end

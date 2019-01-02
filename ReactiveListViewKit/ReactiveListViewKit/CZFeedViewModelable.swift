@@ -34,4 +34,7 @@ public protocol CZListDiffable {
     func isEqual(toDiffableObj object: AnyObject) -> Bool
 }
 
+/// Fundamental protocol composition of reactive listDiffable model
+public typealias ReactiveListDiffable = Codable & NSCopying & CustomStringConvertible & CZListDiffable
+
 public typealias CZListDiffableObject = CZListDiffable & AnyObject

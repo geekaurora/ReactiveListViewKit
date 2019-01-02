@@ -111,6 +111,14 @@ NSString *const inputFieldTestString = @"Testing";
     return [self usingPredicate:predicate];
 }
 
+- (instancetype)usingAbsenceOfTraits:(UIAccessibilityTraits)accessibilityTraits;
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(accessibilityTraits & %@) != %@", @(accessibilityTraits), @(accessibilityTraits)];
+    predicate.kifPredicateDescription = [NSString stringWithFormat:@"Accessibility traits excluding \"%@\"", [UIAccessibilityElement stringFromAccessibilityTraits:accessibilityTraits]];
+
+    return [self usingPredicate:predicate];
+}
+
 - (instancetype)usingValue:(NSString *)accessibilityValue;
 {
     NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
@@ -287,6 +295,10 @@ NSString *const inputFieldTestString = @"Testing";
 
 - (void)enterText:(NSString *)text expectedResult:(NSString *)expectedResult;
 {
+    if (!self.validateEnteredText && expectedResult) {
+        [self failWithMessage:@"Can't supply an expectedResult string if `validateEnteredText` is NO."];
+    }
+
     @autoreleasepool {
         KIFUIObject *found = [self _predicateSearchWithRequiresMatch:YES mustBeTappable:NO];
         [self.actor enterText:text intoElement:found.element inView:found.view expectedResult:expectedResult];

@@ -18,6 +18,7 @@
 #import "KIFTestActor_Private.h"
 #import "KIFTestCase.h"
 #import "KIFTestStepValidation.h"
+#import "KIFTextInputTraitsOverrides.h"
 #import "KIFTypist.h"
 #import "KIFUIObject.h"
 #import "KIFUITestActor-ConditionalTests.h"

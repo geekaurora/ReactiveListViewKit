@@ -10,16 +10,16 @@ import UIKit
 
 /// Convenience class to implement horizontal list view
 open class CZHorizontalSectionAdapterView: UIView, CZFeedCellViewSizeCalculatable {
-    fileprivate var viewModel: CZHorizontalSectionAdapterViewModel?
+    private var viewModel: CZHorizontalSectionAdapterViewModel?
     open var diffId: String {return viewModel?.diffId ?? ""}
     open var onEvent: OnEvent?
-    fileprivate var containerStackView: UIStackView!
-    fileprivate var nestedFeedListView: CZFeedListFacadeView!
-    fileprivate var headerView: UIView?
-    fileprivate var footerView: UIView?
-    fileprivate let topDivider = CZDividerView()
-    fileprivate let bottomDivider = CZDividerView()
-    fileprivate var listViewIndex: Int {
+    private var containerStackView: UIStackView!
+    private var nestedFeedListView: CZFeedListFacadeView!
+    private var headerView: UIView?
+    private var footerView: UIView?
+    private let topDivider = CZDividerView()
+    private let bottomDivider = CZDividerView()
+    private var listViewIndex: Int {
         return containerStackView.arrangedSubviews.index(of: nestedFeedListView)!
     }
 

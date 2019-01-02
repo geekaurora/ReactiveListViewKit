@@ -15,23 +15,23 @@ typealias FeedListState = FeedListViewModel
 /// State/ViewModel of `FeedListViewController`, composed of elements needed for UI populating
 class FeedListViewModel: NSObject, CopyableState {
     /// List of feeds
-    fileprivate(set) lazy var feeds: [Feed] = {       
+    private(set) lazy var feeds: [Feed] = {       
         return CZMocker.shared.feeds
     }()
     /// List of users with Story
-    fileprivate(set) var storyUsers: [User] = {
+    private(set) var storyUsers: [User] = {
         return CZMocker.shared.hotUsers
     }()
     /// List of suggested users
-    fileprivate(set) var suggestedUsers: [User] = {
+    private(set) var suggestedUsers: [User] = {
         return CZMocker.shared.hotUsers
     }()
     /// Current page number
-    fileprivate(set) var page: Int = 0
+    private(set) var page: Int = 0
     /// Indicates whether is loading feeds
-    fileprivate(set) var isLoadingFeeds: Bool = false
+    private(set) var isLoadingFeeds: Bool = false
     /// Last minimum FeedId, used as baseId for feeds request
-    fileprivate(set) var lastMinFeedId: String = "-1"
+    private(set) var lastMinFeedId: String = "-1"
     /// `Core` of FLUX, composed of `Dispatcher` and `Store`
     var core: Core<FeedListState>?
     /// SectionModelsResolver closure -  mapping feeds to sectionModels
@@ -46,7 +46,7 @@ class FeedListViewModel: NSObject, CopyableState {
             var sectionModels = [CZSectionModel]()
             
             // HotUsers section
-            let HotUsersFeedModels = self.storyUsers.flatMap { CZFeedModel(viewClass: HotUserCellView.self,
+            let HotUsersFeedModels = self.storyUsers.compactMap { CZFeedModel(viewClass: HotUserCellView.self,
                                                                            viewModel: HotUserCellViewModel($0)) }
 
             let hotUsersSectionModel = CZSectionModel(isHorizontal: true,
@@ -65,7 +65,7 @@ class FeedListViewModel: NSObject, CopyableState {
             sectionModels.append(hotUsersSectionModel)
 
             // Feeds section
-            var feedModels = feeds.flatMap { CZFeedModel(viewClass: FeedCellView.self,
+            var feedModels = feeds.compactMap { CZFeedModel(viewClass: FeedCellView.self,
                                                          viewModel: FeedCellViewModel($0)) }
             
             // SuggestedUsers - CellViewController

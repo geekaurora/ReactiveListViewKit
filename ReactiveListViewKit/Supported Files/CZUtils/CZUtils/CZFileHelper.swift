@@ -5,7 +5,7 @@
 //  Copyright © 2016 Cheng Zhang. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /// Helper class for file related methods 
 @objc open class CZFileHelper: NSObject {
@@ -16,7 +16,7 @@ import UIKit
             let size =  attrs[.size] as? Int
             return size
         } catch {
-            print("Failed to get file size of \(filePath). Error - \(error.localizedDescription)")
+            dbgPrint("Failed to get file size of \(filePath). Error - \(error.localizedDescription)")
         }
         return nil
     }

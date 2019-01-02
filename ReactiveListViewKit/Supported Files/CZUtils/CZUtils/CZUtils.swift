@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cheng Zhang. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public class CZUtils {
     public static func dbgPrint(_ item: CustomStringConvertible) {
@@ -14,4 +14,8 @@ public class CZUtils {
             print(item)
         #endif
     }
+}
+
+public func dbgPrint(_ item: CustomStringConvertible) {
+    CZUtils.dbgPrint(item)
 }

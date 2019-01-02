@@ -8,43 +8,29 @@
 
 import CZUtils
 import ReactiveListViewKit
-import EasyMapping
 
 /// Model of user
-@objc class User: CZModel {
-    var userId: String?
-    var userName: String?
-    var fullName: String?
-    var portraitUrl: String?
-    var bio: String?
-    var website: String?
+class User: ReactiveListDiffable {
+    let userId: String
+    let userName: String
+    let fullName: String?
+    let portraitUrl: String?
 
-    var feedCount: Int? {return _feedCount?.intValue}
-    var followsCount: Int? {return _followsCount?.intValue}
-    var followedByCount: Int? {return _followedByCount?.intValue}
-    var _feedCount: NSNumber?
-    var _followsCount: NSNumber?
-    var _followedByCount: NSNumber?
-
-    override init() { super.init() }
-    required init(dictionary: CZDictionary) {
-        super.init(dictionary: dictionary)
+    enum CodingKeys: String, CodingKey {
+        case userId = "id"
+        case userName = "username"
+        case fullName = "full_name"
+        case portraitUrl = "profile_picture"
     }
-
-    override class func objectMapping() -> EKObjectMapping {
-        let allMapping = super.objectMapping()
-        let mapping = EKObjectMapping(objectClass: self)
-        mapping.mapProperties(from: ["id": "userId",
-                                     "username": "userName",
-                                     "full_name": "fullName",
-                                     "profile_picture": "portraitUrl",
-                                     "bio": "bio",
-                                     "counts.media": "_feedCount",
-                                     "counts.follows": "_followsCount",
-                                     "counts.followed_by": "_followedByCount",
-            ])
-        allMapping.mapProperties(fromMappingObject: mapping)
-        return allMapping
+    
+    // MARK: - CZListDiffable
+    func isEqual(toDiffableObj object: AnyObject) -> Bool {
+        return isEqual(toCodable: object)
+    }
+    
+    // MARK: - NSCopying
+    func copy(with zone: NSZone? = nil) -> Any {
+        return codableCopy(with: zone)
     }
 }
 

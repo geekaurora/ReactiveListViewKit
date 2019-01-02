@@ -13,8 +13,8 @@ open class CZFeedListSupplementaryView: UICollectionReusableView {
     open override var reuseIdentifier: String? {
         return type(of: self).reuseId
     }
-    fileprivate var model: CZFeedModel?
-    fileprivate var contentView: CZFeedCellViewSizeCalculatable?
+    private var model: CZFeedModel?
+    private var contentView: CZFeedCellViewSizeCalculatable?
     open static var reuseId: String {
         return NSStringFromClass(object_getClass(self)!)
     }

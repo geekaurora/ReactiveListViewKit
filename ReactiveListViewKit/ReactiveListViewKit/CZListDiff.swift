@@ -69,8 +69,8 @@ public struct MovedSection: Equatable, Hashable {
     /// Compare current/previous SectionModels, output diffing sections/rows
     public typealias SectionModelsDiffResult = (sections: [SectionDiffResultKey: [CZSectionModel]], rows: [RowDiffResultKey: [CZFeedModel]])
 
-    fileprivate static func diffSectionModels(current: [CZSectionModel],
-                                              prev: [CZSectionModel]) -> (sections: [SectionDiffResultKey: [CZSectionModel]], rows: [RowDiffResultKey: [CZFeedModel]]) {
+    private static func diffSectionModels(current: [CZSectionModel],
+                                          prev: [CZSectionModel]) -> (sections: [SectionDiffResultKey: [CZSectionModel]], rows: [RowDiffResultKey: [CZFeedModel]]) {
         let currFeedModels = [CZFeedModel](current.flatMap({$0.feedModels}))
         let prevFeedModels = [CZFeedModel](prev.flatMap({$0.feedModels}))
 
@@ -165,8 +165,8 @@ public struct MovedSection: Equatable, Hashable {
 
     public static func validatedMovedSections(_ sections: [MovedSection]) -> [MovedSection] {
         return sections
-//        let fromIndexSet = Set(sections.flatMap {$0.from})
-//        let toIndexSet = Set(sections.flatMap {$0.to})
+//        let fromIndexSet = Set(sections.compactMap {$0.from})
+//        let toIndexSet = Set(sections.compactMap {$0.to})
 //        let intersectionSet = fromIndexSet.intersection(toIndexSet)
 //        let res = sections.filter {
 //            intersectionSet.contains($0.from) || intersectionSet.contains($0.to)
@@ -200,7 +200,7 @@ public struct MovedSection: Equatable, Hashable {
         
         // deleted
         if let deletedSectionModels = sectionModelsDiffRes[.deletedSections] {
-            deletedSections = IndexSet(deletedSectionModels.flatMap {sectionModel in
+            deletedSections = IndexSet(deletedSectionModels.compactMap {sectionModel in
                 prev.index(where: { $0.isEqual(toDiffableObj: sectionModel) })
             })
             sectionsDiff[.deletedSections] = deletedSections
@@ -208,7 +208,7 @@ public struct MovedSection: Equatable, Hashable {
 
         // moved
         if let movedSections = sectionModelsDiffRes[.movedSections] {
-            let res: [MovedSection] = movedSections.flatMap {sectionModel in
+            let res: [MovedSection] = movedSections.compactMap {sectionModel in
                 let oldIndex = prev.index(where: { $0.isEqual(toDiffableObj: sectionModel) })!
                 let newIndex = current.index(where: { $0.isEqual(toDiffableObj: sectionModel) })!
                 return MovedSection(from: oldIndex, to: newIndex)
@@ -218,7 +218,7 @@ public struct MovedSection: Equatable, Hashable {
 
         // inserted
         if let insertedSectionModels = sectionModelsDiffRes[.insertedSections] {
-            insertedSections = IndexSet(insertedSectionModels.flatMap {sectionModel in
+            insertedSections = IndexSet(insertedSectionModels.compactMap {sectionModel in
                 current.index(where: { $0.isEqual(toDiffableObj: sectionModel) })
             })
             sectionsDiff[.insertedSections] = insertedSections
@@ -227,7 +227,7 @@ public struct MovedSection: Equatable, Hashable {
         /*- Rows Diff -*/
 
         // deleted
-        rowsDiff[.deleted] = rowModelsDiffRes[.deleted]?.flatMap({
+        rowsDiff[.deleted] = rowModelsDiffRes[.deleted]?.compactMap({
             indexPath(forFeedModel: $0, inSectionModels: prev)
         }).filter({
             // exclude "deletedSection" elements
@@ -236,7 +236,7 @@ public struct MovedSection: Equatable, Hashable {
         })
 
         // unchanged
-        rowsDiff[.unchanged] = rowModelsDiffRes[.unchanged]?.flatMap {
+        rowsDiff[.unchanged] = rowModelsDiffRes[.unchanged]?.compactMap {
             // exclude "moved"
             guard movedIndexPath(forFeedModel: $0, oldSectionModels: prev, newSectionModels: current) == nil else {return nil}
             return indexPath(forFeedModel: $0, inSectionModels: current)
@@ -245,7 +245,7 @@ public struct MovedSection: Equatable, Hashable {
         // moved
         let unchanged = rowModelsDiffRes[.unchanged] ?? []
         let updated = rowModelsDiffRes[.updated] ?? []
-        let movedRows = [unchanged, updated].joined().flatMap {
+        let movedRows = [unchanged, updated].joined().compactMap {
             movedIndexPath(forFeedModel: $0, oldSectionModels: prev, newSectionModels: current)
             }.filter({
                 // exclude "inserted" section
@@ -255,7 +255,7 @@ public struct MovedSection: Equatable, Hashable {
         rowsDiff[.moved] = validatedMovedIndexPathes(movedRows)
 
         // updated
-        rowsDiff[.updated] = rowModelsDiffRes[.updated]?.flatMap ({
+        rowsDiff[.updated] = rowModelsDiffRes[.updated]?.compactMap ({
             indexPath(forFeedModel: $0, inSectionModels: current)
         }).filter({
             // exclude "moved" rows
@@ -264,7 +264,7 @@ public struct MovedSection: Equatable, Hashable {
         })
 
         // inserted
-        rowsDiff[.inserted] = rowModelsDiffRes[.inserted]?.flatMap ({
+        rowsDiff[.inserted] = rowModelsDiffRes[.inserted]?.compactMap ({
             indexPath(forFeedModel: $0, inSectionModels: current)
         }).filter({
             // exclude "inserted" section
@@ -287,7 +287,7 @@ public struct MovedSection: Equatable, Hashable {
         }
     }
 
-    fileprivate static func movedIndexPath<FeedModelType: CZFeedModelable>
+    private static func movedIndexPath<FeedModelType: CZFeedModelable>
                                           (forFeedModel feedModel: FeedModelType,
                                            oldSectionModels: [CZSectionModel],
                                            newSectionModels: [CZSectionModel]) -> MovedIndexPath? {
@@ -299,7 +299,7 @@ public struct MovedSection: Equatable, Hashable {
         return nil
     }
 
-    fileprivate static func indexPath<FeedModelType: CZFeedModelable>
+    private static func indexPath<FeedModelType: CZFeedModelable>
                                       (forFeedModel feedModel: FeedModelType,
                                       inSectionModels sectionModels: [CZSectionModel]) -> IndexPath? {
         for (i, sectionModel) in sectionModels.enumerated() {
@@ -310,7 +310,7 @@ public struct MovedSection: Equatable, Hashable {
         return nil
     }
     
-    fileprivate static func prettyPrint(sectionIndexDiffResult: SectionIndexDiffResult) {
+    private static func prettyPrint(sectionIndexDiffResult: SectionIndexDiffResult) {
         let sectionsDiff = sectionIndexDiffResult.sections
         let rowsDiff = sectionIndexDiffResult.rows
 

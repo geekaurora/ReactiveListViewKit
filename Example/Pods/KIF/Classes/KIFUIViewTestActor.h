@@ -57,7 +57,7 @@ extern NSString *const inputFieldTestString;
 */
 
 /*!
- @abstract Adds a check for an accessibility label to the tester's search pedicate.
+ @abstract Adds a check for an accessibility label to the tester's search predicate.
  @discussion The tester will evaluate accessibility elements looking for a matching accessibility label.
  @param accessibilityLabel The accessibility label of an element to match.
  @return The message reciever, these methods are intended to be chained together.
@@ -65,7 +65,7 @@ extern NSString *const inputFieldTestString;
 - (instancetype)usingLabel:(NSString *)accessibilityLabel;
 
 /*!
- @abstract Adds a check for an accessibility identifier to the tester's search pedicate.
+ @abstract Adds a check for an accessibility identifier to the tester's search predicate.
  @discussion The tester will evaluate accessibility elements looking for a matching accessibility identifier.
  @param accessibilityIdentifier The accessibility identifier of an element to match.
  @return The message reciever, these methods are intended to be chained together.
@@ -73,15 +73,34 @@ extern NSString *const inputFieldTestString;
 - (instancetype)usingIdentifier:(NSString *)accessibilityIdentifier;
 
 /*!
- @abstract Adds a check for accessibility traits to the tester's search pedicate.
+ @abstract Adds a check for accessibility traits to the tester's search predicate.
  @discussion The tester will evaluate accessibility elements looking for matching accessibility traits.
+ Note: You cannot assert the lack of accessibility traits by passing in UIAccessibilityTraitsNone.
  @param accessibilityTraits The accessibility traits of an element to match.
  @return The message reciever, these methods are intended to be chained together.
  */
 - (instancetype)usingTraits:(UIAccessibilityTraits)accessibilityTraits;
 
 /*!
- @abstract Adds a check for an accessibility value to the tester's search pedicate.
+ @abstract Adds a check to avoid views with accessibility traits to the tester's search predicate.
+ @discussion The tester will evaluate accessibility elements for the purposes of excluding accessibility traits.
+ If more than one trait is supplied in the bitmask, none of them may be present in order for this to be true.
+ Note: You cannot assert the presence of accessibility traits by passing in UIAccessibilityTraitsNone.
+
+ Example:
+ Given a view with the accessibility traits .Button | .Selected, and we request the absence of .KeyboardCommand, this will match.
+ Given a view with the accessibility traits .Button | .Selected, and we request the absence of .KeyboardCommand | .PlaysSound, this will match.
+
+ Given a view with the accessibility traits .Button | .Selected, and we request the absence of .Selected, this will not match.
+ Given a view with the accessibility traits .Button | .Selected, and we request the absence of .Button | .Selected, this will not match.
+ Given a view with the accessibility traits .Button | .Selected, and we request the absence of .KeyboardCommand | .Button, this will not match.
+
+ @return The message reciever, these methods are intended to be chained together.
+ */
+- (instancetype)usingAbsenceOfTraits:(UIAccessibilityTraits)accessibilityTraits;
+
+/*!
+ @abstract Adds a check for an accessibility value to the tester's search predicate.
  @discussion The tester will evaluate accessibility elements looking for a matching accessibility value.
  @param accessibilityValue The accessibility value of an element to match.
  @return The message reciever, these methods are intended to be chained together.
@@ -298,7 +317,7 @@ extern NSString *const inputFieldTestString;
  @discussion Text is entered into the view by simulating taps on the appropriate keyboard keys if the keyboard is already displayed. Useful to enter text in UIWebViews or components with no accessibility labels.
  @param text The text to enter.
  */
-- (void)enterTextIntoCurrentFirstResponder:(NSString *)text DEPRECATED_MSG_ATTRIBUTE("Use 'usingFirstResponder' instead.");
+- (void)enterTextIntoCurrentFirstResponder:(NSString *)text DEPRECATED_MSG_ATTRIBUTE("Use 'usingFirstResponder' matcher with 'enterText:' instead.");
 /*!
  @abstract Enters text into a the current first responder. if KIF is unable to type with the keyboard (which could be dismissed or obscured) the tester will call setText on the fallback view directly.
  @discussion Text is entered into the view by simulating taps on the appropriate keyboard keys if the keyboard is already displayed. Useful to enter text in UIWebViews or components with no accessibility labels.
@@ -318,7 +337,7 @@ extern NSString *const inputFieldTestString;
  @discussion text is cleared from the first responder by simulating taps on the backspace key.
  */
 
-- (void)clearTextFromFirstResponder;
+- (void)clearTextFromFirstResponder DEPRECATED_MSG_ATTRIBUTE("Use 'usingFirstResponder' matcher with 'clearText' instead.");
 
 /*!
  @abstract Clears text from a particular view matching the tester's search predicate, then sets new text.
