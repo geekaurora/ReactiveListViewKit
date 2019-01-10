@@ -165,13 +165,6 @@ public struct MovedSection: Equatable, Hashable {
 
     public static func validatedMovedSections(_ sections: [MovedSection]) -> [MovedSection] {
         return sections
-//        let fromIndexSet = Set(sections.compactMap {$0.from})
-//        let toIndexSet = Set(sections.compactMap {$0.to})
-//        let intersectionSet = fromIndexSet.intersection(toIndexSet)
-//        let res = sections.filter {
-//            intersectionSet.contains($0.from) || intersectionSet.contains($0.to)
-//        }
-//        return res
     }
     
     public static func validatedMovedIndexPathes(_ movedIndexPathes: [MovedIndexPath]) -> [MovedIndexPath] {
