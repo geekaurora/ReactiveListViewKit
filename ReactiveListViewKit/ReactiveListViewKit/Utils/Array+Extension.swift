@@ -12,13 +12,11 @@ extension Array where Element: CZListDiffableObject {
     /// Check whether elements in two arrays equal
     public func isEqual(toDiffableObj object: Any) -> Bool {
         guard let object = object as? [Element],
-            count == object.count  else {
+              count == object.count  else {
                 return false
         }
-        var i = -1
-        return object.reduce(true) {
-            i += 1
-            return $0 && $1.isEqual(toDiffableObj: self[i])
+        return (0..<count).allSatisfy { i in
+            self[i].isEqual(toDiffableObj: object[i])
         }
     }
 }
