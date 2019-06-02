@@ -34,14 +34,14 @@ class FeedListViewModel: NSObject, CopyableState {
     private(set) var lastMinFeedId: String = "-1"
     /// `Core` of FLUX, composed of `Dispatcher` and `Store`
     var core: Core<FeedListState>?
-    /// SectionModelsResolver closure -  mapping feeds to sectionModels
-    var sectionModelsResolver: CZFeedListFacadeView.SectionModelsResolver!
+    /// SectionModelsTransformer closure -  mapping feeds to sectionModels
+    var sectionModelsTransformer: CZFeedListFacadeView.SectionModelsTransformer!
         
     override init() {
         super.init()
         
-        /// SectionModelsResolver closure -  mapping feeds to sectionModels
-        sectionModelsResolver = { (feeds: [Any]) -> [CZSectionModel] in
+        /// SectionModelsTransformer closure -  mapping feeds to sectionModels
+        sectionModelsTransformer = { (feeds: [Any]) -> [CZSectionModel] in
             guard let feeds = feeds as? [Feed] else { fatalError() }
             var sectionModels = [CZSectionModel]()
             

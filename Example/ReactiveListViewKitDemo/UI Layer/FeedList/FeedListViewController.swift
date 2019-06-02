@@ -43,8 +43,8 @@ private extension FeedListViewController {
     func setupFeedListView() {
         feedListFacadeView = CZReactiveFeedListFacadeView<FeedListState>(
             core: core,
-            sectionModelsResolver: core.state.sectionModelsResolver,
-            parentViewController:self)
+            sectionModelsTransformer: core.state.sectionModelsTransformer,
+            parentViewController: self)
         feedListFacadeView?.overlayOnSuperViewController(self, insets: Constants.feedListViewInsets)
     }
     func setupAccessibility() {

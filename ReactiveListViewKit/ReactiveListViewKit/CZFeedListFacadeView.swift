@@ -15,8 +15,8 @@ import UIKit
 ///   - Event driven: more loosely coupled than delegation
 ///   - Stateful
 open class CZFeedListFacadeView: UIView {
-    // Resolver closure that transforms `Feed` array to `CZSectionModel` array
-    public typealias SectionModelsResolver = ([Any]) -> [CZSectionModel]
+    // Transformer closure that transforms `Feed` array to `CZSectionModel` array
+    public typealias SectionModelsTransformer = ([Any]) -> [CZSectionModel]
     private(set) var onEvent: OnEvent?
     private(set) lazy var viewModel = CZFeedListViewModel()
     private(set) lazy var newViewModel = CZFeedListViewModel()
@@ -42,7 +42,7 @@ open class CZFeedListFacadeView: UIView {
     public static let kLoadMoreThreshold = 0
     /// Threshold of `loadMore`event, indicates distance from the last cell
     private var loadMoreThreshold: Int = kLoadMoreThreshold
-    var sectionModelsResolver: SectionModelsResolver?
+    var sectionModelsTransformer: SectionModelsTransformer?
     private var hasInvokedWillDisplayCell: Bool = false
     
     private var hasSetup: Bool = false
@@ -62,7 +62,7 @@ open class CZFeedListFacadeView: UIView {
     private var kvoContext: UInt8 = 0
     private var prevVisibleIndexPaths: [IndexPath] = []
     
-    public init(sectionModelsResolver: SectionModelsResolver?,
+    public init(sectionModelsTransformer: SectionModelsTransformer?,
                 onEvent: OnEvent? = nil,
                 isHorizontal: Bool = false,
                 parentViewController: UIViewController? = nil,
@@ -75,9 +75,9 @@ open class CZFeedListFacadeView: UIView {
                 loadMoreThreshold: Int = CZFeedListFacadeView.kLoadMoreThreshold,
                 showsVerticalScrollIndicator: Bool = true,
                 showsHorizontalScrollIndicator: Bool = false) {
-        assert(isHorizontal || sectionModelsResolver != nil, "`sectionModelsResolver` can only be set to nil in nested horizontal sectoin.")
+        assert(isHorizontal || sectionModelsTransformer != nil, "`sectionModelsTransformer` can only be set to nil in nested horizontal sectoin.")
 
-        self.sectionModelsResolver = sectionModelsResolver
+        self.sectionModelsTransformer = sectionModelsTransformer
         self.isHorizontal = isHorizontal
         if (isHorizontal) {
             self.allowPullToRefresh = false
@@ -99,9 +99,9 @@ open class CZFeedListFacadeView: UIView {
         setup()
     }
     
-    public override init(frame: CGRect) { fatalError("Must call designated initializer `init(sectionModelsResolver: onEvent)`") }
+    public override init(frame: CGRect) { fatalError("Must call designated initializer `init(sectionModelsTransformer: onEvent)`") }
 
-    required public init?(coder: NSCoder) { fatalError("Must call designated initializer `init(sectionModelsResolver: onEvent)`") }
+    required public init?(coder: NSCoder) { fatalError("Must call designated initializer `init(sectionModelsTransformer: onEvent)`") }
 
     public func setup() {
         guard !hasSetup else { return }
@@ -112,7 +112,7 @@ open class CZFeedListFacadeView: UIView {
     }
 
     public func batchUpdate(withFeeds feeds: [Any], animated: Bool = true) {
-        if let sectionModels = sectionModelsResolver?(feeds) {
+        if let sectionModels = sectionModelsTransformer?(feeds) {
             batchUpdate(withSectionModels: sectionModels, animated: animated)
         }
     }

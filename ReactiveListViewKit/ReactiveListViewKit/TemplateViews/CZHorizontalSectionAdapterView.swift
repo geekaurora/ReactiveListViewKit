@@ -41,7 +41,7 @@ open class CZHorizontalSectionAdapterView: UIView, CZFeedCellViewSizeCalculatabl
         containerStackView.distribution = .fill
         containerStackView.overlayOnSuperview(self)
             
-        nestedFeedListView = CZFeedListFacadeView(sectionModelsResolver: nil,
+        nestedFeedListView = CZFeedListFacadeView(sectionModelsTransformer: nil,
                                                   onEvent: onEvent,
                                                   isHorizontal: true)
         

@@ -13,7 +13,7 @@ open class CZReactiveFeedListFacadeView<StateType: CopyableState>: CZFeedListFac
     var core: Core<StateType>
     
     public init(core: Core<StateType>,
-                sectionModelsResolver: @escaping SectionModelsResolver,
+                sectionModelsTransformer: @escaping SectionModelsTransformer,
                 parentViewController: UIViewController? = nil,
                 loadMoreThreshold: Int = CZFeedListFacadeView.kLoadMoreThreshold,
                 minimumLineSpacing: CGFloat = ReactiveListViewKit.minimumLineSpacing) {
@@ -21,7 +21,7 @@ open class CZReactiveFeedListFacadeView<StateType: CopyableState>: CZFeedListFac
         let onEvent = { (event: Event) in
             core.fire(event: event)
         }
-        super.init(sectionModelsResolver: sectionModelsResolver,
+        super.init(sectionModelsTransformer: sectionModelsTransformer,
                    onEvent: onEvent,
                    parentViewController: parentViewController,
                    loadMoreThreshold: loadMoreThreshold)
