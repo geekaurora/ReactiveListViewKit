@@ -12,14 +12,12 @@ public protocol CopyableState: State, NSCopying {}
 
 public protocol Event {}
 
-
 // MARK: - Commands
 
 public protocol Command {
     associatedtype StateType: CopyableState
     func execute(state: StateType, core: Core<StateType>)
 }
-
 
 // MARK: - Middlewares
 
@@ -81,6 +79,7 @@ public struct Subscription<StateType: State> {
 }
 
 // MARK: - Core
+
 public class Core<StateType: CopyableState> {
     public private (set) var prevState: StateType?
     /// Main State
@@ -112,12 +111,10 @@ public class Core<StateType: CopyableState> {
     }
     private let middlewares: [Middlewares<StateType>]
     
-    public init(state: StateType, middlewares: [AnyMiddleware] = [], useGCD: Bool = false) {
+    public init(state: StateType, middlewares: [AnyMiddleware] = []) {
         self.state = state
         self.middlewares = middlewares.map(Middlewares.init)
-        shouldUseGCD = useGCD
     }
-    
     
     // MARK: - Subscriptions
     
@@ -155,20 +152,11 @@ public class Core<StateType: CopyableState> {
 
 // MARK: - Internal Adapative Dispatch
 
-private var shouldUseGCD: Bool = false
 private enum DispatchType {
     case sync, async
 }
 private func internalDispatch<T>(_ type: DispatchType, queue: DispatchQueue, closure: @escaping ()->T) -> T? {
-    var queue = queue
-    var useGCD: Bool = shouldUseGCD
-    if !Thread.current.isMainThread &&
-       !shouldUseGCD {
-        queue = DispatchQueue.main
-        useGCD = true
-    }
-
-    if useGCD {
+    if ReactiveListViewKit.useGCD {
         switch type {
         case .sync:
             return queue.sync(execute: closure)

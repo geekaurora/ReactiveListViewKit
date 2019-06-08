@@ -13,10 +13,10 @@ import ReactiveListViewKit
 class Feed: ReactiveListDiffable {
     let feedId: String
     let content: String?
-    var userHasLiked: Bool
-    let likesCount: Int
     let imageInfo: ImageInfo?
     let user: User?
+    var userHasLiked: Bool
+    var likesCount: Int
 
     // MARK: - CZListDiffable
     func isEqual(toDiffableObj object: AnyObject) -> Bool {
@@ -54,6 +54,7 @@ extension Feed: State {
             // React to `LikeFeedEvent`: flip `userHasLiked` flag
             if  event.feed.feedId == feedId {
                 userHasLiked = !userHasLiked
+                likesCount += userHasLiked ? 1 : -1
             }
         default:
             break

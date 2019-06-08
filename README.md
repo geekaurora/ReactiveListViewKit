@@ -40,7 +40,7 @@
     
  * **State:**
    * Waterfall reacting flow
-   * Composition: `RootState` is composed of `SubStates`
+   * Composition: `RootState` is composed of `Substates`
    * Reacts to `Event` and outputs new `State`, propagates `Event` to children nodes via `State` tree
 
 ### Automatic Batch Update

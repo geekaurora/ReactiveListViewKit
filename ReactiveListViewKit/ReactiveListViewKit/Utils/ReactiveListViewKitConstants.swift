@@ -10,9 +10,9 @@ import UIKit
 
 /// Constants of ReactiveListViewKit
 public enum ReactiveListViewKit {
-    /// Indicates whether DebugMode is on, controls debug logging
-    public static let isDebugMode = true
+    public static var isDebugMode = true
     public static var incrementalUpdateOn = true
+    public static var useGCD = false
 
     public static let ClearBGColor = UIColor.clear
     public static let GreyBGColor = UIColor(white: 240.0 / 255.0, alpha: 1.0)
