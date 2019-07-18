@@ -15,7 +15,7 @@ open class CZFeedListSupplementaryView: UICollectionReusableView {
     }
     private var model: CZFeedModel?
     private var contentView: CZFeedCellViewSizeCalculatable?
-    open static var reuseId: String {
+    public static var reuseId: String {
         return NSStringFromClass(object_getClass(self)!)
     }
     open func config(with model: CZFeedModel, onEvent: OnEvent?) {
