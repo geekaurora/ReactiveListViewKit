@@ -12,7 +12,7 @@ private var kViewModelObserverContext: Int = 0
 
 /// Elegant Facade class encapsulating UIStackView for non-reusable cells
 @objc open class CZFeedDetailsFacadeView: UIView {
-    var onEvent: OnEvent?
+    var onAction: OnAction?
     var viewModel: CZFeedDetailsViewModel {
         return _viewModel
     }
@@ -27,11 +27,11 @@ private var kViewModelObserverContext: Int = 0
     var containerViewController: UIViewController?
     private var hasSetup = false
 
-    public init(containerViewController: UIViewController? = nil, onEvent: OnEvent? = nil, onScrollView: Bool = true) {
+    public init(containerViewController: UIViewController? = nil, onAction: OnAction? = nil, onScrollView: Bool = true) {
         self.onScrollView = onScrollView
         super.init(frame: .zero)
         self.containerViewController = containerViewController
-        self.onEvent = onEvent
+        self.onAction = onAction
         setup()
     }
     
@@ -53,8 +53,8 @@ private var kViewModelObserverContext: Int = 0
         reloadListView()
     }
 
-    public func listenToEvents(_ onEvent: @escaping OnEvent) {
-        self.onEvent = onEvent
+    public func listenToEvents(_ onAction: @escaping OnAction) {
+        self.onAction = onAction
     }
 
     func setup() {
@@ -110,7 +110,7 @@ private var kViewModelObserverContext: Int = 0
                 let insertedSet = Set<CZFeedDetailsModel>(insertedItemModels)
                 viewModel.feedModels.filter({insertedSet.contains($0)}).forEach { model in
                     guard let i = viewModel.feedModels.index(of: model) else {return}
-                    let itemComponent = model.viewClass.init(viewModel: model.viewModel, onEvent: onEvent)
+                    let itemComponent = model.viewClass.init(viewModel: model.viewModel, onAction: onAction)
                     if let containerViewController = containerViewController,
                         let itemViewController = itemComponent as? UIViewController {
                         // Component is UIViewController

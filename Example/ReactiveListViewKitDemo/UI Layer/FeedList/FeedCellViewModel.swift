@@ -53,7 +53,7 @@ class FeedCellViewModel: NSObject, CZFeedViewModelable {
 }
 
 extension FeedCellViewModel: State {
-    func react(to event: Event) {
+    func reduce(action: Action) {
 
     }
 }

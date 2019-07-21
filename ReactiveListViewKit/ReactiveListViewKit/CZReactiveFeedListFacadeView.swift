@@ -10,19 +10,19 @@ import UIKit
 
 /// Reactive view class of `FeedListFacadeView`, supports FLUX pattern
 open class CZReactiveFeedListFacadeView<StateType: CopyableState>: CZFeedListFacadeView {
-    var core: Core<StateType>
+    var store: Store<StateType>
     
-    public init(core: Core<StateType>,
+    public init(store: Store<StateType>,
                 sectionModelsTransformer: @escaping SectionModelsTransformer,
                 parentViewController: UIViewController? = nil,
                 loadMoreThreshold: Int = CZFeedListFacadeView.kLoadMoreThreshold,
                 minimumLineSpacing: CGFloat = ReactiveListViewKit.minimumLineSpacing) {
-        self.core = core
-        let onEvent = { (event: Event) in
-            core.fire(event: event)
+        self.store = store
+        let onAction = { (action: Action) in
+            store.dispatch(action: action)
         }
         super.init(sectionModelsTransformer: sectionModelsTransformer,
-                   onEvent: onEvent,
+                   onAction: onAction,
                    parentViewController: parentViewController,
                    loadMoreThreshold: loadMoreThreshold)
     }

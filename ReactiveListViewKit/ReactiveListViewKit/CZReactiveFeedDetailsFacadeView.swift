@@ -12,18 +12,18 @@ private var kViewModelObserverContext: Int = 0
 
 /// Reactive view class of `FeedDetailsFacadeView`, supports FLUX pattern
 open class CZReactiveFeedDetailsFacadeView<StateType: CopyableState>: CZFeedDetailsFacadeView {
-    var core: Core<StateType>?
-    public override var onEvent: OnEvent? {
+    var store: Store<StateType>?
+    public override var onAction: OnAction? {
         get {
-            guard let core = core else {  return super.onEvent }
-            return {event in core.fire(event: event) }
+            guard let store = store else {  return super.onAction }
+            return {action in store.dispatch(action: action) }
         }
-        set { super.onEvent = newValue }
+        set { super.onAction = newValue }
     }
 
-    public init(containerViewController: UIViewController? = nil, core: Core<StateType>? = nil, onEvent: OnEvent? = nil) {
-        super.init(containerViewController: containerViewController, onEvent: onEvent)
-        self.core = core
+    public init(containerViewController: UIViewController? = nil, store: Store<StateType>? = nil, onAction: OnAction? = nil) {
+        super.init(containerViewController: containerViewController, onAction: onAction)
+        self.store = store
     }
     public required init?(coder: NSCoder) {
         super.init(coder: coder)

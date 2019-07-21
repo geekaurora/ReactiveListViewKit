@@ -1,5 +1,5 @@
 //
-//  FeedListEvents.swift
+//  FeedListActions.swift
 //  ReactiveListViewKit
 //
 //  Created by Cheng Zhang on 1/4/17.
@@ -11,8 +11,8 @@ import ReactiveListViewKit
 
 // MARK: - Events
 
-/// Event that User likes one `Feed`
-struct LikeFeedEvent: Event {
+/// Action that User likes one `Feed`
+struct LikeFeedAction: Action {
     var feed: Feed
 }
 

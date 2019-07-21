@@ -10,30 +10,30 @@ import UIKit
 import CZUtils
 import ReactiveListViewKit
 
-/// ViewController of FeedList, acts as dumb/thin container - mediates nothing
-class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator {
+/// ViewController of FeedList, acts as dumb and thin container that mediates nothing
+class FeedListViewController: UIViewController, FeedListActionHandlerCoordinator {
     /// Facade list view
     private var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?
-    /// `Core` of FLUX, composed of `Dispatcher` and `Store`
-    private var core: Core<FeedListState>
+    /// Store that maintains State
+    private var store: Store<FeedListState>
 
     required init?(coder aDecoder: NSCoder) {
-        // Set up `Core` for FLUX pattern
+        // Set up `Store` for FLUX pattern
         let feedListState = FeedListState()
-        // Event handler: coordinator pattern decouples user action handling from ViewController
-        let eventHandler = FeedListEventHandler()
-        core = Core<FeedListState>(state: feedListState, middlewares: [eventHandler])
-        feedListState.core = core
+        // Action handler: coordinator pattern decouples user action handling from ViewController
+        let actionHandler = FeedListActionHandler()
+        store = Store<FeedListState>(state: feedListState, middlewares: [actionHandler])
+        feedListState.store = store
         
         super.init(coder: aDecoder)
-        eventHandler.coordinator = self
+        actionHandler.coordinator = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFeedListView()
         setupAccessibility()
-        core.add(subscriber: self)
+        store.subscribe(self)
     }
 }
 
@@ -42,8 +42,8 @@ class FeedListViewController: UIViewController, FeedListEventHandlerCoordinator 
 private extension FeedListViewController {
     func setupFeedListView() {
         feedListFacadeView = CZReactiveFeedListFacadeView<FeedListState>(
-            core: core,
-            sectionModelsTransformer: core.state.sectionModelsTransformer,
+            store: store,
+            sectionModelsTransformer: store.state.sectionModelsTransformer,
             parentViewController: self)
         feedListFacadeView?.overlayOnSuperViewController(self, insets: Constants.feedListViewInsets)
     }
@@ -59,7 +59,7 @@ private extension FeedListViewController {
 extension FeedListViewController: Subscriber {
     /// Notify FacadeListView to batch update automatically
     func update(with state: FeedListState, prevState: FeedListState?) {
-        feedListFacadeView?.batchUpdate(withFeeds: core.state.feeds)
+        feedListFacadeView?.batchUpdate(withFeeds: store.state.feeds)
     }
 }
 

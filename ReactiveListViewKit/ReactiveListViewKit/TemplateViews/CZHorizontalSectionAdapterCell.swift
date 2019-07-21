@@ -11,7 +11,7 @@ import CZUtils
 public class CZHorizontalSectionAdapterCell: UICollectionViewCell, CZFeedCellViewSizeCalculatable {
     private var viewModel: CZHorizontalSectionAdapterViewModel?
     open var diffId: String { return viewModel?.diffId ?? "" }
-    open var onEvent: OnEvent?
+    open var onAction: OnAction?
     private var horizontalSectionAdapterView: CZHorizontalSectionAdapterView!
     private var hasSetup: Bool = false
     
@@ -20,23 +20,23 @@ public class CZHorizontalSectionAdapterCell: UICollectionViewCell, CZFeedCellVie
         setupViewsIfNeeded()
     }
     
-    public required init(viewModel: CZFeedViewModelable? = nil, onEvent: OnEvent?) {
+    public required init(viewModel: CZFeedViewModelable? = nil, onAction: OnAction?) {
         self.viewModel = viewModel as? CZHorizontalSectionAdapterViewModel
-        self.onEvent = onEvent
+        self.onAction = onAction
         super.init(frame: .zero)
         setupViewsIfNeeded()
         config(with: viewModel)
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        fatalError("Must call designated initializer `init(viewModel:onEvent:)`")
+        fatalError("Must call designated initializer `init(viewModel:onAction:)`")
     }
     
     public func setupViewsIfNeeded() {
         guard !hasSetup else {return}
         hasSetup = true
         translatesAutoresizingMaskIntoConstraints = false
-        horizontalSectionAdapterView = CZHorizontalSectionAdapterView(onEvent: onEvent)
+        horizontalSectionAdapterView = CZHorizontalSectionAdapterView(onAction: onAction)
         horizontalSectionAdapterView.overlayOnSuperview(contentView)
     }
     

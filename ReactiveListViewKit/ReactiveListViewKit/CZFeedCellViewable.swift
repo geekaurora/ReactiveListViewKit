@@ -10,7 +10,7 @@ import UIKit
 
 /// Fundamental protocol of eventful Component
 public protocol CZEventable: class {
-    var onEvent: OnEvent? {get set}
+    var onAction: OnAction? {get set}
 }
 
 /// Fundamental CellView protocol, compatible with UICollectionViewCell/View/ViewController
@@ -27,16 +27,16 @@ public protocol CZEventable: class {
 public protocol CZFeedCellViewable: NSObjectProtocol, CZEventable {
     // diffId is used to match view and ViewModel if corresponding ViewModel changes
     var diffId: String {get}
-    // Event hanlder closure
-    var onEvent: OnEvent? {get set}
+    // Action hanlder closure
+    var onAction: OnAction? {get set}
 
     /// Initializer of FeedCellView
     ///
     /// - Parameters:
     ///   - viewModel: ViewModel of FeedCellView
-    ///   - onEvent: Event handler for events of cellView, cellView can propagate customEvent
+    ///   - onAction: Action handler for events of cellView, cellView can propagate customEvent
     ///              e.g. `OptionSelect`, like/comment/share
-    init(viewModel: CZFeedViewModelable?, onEvent: OnEvent?)
+    init(viewModel: CZFeedViewModelable?, onAction: OnAction?)
     func config(with viewModel: CZFeedViewModelable?)
     func config(with viewModel: CZFeedViewModelable?, prevViewModel: CZFeedViewModelable?)
 }

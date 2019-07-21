@@ -48,11 +48,11 @@ class Feed: ReactiveListDiffable {
 
 // MARK: - State
 extension Feed: State {
-    func react(to event: Event) {
-        switch event {
-        case let event as LikeFeedEvent:
+    func reduce(action: Action) {
+        switch action {
+        case let action as LikeFeedAction:
             // React to `LikeFeedEvent`: flip `userHasLiked` flag
-            if  event.feed.feedId == feedId {
+            if  action.feed.feedId == feedId {
                 userHasLiked = !userHasLiked
                 likesCount += userHasLiked ? 1 : -1
             }

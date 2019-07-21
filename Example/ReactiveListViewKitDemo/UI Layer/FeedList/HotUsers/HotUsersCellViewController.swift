@@ -14,7 +14,7 @@ class HotUsersCellViewController: UIViewController, CZFeedCellViewSizeCalculatab
         return viewModel.diffId
     }
     private var viewModel: HotUsersCellViewModel
-    var onEvent: OnEvent?
+    var onAction: OnAction?
     private var containerStackView: UIStackView!
     private var sectionHeaderView: CZFeedListSupplementaryTextView!
     private var horizontalListView: CZHorizontalSectionAdapterView!
@@ -22,14 +22,14 @@ class HotUsersCellViewController: UIViewController, CZFeedCellViewSizeCalculatab
     private static let seeAllText = "See All"
     private static let suggestedUsersSectionViewBGColor = UIColor(white: 250.0 / 255.0, alpha: 1)
     
-    required init(viewModel: CZFeedViewModelable?, onEvent: OnEvent?) {
+    required init(viewModel: CZFeedViewModelable?, onAction: OnAction?) {
         self.viewModel = viewModel as! HotUsersCellViewModel
-        self.onEvent = onEvent
+        self.onAction = onAction
         super.init(nibName: nil, bundle: .main)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("Must call designated initializer init(viewMode:onEvent:).")
+        fatalError("Must call designated initializer init(viewMode:onAction:).")
     }
     
     func config(with viewModel: CZFeedViewModelable?) {
@@ -77,10 +77,10 @@ private extension HotUsersCellViewController {
                                                                             print("Tapped SeeAll button")
         }, inset: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8) )
         sectionHeaderView = CZFeedListSupplementaryTextView(viewModel: sectionHeaderViewModel,
-                                                            onEvent: onEvent)
+                                                            onAction: onAction)
         
         // horizontalListView
-        horizontalListView = CZHorizontalSectionAdapterView(onEvent: onEvent)
+        horizontalListView = CZHorizontalSectionAdapterView(onAction: onAction)
         horizontalListView.heightAnchor.constraint(equalToConstant: HotUserSection.userCardSize.height).isActive = true
         
         let arrangedSubViews: [UIView] = [CZDividerView(),

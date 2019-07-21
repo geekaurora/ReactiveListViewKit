@@ -10,9 +10,9 @@ import UIKit
 
 /// Convenience text based CellView class
 open class CZTextFeedCell: UICollectionViewCell, CZFeedCellViewSizeCalculatable {
-    open var onEvent: OnEvent? {
+    open var onAction: OnAction? {
         didSet {
-            cellView?.onEvent = onEvent
+            cellView?.onAction = onAction
         }
     }
     open var viewModel: CZFeedViewModelable?
@@ -21,9 +21,9 @@ open class CZTextFeedCell: UICollectionViewCell, CZFeedCellViewSizeCalculatable 
         return viewModel?.diffId ?? ""
     }
 
-    public required init(viewModel: CZFeedViewModelable?, onEvent: OnEvent?) {
+    public required init(viewModel: CZFeedViewModelable?, onAction: OnAction?) {
         self.viewModel = viewModel
-        self.onEvent = onEvent
+        self.onAction = onAction
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         config(with: viewModel)
@@ -40,7 +40,7 @@ open class CZTextFeedCell: UICollectionViewCell, CZFeedCellViewSizeCalculatable 
     public func config(with viewModel: CZFeedViewModelable?) {
         if let viewModel = viewModel as? CZTextFeedViewModel {
             if cellView == nil {
-                cellView = CZTextFeedCellView(viewModel: viewModel, onEvent: onEvent)
+                cellView = CZTextFeedCellView(viewModel: viewModel, onAction: onAction)
                 cellView?.overlayOnSuperview(self)
             }
             cellView!.config(with: viewModel)
@@ -53,7 +53,7 @@ open class CZTextFeedCell: UICollectionViewCell, CZFeedCellViewSizeCalculatable 
 }
 
 public class CZTextFeedCellView: UIView, CZFeedCellViewSizeCalculatable {
-    public var onEvent: OnEvent?
+    public var onAction: OnAction?
 
     private var titleLabel: UILabel!
 
@@ -63,9 +63,9 @@ public class CZTextFeedCellView: UIView, CZFeedCellViewSizeCalculatable {
         return viewModel?.diffId ?? ""
     }
 
-    public required init(viewModel: CZFeedViewModelable?, onEvent: OnEvent?) {
+    public required init(viewModel: CZFeedViewModelable?, onAction: OnAction?) {
         self.viewModel = viewModel
-        self.onEvent = onEvent
+        self.onAction = onAction
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         config(with: viewModel)

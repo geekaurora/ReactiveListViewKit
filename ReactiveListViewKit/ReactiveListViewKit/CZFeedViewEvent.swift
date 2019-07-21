@@ -8,14 +8,14 @@
 
 import UIKit
 
-/// Event handler closure
-public typealias OnEvent = (_ event: Event) -> Void
+/// Action handler closure
+public typealias OnAction = (_ action: Action) -> Void
 
 /// General ViewEvent
-public typealias CZViewEvent = Event
+public typealias CZViewEvent = Action
 
 public struct BaseState: State {
-    public func react(to event: Event) {}
+    public func reduce(action: Action) {}
 }
 
 /// ViewEvent for container feedListView

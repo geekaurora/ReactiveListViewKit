@@ -9,7 +9,7 @@
 import UIKit
 import ReactiveListViewKit
 
-/// Event that User selects `UserStory`
-enum UserStoryEvent: Event {
+/// Action that User selects `UserStory`
+enum UserStoryAction: Action {
     case selected(user: User)
 }

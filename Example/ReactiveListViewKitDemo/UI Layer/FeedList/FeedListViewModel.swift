@@ -32,8 +32,8 @@ class FeedListViewModel: NSObject, CopyableState {
     private(set) var isLoadingFeeds: Bool = false
     /// Last minimum FeedId, used as baseId for feeds request
     private(set) var lastMinFeedId: String = "-1"
-    /// `Core` of FLUX, composed of `Dispatcher` and `Store`
-    var core: Core<FeedListState>?
+    /// `Store` of FLUX, composed of `Dispatcher` and `Store`
+    var store: Store<FeedListState>?
     /// SectionModelsTransformer closure -  mapping feeds to sectionModels
     var sectionModelsTransformer: CZFeedListFacadeView.SectionModelsTransformer!
         
@@ -88,10 +88,10 @@ class FeedListViewModel: NSObject, CopyableState {
 }
 
 extension FeedListViewModel: State {
-    /// Reacts to event
-    func react(to event: Event) {
-        feeds.forEach { $0.react(to: event) }
-        switch event {
+    /// Reacts to action
+    func reduce(action: Action) {
+        feeds.forEach { $0.reduce(action: action) }
+        switch action {
         case let CZFeedListViewEvent.selectedCell(feedModel):
             break
         default:

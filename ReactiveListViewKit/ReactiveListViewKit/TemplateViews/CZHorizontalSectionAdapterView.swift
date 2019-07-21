@@ -12,7 +12,7 @@ import UIKit
 open class CZHorizontalSectionAdapterView: UIView, CZFeedCellViewSizeCalculatable {
     private var viewModel: CZHorizontalSectionAdapterViewModel?
     open var diffId: String {return viewModel?.diffId ?? ""}
-    open var onEvent: OnEvent?
+    open var onAction: OnAction?
     private var containerStackView: UIStackView!
     private var nestedFeedListView: CZFeedListFacadeView!
     private var headerView: UIView?
@@ -23,15 +23,15 @@ open class CZHorizontalSectionAdapterView: UIView, CZFeedCellViewSizeCalculatabl
         return containerStackView.arrangedSubviews.index(of: nestedFeedListView)!
     }
 
-    public required init(viewModel: CZFeedViewModelable? = nil, onEvent: OnEvent?) {
+    public required init(viewModel: CZFeedViewModelable? = nil, onAction: OnAction?) {
         self.viewModel = viewModel as? CZHorizontalSectionAdapterViewModel
-        self.onEvent = onEvent
+        self.onAction = onAction
         super.init(frame: .zero)
         setup()
         config(with: viewModel)
     }
     
-    public required init?(coder aDecoder: NSCoder) { fatalError("Must call designated initializer `init(viewModel:onEvent:)`") }
+    public required init?(coder aDecoder: NSCoder) { fatalError("Must call designated initializer `init(viewModel:onAction:)`") }
     
     public func setup() {
         translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +42,7 @@ open class CZHorizontalSectionAdapterView: UIView, CZFeedCellViewSizeCalculatabl
         containerStackView.overlayOnSuperview(self)
             
         nestedFeedListView = CZFeedListFacadeView(sectionModelsTransformer: nil,
-                                                  onEvent: onEvent,
+                                                  onAction: onAction,
                                                   isHorizontal: true)
         
         [topDivider, nestedFeedListView, bottomDivider].forEach { containerStackView.addArrangedSubview($0) }
@@ -70,7 +70,7 @@ open class CZHorizontalSectionAdapterView: UIView, CZFeedCellViewSizeCalculatabl
         // Header view
         if let headerModel = viewModel.headerModel {
             if headerView == nil {
-                headerView = headerModel.buildView(onEvent: onEvent)
+                headerView = headerModel.buildView(onAction: onAction)
                 containerStackView.insertArrangedSubview(headerView!, at: listViewIndex)
             } else {
                 (headerView as! CZFeedCellViewable).config(with: headerModel.viewModel)
@@ -80,7 +80,7 @@ open class CZHorizontalSectionAdapterView: UIView, CZFeedCellViewSizeCalculatabl
         // Footer view
         if let footerModel = viewModel.footerModel {
             if footerView == nil {
-                footerView = footerModel.buildView(onEvent: onEvent)
+                footerView = footerModel.buildView(onAction: onAction)
                 containerStackView.insertArrangedSubview(headerView!, at: listViewIndex + 1)
             } else {
                 (footerView as! CZFeedCellViewable).config(with: footerModel.viewModel)

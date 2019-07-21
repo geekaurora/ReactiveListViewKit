@@ -15,7 +15,7 @@ public class CZFacadeViewHelper: NSObject {
                                     viewModel: CZFeedViewModelable,
                                     viewClass: CZFeedCellViewable.Type,
                                     isHorizontal: Bool = false) -> CGSize {
-        let tmpComponent = viewClass.init(viewModel: viewModel, onEvent: nil)
+        let tmpComponent = viewClass.init(viewModel: viewModel, onAction: nil)
         let tmpView: UIView
         switch tmpComponent {
         case let tmpComponent as UIView:

@@ -52,5 +52,5 @@ public class CZHorizontalSectionAdapterViewModel: NSObject, CZFeedViewModelable,
         let feedModelsCopy = feedModels.copy() as! [CZFeedModel]
         return CZHorizontalSectionAdapterViewModel(feedModelsCopy, viewHeight: viewHeight)
     }
-    public func react(to event: Event) { }
+    public func reduce(action: Action) { }
 }

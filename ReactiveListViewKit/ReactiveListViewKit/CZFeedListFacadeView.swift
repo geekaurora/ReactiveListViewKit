@@ -12,12 +12,12 @@ import UIKit
 ///
 /// - Features:
 ///   - Pagination
-///   - Event driven: more loosely coupled than delegation
+///   - Action driven: more loosely coupled than delegation
 ///   - Stateful
 open class CZFeedListFacadeView: UIView {
     // Transformer closure that transforms `Feed` array to `CZSectionModel` array
     public typealias SectionModelsTransformer = ([Any]) -> [CZSectionModel]
-    private(set) var onEvent: OnEvent?
+    private(set) var onAction: OnAction?
     private(set) lazy var viewModel = CZFeedListViewModel()
     private(set) lazy var newViewModel = CZFeedListViewModel()
     public private(set) var collectionView: UICollectionView!
@@ -40,7 +40,7 @@ open class CZFeedListFacadeView: UIView {
     private lazy var registeredCellReuseIds: Set<String> = []
     private lazy var hasPulledToRefresh: Bool = false
     public static let kLoadMoreThreshold = 0
-    /// Threshold of `loadMore`event, indicates distance from the last cell
+    /// Threshold of `loadMore`action, indicates distance from the last cell
     private var loadMoreThreshold: Int = kLoadMoreThreshold
     var sectionModelsTransformer: SectionModelsTransformer?
     private var hasInvokedWillDisplayCell: Bool = false
@@ -63,7 +63,7 @@ open class CZFeedListFacadeView: UIView {
     private var prevVisibleIndexPaths: [IndexPath] = []
     
     public init(sectionModelsTransformer: SectionModelsTransformer?,
-                onEvent: OnEvent? = nil,
+                onAction: OnAction? = nil,
                 isHorizontal: Bool = false,
                 parentViewController: UIViewController? = nil,
                 backgroundColor: UIColor? = ReactiveListViewKit.GreyBGColor,
@@ -95,13 +95,13 @@ open class CZFeedListFacadeView: UIView {
         self.showsVerticalScrollIndicator = showsVerticalScrollIndicator
         self.showsHorizontalScrollIndicator = showsHorizontalScrollIndicator
         super.init(frame: .zero)
-        self.onEvent = onEvent
+        self.onAction = onAction
         setup()
     }
     
-    public override init(frame: CGRect) { fatalError("Must call designated initializer `init(sectionModelsTransformer: onEvent)`") }
+    public override init(frame: CGRect) { fatalError("Must call designated initializer `init(sectionModelsTransformer: onAction)`") }
 
-    required public init?(coder: NSCoder) { fatalError("Must call designated initializer `init(sectionModelsTransformer: onEvent)`") }
+    required public init?(coder: NSCoder) { fatalError("Must call designated initializer `init(sectionModelsTransformer: onAction)`") }
 
     public func setup() {
         guard !hasSetup else { return }
@@ -152,8 +152,8 @@ open class CZFeedListFacadeView: UIView {
         return res
     }
 
-    public func listenToEvents(_ onEvent: @escaping OnEvent) {
-        self.onEvent = onEvent
+    public func listenToEvents(_ onAction: @escaping OnAction) {
+        self.onAction = onAction
     }
 
     public func reuseId(with cellClass: AnyClass) -> String {
@@ -355,7 +355,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
     
     @objc func refreshControlValueChanged(_ refreshControl:UIRefreshControl){
         if (refreshControl.isRefreshing) {
-            onEvent?(CZFeedListViewEvent.pullToRefresh(isFirst: !hasPulledToRefresh))
+            onAction?(CZFeedListViewEvent.pullToRefresh(isFirst: !hasPulledToRefresh))
         }
     }
 }
@@ -383,11 +383,11 @@ extension CZFeedListFacadeView: UICollectionViewDataSource {
             let reuseCellId = reuseId(with: feedModel.viewClass)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseCellId, for: indexPath)
             if let cell = cell as? CZFeedListCell {
-                cell.config(with: feedModel, onEvent: onEvent, parentViewController: parentViewController)
+                cell.config(with: feedModel, onAction: onAction, parentViewController: parentViewController)
                 return cell
             } else if let cell = cell as? CZFeedCellViewSizeCalculatable {
                 cell.config(with: feedModel.viewModel)
-                cell.onEvent = onEvent
+                cell.onAction = onAction
                 return cell as! UICollectionViewCell
             }
         }
@@ -400,7 +400,7 @@ extension CZFeedListFacadeView: UICollectionViewDataSource {
                                                                                    withReuseIdentifier: CZFeedListSupplementaryView.reuseId,
                                                                                    for: indexPath) as? CZFeedListSupplementaryView {
             if let supplymentaryModel = viewModel.supplementaryModel(inSection: indexPath.section, kind: kind) {
-                supplementaryView.config(with: supplymentaryModel, onEvent: onEvent)
+                supplementaryView.config(with: supplymentaryModel, onAction: onAction)
             } else {
                 assertionFailure("Couldn't find matched ViewModel for supplementaryView.")
             }
@@ -417,7 +417,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
             assertionFailure("Couldn't find matched cell/feedModel at \(indexPath)")
             return
         }
-        onEvent?(CZFeedListViewEvent.selectedCell(feedModel))
+        onAction?(CZFeedListViewEvent.selectedCell(feedModel))
     }
 
     // MARK: - Load More
@@ -437,7 +437,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
         if allowLoadMore &&
             (distanceFromBottom >= loadMoreThreshold) &&
             !viewedIndexPaths.contains(indexPath) {
-            onEvent?(CZFeedListViewEvent.loadMore)
+            onAction?(CZFeedListViewEvent.loadMore)
         }
         
         if !hasInvokedWillDisplayCell && collectionView.indexPathsForVisibleItems.count > 0 {

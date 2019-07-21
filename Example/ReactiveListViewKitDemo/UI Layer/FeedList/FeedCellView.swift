@@ -31,21 +31,21 @@ class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
 
     private var viewModel: FeedCellViewModel    
     var diffId: String { return viewModel.diffId }
-    var onEvent: OnEvent?
+    var onAction: OnAction?
     static let imageRatio: CGFloat = 1.0
 
-    required init(viewModel: CZFeedViewModelable?, onEvent: OnEvent?) {
+    required init(viewModel: CZFeedViewModelable?, onAction: OnAction?) {
         guard let viewModel = viewModel as? FeedCellViewModel else {
             fatalError("Incorrect ViewModel type.")
         }
         self.viewModel = viewModel
-        self.onEvent = onEvent
+        self.onAction = onAction
         super.init(frame: .zero)        
         config(with: viewModel)
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("Must call designated initializer `init(viewModel:onEvent:)`")
+        fatalError("Must call designated initializer `init(viewModel:onAction:)`")
     }
 
     func config(with viewModel: CZFeedViewModelable?) {
@@ -84,7 +84,7 @@ class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
 
 private extension FeedCellView {
     @IBAction func tappedLike(_ sender: UIButton) {
-        let event = LikeFeedEvent(feed: viewModel.feed)
-        onEvent?(event)
+        let action = LikeFeedAction(feed: viewModel.feed)
+        onAction?(action)
     }
 }

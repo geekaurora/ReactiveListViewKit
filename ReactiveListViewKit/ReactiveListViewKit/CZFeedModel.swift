@@ -45,8 +45,8 @@ open class CZFeedModel: NSObject, CZFeedModelable {
                                    viewModel: viewModelCopy)
     }
     
-    public func buildView(onEvent: OnEvent?) -> UIView {
-        let cellComponent = viewClass.init(viewModel: viewModel, onEvent: onEvent)
+    public func buildView(onAction: OnAction?) -> UIView {
+        let cellComponent = viewClass.init(viewModel: viewModel, onAction: onAction)
         let cellView: UIView
         switch cellComponent {
         case let cellComponent as UICollectionViewCell:

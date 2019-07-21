@@ -22,7 +22,7 @@ public class CZFeedListViewStateMachine {
         case requestingMoreViewModels
         case requestingMoreViewModelsError
     }
-    public enum Event {
+    public enum Action {
         case resetingViewModels
         case appendingViewModels
         case requestingMoreViewModels
@@ -38,8 +38,8 @@ public class CZFeedListViewStateMachine {
         self.state = state
     }
     
-    public func sendEvent(_ event: Event) {
-        switch event {
+    public func sendEvent(_ action: Action) {
+        switch action {
         case .resetingViewModels:
             state = .showingViewModels
         case .appendingViewModels:

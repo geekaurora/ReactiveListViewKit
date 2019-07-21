@@ -22,21 +22,21 @@ class HotUserCellCardView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
     
     private var viewModel: HotUserCellViewModel
     var diffId: String {return viewModel.diffId}
-    var onEvent: OnEvent?
+    var onAction: OnAction?
     
-    required init(viewModel: CZFeedViewModelable?, onEvent: OnEvent?) {
+    required init(viewModel: CZFeedViewModelable?, onAction: OnAction?) {
         guard let viewModel = viewModel as? HotUserCellViewModel else {
             fatalError("Incorrect ViewModel type.")
         }
         self.viewModel = viewModel
-        self.onEvent = onEvent
+        self.onAction = onAction
         super.init(frame: .zero)
         backgroundColor = .white
         config(with: viewModel)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("Must call designated initializer `init(viewModel:onEvent:)`")
+        fatalError("Must call designated initializer `init(viewModel:onAction:)`")
     }
     
     func config(with viewModel: CZFeedViewModelable?) {
@@ -65,11 +65,11 @@ class HotUserCellCardView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
     }
     
     @IBAction func tappedFollow(_ sender: UIButton) {
-        onEvent?(SuggestedUserEvent.follow(user: viewModel.user))
+        onAction?(SuggestedUserAction.follow(user: viewModel.user))
     }
     
     @IBAction func tappedClose(_ sender: UIButton) {
-        onEvent?(SuggestedUserEvent.ignore(user: viewModel.user))
+        onAction?(SuggestedUserAction.ignore(user: viewModel.user))
     }
     
 }

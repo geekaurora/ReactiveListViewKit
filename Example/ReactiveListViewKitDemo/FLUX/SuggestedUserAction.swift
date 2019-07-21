@@ -9,8 +9,8 @@
 import UIKit
 import ReactiveListViewKit
 
-/// Event that follow/ignore `SuggestedUser`
-enum SuggestedUserEvent: Event {
+/// Action that follow/ignore `SuggestedUser`
+enum SuggestedUserAction: Action {
     case follow(user: User)
     case ignore(user: User)        
 }
