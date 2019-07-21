@@ -11,13 +11,19 @@ import ReactiveListViewKit
 
 protocol FeedListActionHandlerCoordinator {}
 
-/// Action handler for `FeedListViewController`, Coordinator pattern decouples user action handling from ViewController to make it less massive
-class FeedListActionHandler: NSObject {
+/**
+ Action handler for `FeedListViewController`
+ 
+ Coordinator pattern decouples user action handling from ViewController to make it less massive
+ */
+class FeedListActionHandler: NSObject, Middleware {
+    
     var coordinator: FeedListActionHandlerCoordinator?    
-}
-
-extension FeedListActionHandler: Middleware {
+    
+    // MARK: - Middleware
+    
     func process(action: Action, state: FeedListState) {
         dbgPrint("Received action: \(action)")
     }
+    
 }
