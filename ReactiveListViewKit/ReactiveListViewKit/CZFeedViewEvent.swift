@@ -8,17 +8,23 @@
 
 import UIKit
 
-/// Action handler closure
+/**
+ Action handler closure
+ */
 public typealias OnAction = (_ action: Action) -> Void
 
-/// General ViewEvent
+/**
+ General ViewEvent
+ */
 public typealias CZViewEvent = Action
 
 public struct BaseState: State {
     public func reduce(action: Action) {}
 }
 
-/// ViewEvent for container feedListView
+/**
+ ViewEvent for container feedListView
+ */
 public enum CZFeedListViewEvent: CZViewEvent {
     case selectedCell(CZFeedModel)
     case loadMore

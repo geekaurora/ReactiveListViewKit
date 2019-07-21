@@ -34,11 +34,14 @@ public struct MovedSection: Equatable, Hashable {
     }
 }
 
-/// List diff algorithm implementation class
-///
-/// - moved
-///    - only if pairs exchange, otherwise it will be moved automatically after insert/delete
-///    - only changes in ascending order: 0,2 => 2,0
+/**
+ List diff algorithm implementation class
+
+ - moved
+    - only if pairs exchange, otherwise it will be moved automatically after insert/delete
+    - only changes in ascending order: 0,2 => 2,0
+ 
+ */
  public class CZListDiff: NSObject {
     /// RowDiffResultKey for Rows
     public enum RowDiffResultKey: Int, CaseCountable {

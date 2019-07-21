@@ -12,7 +12,9 @@ import ReactiveListViewKit
 
 typealias FeedListState = FeedListViewModel
 
-/// State/ViewModel of `FeedListViewController`, composed of elements needed for UI populating
+/**
+ State/ViewModel of `FeedListViewController`, composed of elements needed for UI populating
+ */
 class FeedListViewModel: NSObject, CopyableState {
     /// List of feeds
     private(set) lazy var feeds: [Feed] = {       

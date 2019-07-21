@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// Convenience class of SectionHeaderView/SectionFooterView
+/**
+ Convenience class of SectionHeaderView/SectionFooterView
+ */
 open class CZFeedListSupplementaryView: UICollectionReusableView {
     open override var reuseIdentifier: String? {
         return type(of: self).reuseId

@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// ViewModel class of `CZHorizontalSectionAdapterView`
+/**
+ ViewModel class of `CZHorizontalSectionAdapterView`
+ */
 public class CZHorizontalSectionAdapterViewModel: NSObject, CZFeedViewModelable, State {
     public lazy var diffId: String = self.currentClassName
     private(set) var feedModels: [CZFeedModel]

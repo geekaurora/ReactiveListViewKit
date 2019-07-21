@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// Convenience class to implement horizontal list view
+/**
+ Convenience class to implement horizontal list view
+ */
 open class CZHorizontalSectionAdapterView: UIView, CZFeedCellViewSizeCalculatable {
     private var viewModel: CZHorizontalSectionAdapterViewModel?
     open var diffId: String {return viewModel?.diffId ?? ""}

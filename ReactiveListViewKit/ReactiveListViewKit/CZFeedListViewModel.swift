@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// ViewModel/State class for `CZFeedListFacadeView`
+/**
+ ViewModel/State class for `CZFeedListFacadeView`
+ */
 public class CZFeedListViewModel: NSObject, NSCopying {
     private(set) var sectionModels: [CZSectionModel]
 

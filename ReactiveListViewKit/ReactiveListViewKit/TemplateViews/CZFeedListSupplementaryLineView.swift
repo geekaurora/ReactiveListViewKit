@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// Line SupplementaryView for SectionHeaderView/SectionFooterView
+/**
+ Line SupplementaryView for SectionHeaderView/SectionFooterView
+ */
 open class CZFeedListSupplementaryLineFeedModel: CZFeedModel {
     public init(inset: UIEdgeInsets = ReactiveListViewKit.feedListSupplementaryLineFooterViewInset) {
         super.init(viewClass: CZFeedListSupplementaryLineView.self,

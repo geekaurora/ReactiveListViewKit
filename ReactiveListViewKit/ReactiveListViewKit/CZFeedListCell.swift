@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// Internal convenience `UICollectionViewCell` class wrapping input CellView
+/**
+ Internal convenience `UICollectionViewCell` class wrapping input CellView
+ */
 internal class CZFeedListCell: UICollectionViewCell {
     private var model: CZFeedModel?
     // Adaptive to `UIView`/`UIViewController`

@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// Convenience divider view class
+/**
+ Convenience divider view class
+ */
 public final class CZDividerView: UIView {
     private let size: CGFloat
     private let bgColor: UIColor

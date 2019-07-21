@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// Constants of ReactiveListViewKit
+/**
+ Constants of ReactiveListViewKit
+ */
 public enum ReactiveListViewKit {
     public static var isDebugMode = true
     public static var incrementalUpdateOn = true

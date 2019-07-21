@@ -10,7 +10,9 @@ import UIKit
 import CZUtils
 import ReactiveListViewKit
 
-/// ViewController of FeedList, acts as dumb and thin container that mediates nothing
+/**
+ ViewController of FeedList, acts as dumb and thin container that mediates nothing
+ */
 class FeedListViewController: UIViewController, FeedListActionHandlerCoordinator {
     /// Facade list view
     private var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?

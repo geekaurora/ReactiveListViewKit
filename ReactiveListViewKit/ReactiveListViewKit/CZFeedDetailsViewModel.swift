@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// ViewModel/State class for `CZFeedDetailsFacadeView`
+/**
+ ViewModel/State class for `CZFeedDetailsFacadeView`
+ */
 open class CZFeedDetailsViewModel: NSObject, NSCopying {
     private var _feedModels: [CZFeedModelable]
     required public init(feedModels: [CZFeedModelable]? = nil) {

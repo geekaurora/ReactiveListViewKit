@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// Fundamental protocol for CellView of `CZFeedListFacadeView`/`CZFeedDetailsFacadeView`
+/**
+ Fundamental protocol for CellView of `CZFeedListFacadeView`/`CZFeedDetailsFacadeView`
+ */
 public protocol CZFeedViewModelable: class, NSObjectProtocol, CZListDiffable, NSCopying {
     /// `diffId` is used for diff algorithm of batch update, verify whether two involved viewModels equal
     var diffId: String {get}

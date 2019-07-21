@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// Elegant State Machine for `CZFeedListFacadeView`
+/**
+ Elegant State Machine for `CZFeedListFacadeView`
+ */
 public class CZFeedListViewStateMachine {
     public enum State {
         case `init`

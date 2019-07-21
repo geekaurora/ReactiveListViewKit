@@ -9,7 +9,9 @@
 import CZUtils
 import ReactiveListViewKit
 
-/// ViewModel of `FeedCellView`, composed of elements needed for UI populating, based on `Feed` model
+/**
+ ViewModel of `FeedCellView`, composed of elements needed for UI populating, based on `Feed` model
+ */
 class FeedCellViewModel: NSObject, CZFeedViewModelable {
     var diffId: String {
         return currentClassName + feed.feedId

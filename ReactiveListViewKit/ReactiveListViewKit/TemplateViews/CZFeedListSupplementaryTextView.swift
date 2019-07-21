@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// Text based SupplementaryView for SectionHeaderView/SectionFooterView
+/**
+ Text based SupplementaryView for SectionHeaderView/SectionFooterView
+ */
 open class CZFeedListSupplementaryTextFeedModel: CZFeedModel {
     public init(title: String,
                 actionButtonText: String? = nil,

@@ -8,12 +8,14 @@
 
 import UIKit
 
-/// Elegant Facade class encapsulating `UICollectionview`/`UIMapView` for reusable cells
-///
-/// - Features:
-///   - Pagination
-///   - Action driven: more loosely coupled than delegation
-///   - Stateful
+/**
+ Elegant Facade class encapsulates UICollectionview to populate with CZFeedModels
+
+ ### Features 
+    - Stateful
+    - Pagination
+    - Action driven: more loosely coupled than delegation
+ */
 open class CZFeedListFacadeView: UIView {
     // Transformer closure that transforms `Feed` array to `CZSectionModel` array
     public typealias SectionModelsTransformer = ([Any]) -> [CZSectionModel]

@@ -10,7 +10,9 @@ import UIKit
 
 private var kViewModelObserverContext: Int = 0
 
-/// Elegant Facade class encapsulating UIStackView for non-reusable cells
+/**
+ Elegant Facade class encapsulates UIStackView for non-reusable cells
+ */
 @objc open class CZFeedDetailsFacadeView: UIView {
     var onAction: OnAction?
     var viewModel: CZFeedDetailsViewModel {

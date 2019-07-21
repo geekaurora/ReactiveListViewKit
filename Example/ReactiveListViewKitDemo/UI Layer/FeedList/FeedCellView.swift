@@ -10,7 +10,9 @@ import CZUtils
 import ReactiveListViewKit
 import SDWebImage
 
-/// Content view of `FeedCell`, composed of various subviews corresponding to elements contained by `FeedCellViewModel`
+/**
+ Content view of `FeedCell`, composed of various subviews corresponding to elements contained by `FeedCellViewModel`
+ */
 class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
     @IBOutlet var stackView: UIStackView!
     @IBOutlet var userInfoStackView: UIStackView!
