@@ -40,7 +40,7 @@ public class CZFeedListViewStateMachine {
         self.state = state
     }
     
-    public func sendEvent(_ action: Action) {
+    public func sendAction(_ action: Action) {
         switch action {
         case .resetingViewModels:
             state = .showingViewModels

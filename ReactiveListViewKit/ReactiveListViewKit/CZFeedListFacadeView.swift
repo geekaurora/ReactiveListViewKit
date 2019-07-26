@@ -154,7 +154,7 @@ open class CZFeedListFacadeView: UIView {
         return res
     }
 
-    public func listenToEvents(_ onAction: @escaping OnAction) {
+    public func listenToActions(_ onAction: @escaping OnAction) {
         self.onAction = onAction
     }
 
@@ -357,7 +357,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
     
     @objc func refreshControlValueChanged(_ refreshControl:UIRefreshControl){
         if (refreshControl.isRefreshing) {
-            onAction?(CZFeedListViewEvent.pullToRefresh(isFirst: !hasPulledToRefresh))
+            onAction?(CZFeedListViewAction.pullToRefresh(isFirst: !hasPulledToRefresh))
         }
     }
 }
@@ -419,7 +419,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
             assertionFailure("Couldn't find matched cell/feedModel at \(indexPath)")
             return
         }
-        onAction?(CZFeedListViewEvent.selectedCell(feedModel))
+        onAction?(CZFeedListViewAction.selectedCell(feedModel))
     }
 
     // MARK: - Load More
@@ -439,7 +439,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
         if allowLoadMore &&
             (distanceFromBottom >= loadMoreThreshold) &&
             !viewedIndexPaths.contains(indexPath) {
-            onAction?(CZFeedListViewEvent.loadMore)
+            onAction?(CZFeedListViewAction.loadMore)
         }
         
         if !hasInvokedWillDisplayCell && collectionView.indexPathsForVisibleItems.count > 0 {

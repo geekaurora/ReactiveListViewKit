@@ -34,7 +34,7 @@ public protocol CZFeedCellViewable: NSObjectProtocol, CZActionable {
     ///
     /// - Parameters:
     ///   - viewModel: ViewModel of FeedCellView
-    ///   - onAction: Action handler for events of cellView, cellView can propagate customEvent
+    ///   - onAction: Action handler for actions of cellView, cellView can propagate customAction
     ///              e.g. `OptionSelect`, like/comment/share
     init(viewModel: CZFeedViewModelable?, onAction: OnAction?)
     func config(with viewModel: CZFeedViewModelable?)

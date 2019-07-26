@@ -94,7 +94,7 @@ extension FeedListViewModel: State {
     func reduce(action: Action) {
         feeds.forEach { $0.reduce(action: action) }
         switch action {
-        case let CZFeedListViewEvent.selectedCell(feedModel):
+        case let CZFeedListViewAction.selectedCell(feedModel):
             break
         default:
             break

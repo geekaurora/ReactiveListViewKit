@@ -55,7 +55,7 @@ private var kViewModelObserverContext: Int = 0
         reloadListView()
     }
 
-    public func listenToEvents(_ onAction: @escaping OnAction) {
+    public func listenToActions(_ onAction: @escaping OnAction) {
         self.onAction = onAction
     }
 

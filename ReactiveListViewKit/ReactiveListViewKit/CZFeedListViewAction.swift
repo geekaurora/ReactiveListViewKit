@@ -1,5 +1,5 @@
 //
-//  CZFeedViewEvent.swift
+//  CZFeedViewAction.swift
 //  ReactiveListViewKit
 //
 //  Created by Cheng Zhang on 1/10/17.
@@ -14,18 +14,18 @@ import UIKit
 public typealias OnAction = (_ action: Action) -> Void
 
 /**
- General ViewEvent
+ General ViewAction
  */
-public typealias CZViewEvent = Action
+public typealias CZViewAction = Action
 
 public struct BaseState: State {
     public func reduce(action: Action) {}
 }
 
 /**
- ViewEvent for container feedListView
+ ViewAction for container feedListView
  */
-public enum CZFeedListViewEvent: CZViewEvent {
+public enum CZFeedListViewAction: CZViewAction {
     case selectedCell(CZFeedModel)
     case loadMore
     case pullToRefresh(isFirst: Bool)

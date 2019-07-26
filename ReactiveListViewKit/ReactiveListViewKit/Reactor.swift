@@ -8,7 +8,7 @@ public protocol State {
 
 public protocol CopyableState: State, NSCopying {}
 
-// MARK: - Events
+// MARK: - Actions
 
 public protocol Action {}
 
@@ -131,11 +131,11 @@ public class Store<StateType: CopyableState> {
         subscriptions = subscriptions.filter { $0.subscriber !== subscriber }
     }
     
-    // MARK: - Events
+    // MARK: - Actions
     
     public func dispatch(action: Action) {
-        let eventString = String(describing: action).components(separatedBy: "\n").first
-        dbgPrint("Reactor - Fired action: \(eventString!)")
+        let actionString = String(describing: action).components(separatedBy: "\n").first
+        dbgPrint("Reactor - Fired action: \(actionString!)")
         internalDispatch(.async, queue: jobQueue) {
             self.state.reduce(action: action)
             let state = self.state
