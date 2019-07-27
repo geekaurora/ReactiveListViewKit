@@ -11,10 +11,10 @@ import UIKit
 /**
  Elegant Facade class encapsulates UICollectionview to populate with CZFeedModels
 
- ### Features 
-    - Stateful
-    - Pagination
-    - Action driven: more loosely coupled than delegation
+ ### Features
+ - Stateful
+ - Pagination
+ - Action driven: more loosely coupled than delegation
  */
 open class CZFeedListFacadeView: UIView {
     // Transformer closure that transforms `Feed` array to `CZSectionModel` array
@@ -31,22 +31,22 @@ open class CZFeedListFacadeView: UIView {
     private var showsVerticalScrollIndicator: Bool
     private var showsHorizontalScrollIndicator: Bool
 
-    private var stateMachine: CZFeedListViewStateMachine!
     private var isHorizontal: Bool
     private var prevLoadMoreScrollOffset: CGFloat = 0
     private var isLoadingMore: Bool = false
     private var viewedIndexPaths = Set<IndexPath>()
     private var allowPullToRefresh: Bool
     private var allowLoadMore: Bool
+    private var hasPulledToRefresh: Bool = false
 
+    private lazy var stateMachine = CZFeedListViewStateMachine()
     private lazy var registeredCellReuseIds: Set<String> = []
-    private lazy var hasPulledToRefresh: Bool = false
     public static let kLoadMoreThreshold = 0
     /// Threshold of `loadMore`action, indicates distance from the last cell
     private var loadMoreThreshold: Int = kLoadMoreThreshold
     var sectionModelsTransformer: SectionModelsTransformer?
     private var hasInvokedWillDisplayCell: Bool = false
-    
+
     private var hasSetup: Bool = false
     public var isLoading: Bool = false {
         willSet {
@@ -63,7 +63,7 @@ open class CZFeedListFacadeView: UIView {
     // KVO context
     private var kvoContext: UInt8 = 0
     private var prevVisibleIndexPaths: [IndexPath] = []
-    
+
     public init(sectionModelsTransformer: SectionModelsTransformer?,
                 onAction: OnAction? = nil,
                 isHorizontal: Bool = false,
@@ -100,7 +100,7 @@ open class CZFeedListFacadeView: UIView {
         self.onAction = onAction
         setup()
     }
-    
+
     public override init(frame: CGRect) { fatalError("Must call designated initializer `init(sectionModelsTransformer: onAction)`") }
 
     required public init?(coder: NSCoder) { fatalError("Must call designated initializer `init(sectionModelsTransformer: onAction)`") }
@@ -137,7 +137,7 @@ open class CZFeedListFacadeView: UIView {
         // Reload listView by incremental updating
         reloadListView(animated: animated)
     }
-    
+
     private func adjustSectionModels(_ sectionModels: [CZSectionModel]) -> [CZSectionModel] {
         var res = sectionModels.filter { !$0.isEmpty }
         res = res.compactMap { sectionModel in
@@ -167,9 +167,9 @@ open class CZFeedListFacadeView: UIView {
 
 private extension CZFeedListFacadeView  {
     func registerCellClassesIfNeeded(for sectionModels: [CZSectionModel]) {
-        [CZFeedModel](sectionModels.flatMap({$0.feedModels})).forEach {
-            registerCellClassIfNeeded($0.viewClass)
-        }
+        sectionModels
+            .flatMap({ $0.feedModels })
+            .forEach { registerCellClassIfNeeded($0.viewClass) }
     }
 
     func registerCellClassIfNeeded(_ cellClass: AnyClass) {
@@ -308,10 +308,10 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
             assertionFailure("Couldn't find matched cell/feedModel at \(indexPath)")
             return .zero
         }
-        
+
         // UICollectionView has .zero frame at this point
         let collectionViewSize = collectionView.bounds.size
-        
+
         // Adjust containerViewSize based on sectionInsets
         var containerViewSize = collectionViewSize
         if let sectionInset = viewModel.sectionModels[indexPath.section].sectionInset {
@@ -339,22 +339,22 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
         let size = supplymentaryModel.viewClass.sizeThatFits(collectionViewSize, viewModel: supplymentaryModel.viewModel)
         return size
     }
-    
+
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return viewModel.sectionModels[section].sectionInset ?? sectionInset
     }
-    
+
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,  minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return viewModel.sectionModels[section].minimumLineSpacing ?? minimumLineSpacing
-        
+
     }
-    
+
     public func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+                               layout collectionViewLayout: UICollectionViewLayout,
+                               minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return viewModel.sectionModels[section].minimumInteritemSpacing ?? minimumInteritemSpacing
     }
-    
+
     @objc func refreshControlValueChanged(_ refreshControl:UIRefreshControl){
         if (refreshControl.isRefreshing) {
             onAction?(CZFeedListViewAction.pullToRefresh(isFirst: !hasPulledToRefresh))
@@ -375,12 +375,12 @@ extension CZFeedListFacadeView: UICollectionViewDataSource {
         return viewModel.numberOfSections()
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {        
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let feedModel = viewModel.feedModel(at: indexPath) {
             /**
              - If feedModel.viewClass is Cell, dequeue it to reuse
              - If feedModel.viewClass is UIView, overlap it on embeded Cell `CZFeedListCell`. `reuseCellId` is viewClass.className to ensure
-               deqeued cell contains corresponding `viewClass`
+             deqeued cell contains corresponding `viewClass`
              */
             let reuseCellId = reuseId(with: feedModel.viewClass)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseCellId, for: indexPath)
@@ -435,20 +435,20 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
             }()
             return prevSum + currSum
         }
-        
+
         if allowLoadMore &&
             (distanceFromBottom >= loadMoreThreshold) &&
             !viewedIndexPaths.contains(indexPath) {
             onAction?(CZFeedListViewAction.loadMore)
         }
-        
+
         if !hasInvokedWillDisplayCell && collectionView.indexPathsForVisibleItems.count > 0 {
             hasInvokedWillDisplayCell = true
         }
 
         viewedIndexPaths.insert(indexPath)
     }
-    
+
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
     }
 }
