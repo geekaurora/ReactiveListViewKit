@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/cocoapods/l/ReactiveListViewKit.svg?style=flat)](http://cocoapods.org/pods/ReactiveListViewKit)
 [![Platform](https://img.shields.io/cocoapods/p/ReactiveListViewKit.svg?style=flat)](http://cocoapods.org/pods/ReactiveListViewKit)
 
-* **MVVM + FLUX reactive facade ViewKit** for Feed based app development
+* **MVVM + Redux reactive facade ViewKit** for Feed based app development
 * **Eliminates Massive View Controller** in unidirectional Action/State flow
 
 ### Massive View Controller Terminator
@@ -50,7 +50,7 @@
 ### Declarative/Stateful/Immutable/Predictable
   * Efficient ViewModel tree diff algorithm, no more imperative manual cells update code
 
-  <img src="./Docs/FLUX.png">
+  <img src="./Docs/FLUX.jpeg">
 
 
 ### [Instagram Demo](https://github.com/showt1me/CZInstagram)
