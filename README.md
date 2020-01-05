@@ -45,7 +45,7 @@
 
 ### Automatic Batch Update
   * Smart Diff Algorithm for ListView incremental update on top of `Longest Common Subsequence` - O(n) time complexity
-  * Perform Insert/Delete/Move/Update sections/cells based on internal models diff algorithm
+  * Perform `Insert/Delete/Move/Update` of Sections/Cells based on internal models diff algorithm
 
 ### Declarative/Stateful/Immutable/Predictable
   * Efficient ViewModel tree diff algorithm, no more imperative manual cells update code
