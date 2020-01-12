@@ -385,10 +385,14 @@ extension CZFeedListFacadeView: UICollectionViewDataSource {
             let reuseCellId = reuseId(with: feedModel.viewClass)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseCellId, for: indexPath)
             if let cell = cell as? CZFeedListCell {
-                cell.config(with: feedModel, onAction: onAction, parentViewController: parentViewController)
+                cell.config(
+                  with: feedModel,
+                  onAction: onAction,
+                  parentViewController: parentViewController,
+                  containerSize: collectionView.bounds.size)
                 return cell
             } else if let cell = cell as? CZFeedCellViewSizeCalculatable {
-                cell.config(with: feedModel.viewModel)
+                cell.config(with: feedModel.viewModel, containerSize: collectionView.bounds.size)
                 cell.onAction = onAction
                 return cell as! UICollectionViewCell
             }

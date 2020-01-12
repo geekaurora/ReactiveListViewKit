@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -38,7 +35,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="522"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Nyh-Mk-NBr">
-                            <rect key="frame" x="0.0" y="25" width="176" height="35"/>
+                            <rect key="frame" x="0.0" y="5" width="176" height="35"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Guj-r7-YAb">
                                     <rect key="frame" x="3" y="0.0" width="35" height="35"/>
@@ -83,13 +80,13 @@
                             </variation>
                         </stackView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wme-mD-Db8">
-                            <rect key="frame" x="0.0" y="64" width="414" height="403"/>
+                            <rect key="frame" x="0.0" y="44" width="414" height="414"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Wme-mD-Db8" secondAttribute="height" multiplier="1:1" priority="999" id="DBU-s1-uzW"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdC-br-Ypj">
-                            <rect key="frame" x="0.0" y="471" width="375" height="40"/>
+                            <rect key="frame" x="0.0" y="462" width="375" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itx-xn-ywF">
                                     <rect key="frame" x="5" y="0.0" width="40" height="40"/>
@@ -152,10 +149,10 @@
                                 </mask>
                             </variation>
                         </view>
-                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwh-in-LUm">
-                            <rect key="frame" x="0.0" y="515" width="46.5" height="0.0"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dwh-in-LUm">
+                            <rect key="frame" x="0.0" y="506" width="46.5" height="0.0"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYs-6x-udN">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYs-6x-udN">
                                     <rect key="frame" x="5" y="0.0" width="41.5" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                     <nil key="textColor"/>
@@ -164,10 +161,10 @@
                             </subviews>
                             <edgeInsets key="layoutMargins" top="0.0" left="5" bottom="0.0" right="0.0"/>
                         </stackView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGE-tY-qsM" userLabel="contentContainerView">
-                            <rect key="frame" x="0.0" y="519" width="240" height="3"/>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hGE-tY-qsM" userLabel="contentContainerView">
+                            <rect key="frame" x="0.0" y="510" width="240" height="12"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ril-P3-tFJ">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ril-P3-tFJ">
                                     <rect key="frame" x="195.5" y="3" width="39.5" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" white="0.14999999999999999" alpha="1" colorSpace="calibratedWhite"/>

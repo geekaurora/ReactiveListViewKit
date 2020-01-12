@@ -37,11 +37,23 @@ public protocol CZFeedCellViewable: NSObjectProtocol, CZActionable {
     ///   - onAction: Action handler for actions of cellView, cellView can propagate customAction
     ///              e.g. `OptionSelect`, like/comment/share
     init(viewModel: CZFeedViewModelable?, onAction: OnAction?)
+
+    /// Config FeedCellView with @c viewModel, @c containerWidth.
+    ///
+    /// - Parameters:
+    ///   - viewModel: ViewModel of FeedCellView
+    ///   - containerWidth: Width of container view
+    ///   - prevViewModel: Previous state of view, useful for tree diff algorithm
     func config(with viewModel: CZFeedViewModelable?)
+    func config(with viewModel: CZFeedViewModelable?, containerSize: CGSize)
     func config(with viewModel: CZFeedViewModelable?, prevViewModel: CZFeedViewModelable?)
 }
 
 extension CZFeedCellViewable {
+    public func config(with viewModel: CZFeedViewModelable?, containerSize: CGSize) {
+      config(with: viewModel)
+    }
+
     public func config(with viewModel: CZFeedViewModelable?, prevViewModel: CZFeedViewModelable?) {
         assertionFailure("\(type(of: self))::\(#function) should be implemented.")
     }

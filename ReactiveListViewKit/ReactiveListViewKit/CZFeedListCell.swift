@@ -16,10 +16,13 @@ internal class CZFeedListCell: UICollectionViewCell {
     // Adaptive to `UIView`/`UIViewController`
     private var cellComponent: CZFeedCellViewSizeCalculatable?
 
-    open func config(with model: CZFeedModel, onAction: OnAction?, parentViewController: UIViewController? = nil) {
+    open func config(with model: CZFeedModel, 
+                     onAction: OnAction?,
+                     parentViewController: UIViewController? = nil,
+                     containerSize: CGSize = .zero) {
         defer {
             self.model = model
-            cellComponent?.config(with: model.viewModel)
+            cellComponent?.config(with: model.viewModel, containerSize: containerSize)
         }
 
         // Reset cellView if previous cellViewClass differs from the current one
@@ -39,7 +42,7 @@ internal class CZFeedListCell: UICollectionViewCell {
         }
         
         if let cellComponent = self.cellComponent {
-            cellComponent.config(with: model.viewModel)
+            cellComponent.config(with: model.viewModel, containerSize: containerSize)
         } else {
             self.cellComponent = model.viewClass.init(viewModel: model.viewModel, onAction: onAction)
             let cellView: UIView

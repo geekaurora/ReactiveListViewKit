@@ -50,7 +50,7 @@ class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
         fatalError("Must call designated initializer `init(viewModel:onAction:)`")
     }
 
-    func config(with viewModel: CZFeedViewModelable?) {
+    func config(with viewModel: CZFeedViewModelable?, containerSize: CGSize) {
         guard let viewModel = viewModel as? FeedCellViewModel else {
             fatalError("Incorrect ViewModel type.")
         }
@@ -63,6 +63,7 @@ class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
         if let imageUrl = viewModel.imageUrl {
             imageView.sd_setImage(with: imageUrl)
         }
+        contentLabel.preferredMaxLayoutWidth = containerSize.width
         userNameLabel.text = viewModel.userName
         contentLabel.text = viewModel.content
         likesLabel.text = "\(viewModel.likesCount) likes"
@@ -79,7 +80,7 @@ class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
                                                viewClass: FeedCellView.self)
     }
     
-    func config(with viewModel: CZFeedViewModelable?, prevViewModel: CZFeedViewModelable?) {}
+    func config(with viewModel: CZFeedViewModelable?) {}
 }
 
 // MARK: - Private methods
