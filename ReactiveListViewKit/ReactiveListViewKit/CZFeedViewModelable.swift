@@ -6,7 +6,7 @@
 //  Copyright © 2017 Cheng Zhang. All rights reserved.
 //
 
-import UIKit
+import CZUtils
 
 /**
  Fundamental protocol for CellView of `CZFeedListFacadeView`/`CZFeedDetailsFacadeView`
@@ -25,7 +25,7 @@ extension CZFeedViewModelable {
 }
 
 public extension CZFeedViewModelable {    
-    public var currentClassName: String {
+    var currentClassName: String {
         return NSStringFromClass(type(of: self))
     }
 }
@@ -37,6 +37,15 @@ public protocol CZListDiffable {
 }
 
 /// Fundamental protocol composition of reactive listDiffable model
+/// - note: The protocol only requires conformance of `Codable` and `NSCopying`, other protocols are conformed by categories automatically.
 public typealias ReactiveListDiffable = Codable & NSCopying & CustomStringConvertible & CZListDiffable
 
 public typealias CZListDiffableObject = CZListDiffable & AnyObject
+
+// MARK: CZListDiffable
+public extension Encodable where Self: Decodable {
+   func isEqual(toDiffableObj object: AnyObject) -> Bool {
+       return isEqual(toCodable: object)
+   }
+}
+

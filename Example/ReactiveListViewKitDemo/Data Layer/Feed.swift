@@ -17,11 +17,6 @@ class Feed: ReactiveListDiffable {
     let user: User?
     var userHasLiked: Bool
     var likesCount: Int
-
-    // MARK: - CZListDiffable
-    func isEqual(toDiffableObj object: AnyObject) -> Bool {
-        return isEqual(toCodable: object)
-    }
     
     // MARK: - NSCopying
     func copy(with zone: NSZone? = nil) -> Any {
