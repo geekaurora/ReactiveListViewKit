@@ -13,7 +13,7 @@ import UIKit
  */
 public enum ReactiveListViewKit {
     public static var isDebugMode = true
-    public static var incrementalUpdateOn = true
+    public static var isIncrementalUpdateEnabled = true
     public static var useGCD = false
 
     public static let ClearBGColor = UIColor.clear

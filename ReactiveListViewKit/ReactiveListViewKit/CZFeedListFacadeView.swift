@@ -205,7 +205,7 @@ private extension CZFeedListFacadeView  {
          https://stackoverflow.com/questions/19199985/invalid-update-invalid-number-of-items-on-uicollectionview/19202953#19202953
          https://fangpenlin.com/posts/2016/04/29/uicollectionview-invalid-number-of-items-crash-issue/
          */
-        if isPrevViewModelEmpty || !ReactiveListViewKit.incrementalUpdateOn || !animated {
+        if isPrevViewModelEmpty || !ReactiveListViewKit.isIncrementalUpdateEnabled || !animated {
             collectionView.reloadData()
         } else {
             let batchUpdate = {
