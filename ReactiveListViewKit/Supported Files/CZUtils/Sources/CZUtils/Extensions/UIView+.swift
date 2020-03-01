@@ -16,37 +16,36 @@ public enum UIViewConstants {
 // MARK: - Corner/Border
 
 public extension UIView {
-    public func roundToCircleWithFrame() {
-        roundToCircle()
-        addGrayFrame()
-    }
         
-    public func roundToCircle() {
+  func roundToCircle() {
         let width = self.bounds.size.width
         layer.cornerRadius = width / 2
         layer.masksToBounds = true
     }
-    
-    public func roundCornerWithFrame(cornerRadius: CGFloat = 1, white: CGFloat = CZTheme.greyDividerColor) {
-        roundCorner(cornerRadius: cornerRadius)
-        addGrayFrame(white)
-    }
-    
-    public func roundCorner(cornerRadius: CGFloat = 2) {
-        layer.cornerRadius = cornerRadius
+
+  func roundCorner(_ cornerRadius: CGFloat = 2,
+                            boarderWidth: CGFloat = 0,
+                            boarderColor: UIColor = .clear,
+                            shadowColor: UIColor = .clear,
+                            shadowOffset: CGSize = .zero,
+                            shadowRadius: CGFloat = 2,
+                            shadowOpacity: Float = 1) {
         layer.masksToBounds = true
+        layer.cornerRadius = cornerRadius
+        layer.borderColor = boarderColor.cgColor
+        layer.borderWidth = boarderWidth
+
+        layer.shadowColor = shadowColor.cgColor
+        layer.shadowOffset = shadowOffset
+        layer.shadowRadius = shadowRadius
     }
-    
-    public func addGrayFrame(_ white: CGFloat = CZTheme.greyDividerColor) {
-        layer.borderWidth = 1
-        layer.borderColor = UIColor(white: white, alpha: 1).cgColor
-    }
+
 }
 
 // MARK: - Animations
 
 public extension UIView {
-    public func fadeIn(animationName: String = UIViewConstants.fadeInAnimationName,
+  func fadeIn(animationName: String = UIViewConstants.fadeInAnimationName,
                        duration: TimeInterval = UIViewConstants.fadeInDuration) {
         let transition = CATransition()
         transition.duration = duration

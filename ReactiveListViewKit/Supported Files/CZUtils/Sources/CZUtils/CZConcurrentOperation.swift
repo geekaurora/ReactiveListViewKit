@@ -43,22 +43,36 @@ import Foundation
     public final override var isConcurrent: Bool {
         return true
     }
-
+    
     // MARK: - Public Methods
-
+    
     /// Subclasses must implement `execute` and must not call super
     open func execute() {
         fatalError("Subclasses must implement `\(#function)`.")
     }
-
+    
     /// Call this function after any work is done or after a call to `cancel()`
     /// to move the operation into a completed state.
     public final func finish() {
+        /**
+         Cancelled operations can still be in Queue, should verify not `.finished` before cancel again
+         ref: https://stackoverflow.com/questions/9409994/cancelling-nsoperation-from-nsoperationqueue-cause-crash
+         */
+        guard state != .finished else {
+            return
+        }
+        // Set state to `.executing` if not before finish to avoid crash
+        if !isExecuting  {
+            state = .executing
+        }
         state = .finished
     }
-
+    
     // MARK: - Override methods
     public final override func start() {
+        guard state != .finished else {
+            return
+        }
         if isCancelled {
             finish()
             return
@@ -66,9 +80,21 @@ import Foundation
         state = .executing
         execute()
     }
-
+    
+    open override func cancel() {
+        super.cancel()
+        /**
+         Invoke finish() only if it's `.excuting`, otherwise it will crash.
+         For un-started operation, OperationQueue will start it after being cancelled. We can `finish()` it in `start()` if `isCancelled` is true
+         ref: https://stackoverflow.com/questions/9409994/cancelling-nsoperation-from-nsoperationqueue-cause-crash
+         */
+        if isExecuting {
+            finish()
+        }
+    }
+    
     // MARK: - Dependent KVO
-
+    
     /// Bind dependency of KVO between `state` and `isReady`, `isExecuting`,`isFinished`: `state` change automatically triggers KVO notification of the other 3 props
     @objc private dynamic class func keyPathsForValuesAffectingIsReady() -> Set<String> {
         return [#keyPath(state)]
@@ -82,5 +108,5 @@ import Foundation
 }
 
 @objc private enum OperationState: Int {
-    case ready, executing, finished
+    case ready = 0, executing, finished
 }

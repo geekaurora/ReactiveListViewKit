@@ -58,7 +58,7 @@ class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
 
         if let portraitUrl = viewModel.portraitUrl {
             portaitView.sd_setImage(with: portraitUrl)
-            portaitView.roundToCircleWithFrame()
+            portaitView.roundToCircle()
         }
         if let imageUrl = viewModel.imageUrl {
             imageView.sd_setImage(with: imageUrl)

@@ -140,11 +140,11 @@ open class ThreadSafeDictionary<Key: Hashable, Value: Any>: NSObject, Collection
 }
 
 public extension ThreadSafeDictionary where Key : Hashable, Value : Equatable {
-    public static func ==(lhs: ThreadSafeDictionary, rhs: ThreadSafeDictionary) -> Bool {
+  static func ==(lhs: ThreadSafeDictionary, rhs: ThreadSafeDictionary) -> Bool {
         return lhs.underlyingDictionary == rhs.underlyingDictionary
     }
     
-    public func isEqual(toDictionary dictionary: DictionaryType) -> Bool {
+  func isEqual(toDictionary dictionary: DictionaryType) -> Bool {
         return underlyingDictionary == dictionary
     }
 }

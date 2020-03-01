@@ -12,22 +12,22 @@ import Foundation
 public final class CZDispatchGroup: NSObject {
     private static let underlyingQueueLabel = "com.tony.dispatchGroup"
     private var underlyingQueue: DispatchQueue
-    private var semaphore: DispatchSemaphore?
-    private var executionCountLock = CZMutexLock<Int>(0)
+    private lazy var semaphore = DispatchSemaphore(value: 0)
+    private var countLock = CZMutexLock<Int>(0)
     private var notifyQueue: DispatchQueue?
     private var notifyBlock: (() -> Void)?
-
+    
     override init() {
         underlyingQueue = DispatchQueue(label: CZDispatchGroup.underlyingQueueLabel,
-                                             qos: .default,
-                                             attributes: .concurrent)
+                                        qos: .default,
+                                        attributes: .concurrent)
         super.init()
     }
     
     public func enter() {
         underlyingQueue.async {[weak self] in
             guard let `self` = self else {return}
-            self.executionCountLock.writeLock{ count in
+            self.countLock.writeLock{ count in
                 count += 1
             }
         }
@@ -36,10 +36,10 @@ public final class CZDispatchGroup: NSObject {
     public func leave() {
         underlyingQueue.async {[weak self] in
             guard let `self` = self else {return}
-            self.executionCountLock.writeLock{ count in
+            self.countLock.writeLock{ count in
                 count -= 1
                 if count == 0 {
-                    self.semaphore?.signal()
+                    self.semaphore.signal()
                 }
             }
         }
@@ -48,8 +48,7 @@ public final class CZDispatchGroup: NSObject {
     public func wait() {
         underlyingQueue.sync {[weak self] in
             guard let `self` = self else {return}
-            self.semaphore = DispatchSemaphore(value: 0)
-            self.semaphore?.wait()
+            self.semaphore.wait()
         }
     }
     
@@ -63,8 +62,7 @@ public final class CZDispatchGroup: NSObject {
         // Wait for semaphore signal of completion of all executions
         underlyingQueue.async {[weak self] in
             guard let `self` = self else {return}
-            self.semaphore = DispatchSemaphore(value: 0)
-            self.semaphore?.wait()
+            self.semaphore.wait()
             
             // Got completion semaphore signal and notify completion asynchronously with notifyQueue
             self.notifyQueue?.async {

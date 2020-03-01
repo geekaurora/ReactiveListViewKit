@@ -6,14 +6,16 @@
 //
 
 import KIF
+@testable import ReactiveListViewKit
 @testable import ReactiveListViewKitDemo
 
-class ReactiveListViewKitUITests: CZUITest {
+class IncrementalUpdatesUITest: CZUITest {
     
     private static let verticalScrollFraction: CGFloat = -0.15
     
     override func setUp() {
-        super.setUp()
+        super.setUp()      
+        ReactiveListViewKit.isIncrementalUpdateEnabled = true
         continueAfterFailure = true
     }
     
@@ -43,7 +45,7 @@ class ReactiveListViewKitUITests: CZUITest {
         }
     }
     
-    // TODO: @cnzhang Test scrolling performance by measuring dropped frames
+    // TODO(@cnzhang): Test scrolling performance by measuring dropped frames
     func testScrollToBottom() {
         guard let collectionView = tester().view(withAccessibilityIdentifier: AccessibilityLabel.feedListCollectionView) as? UICollectionView else {
             XCTFail("Couldn't find collectionView")

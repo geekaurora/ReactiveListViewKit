@@ -48,12 +48,12 @@ class HotUserCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
         }
         if let portraitUrl = viewModel.portraitUrl {
             portaitView?.sd_setImage(with: portraitUrl)
-            portaitView?.roundToCircleWithFrame()
+            portaitView?.roundToCircle()
         }
         nameLabel?.text = viewModel.userName
         detailsLabel?.text = viewModel.fullName
         
-        frameView?.roundCornerWithFrame(cornerRadius: 2)
+        frameView?.roundCorner(2)
     }
 
     static func sizeThatFits(_ containerSize: CGSize, viewModel: CZFeedViewModelable) -> CGSize {

@@ -13,7 +13,7 @@ public extension UIButton {
     /**
       Add self-contained action handler for button
      */
-    public func addHandler(for controlEvents: UIControl.Event, handler: @escaping (UIButton) -> ()) {
+  func addHandler(for controlEvents: UIControl.Event, handler: @escaping (UIButton) -> ()) {
         if let oldTarget = objc_getAssociatedObject(self, &controlHandlerKey) as? CocoaTarget<UIButton> {
             self.removeTarget(oldTarget, action: #selector(oldTarget.sendNext), for: controlEvents)
         }
@@ -26,7 +26,7 @@ public extension UIButton {
     /**
       Set image with tintColor for desired controlState
      */
-    public func setImage(_ imageName: String, for controlState: UIControl.State = .normal, tintColor: UIColor) {
+  func setImage(_ imageName: String, for controlState: UIControl.State = .normal, tintColor: UIColor) {
         let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
         setImage(image, for: controlState)
         self.tintColor = tintColor

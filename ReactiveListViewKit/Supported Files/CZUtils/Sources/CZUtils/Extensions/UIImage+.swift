@@ -10,14 +10,14 @@ import ImageIO
 
 public extension UIImage {
     @objc(cropToRect:)
-    public func crop(toRect rect: CGRect) -> UIImage {
+  func crop(toRect rect: CGRect) -> UIImage {
         let croppedCGImage = self.cgImage!.cropping(to: rect)!
         let res = UIImage(cgImage: croppedCGImage)
         return res
     }
     
     @objc(cropToSize:)
-    public func crop(toSize size: CGSize) -> UIImage {
+  func crop(toSize size: CGSize) -> UIImage {
         var size = size
         let ratio = size.height / size.width
         if  size.width <  size.height {
@@ -35,7 +35,7 @@ public extension UIImage {
     
     // height / width
     @objc(cropToRatio:)
-    public func crop(toRatio ratio: CGFloat) -> UIImage {
+  func crop(toRatio ratio: CGFloat) -> UIImage {
         var size: CGSize = self.size
         if  ratio < 1 {
             size.width = self.size.width * self.scale

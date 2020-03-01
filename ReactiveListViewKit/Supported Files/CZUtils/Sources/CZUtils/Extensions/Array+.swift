@@ -12,13 +12,20 @@ public extension Array {
     /**
      Returns element at specified `safe` index if exists, otherwise nil
      */
-    public subscript (safe index: Index) -> Element? {
+    subscript (safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
+    }
+    
+    /**
+     Pretty formatted description string
+     */
+    var prettyDescription: String {
+        return Pretty.describing(self)
     }
 }
 
 public extension Array where Element: NSCopying {
-    public func copy(with zone: NSZone? = nil) -> Any {
+    func copy(with zone: NSZone? = nil) -> Any {
         return compactMap{ $0.copy() }
     }
 }

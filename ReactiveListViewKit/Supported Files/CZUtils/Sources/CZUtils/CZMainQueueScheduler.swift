@@ -22,7 +22,7 @@ open class CZMainQueueScheduler: NSObject {
     }
     
     /// Asynchronous execution
-    public class func async(_ execution: @escaping () -> Void ) {
+    public class func async(execution: @escaping () -> Void ) {
         DispatchQueue.main.async {
             execution()
         }

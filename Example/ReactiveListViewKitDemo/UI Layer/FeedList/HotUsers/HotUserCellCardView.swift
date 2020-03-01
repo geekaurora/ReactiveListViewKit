@@ -45,14 +45,14 @@ class HotUserCellCardView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
         }
         if let portraitUrl = viewModel.portraitUrl {
             portaitView?.sd_setImage(with: portraitUrl)
-            portaitView?.roundToCircleWithFrame()
+            portaitView?.roundToCircle()
         }
         detailsLabel?.text = viewModel.fullName
         nameLabel?.text = ""
 
-        followButton?.roundCorner(cornerRadius: 2)
-        closeButton?.roundCorner(cornerRadius: 2)
-        frameView?.roundCornerWithFrame(cornerRadius: 2)
+        followButton?.roundCorner(2)
+        closeButton?.roundCorner(2)
+        frameView?.roundCorner(2)
     }
     
     func config(with viewModel: CZFeedViewModelable?, prevViewModel: CZFeedViewModelable?) {}

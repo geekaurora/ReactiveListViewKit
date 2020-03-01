@@ -8,15 +8,15 @@
 import UIKit
 
 public extension UIScreen {
-    public static var currSize: CGSize {
+  static var currSize: CGSize {
         return main.bounds.size
     }
 
-    public static var currWidth: CGFloat {
+  static var currWidth: CGFloat {
         return currSize.width
     }
 
-    public static var currHeight: CGFloat {
+  static var currHeight: CGFloat {
         return currSize.height
     }
 

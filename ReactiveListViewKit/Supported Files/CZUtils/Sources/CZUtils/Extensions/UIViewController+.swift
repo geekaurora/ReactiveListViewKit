@@ -9,7 +9,7 @@ import UIKit
 
 public extension UIViewController {
     /// Stick the intput view's edges to topLayoutGuide, bottomLayoutGuide, leading, trailing
-    public func overlapSubViewOnSelf(_ subview: UIView) {
+  func overlapSubViewOnSelf(_ subview: UIView) {
         subview.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             subview.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
@@ -27,7 +27,7 @@ public extension UIViewController {
         return currVC
     }
     
-    public func showTitleOnNavBar() {
+  func showTitleOnNavBar() {
         let internalTitleView: UIView
         if let image = UIImage(named: "InstagramTitle") {
             internalTitleView = UIImageView(image: image)
@@ -41,4 +41,12 @@ public extension UIViewController {
         }
         navigationItem.titleView = internalTitleView
     }
+    
+  func setTabTitle(_ title: String, at index: Int) {
+        guard let tabBarItems = tabBarController?.tabBar.items,
+            0..<tabBarItems.count ~= index else { return }
+        tabBarItems[index].title = NSLocalizedString(title, comment: "")
+    }
 }
+
+

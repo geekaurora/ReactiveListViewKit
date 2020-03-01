@@ -10,16 +10,14 @@ import Foundation
 
 public extension Date {
     var simpleString: String {
-        return string(withFormatterStr: "yyyy-MM-dd hh:mm")
+        return string(withFormat: "yyyy-MM-dd hh:mm")
     }
     
     var complexString: String {
-        return string(withFormatterStr: "EEE, dd MMM yyyy hh:mm:ss +zzzz")
+        return string(withFormat: "EEE, dd MMM yyyy hh:mm:ss +zzzz")
     }
-}
-
-private extension Date {
-    func string(withFormatterStr formatterStr: String) -> String {
+  
+    func string(withFormat formatterStr: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formatterStr
         return dateFormatter.string(from: self)
