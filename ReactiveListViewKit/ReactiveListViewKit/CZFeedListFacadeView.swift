@@ -188,10 +188,11 @@ private extension CZFeedListFacadeView  {
   func reloadListView(animated: Bool) {
     // Only update incrementally if incrementalUpdate is enabled and `animated` is true, otherwise call `collectionView.reloadData()`.
     guard ReactiveListViewKit.isIncrementalUpdateEnabled && animated else {
-      self.viewModel = self.newViewModel.copy() as! CZFeedListViewModel
+      self.viewModel = newViewModel
       collectionView.reloadData()
       return
     }
+    
     // Calculate diffing algorithm to get diff of sections and rows.
     let (sectionsDiff, rowsDiff) = CZListDiff.diffSectionModelIndexes(current: newViewModel.sectionModels, prev: viewModel.sectionModels)
     guard CZListDiff.sectionCount(for: sectionsDiff[.insertedSections]) > 0 ||
@@ -447,11 +448,12 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
       }()
       return prevSum + currSum
     }
-    
+
+    // TODO(cnzhang): Add loadMoreAction back after fix incremental updates issue.
     if allowLoadMore &&
       (distanceFromBottom >= loadMoreThreshold) &&
       !viewedIndexPaths.contains(indexPath) {
-      onAction?(CZFeedListViewAction.loadMore)
+      // onAction?(CZFeedListViewAction.loadMore)
     }
     
     if !hasInvokedWillDisplayCell && collectionView.indexPathsForVisibleItems.count > 0 {
