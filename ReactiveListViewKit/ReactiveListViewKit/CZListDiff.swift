@@ -16,8 +16,9 @@ public struct MovedIndexPath: Equatable, Hashable {
         return (lhs.from == rhs.from && lhs.to == rhs.to)
     }
 
-    public var hashValue: Int {
-        return from.hashValue * 1375365 + to.hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(from)
+        hasher.combine(to)
     }
 }
 
