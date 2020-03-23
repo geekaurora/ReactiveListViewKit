@@ -40,7 +40,7 @@
 		2AD7D7A61FEEFF8D003C3A49 /* ReactiveListViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AD7D7A41FEEFF8D003C3A49 /* ReactiveListViewKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AD7DCB81FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD7DCB71FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift */; };
 		2AF920E71F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF920E61F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift */; };
-		C3C4FA4F24010FFB009C49A0 /* CZUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C4FA4E24010FFB009C49A0 /* CZUtils.framework */; };
+		C363A873240B8AC000F101FE /* CZUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C35B6970240B85F20087FDAB /* CZUtils.framework */; };
 		DFE04B1320D46A7500428D0A /* ListDiffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE04B1220D46A7500428D0A /* ListDiffTests.swift */; };
 		DFE04B1620D4764800428D0A /* CZListDiff+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE04B1520D4764800428D0A /* CZListDiff+.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +52,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 044E032B1F74458B00849AA2;
 			remoteInfo = ReactiveListViewKit;
+		};
+		C35B696F240B85F20087FDAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C35B695B240B85CB0087FDAB /* CZUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "CZUtils::CZUtils::Product";
+			remoteInfo = CZUtils;
+		};
+		C35B6971240B85F20087FDAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C35B695B240B85CB0087FDAB /* CZUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "CZUtils::CZUtilsTests::Product";
+			remoteInfo = CZUtilsTests;
+		};
+		C363A86D240B8ABC00F101FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C35B695B240B85CB0087FDAB /* CZUtils.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "CZUtils::CZUtils";
+			remoteInfo = CZUtils;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -93,6 +114,7 @@
 		2AD7DCB71FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReactiveListViewKitHelper.swift; path = Utils/ReactiveListViewKitHelper.swift; sourceTree = "<group>"; };
 		2ADEE4771F7F6F7D00EC6969 /* CZUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CZUtils.framework; path = "../../../Users/mac/Library/Developer/Xcode/DerivedData/ReactiveListViewKitDemo-fiwgffcwywcqpecmptdmpbitbkkp/Build/Products/Debug-iphoneos/CZUtils.framework"; sourceTree = "<group>"; };
 		2AF920E61F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZHorizontalSectionAdapterCell.swift; path = TemplateViews/CZHorizontalSectionAdapterCell.swift; sourceTree = "<group>"; };
+		C35B695B240B85CB0087FDAB /* CZUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZUtils.xcodeproj; path = "../Supported Files/CZUtils/CZUtils.xcodeproj"; sourceTree = "<group>"; };
 		C3C4FA4824010FBD009C49A0 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C4FA4A24010FCB009C49A0 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C4FA4C24010FDA009C49A0 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,7 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3C4FA4F24010FFB009C49A0 /* CZUtils.framework in Frameworks */,
+				C363A873240B8AC000F101FE /* CZUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +229,7 @@
 		2A35A2411F7E01A7008CE3FB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				C35B695B240B85CB0087FDAB /* CZUtils.xcodeproj */,
 				2AD7D7A51FEEFF8D003C3A49 /* Info.plist */,
 				2AD7D7A41FEEFF8D003C3A49 /* ReactiveListViewKit.h */,
 				2A101AFD1FEF0305001AC915 /* ReactiveListViewKit.podspec */,
@@ -224,6 +247,15 @@
 				2ADEE4771F7F6F7D00EC6969 /* CZUtils.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C35B6969240B85F20087FDAB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C35B6970240B85F20087FDAB /* CZUtils.framework */,
+				C35B6972240B85F20087FDAB /* CZUtilsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		DFE04B1720D47C7C00428D0A /* Utils */ = {
@@ -260,8 +292,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				C363A86E240B8ABC00F101FE /* PBXTargetDependency */,
 			);
 			name = ReactiveListViewKit;
+			packageProductDependencies = (
+			);
 			productName = ReactiveListViewKit;
 			productReference = 044E032C1F74458B00849AA2 /* ReactiveListViewKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -316,8 +351,16 @@
 				en,
 			);
 			mainGroup = 044E03221F74458B00849AA2;
+			packageReferences = (
+			);
 			productRefGroup = 044E032D1F74458B00849AA2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C35B6969240B85F20087FDAB /* Products */;
+					ProjectRef = C35B695B240B85CB0087FDAB /* CZUtils.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				044E032B1F74458B00849AA2 /* ReactiveListViewKit */,
@@ -325,6 +368,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C35B6970240B85F20087FDAB /* CZUtils.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CZUtils.framework;
+			remoteRef = C35B696F240B85F20087FDAB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C35B6972240B85F20087FDAB /* CZUtilsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = file;
+			path = CZUtilsTests.xctest;
+			remoteRef = C35B6971240B85F20087FDAB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		044E032A1F74458B00849AA2 /* Resources */ = {
@@ -398,6 +458,11 @@
 			isa = PBXTargetDependency;
 			target = 044E032B1F74458B00849AA2 /* ReactiveListViewKit */;
 			targetProxy = 044E03371F74458B00849AA2 /* PBXContainerItemProxy */;
+		};
+		C363A86E240B8ABC00F101FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CZUtils;
+			targetProxy = C363A86D240B8ABC00F101FE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
