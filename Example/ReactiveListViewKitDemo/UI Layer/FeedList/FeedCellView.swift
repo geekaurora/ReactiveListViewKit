@@ -8,7 +8,7 @@
 
 import CZUtils
 import ReactiveListViewKit
-import SDWebImage
+import CZWebImage
 
 /**
  Content view of `FeedCell`, composed of various subviews corresponding to elements contained by `FeedCellViewModel`
@@ -57,11 +57,11 @@ class FeedCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
         self.viewModel = viewModel
 
         if let portraitUrl = viewModel.portraitUrl {
-            portaitView.sd_setImage(with: portraitUrl)
+            portaitView.cz_setImage(with: portraitUrl)
             portaitView.roundToCircle()
         }
         if let imageUrl = viewModel.imageUrl {
-            imageView.sd_setImage(with: imageUrl)
+            imageView.cz_setImage(with: imageUrl)
         }
         contentLabel.preferredMaxLayoutWidth = containerSize.width
         userNameLabel.text = viewModel.userName

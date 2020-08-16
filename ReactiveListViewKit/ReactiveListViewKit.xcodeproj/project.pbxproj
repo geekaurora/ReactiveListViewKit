@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -40,7 +40,8 @@
 		2AD7D7A61FEEFF8D003C3A49 /* ReactiveListViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AD7D7A41FEEFF8D003C3A49 /* ReactiveListViewKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AD7DCB81FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD7DCB71FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift */; };
 		2AF920E71F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF920E61F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift */; };
-		C363A873240B8AC000F101FE /* CZUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C35B6970240B85F20087FDAB /* CZUtils.framework */; };
+		C34E13AA24E8F10B00539EBA /* CZUtils in Frameworks */ = {isa = PBXBuildFile; productRef = C34E13A924E8F10B00539EBA /* CZUtils */; };
+		C34E13AB24E8F10B00539EBA /* CZUtils in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C34E13A924E8F10B00539EBA /* CZUtils */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		DFE04B1320D46A7500428D0A /* ListDiffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE04B1220D46A7500428D0A /* ListDiffTests.swift */; };
 		DFE04B1620D4764800428D0A /* CZListDiff+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE04B1520D4764800428D0A /* CZListDiff+.swift */; };
 /* End PBXBuildFile section */
@@ -53,28 +54,21 @@
 			remoteGlobalIDString = 044E032B1F74458B00849AA2;
 			remoteInfo = ReactiveListViewKit;
 		};
-		C35B696F240B85F20087FDAB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C35B695B240B85CB0087FDAB /* CZUtils.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "CZUtils::CZUtils::Product";
-			remoteInfo = CZUtils;
-		};
-		C35B6971240B85F20087FDAB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C35B695B240B85CB0087FDAB /* CZUtils.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = "CZUtils::CZUtilsTests::Product";
-			remoteInfo = CZUtilsTests;
-		};
-		C363A86D240B8ABC00F101FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C35B695B240B85CB0087FDAB /* CZUtils.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = "CZUtils::CZUtils";
-			remoteInfo = CZUtils;
-		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C34E13A524E8F0E000539EBA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C34E13AB24E8F10B00539EBA /* CZUtils in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		044E032C1F74458B00849AA2 /* ReactiveListViewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveListViewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,7 +108,6 @@
 		2AD7DCB71FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReactiveListViewKitHelper.swift; path = Utils/ReactiveListViewKitHelper.swift; sourceTree = "<group>"; };
 		2ADEE4771F7F6F7D00EC6969 /* CZUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CZUtils.framework; path = "../../../Users/mac/Library/Developer/Xcode/DerivedData/ReactiveListViewKitDemo-fiwgffcwywcqpecmptdmpbitbkkp/Build/Products/Debug-iphoneos/CZUtils.framework"; sourceTree = "<group>"; };
 		2AF920E61F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZHorizontalSectionAdapterCell.swift; path = TemplateViews/CZHorizontalSectionAdapterCell.swift; sourceTree = "<group>"; };
-		C35B695B240B85CB0087FDAB /* CZUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZUtils.xcodeproj; path = "../Supported Files/CZUtils/CZUtils.xcodeproj"; sourceTree = "<group>"; };
 		C3C4FA4824010FBD009C49A0 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C4FA4A24010FCB009C49A0 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C4FA4C24010FDA009C49A0 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C363A873240B8AC000F101FE /* CZUtils.framework in Frameworks */,
+				C34E13AA24E8F10B00539EBA /* CZUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +222,6 @@
 		2A35A2411F7E01A7008CE3FB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C35B695B240B85CB0087FDAB /* CZUtils.xcodeproj */,
 				2AD7D7A51FEEFF8D003C3A49 /* Info.plist */,
 				2AD7D7A41FEEFF8D003C3A49 /* ReactiveListViewKit.h */,
 				2A101AFD1FEF0305001AC915 /* ReactiveListViewKit.podspec */,
@@ -247,15 +239,6 @@
 				2ADEE4771F7F6F7D00EC6969 /* CZUtils.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C35B6969240B85F20087FDAB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C35B6970240B85F20087FDAB /* CZUtils.framework */,
-				C35B6972240B85F20087FDAB /* CZUtilsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		DFE04B1720D47C7C00428D0A /* Utils */ = {
@@ -288,14 +271,15 @@
 				044E03281F74458B00849AA2 /* Frameworks */,
 				044E03291F74458B00849AA2 /* Headers */,
 				044E032A1F74458B00849AA2 /* Resources */,
+				C34E13A524E8F0E000539EBA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C363A86E240B8ABC00F101FE /* PBXTargetDependency */,
 			);
 			name = ReactiveListViewKit;
 			packageProductDependencies = (
+				C34E13A924E8F10B00539EBA /* CZUtils */,
 			);
 			productName = ReactiveListViewKit;
 			productReference = 044E032C1F74458B00849AA2 /* ReactiveListViewKit.framework */;
@@ -352,15 +336,10 @@
 			);
 			mainGroup = 044E03221F74458B00849AA2;
 			packageReferences = (
+				C34E13A124E8F0E000539EBA /* XCRemoteSwiftPackageReference "CZUtils" */,
 			);
 			productRefGroup = 044E032D1F74458B00849AA2 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = C35B6969240B85F20087FDAB /* Products */;
-					ProjectRef = C35B695B240B85CB0087FDAB /* CZUtils.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				044E032B1F74458B00849AA2 /* ReactiveListViewKit */,
@@ -368,23 +347,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		C35B6970240B85F20087FDAB /* CZUtils.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CZUtils.framework;
-			remoteRef = C35B696F240B85F20087FDAB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C35B6972240B85F20087FDAB /* CZUtilsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = file;
-			path = CZUtilsTests.xctest;
-			remoteRef = C35B6971240B85F20087FDAB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		044E032A1F74458B00849AA2 /* Resources */ = {
@@ -458,11 +420,6 @@
 			isa = PBXTargetDependency;
 			target = 044E032B1F74458B00849AA2 /* ReactiveListViewKit */;
 			targetProxy = 044E03371F74458B00849AA2 /* PBXContainerItemProxy */;
-		};
-		C363A86E240B8ABC00F101FE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CZUtils;
-			targetProxy = C363A86D240B8ABC00F101FE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -574,7 +531,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -595,7 +553,11 @@
 				INFOPLIST_FILE = "Supported Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -617,7 +579,11 @@
 				INFOPLIST_FILE = "Supported Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -631,7 +597,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
 				INFOPLIST_FILE = ReactiveListViewKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -644,7 +614,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
 				INFOPLIST_FILE = ReactiveListViewKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.ReactiveListViewKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -682,6 +656,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C34E13A124E8F0E000539EBA /* XCRemoteSwiftPackageReference "CZUtils" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/geekaurora/CZUtils.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C34E13A924E8F10B00539EBA /* CZUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C34E13A124E8F0E000539EBA /* XCRemoteSwiftPackageReference "CZUtils" */;
+			productName = CZUtils;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 044E03231F74458B00849AA2 /* Project object */;
 }

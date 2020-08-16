@@ -8,7 +8,7 @@
 
 import CZUtils
 import ReactiveListViewKit
-import SDWebImage
+import CZWebImage
 
 enum HotUserSection {
     static let heightForHorizontal: CGFloat = 76
@@ -47,7 +47,7 @@ class HotUserCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
             fatalError("Incorrect ViewModel type.")
         }
         if let portraitUrl = viewModel.portraitUrl {
-            portaitView?.sd_setImage(with: portraitUrl)
+            portaitView?.cz_setImage(with: portraitUrl)
             portaitView?.roundToCircle()
         }
         nameLabel?.text = viewModel.userName
