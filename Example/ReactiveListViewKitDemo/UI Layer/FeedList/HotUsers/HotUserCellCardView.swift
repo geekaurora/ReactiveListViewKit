@@ -44,7 +44,7 @@ class HotUserCellCardView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
             fatalError("Incorrect ViewModel type.")
         }
         if let portraitUrl = viewModel.portraitUrl {
-            portaitView?.sd_setImage(with: portraitUrl)
+            portaitView?.cz_setImage(with: portraitUrl)
             portaitView?.roundToCircle()
         }
         detailsLabel?.text = viewModel.fullName
