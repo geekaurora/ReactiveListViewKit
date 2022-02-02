@@ -82,10 +82,13 @@ public class CZTextFeedCellView: UIView, CZFeedCellViewSizeCalculatable {
         hasSetup = true
         titleLabel = UILabel(frame: .zero)
         titleLabel.font = UIFont.systemFont(ofSize: 17)
-        titleLabel.overlayOnSuperview(self, inset: UIEdgeInsets(top: 5,
-                                                                left: 10,
-                                                                bottom: 5,
-                                                                right: 10))
+        titleLabel.overlayOnSuperview(
+          self,
+          insets: NSDirectionalEdgeInsets(
+            top: 5,
+            leading: 10,
+            bottom: 5,
+            trailing: 10))
     }
     
     public func config(with viewModel: CZFeedViewModelable?) {

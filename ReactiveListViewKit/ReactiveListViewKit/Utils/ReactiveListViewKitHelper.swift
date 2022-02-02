@@ -10,7 +10,7 @@ import CZUtils
 
 public func dbgPrint(_ item: CustomStringConvertible) {
     guard ReactiveListViewKit.isDebugMode else { return }
-    CZUtils.dbgPrint(item)
+    _dbgPrint(item)
 }
 
 public func PrettyString(_ object: Any) -> String {
