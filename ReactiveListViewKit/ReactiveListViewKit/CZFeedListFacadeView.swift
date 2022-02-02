@@ -1,12 +1,16 @@
-//
-//  CZFeedListFacadeView.swift
-//  ReactiveListViewKit
-//
-//  Created by Cheng Zhang on 1/9/17.
-//  Copyright © 2017 Cheng Zhang. All rights reserved.
-//
-
 import UIKit
+import CZUtils
+
+public class CZCollectionView: UICollectionView {
+  public override func touchesBegan(_ touches: Set<UITouch>,
+                             with event: UIEvent?) {
+    dbgPrintWithFunc(self, type: .warning, "touchesBegan")
+    
+    // Call super.touchesBegan(): will pass touch event to cell.
+    super.touchesBegan(touches, with: event)
+    
+  }
+}
 
 /**
  Elegant Facade class encapsulates UICollectionview to populate with CZFeedModels
@@ -22,7 +26,7 @@ open class CZFeedListFacadeView: UIView {
   private(set) var onAction: OnAction?
   private(set) lazy var viewModel = CZFeedListViewModel()
   private(set) lazy var newViewModel = CZFeedListViewModel()
-  public private(set) var collectionView: UICollectionView!
+  public private(set) var collectionView: CZCollectionView!
   private let parentViewController: UIViewController?
   private var collectionViewBGColor: UIColor?
   private var minimumLineSpacing: CGFloat
@@ -275,7 +279,7 @@ private extension CZFeedListFacadeView  {
   func setupCollectionView() {
     let collectionViewLayout = UICollectionViewFlowLayout()
     collectionViewLayout.scrollDirection = isHorizontal ? .horizontal : .vertical
-    collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+    collectionView = CZCollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
     translatesAutoresizingMaskIntoConstraints = false
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     collectionView.backgroundColor = .clear
@@ -428,6 +432,7 @@ extension CZFeedListFacadeView: UICollectionViewDataSource {
 
 extension CZFeedListFacadeView: UICollectionViewDelegate {
   public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    dbgPrintWithFunc(self, type: .warning, "Selected cell - indexPath = \(indexPath)")
     guard let feedModel = viewModel.feedModel(at: indexPath) else {
       assertionFailure("Couldn't find matched cell/feedModel at \(indexPath)")
       return
