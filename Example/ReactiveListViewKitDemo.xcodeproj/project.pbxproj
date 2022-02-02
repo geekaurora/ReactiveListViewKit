@@ -39,6 +39,10 @@
 		2ADCB5621F95DD0D007083CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5601F95DD0D007083CA /* LaunchScreen.storyboard */; };
 		2ADCB5661F95DD45007083CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5651F95DD45007083CA /* Assets.xcassets */; };
 		2ADCB5681F95E09A007083CA /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCB5671F95E09A007083CA /* feeds.json */; };
+		C307574527AACDCD00984899 /* CZUtils in Frameworks */ = {isa = PBXBuildFile; productRef = C307574427AACDCD00984899 /* CZUtils */; };
+		C307574627AACDCD00984899 /* CZUtils in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C307574427AACDCD00984899 /* CZUtils */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C34F80DA27AACC5D002C1BE5 /* CZWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C34F80D927AACC5D002C1BE5 /* CZWebImage */; };
+		C34F80DB27AACC5D002C1BE5 /* CZWebImage in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C34F80D927AACC5D002C1BE5 /* CZWebImage */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C363A868240B888000F101FE /* NoneIncrementalUpdatesUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C363A866240B888000F101FE /* NoneIncrementalUpdatesUITest.swift */; };
 		C363A869240B888000F101FE /* IncrementalUpdatesUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C363A867240B888000F101FE /* IncrementalUpdatesUITest.swift */; };
 		C392368B26D3A9A00030AFD9 /* KIF in Frameworks */ = {isa = PBXBuildFile; productRef = C392368A26D3A9A00030AFD9 /* KIF */; };
@@ -110,6 +114,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C307574627AACDCD00984899 /* CZUtils in Embed Frameworks */,
+				C34F80DB27AACC5D002C1BE5 /* CZWebImage in Embed Frameworks */,
 				2A3FFF16200D47E800717636 /* ReactiveListViewKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -172,6 +178,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C307574527AACDCD00984899 /* CZUtils in Frameworks */,
+				C34F80DA27AACC5D002C1BE5 /* CZWebImage in Frameworks */,
 				2A3FFF15200D47E800717636 /* ReactiveListViewKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +314,13 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		C34F80D827AACC5D002C1BE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C3BBE2631F7F179F002576BF /* Supported Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +343,7 @@
 				C3E8440A1F7F1615001ED65A /* ReactiveListViewKitDemo */,
 				2A6006842183F1690024C22D /* ReactiveListViewKitUITests */,
 				C3E844091F7F1615001ED65A /* Products */,
+				C34F80D827AACC5D002C1BE5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -404,6 +420,8 @@
 			);
 			name = ReactiveListViewKitDemo;
 			packageProductDependencies = (
+				C34F80D927AACC5D002C1BE5 /* CZWebImage */,
+				C307574427AACDCD00984899 /* CZUtils */,
 			);
 			productName = ReactiveListViewKitDemo;
 			productReference = C3E844081F7F1615001ED65A /* ReactiveListViewKitDemo.app */;
@@ -794,7 +812,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
 				INFOPLIST_FILE = "ReactiveListViewKitDemo/Supported Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -812,7 +830,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
 				INFOPLIST_FILE = "ReactiveListViewKitDemo/Supported Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -869,7 +887,7 @@
 			repositoryURL = "https://github.com/geekaurora/CZWebImage.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 3.6.6;
 			};
 		};
 		C37523A927AAC9B100690D69 /* XCRemoteSwiftPackageReference "CZNetworking" */ = {
@@ -877,7 +895,7 @@
 			repositoryURL = "https://github.com/geekaurora/CZNetworking.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 3.5.0;
 			};
 		};
 		C392368926D3A9A00030AFD9 /* XCRemoteSwiftPackageReference "KIF" */ = {
@@ -891,6 +909,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C307574427AACDCD00984899 /* CZUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CZUtils;
+		};
+		C34F80D927AACC5D002C1BE5 /* CZWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C37523A827AAC9A300690D69 /* XCRemoteSwiftPackageReference "CZWebImage" */;
+			productName = CZWebImage;
+		};
 		C392368A26D3A9A00030AFD9 /* KIF */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C392368926D3A9A00030AFD9 /* XCRemoteSwiftPackageReference "KIF" */;
