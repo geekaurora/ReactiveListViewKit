@@ -56,6 +56,6 @@ class FeedCellViewModel: NSObject, CZFeedViewModelable {
 
 extension FeedCellViewModel: State {
     func reduce(action: Action) {
-
+      // No-op.
     }
 }

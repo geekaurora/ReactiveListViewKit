@@ -28,7 +28,8 @@ class HotUserCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
     var diffId: String {return viewModel.diffId}
     var onAction: OnAction?
 
-    required init(viewModel: CZFeedViewModelable?, onAction: OnAction?) {
+    required init(viewModel: CZFeedViewModelable?, 
+                  onAction: OnAction?) {
         guard let viewModel = viewModel as? HotUserCellViewModel else {
             fatalError("Incorrect ViewModel type.")
         }
@@ -56,14 +57,17 @@ class HotUserCellView: CZNibLoadableView, CZFeedCellViewSizeCalculatable {
         frameView?.roundCorner(2)
     }
 
-    static func sizeThatFits(_ containerSize: CGSize, viewModel: CZFeedViewModelable) -> CGSize {
-        return CZFacadeViewHelper.sizeThatFits(containerSize,
+    static func sizeThatFits(_ containerSize: CGSize, 
+                             viewModel: CZFeedViewModelable) -> CGSize {
+        return CZFacadeViewHelper.sizeThatFits(
+          containerSize,
                                                viewModel: viewModel,
                                                viewClass: HotUserCellView.self,
                                                isHorizontal: true)
     }
     
-    func config(with viewModel: CZFeedViewModelable?, prevViewModel: CZFeedViewModelable?) {}
+    func config(with viewModel: CZFeedViewModelable?, 
+                prevViewModel: CZFeedViewModelable?) {}
 }
 
 

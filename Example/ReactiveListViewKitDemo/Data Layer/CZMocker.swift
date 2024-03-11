@@ -10,15 +10,15 @@ import CZUtils
 import ReactiveListViewKit
 
 class CZMocker: NSObject {
-    static let shared = CZMocker()
-
-    var feeds: [Feed] {
-        let url = Bundle.main.url(forResource: "feeds", withExtension: "json")!
-        return CodableHelper.decode(url) ?? []
-    }
-    
-    var hotUsers: [User] {
-        let url = Bundle.main.url(forResource: "users", withExtension: "json")!
-        return CodableHelper.decode(url) ?? []
-    }
+  static let shared = CZMocker()
+  
+  var feeds: [Feed] {
+    let url = Bundle.main.url(forResource: "feeds", withExtension: "json")!
+    return CodableHelper.decode(url) ?? []
+  }
+  
+  var hotUsers: [User] {
+    let url = Bundle.main.url(forResource: "users", withExtension: "json")!
+    return CodableHelper.decode(url) ?? []
+  }
 }

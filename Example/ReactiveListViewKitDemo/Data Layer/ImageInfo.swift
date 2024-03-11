@@ -11,17 +11,17 @@ import ReactiveListViewKit
 
 /// Model of image info
 class ImageInfo: ReactiveListDiffable {
-    let url: String
-    let width: Int
-    let height: Int
-    
-    // MARK: - CZListDiffable
-    func isEqual(toDiffableObj object: AnyObject) -> Bool {
-        return isEqual(toCodable: object)
-    }
-    
-    // MARK: - NSCopying
-    func copy(with zone: NSZone? = nil) -> Any {
-        return codableCopy(with: zone)
-    }
+  let url: String
+  let width: Int
+  let height: Int
+  
+  // MARK: - CZListDiffable
+  func isEqual(toDiffableObj object: AnyObject) -> Bool {
+    return isEqual(toCodable: object)
+  }
+  
+  // MARK: - NSCopying
+  func copy(with zone: NSZone? = nil) -> Any {
+    return codableCopy(with: zone)
+  }
 }
