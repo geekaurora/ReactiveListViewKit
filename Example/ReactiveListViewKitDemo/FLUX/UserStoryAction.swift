@@ -11,5 +11,5 @@ import ReactiveListViewKit
 
 /// Action that User selects `UserStory`
 enum UserStoryAction: Action {
-    case selected(user: User)
+  case selected(user: User)
 }

@@ -11,6 +11,6 @@ import ReactiveListViewKit
 
 /// Action that follow/ignore `SuggestedUser`
 enum SuggestedUserAction: Action {
-    case follow(user: User)
-    case ignore(user: User)        
+  case follow(user: User)
+  case ignore(user: User)        
 }

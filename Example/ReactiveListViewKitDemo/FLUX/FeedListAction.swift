@@ -13,9 +13,5 @@ import ReactiveListViewKit
 
 /// Action that User likes one `Feed`
 struct LikeFeedAction: Action {
-    var feed: Feed
+  var feed: Feed
 }
-
-
-
-
