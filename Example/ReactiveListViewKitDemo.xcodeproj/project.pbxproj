@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -46,6 +46,8 @@
 		C363A868240B888000F101FE /* NoneIncrementalUpdatesUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C363A866240B888000F101FE /* NoneIncrementalUpdatesUITest.swift */; };
 		C363A869240B888000F101FE /* IncrementalUpdatesUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C363A867240B888000F101FE /* IncrementalUpdatesUITest.swift */; };
 		C392368B26D3A9A00030AFD9 /* KIF in Frameworks */ = {isa = PBXBuildFile; productRef = C392368A26D3A9A00030AFD9 /* KIF */; };
+		DF3EA5D82B9E8F5000B7FC8E /* feeds copy.json in Resources */ = {isa = PBXBuildFile; fileRef = DF3EA5D72B9E8F5000B7FC8E /* feeds copy.json */; };
+		DF3EA5DA2B9E90D300B7FC8E /* users copy.json in Resources */ = {isa = PBXBuildFile; fileRef = DF3EA5D92B9E90D300B7FC8E /* users copy.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +165,8 @@
 		C363A867240B888000F101FE /* IncrementalUpdatesUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncrementalUpdatesUITest.swift; sourceTree = "<group>"; };
 		C37523AD27AACAEE00690D69 /* CZUtils */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZUtils; path = ../../CZUtils; sourceTree = "<group>"; };
 		C3E844081F7F1615001ED65A /* ReactiveListViewKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveListViewKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF3EA5D72B9E8F5000B7FC8E /* feeds copy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "feeds copy.json"; path = "Supported Files/Resources/feeds copy.json"; sourceTree = "<group>"; };
+		DF3EA5D92B9E90D300B7FC8E /* users copy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "users copy.json"; path = "Supported Files/Resources/users copy.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,7 +313,9 @@
 			isa = PBXGroup;
 			children = (
 				2ADCB5671F95E09A007083CA /* feeds.json */,
+				DF3EA5D72B9E8F5000B7FC8E /* feeds copy.json */,
 				2AD1DA2F21DAE32300527308 /* users.json */,
+				DF3EA5D92B9E90D300B7FC8E /* users copy.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -545,7 +551,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ADA7C8E1F95D79E00B8679C /* HotUserCellView.xib in Resources */,
+				DF3EA5D82B9E8F5000B7FC8E /* feeds copy.json in Resources */,
 				2ADA7C911F95D79E00B8679C /* HotUsersCellViewController.xib in Resources */,
+				DF3EA5DA2B9E90D300B7FC8E /* users copy.json in Resources */,
 				2AD1DA3021DAE32300527308 /* users.json in Resources */,
 				2ADCB55F1F95DD02007083CA /* Main.storyboard in Resources */,
 				2ADA7C8C1F95D79E00B8679C /* HotUserCellCardView.xib in Resources */,
