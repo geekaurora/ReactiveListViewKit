@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		044E03361F74458B00849AA2 /* ReactiveListViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044E032C1F74458B00849AA2 /* ReactiveListViewKit.framework */; };
-		044E03581F74464200849AA2 /* CZFacadeViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E03481F74464200849AA2 /* CZFacadeViewHelper.swift */; };
 		044E03591F74464200849AA2 /* CZFeedCellViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E03491F74464200849AA2 /* CZFeedCellViewable.swift */; };
 		044E035A1F74464200849AA2 /* CZFeedDetailsFacadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E034A1F74464200849AA2 /* CZFeedDetailsFacadeView.swift */; };
 		044E035B1F74464200849AA2 /* CZFeedListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E034B1F74464200849AA2 /* CZFeedListCell.swift */; };
@@ -41,6 +40,7 @@
 		2AD7DCB81FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD7DCB71FB0F6A9003A7B6C /* ReactiveListViewKitHelper.swift */; };
 		2AF920E71F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF920E61F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift */; };
 		C37523AC27AAC9FB00690D69 /* CZUtils in Frameworks */ = {isa = PBXBuildFile; productRef = C37523AB27AAC9FB00690D69 /* CZUtils */; };
+		DF8794F52B9FCB8200881CB3 /* CZFacadeViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8794F42B9FCB8200881CB3 /* CZFacadeViewHelper.swift */; };
 		DFE04B1320D46A7500428D0A /* ListDiffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE04B1220D46A7500428D0A /* ListDiffTests.swift */; };
 		DFE04B1620D4764800428D0A /* CZListDiff+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE04B1520D4764800428D0A /* CZListDiff+.swift */; };
 /* End PBXBuildFile section */
@@ -72,7 +72,6 @@
 		044E032C1F74458B00849AA2 /* ReactiveListViewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveListViewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		044E03351F74458B00849AA2 /* ReactiveListViewKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveListViewKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		044E033C1F74458B00849AA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		044E03481F74464200849AA2 /* CZFacadeViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZFacadeViewHelper.swift; sourceTree = "<group>"; };
 		044E03491F74464200849AA2 /* CZFeedCellViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZFeedCellViewable.swift; sourceTree = "<group>"; };
 		044E034A1F74464200849AA2 /* CZFeedDetailsFacadeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZFeedDetailsFacadeView.swift; sourceTree = "<group>"; };
 		044E034B1F74464200849AA2 /* CZFeedListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZFeedListCell.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		C3C4FA4A24010FCB009C49A0 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C4FA4C24010FDA009C49A0 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C4FA4E24010FFB009C49A0 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF8794F42B9FCB8200881CB3 /* CZFacadeViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZFacadeViewHelper.swift; path = Utils/CZFacadeViewHelper.swift; sourceTree = "<group>"; };
 		DFE04B1220D46A7500428D0A /* ListDiffTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDiffTests.swift; sourceTree = "<group>"; };
 		DFE04B1520D4764800428D0A /* CZListDiff+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CZListDiff+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,7 +208,7 @@
 		044E036E1F74468800849AA2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				044E03481F74464200849AA2 /* CZFacadeViewHelper.swift */,
+				DF8794F42B9FCB8200881CB3 /* CZFacadeViewHelper.swift */,
 				044E03541F74464200849AA2 /* CZListDiff.swift */,
 				2A465C751F7F01B800406343 /* CZListDiffableHelper.swift */,
 				2AB3DB9E1F7EC407009A5EF9 /* Array+Extension.swift */,
@@ -383,7 +383,6 @@
 				2AF920E71F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift in Sources */,
 				044E035C1F74464200849AA2 /* CZFeedListFacadeView.swift in Sources */,
 				2A0647271F7F61CE00354083 /* Reactor.swift in Sources */,
-				044E03581F74464200849AA2 /* CZFacadeViewHelper.swift in Sources */,
 				2A14FA3E1FCF50B800914C8E /* CZFeedDetailsModel.swift in Sources */,
 				2AB3DB9C1F7EC3D8009A5EF9 /* CZTextFeedCellView.swift in Sources */,
 				2AB3DB991F7EC3D8009A5EF9 /* CZFeedListSupplementaryView.swift in Sources */,
@@ -399,6 +398,7 @@
 				2AB3DB981F7EC3D8009A5EF9 /* CZFeedListSupplementaryTextView.swift in Sources */,
 				2AB3DB9D1F7EC3D8009A5EF9 /* CZTextFeedViewModel.swift in Sources */,
 				044E035A1F74464200849AA2 /* CZFeedDetailsFacadeView.swift in Sources */,
+				DF8794F52B9FCB8200881CB3 /* CZFacadeViewHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
