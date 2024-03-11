@@ -9,16 +9,16 @@
 import UIKit
 
 extension Array where Element: CZListDiffableObject {
-    /**
-     Check whether elements in two arrays equal
-     */
-    public func isEqual(toDiffableObj object: Any) -> Bool {
-        guard let object = object as? [Element],
-              count == object.count  else {
-                return false
-        }
-        return (0..<count).allSatisfy { i in
-            self[i].isEqual(toDiffableObj: object[i])
-        }
+  /**
+   Check whether elements in two arrays equal
+   */
+  public func isEqual(toDiffableObj object: Any) -> Bool {
+    guard let object = object as? [Element],
+          count == object.count  else {
+      return false
     }
+    return (0..<count).allSatisfy { i in
+      self[i].isEqual(toDiffableObj: object[i])
+    }
+  }
 }

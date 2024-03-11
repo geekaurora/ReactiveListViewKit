@@ -19,18 +19,18 @@ public typealias OnAction = (_ action: Action) -> Void
 public typealias CZViewAction = Action
 
 public struct BaseState: State {
-    public func reduce(action: Action) {}
+  public func reduce(action: Action) {}
 }
 
 /**
  ViewAction for container feedListView
  */
 public enum CZFeedListViewAction: CZViewAction {
-    case selectedCell(CZFeedModel)
-    case loadMore
-    case pullToRefresh(isFirst: Bool)
-    case prefetch([IndexPath])
-    case cancelPrefetching([IndexPath])
-    case visibleIndexPathsChanged(newValue: [IndexPath])// (oldIndexPaths, newIndexPaths)
+  case selectedCell(CZFeedModel)
+  case loadMore
+  case pullToRefresh(isFirst: Bool)
+  case prefetch([IndexPath])
+  case cancelPrefetching([IndexPath])
+  case visibleIndexPathsChanged(newValue: [IndexPath])// (oldIndexPaths, newIndexPaths)
 }
 

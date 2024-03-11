@@ -29,7 +29,9 @@ private var kViewModelObserverContext: Int = 0
     var containerViewController: UIViewController?
     private var hasSetup = false
 
-    public init(containerViewController: UIViewController? = nil, onAction: OnAction? = nil, onScrollView: Bool = true) {
+    public init(containerViewController: UIViewController? = nil, 
+                onAction: OnAction? = nil,
+                onScrollView: Bool = true) {
         self.onScrollView = onScrollView
         super.init(frame: .zero)
         self.containerViewController = containerViewController
@@ -69,8 +71,10 @@ private var kViewModelObserverContext: Int = 0
     }
 
     public func reloadListView() {
-        let diffResult: [CZListDiff.RowDiffResultKey: [CZFeedDetailsModel]] = CZListDiff.diffFeedModels(current: viewModel.feedModels,
-                                                                                                    prev: prevViewModel.feedModels)
+      let diffResult: [CZListDiff.RowDiffResultKey: [CZFeedDetailsModel]] =
+      CZListDiff.diffFeedModels(
+        current: viewModel.feedModels,
+        prev: prevViewModel.feedModels)
 
         // deleted
         if let removedItemModels = diffResult[.deleted] {
@@ -191,5 +195,3 @@ private extension CZFeedDetailsFacadeView  {
             ])
     }
 }
-
-

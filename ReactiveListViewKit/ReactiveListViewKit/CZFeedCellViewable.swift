@@ -10,7 +10,7 @@ import UIKit
 
 /// Fundamental protocol of actionable Component
 public protocol CZActionable: class {
-    var onAction: OnAction? {get set}
+  var onAction: OnAction? {get set}
 }
 
 /// Fundamental CellView protocol, compatible with UICollectionViewCell/View/ViewController
@@ -25,47 +25,47 @@ public protocol CZActionable: class {
 ///     - if CZFeedCellViewable is `UIViewController`, its `didMove(to:)` parentViewController method will be invoked and its `view` will be automatically appended to UIStackView
 ///
 public protocol CZFeedCellViewable: NSObjectProtocol, CZActionable {
-    // diffId is used to match view and ViewModel if corresponding ViewModel changes
-    var diffId: String {get}
-    // Action hanlder closure
-    var onAction: OnAction? {get set}
-
-    /// Initializer of FeedCellView
-    ///
-    /// - Parameters:
-    ///   - viewModel: ViewModel of FeedCellView
-    ///   - onAction: Action handler for actions of cellView, cellView can propagate customAction
-    ///              e.g. `OptionSelect`, like/comment/share
-    init(viewModel: CZFeedViewModelable?, onAction: OnAction?)
-
-    /// Config FeedCellView with @c viewModel, @c containerWidth.
-    ///
-    /// - Parameters:
-    ///   - viewModel: ViewModel of FeedCellView
-    ///   - containerWidth: Width of container view
-    ///   - prevViewModel: Previous state of view, useful for tree diff algorithm
-    func config(with viewModel: CZFeedViewModelable?)
-    func config(with viewModel: CZFeedViewModelable?, containerSize: CGSize)
-    func config(with viewModel: CZFeedViewModelable?, prevViewModel: CZFeedViewModelable?)
+  // diffId is used to match view and ViewModel if corresponding ViewModel changes
+  var diffId: String {get}
+  // Action hanlder closure
+  var onAction: OnAction? {get set}
+  
+  /// Initializer of FeedCellView
+  ///
+  /// - Parameters:
+  ///   - viewModel: ViewModel of FeedCellView
+  ///   - onAction: Action handler for actions of cellView, cellView can propagate customAction
+  ///              e.g. `OptionSelect`, like/comment/share
+  init(viewModel: CZFeedViewModelable?, 
+       onAction: OnAction?)
+  
+  /// Config FeedCellView with @c viewModel, @c containerWidth.
+  ///
+  /// - Parameters:
+  ///   - viewModel: ViewModel of FeedCellView
+  ///   - containerWidth: Width of container view
+  ///   - prevViewModel: Previous state of view, useful for tree diff algorithm
+  func config(with viewModel: CZFeedViewModelable?)
+  func config(with viewModel: CZFeedViewModelable?, 
+              containerSize: CGSize)
+  func config(with viewModel: CZFeedViewModelable?, 
+              prevViewModel: CZFeedViewModelable?)
 }
 
 extension CZFeedCellViewable {
-    public func config(with viewModel: CZFeedViewModelable?, containerSize: CGSize) {
-      config(with: viewModel)
-    }
-
-    public func config(with viewModel: CZFeedViewModelable?, prevViewModel: CZFeedViewModelable?) {
-        assertionFailure("\(type(of: self))::\(#function) should be implemented.")
-    }
+  public func config(with viewModel: CZFeedViewModelable?, 
+                     containerSize: CGSize) {
+    config(with: viewModel)
+  }
+  
+  public func config(with viewModel: CZFeedViewModelable?, 
+                     prevViewModel: CZFeedViewModelable?) {
+    assertionFailure("\(type(of: self))::\(#function) should be implemented.")
+  }
 }
 
 /// CellView protocol that returns cellSize based on input params, required for CellClass in `CZFeedListFacadeView`
 public protocol CZFeedCellViewSizeCalculatable: CZFeedCellViewable {
-    static func sizeThatFits(_ containerSize: CGSize, viewModel: CZFeedViewModelable) -> CGSize
+  static func sizeThatFits(_ containerSize: CGSize, 
+                           viewModel: CZFeedViewModelable) -> CGSize
 }
-
-
-
-
-
-

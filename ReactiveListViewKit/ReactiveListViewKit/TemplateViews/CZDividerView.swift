@@ -12,28 +12,28 @@ import UIKit
  Convenience divider view class
  */
 public final class CZDividerView: UIView {
-    private let size: CGFloat
-    private let bgColor: UIColor
-    
-    public init(size: CGFloat = 1,
-         backgroudColor: UIColor = ReactiveListViewKit.GreyDividerColor) {
-        self.size = size
-        self.bgColor = backgroudColor
-        super.init(frame: .zero)
-        setup()
-    }
-    
-    public required init?(coder: NSCoder) {
-        fatalError("Must call designated initializer.")
-    }
+  private let size: CGFloat
+  private let bgColor: UIColor
+  
+  public init(size: CGFloat = 1,
+              backgroudColor: UIColor = ReactiveListViewKit.GreyDividerColor) {
+    self.size = size
+    self.bgColor = backgroudColor
+    super.init(frame: .zero)
+    setup()
+  }
+  
+  public required init?(coder: NSCoder) {
+    fatalError("Must call designated initializer.")
+  }
 }
 
 private extension CZDividerView {
-    func setup() {
-        translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = self.bgColor
-        let sizeContrait = heightAnchor.constraint(equalToConstant: size)
-        sizeContrait.priority = UILayoutPriority(rawValue: 749)
-        sizeContrait.isActive = true
-    }
+  func setup() {
+    translatesAutoresizingMaskIntoConstraints = false
+    backgroundColor = self.bgColor
+    let sizeContrait = heightAnchor.constraint(equalToConstant: size)
+    sizeContrait.priority = UILayoutPriority(rawValue: 749)
+    sizeContrait.isActive = true
+  }
 }
