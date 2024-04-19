@@ -393,6 +393,13 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
       onAction?(CZFeedListViewAction.pullToRefresh(isFirst: !hasPulledToRefresh))
     }
   }
+
+  // MARK: - Screen Rotation
+
+  open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+      super.traitCollectionDidChange(previousTraitCollection)
+      collectionView.collectionViewLayout.invalidateLayout()
+  }
 }
 
 // MARK: - UICollectionView
