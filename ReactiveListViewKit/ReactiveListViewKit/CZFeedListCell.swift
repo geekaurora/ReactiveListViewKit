@@ -15,8 +15,8 @@ internal class CZFeedListCell: UICollectionViewCell {
   private var model: CZFeedModel?
   // Adaptive to `UIView`/`UIViewController`
   private var cellComponent: CZFeedCellViewSizeCalculatable?
-  
-  open func config(with model: CZFeedModel, 
+
+  open func config(with model: CZFeedModel,
                    onAction: OnAction?,
                    parentViewController: UIViewController? = nil,
                    containerSize: CGSize = .zero) {
@@ -26,7 +26,7 @@ internal class CZFeedListCell: UICollectionViewCell {
         with: model.viewModel,
         containerSize: containerSize)
     }
-    
+
     // Reset cellView if previous cellViewClass differs from the current one
     if let cellComponent = cellComponent,
        let currModel = self.model,
@@ -42,7 +42,7 @@ internal class CZFeedListCell: UICollectionViewCell {
       }
       self.cellComponent = nil
     }
-    
+
     if let cellComponent = self.cellComponent {
       cellComponent.config(with: model.viewModel, containerSize: containerSize)
     } else {
@@ -65,5 +65,23 @@ internal class CZFeedListCell: UICollectionViewCell {
       cellView.overlayOnSuperview(contentView)
       cellView.isUserInteractionEnabled = true
     }
+  }
+
+  // MARK: - Cell Size
+
+  /// * Self-sizing: this method executes after `collectionView(_:cellForItemAt:indexPath)`.
+  ///
+  /// * targetSize: is from collectionView(_ collectionView: layout:sizeForItemAt:)
+  override func systemLayoutSizeFitting(_ targetSize: CGSize,
+                                        withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
+                                        verticalFittingPriority: UILayoutPriority) -> CGSize {
+    // let itemWidth = UIScreen.main.bounds.width
+    let itemWidth = targetSize.width
+    return super.systemLayoutSizeFitting(
+      .init(
+        width: itemWidth,
+        height: UIView.layoutFittingExpandedSize.height),
+      withHorizontalFittingPriority: .required,
+      verticalFittingPriority: .fittingSizeLevel)
   }
 }

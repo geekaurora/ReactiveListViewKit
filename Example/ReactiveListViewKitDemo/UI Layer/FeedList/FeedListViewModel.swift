@@ -47,29 +47,29 @@ class FeedListViewModel: NSObject, CopyableState {
       guard let feeds = feeds as? [Feed] else { fatalError() }
       var sectionModels = [CZSectionModel]()
 
-      // HotUsers section
-      let hotUsersFeedModels = self.storyUsers.compactMap {
-        CZFeedModel(viewClass: HotUserCellView.self,
-                    viewModel: HotUserCellViewModel($0)) }
-
-      let hotUsersSectionModel = CZSectionModel(
-        isHorizontal: true,
-        heightForHorizontal: HotUserSection.heightForHorizontal,
-        feedModels: hotUsersFeedModels,
-        headerModel: CZFeedListSupplementaryTextFeedModel(
-          title: "Stories",
-          inset: UIEdgeInsets(top: 8,
-                              left: 10,
-                              bottom: 1,
-                              right: 10)),
-        footerModel: CZFeedListSupplementaryLineFeedModel(),
-        sectionInset: UIEdgeInsets(
-          top: 0,
-          left: 3,
-          bottom: 0,
-          right: 5))
-
-      sectionModels.append(hotUsersSectionModel)
+//      // HotUsers section
+//      let hotUsersFeedModels = self.storyUsers.compactMap {
+//        CZFeedModel(viewClass: HotUserCellView.self,
+//                    viewModel: HotUserCellViewModel($0)) }
+//
+//      let hotUsersSectionModel = CZSectionModel(
+//        isHorizontal: true,
+//        heightForHorizontal: HotUserSection.heightForHorizontal,
+//        feedModels: hotUsersFeedModels,
+//        headerModel: CZFeedListSupplementaryTextFeedModel(
+//          title: "Stories",
+//          inset: UIEdgeInsets(top: 8,
+//                              left: 10,
+//                              bottom: 1,
+//                              right: 10)),
+//        footerModel: CZFeedListSupplementaryLineFeedModel(),
+//        sectionInset: UIEdgeInsets(
+//          top: 0,
+//          left: 3,
+//          bottom: 0,
+//          right: 5))
+//
+//      sectionModels.append(hotUsersSectionModel)
 
       // Feeds section
       var feedModels = feeds.compactMap {
