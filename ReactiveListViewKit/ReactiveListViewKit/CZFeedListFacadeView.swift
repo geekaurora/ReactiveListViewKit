@@ -279,7 +279,7 @@ private extension CZFeedListFacadeView  {
     let collectionViewLayout = UICollectionViewFlowLayout()
     collectionViewLayout.scrollDirection = isHorizontal ? .horizontal : .vertical
     // NOTE: Setting `estimatedItemSize` as `automaticSize` enables cells auto-sizing.
-    collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+    // collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
     translatesAutoresizingMaskIntoConstraints = false
     collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -317,35 +317,35 @@ private extension CZFeedListFacadeView  {
 // MARK: - UICollectionViewFlowLayout
 
 extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
-//  public func collectionView(_ collectionView: UICollectionView,
-//                             layout collectionViewLayout: UICollectionViewLayout,
-//                             sizeForItemAt indexPath: IndexPath) -> CGSize {
-//    guard let feedModel = viewModel.feedModel(at: indexPath) else {
-//      assertionFailure("Couldn't find matched cell/feedModel at \(indexPath)")
-//      return .zero
-//    }
-//
-//    // UICollectionView has .zero frame at this point
-//    let collectionViewSize = collectionView.bounds.size
-//
-//    // Adjust containerViewSize based on sectionInsets
-//    var containerViewSize = collectionViewSize
-//    if let sectionInset = viewModel.sectionModels[indexPath.section].sectionInset {
-//      containerViewSize = CGSize(width: collectionViewSize.width - sectionInset.left - sectionInset.right,
-//                                 height: collectionViewSize.height - sectionInset.top - sectionInset.bottom)
-//    }
-//    let size = feedModel.viewClass.sizeThatFits(containerViewSize, viewModel: feedModel.viewModel)
-//    return size
-//  }
-
-  /// Size for a cell: will be used by `systemLayoutSizeFitting()` of Cell.
   public func collectionView(_ collectionView: UICollectionView,
-                      layout collectionViewLayout: UICollectionViewLayout,
-                      sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(
-      width: collectionView.bounds.width,
-      height: collectionView.bounds.height)
+                             layout collectionViewLayout: UICollectionViewLayout,
+                             sizeForItemAt indexPath: IndexPath) -> CGSize {
+    guard let feedModel = viewModel.feedModel(at: indexPath) else {
+      assertionFailure("Couldn't find matched cell/feedModel at \(indexPath)")
+      return .zero
+    }
+
+    // UICollectionView has .zero frame at this point
+    let collectionViewSize = collectionView.bounds.size
+
+    // Adjust containerViewSize based on sectionInsets
+    var containerViewSize = collectionViewSize
+    if let sectionInset = viewModel.sectionModels[indexPath.section].sectionInset {
+      containerViewSize = CGSize(width: collectionViewSize.width - sectionInset.left - sectionInset.right,
+                                 height: collectionViewSize.height - sectionInset.top - sectionInset.bottom)
+    }
+    let size = feedModel.viewClass.sizeThatFits(containerViewSize, viewModel: feedModel.viewModel)
+    return size
   }
+
+//  /// Size for a cell: will be used by `systemLayoutSizeFitting()` of Cell.
+//  public func collectionView(_ collectionView: UICollectionView,
+//                      layout collectionViewLayout: UICollectionViewLayout,
+//                      sizeForItemAt indexPath: IndexPath) -> CGSize {
+//    return CGSize(
+//      width: collectionView.bounds.width,
+//      height: collectionView.bounds.height)
+//  }
 
   public func collectionView(_ collectionView: UICollectionView,
                              layout collectionViewLayout: UICollectionViewLayout,
