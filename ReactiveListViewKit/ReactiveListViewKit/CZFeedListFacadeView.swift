@@ -317,6 +317,7 @@ private extension CZFeedListFacadeView  {
 // MARK: - UICollectionViewFlowLayout
 
 extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
+  /// Size for a cell: will be used by `systemLayoutSizeFitting()` of self-sizing cells.
   public func collectionView(_ collectionView: UICollectionView,
                              layout collectionViewLayout: UICollectionViewLayout,
                              sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -334,18 +335,9 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
       containerViewSize = CGSize(width: collectionViewSize.width - sectionInset.left - sectionInset.right,
                                  height: collectionViewSize.height - sectionInset.top - sectionInset.bottom)
     }
-    let size = feedModel.viewClass.sizeThatFits(containerViewSize, viewModel: feedModel.viewModel)
-    return size
+    // let size = feedModel.viewClass.sizeThatFits(containerViewSize, viewModel: feedModel.viewModel)
+    return containerViewSize
   }
-
-//  /// Size for a cell: will be used by `systemLayoutSizeFitting()` of Cell.
-//  public func collectionView(_ collectionView: UICollectionView,
-//                      layout collectionViewLayout: UICollectionViewLayout,
-//                      sizeForItemAt indexPath: IndexPath) -> CGSize {
-//    return CGSize(
-//      width: collectionView.bounds.width,
-//      height: collectionView.bounds.height)
-//  }
 
   public func collectionView(_ collectionView: UICollectionView,
                              layout collectionViewLayout: UICollectionViewLayout,
