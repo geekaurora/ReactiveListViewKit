@@ -163,6 +163,7 @@
 		2ADCB5671F95E09A007083CA /* feeds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = feeds.json; path = "Supported Files/Resources/feeds.json"; sourceTree = "<group>"; };
 		C363A866240B888000F101FE /* NoneIncrementalUpdatesUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoneIncrementalUpdatesUITest.swift; sourceTree = "<group>"; };
 		C363A867240B888000F101FE /* IncrementalUpdatesUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncrementalUpdatesUITest.swift; sourceTree = "<group>"; };
+		C37523AD27AACAEE00690D69 /* CZUtils */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZUtils; path = ../../CZUtils; sourceTree = "<group>"; };
 		C3E844081F7F1615001ED65A /* ReactiveListViewKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveListViewKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF3EA5D72B9E8F5000B7FC8E /* feeds copy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "feeds copy.json"; path = "Supported Files/Resources/feeds copy.json"; sourceTree = "<group>"; };
 		DF3EA5D92B9E90D300B7FC8E /* users copy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "users copy.json"; path = "Supported Files/Resources/users copy.json"; sourceTree = "<group>"; };
@@ -343,6 +344,7 @@
 		C3E843FF1F7F1615001ED65A = {
 			isa = PBXGroup;
 			children = (
+				C37523AD27AACAEE00690D69 /* CZUtils */,
 				2A101B001FEF033E001AC915 /* ReactiveListViewKit.xcodeproj */,
 				C3E8440A1F7F1615001ED65A /* ReactiveListViewKitDemo */,
 				2A6006842183F1690024C22D /* ReactiveListViewKitUITests */,
