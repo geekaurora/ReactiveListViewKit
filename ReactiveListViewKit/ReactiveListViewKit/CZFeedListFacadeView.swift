@@ -281,6 +281,7 @@ private extension CZFeedListFacadeView  {
     // NOTE: Setting `estimatedItemSize` as `automaticSize` enables cells auto-sizing.
     collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+
     translatesAutoresizingMaskIntoConstraints = false
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     collectionView.backgroundColor = .clear
@@ -317,7 +318,8 @@ private extension CZFeedListFacadeView  {
 // MARK: - UICollectionViewFlowLayout
 
 extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
-  /// Returns the containerSize for a cell, it will be used by `Cell.systemLayoutSizeFitting()` for self-sizing.
+  /// Returns the containerSize for the cell at `indexPath`, it will be used by
+  /// `Cell.systemLayoutSizeFitting()` for self-sizing.
   public func collectionView(_ collectionView: UICollectionView,
                              layout collectionViewLayout: UICollectionViewLayout,
                              sizeForItemAt indexPath: IndexPath) -> CGSize {
