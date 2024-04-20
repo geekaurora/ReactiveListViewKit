@@ -79,8 +79,8 @@ internal class CZFeedListCell: UICollectionViewCell {
     let itemWidth = targetSize.width
     return super.systemLayoutSizeFitting(
       CGSize(
-        width: itemWidth,
-        height: UIView.layoutFittingExpandedSize.height),
+        width: targetSize.width,
+        height: targetSize.height),
       withHorizontalFittingPriority: .required,
       verticalFittingPriority: .fittingSizeLevel)
   }

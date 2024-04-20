@@ -69,7 +69,7 @@ public class CZHorizontalSectionAdapterCell: UICollectionViewCell, CZFeedCellVie
                                         verticalFittingPriority: UILayoutPriority) -> CGSize {
     return super.systemLayoutSizeFitting(
       CGSize(
-        width: UIView.layoutFittingExpandedSize.width,
+        width: targetSize.width,
         height: targetSize.height),
       withHorizontalFittingPriority: .fittingSizeLevel,
       verticalFittingPriority: .required)
