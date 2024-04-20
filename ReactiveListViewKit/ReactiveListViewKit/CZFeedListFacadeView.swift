@@ -279,7 +279,7 @@ private extension CZFeedListFacadeView  {
     let collectionViewLayout = UICollectionViewFlowLayout()
     collectionViewLayout.scrollDirection = isHorizontal ? .horizontal : .vertical
     // NOTE: Setting `estimatedItemSize` as `automaticSize` enables cells auto-sizing.
-    // collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+    collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
     translatesAutoresizingMaskIntoConstraints = false
     collectionView.translatesAutoresizingMaskIntoConstraints = false

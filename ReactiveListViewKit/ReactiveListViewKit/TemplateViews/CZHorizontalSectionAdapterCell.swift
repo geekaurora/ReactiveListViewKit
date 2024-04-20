@@ -58,4 +58,20 @@ public class CZHorizontalSectionAdapterCell: UICollectionViewCell, CZFeedCellVie
   
   public func config(with viewModel: CZFeedViewModelable?, 
                      prevViewModel: CZFeedViewModelable?) {}
+
+  // MARK: - Cell Size
+
+  /// * Self-sizing: this method executes after `collectionView(_:cellForItemAt:indexPath)`.
+  ///
+  /// * targetSize: is from collectionView(_ collectionView: layout:sizeForItemAt:)
+  public override func systemLayoutSizeFitting(_ targetSize: CGSize,
+                                        withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
+                                        verticalFittingPriority: UILayoutPriority) -> CGSize {
+    return super.systemLayoutSizeFitting(
+      CGSize(
+        width: UIView.layoutFittingExpandedSize.width,
+        height: targetSize.height),
+      withHorizontalFittingPriority: .fittingSizeLevel,
+      verticalFittingPriority: .required)
+  }
 }
