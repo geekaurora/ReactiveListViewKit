@@ -278,7 +278,10 @@ private extension CZFeedListFacadeView  {
   func setupCollectionView() {
     let collectionViewLayout = UICollectionViewFlowLayout()
     collectionViewLayout.scrollDirection = isHorizontal ? .horizontal : .vertical
+    // NOTE: Setting `estimatedItemSize` as `automaticSize` enables cells auto-sizing.
+    collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+
     translatesAutoresizingMaskIntoConstraints = false
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     collectionView.backgroundColor = .clear
@@ -315,6 +318,8 @@ private extension CZFeedListFacadeView  {
 // MARK: - UICollectionViewFlowLayout
 
 extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
+  /// Returns the containerSize for the cell at `indexPath`, it will be used by
+  /// `Cell.systemLayoutSizeFitting()` for self-sizing.
   public func collectionView(_ collectionView: UICollectionView,
                              layout collectionViewLayout: UICollectionViewLayout,
                              sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -381,6 +386,13 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
     if (refreshControl.isRefreshing) {
       onAction?(CZFeedListViewAction.pullToRefresh(isFirst: !hasPulledToRefresh))
     }
+  }
+
+  // MARK: - Screen Rotation
+
+  open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+      super.traitCollectionDidChange(previousTraitCollection)
+      collectionView.collectionViewLayout.invalidateLayout()
   }
 }
 
