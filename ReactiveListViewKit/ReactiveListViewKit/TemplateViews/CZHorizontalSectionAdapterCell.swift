@@ -59,11 +59,11 @@ public class CZHorizontalSectionAdapterCell: UICollectionViewCell, CZFeedCellVie
   public func config(with viewModel: CZFeedViewModelable?, 
                      prevViewModel: CZFeedViewModelable?) {}
 
-  // MARK: - Cell Size
+  // MARK: - Self sizing
 
-  /// * Self-sizing: this method executes after `collectionView(_:cellForItemAt:indexPath)`.
+  /// Returns the optimal size of the view based on its current constraints.
   ///
-  /// * targetSize: is from collectionView(_ collectionView: layout:sizeForItemAt:)
+  /// - Note: `targetSize` is from `collectionView(_ collectionView: layout:sizeForItemAt:)`.
   public override func systemLayoutSizeFitting(_ targetSize: CGSize,
                                         withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
                                         verticalFittingPriority: UILayoutPriority) -> CGSize {

@@ -67,16 +67,14 @@ internal class CZFeedListCell: UICollectionViewCell {
     }
   }
 
-  // MARK: - Cell Size
+  // MARK: - Self sizing
 
-  /// * Self-sizing: this method executes after `collectionView(_:cellForItemAt:indexPath)`.
+  /// Returns the optimal size of the view based on its current constraints.
   ///
-  /// * targetSize: is from collectionView(_ collectionView: layout:sizeForItemAt:)
+  /// - Note: `targetSize` is from `collectionView(_ collectionView: layout:sizeForItemAt:)`.
   override func systemLayoutSizeFitting(_ targetSize: CGSize,
                                         withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
                                         verticalFittingPriority: UILayoutPriority) -> CGSize {
-    // let itemWidth = UIScreen.main.bounds.width
-    let itemWidth = targetSize.width
     return super.systemLayoutSizeFitting(
       CGSize(
         width: targetSize.width,
