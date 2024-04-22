@@ -23,7 +23,7 @@ public protocol CZFeedModelable: class, NSObjectProtocol, CZListDiffable, NSCopy
 ///
 open class CZFeedModel: NSObject, CZFeedModelable {
   let viewClass: CZFeedCellViewSizeCalculatable.Type
-  public let  viewModel: CZFeedViewModelable
+  public let viewModel: CZFeedViewModelable
   
   public required init(viewClass: CZFeedCellViewSizeCalculatable.Type, 
                        viewModel: CZFeedViewModelable) {
