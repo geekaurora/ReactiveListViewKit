@@ -125,6 +125,12 @@ public class Store<StateType: CopyableState> {
     self.middlewares = middlewares.map(Middlewares.init)
   }
 
+  // MARK: - Publish
+  
+  public func notifyStateChange() {
+    subscriptions.forEach { $0.notify(with: state, prevState: prevState) }
+  }
+
   // MARK: - Subscriptions
 
   public func subscribe(_ subscriber: AnySubscriber,
