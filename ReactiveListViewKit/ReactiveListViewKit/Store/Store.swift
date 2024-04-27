@@ -5,10 +5,10 @@ public class Store<StateType: CopyableState> {
   public private (set) var state: StateType {
     didSet {
       notifyStateChange()
+
       prevState = state.copy() as? StateType
     }
   }
-
   public private (set) var prevState: StateType?
 
   private var subscribers = ThreadSafeWeakArray<any Subscriber<StateType>>(allowDuplicates: false)
@@ -28,13 +28,11 @@ public class Store<StateType: CopyableState> {
 
   // MARK: - Subscriptions
 
-  public func subscribe(_ subscriber: any Subscriber<StateType>,
-                        selector: ((StateType) -> Any)? = nil) {
-//    let subscription = Subscription(subscriber: subscriber, selector: selector)
-//    self.subscriptions.append(subscription)
-
+  public func subscribe(_ subscriber: any Subscriber<StateType>) {
     subscribers.append(subscriber)
-    // subscription.notify(with: self.state, prevState: self.prevState)
+
+    // Notify the `subscriber` with `state` and `prevState`.
+    subscriber.update(with: state, prevState: prevState)
   }
 
   public func remove(subscriber: any Subscriber<StateType>) {
@@ -44,10 +42,9 @@ public class Store<StateType: CopyableState> {
   // MARK: - Actions
 
   public func dispatch(action: Action) {
-    let actionString = String(describing: action).components(separatedBy: "\n").first
-    dbgPrint("Reactor - Fired action: \(actionString!)")
-    self.state.reduce(action: action)
-    let state = self.state
-    self.middlewares.forEach { $0.middleware._process(action: action, state: state) }
+    dbgPrintWithFunc(self, "\(action)")
+
+    state.reduce(action: action)
+    middlewares.forEach { $0.middleware._process(action: action, state: state) }
   }
 }
