@@ -4,14 +4,14 @@ import CZUtils
 public class Store<StateType: CopyableState> {
   public private (set) var state: StateType {
     didSet {
-      notifyStateChange()
+      publishStateChange()
 
-      prevState = state.copy() as? StateType
+      previousState = state.copy() as? StateType
     }
   }
-  public private (set) var prevState: StateType?
+  public private (set) var previousState: StateType?
 
-  private var subscribers = ThreadSafeWeakArray<any Subscriber<StateType>>(allowDuplicates: false)
+  private var observers = ThreadSafeWeakArray<any StoreObserver<StateType>>(allowDuplicates: false)
   private let middlewares: [Middlewares<StateType>]
 
   public init(state: StateType,
@@ -22,21 +22,21 @@ public class Store<StateType: CopyableState> {
 
   // MARK: - Publish
 
-  public func notifyStateChange() {
-    subscribers.allObjects.forEach { $0.update(with: state, prevState: prevState) }
+  public func publishStateChange() {
+    observers.allObjects.forEach { $0.storeDidUpdate(state: state, previousState: previousState) }
   }
 
   // MARK: - Subscriptions
 
-  public func subscribe(_ subscriber: any Subscriber<StateType>) {
-    subscribers.append(subscriber)
+  public func registerObserver(_ observer: any StoreObserver<StateType>) {
+    observers.append(observer)
 
-    // Notify the `subscriber` with `state` and `prevState`.
-    subscriber.update(with: state, prevState: prevState)
+    // Notify the `observer` with `state` and `previousState`.
+    observer.storeDidUpdate(state: state, previousState: previousState)
   }
 
-  public func remove(subscriber: any Subscriber<StateType>) {
-    subscribers.remove(subscriber)
+  public func unregisterObserver(_ observer: any StoreObserver<StateType>) {
+    observers.remove(observer)
   }
 
   // MARK: - Actions

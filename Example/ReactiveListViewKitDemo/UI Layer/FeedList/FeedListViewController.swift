@@ -18,7 +18,7 @@ class FeedListViewController: UIViewController, FeedListActionHandlerCoordinator
   private var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?
   /// Store that maintains State
   private var store: Store<FeedListState>
-  
+
   required init?(coder aDecoder: NSCoder) {
     // Set up `Store` for FLUX pattern
     let feedListState = FeedListState()
@@ -26,16 +26,17 @@ class FeedListViewController: UIViewController, FeedListActionHandlerCoordinator
     let actionHandler = FeedListActionHandler()
     store = Store<FeedListState>(state: feedListState, middlewares: [actionHandler])
     feedListState.store = store
-    
+
     super.init(coder: aDecoder)
     actionHandler.coordinator = self
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
     setupFeedListView()
     setupAccessibility()
-    store.subscribe(self)
+    store.registerObserver(self)
   }
 }
 
@@ -58,10 +59,10 @@ private extension FeedListViewController {
 
 // MARK: - Subscriber
 
-extension FeedListViewController: Subscriber {
+extension FeedListViewController: StoreObserver {
   /// Notify FacadeListView to batch update automatically
-  func update(with state: FeedListState, 
-              prevState: FeedListState?) {
+  func storeDidUpdate(state: FeedListState,
+                      previousState: FeedListState?) {
     feedListFacadeView?.batchUpdate(withFeeds: store.state.feeds)
   }
 }

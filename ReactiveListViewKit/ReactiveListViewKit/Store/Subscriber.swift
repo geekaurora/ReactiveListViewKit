@@ -2,10 +2,11 @@ import Foundation
 
 // MARK: - Subscribers
 
-public protocol Subscriber<StateType> {
+public protocol StoreObserver<StateType> {
   associatedtype StateType
-  func update(with state: StateType,
-              prevState: StateType?)
+
+  func storeDidUpdate(state: StateType,
+                      previousState: StateType?)
 }
 
 #if false
@@ -14,13 +15,13 @@ public protocol AnySubscriber: class {
                prevState: Any?)
 }
 
-public protocol Subscriber: AnySubscriber {
+public protocol StoreObserver: AnySubscriber {
   associatedtype StateType
   func update(with state: StateType,
               prevState: StateType?)
 }
 
-extension Subscriber {
+extension StoreObserver {
   public func _update(with state: Any,
                       prevState: Any?) {
     if let state = state as? StateType {
