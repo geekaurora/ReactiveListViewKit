@@ -1,6 +1,20 @@
 import Foundation
 import CZUtils
 
+// MARK: - State
+
+public protocol State {
+  mutating func reduce(action: Action)
+}
+
+public protocol CopyableState: State, NSCopying {}
+
+// MARK: - Action
+
+public protocol Action {}
+
+// MARK: - Store
+
 public class Store<StateType: CopyableState> {
   public private (set) var state: StateType {
     didSet {
