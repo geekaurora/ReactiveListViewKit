@@ -1,6 +1,6 @@
 import Foundation
 
-/// The  protocol that defines the observer to observe the store state changes.
+/// The protocol that defines the observer to observe the store state changes.
 public protocol StoreObserver<StateType> {
   associatedtype StateType
   

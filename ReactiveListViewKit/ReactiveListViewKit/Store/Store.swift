@@ -76,7 +76,7 @@ public class Store<StateType: CopyableState> {
 
     // Update the state and notifies the observers with the state change.
     // - Note: It will set a new state to self and trigger `publishStateChange()`, because the
-    // qualifier for `reduce(action:)` of `State` protocol is `mutating`.
+    // identifier for `reduce(action:)` of `State` protocol is `mutating`.
     self.state.reduce(action: action)
   }
 }
