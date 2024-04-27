@@ -50,6 +50,7 @@ private extension FeedListViewController {
       parentViewController: self)
     feedListFacadeView?.overlayOnSuperViewController(self, insets: Constants.feedListViewInsets)
   }
+
   func setupAccessibility() {
     feedListFacadeView?.collectionView?.accessibilityLabel = AccessibilityLabel.feedListCollectionView
     feedListFacadeView?.collectionView?.accessibilityIdentifier = AccessibilityLabel.feedListCollectionView

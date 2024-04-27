@@ -20,18 +20,18 @@ public class Store<StateType: CopyableState> {
     self.middlewares = middlewares.map(Middlewares.init)
   }
 
-  // MARK: - Publish
+  // MARK: - Publish State
 
   public func publishStateChange() {
     observers.allObjects.forEach { $0.storeDidUpdate(state: state, previousState: previousState) }
   }
 
-  // MARK: - Subscriptions
+  // MARK: - Observers
 
   public func registerObserver(_ observer: any StoreObserver<StateType>) {
     observers.append(observer)
 
-    // Notify the `observer` with `state` and `previousState`.
+    // Notify the `observer` with current `state` and `previousState`.
     observer.storeDidUpdate(state: state, previousState: previousState)
   }
 
@@ -45,6 +45,7 @@ public class Store<StateType: CopyableState> {
     dbgPrintWithFunc(self, "\(action)")
 
     state.reduce(action: action)
+
     middlewares.forEach { $0.middleware._process(action: action, state: state) }
   }
 }
