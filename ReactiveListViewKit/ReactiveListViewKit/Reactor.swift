@@ -12,14 +12,6 @@ public protocol CopyableState: State, NSCopying {}
 
 public protocol Action {}
 
-// MARK: - Commands
-
-public protocol Command {
-  associatedtype StateType: CopyableState
-  func execute(state: StateType,
-               store: Store<StateType>)
-}
-
 // MARK: - Middlewares
 
 public protocol AnyMiddleware {
@@ -157,12 +149,6 @@ public class Store<StateType: CopyableState> {
       self.state.reduce(action: action)
       let state = self.state
       self.middlewares.forEach { $0.middleware._process(action: action, state: state) }
-    }
-  }
-
-  public func fire<C: Command>(command: C) where C.StateType == StateType {
-    internalDispatch(.async, queue: jobQueue) {
-      command.execute(state: self.state, store: self)
     }
   }
 }
