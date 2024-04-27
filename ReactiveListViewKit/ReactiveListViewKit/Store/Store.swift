@@ -15,11 +15,16 @@ public protocol Action {}
 
 // MARK: - Store
 
+/// The store that maintains the state and notifies the observers when the state changes.
+///
+/// - Note: The store only holds weak reference to observers, no need to explicitly call `unregisterObserver()` when deinit.
 public class Store<StateType: CopyableState> {
   public private (set) var state: StateType {
     didSet {
+      // Notify the observers when the state changes.
       publishStateChange()
 
+      // Make a copy of the current state.
       previousState = state.copy() as? StateType
     }
   }
@@ -37,6 +42,7 @@ public class Store<StateType: CopyableState> {
 
   // MARK: - Publish State
 
+  /// Notifies the observers when the state changes.
   public func publishStateChange() {
     observers.forEach {
       $0.storeDidUpdate(state: state, previousState: previousState)
@@ -45,6 +51,7 @@ public class Store<StateType: CopyableState> {
 
   // MARK: - Observers
 
+  /// Registers `observer` to observe the state changes.
   public func registerObserver(_ observer: any StoreObserver<StateType>) {
     observers.append(observer)
 
@@ -52,17 +59,24 @@ public class Store<StateType: CopyableState> {
     observer.storeDidUpdate(state: state, previousState: previousState)
   }
 
+  /// UnregisterObservers the `observer` from observing the state changes.
   public func unregisterObserver(_ observer: any StoreObserver<StateType>) {
     observers.remove(observer)
   }
 
   // MARK: - Actions
 
+  /// Dispatches the  `action` to the store which updates the state correspondingly and notifies the observers with the state change .
   public func dispatch(action: Action) {
     dbgPrintWithFunc(self, "\(action)")
 
-    self.state.reduce(action: action)
+    middlewares.forEach {
+      $0.process(action: action, state: state)
+    }
 
-    middlewares.forEach { $0.process(action: action, state: state) }
+    // Update the state and notifies the observers with the state change.
+    // - Note: It will set a new state to self and trigger `publishStateChange()`, because the
+    // qualifier for `reduce(action:)` of `State` protocol is `mutating`.
+    self.state.reduce(action: action)
   }
 }
