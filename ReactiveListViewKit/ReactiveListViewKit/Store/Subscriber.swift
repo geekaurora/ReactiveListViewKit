@@ -25,16 +25,13 @@ extension Subscriber {
 public struct Subscription<StateType: State> {
   private(set) weak var subscriber: AnySubscriber? = nil
   let selector: ((StateType) -> Any)?
-  let notifyQueue: DispatchQueue
-
+  
   func notify(with state: StateType,
-                          prevState: StateType?) {
-    internalDispatch(.async, queue: notifyQueue) {
-      if let selector = self.selector {
-        self.subscriber?._update(with: selector(state), prevState: prevState)
-      } else {
-        self.subscriber?._update(with: state, prevState: prevState)
-      }
+              prevState: StateType?) {
+    if let selector = self.selector {
+      self.subscriber?._update(with: selector(state), prevState: prevState)
+    } else {
+      self.subscriber?._update(with: state, prevState: prevState)
     }
-  }
+  }  
 }

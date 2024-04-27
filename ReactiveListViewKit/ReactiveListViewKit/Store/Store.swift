@@ -2,7 +2,7 @@ import Foundation
 
 public class Store<StateType: CopyableState> {
   public private (set) var prevState: StateType?
-  /// Main State
+
   public private (set) var state: StateType {
     didSet {
       subscriptions = subscriptions.filter { $0.subscriber != nil }
@@ -14,19 +14,13 @@ public class Store<StateType: CopyableState> {
     }
   }
 
-  private let jobQueue:DispatchQueue = DispatchQueue(label: "reactor.store.queue", qos: .userInitiated, attributes: [])
-  private let subscriptionsSyncQueue = DispatchQueue(label: "reactor.store.subscription.sync")
   private var _subscriptions = [Subscription<StateType>]()
   private var subscriptions: [Subscription<StateType>] {
     get {
-      return internalDispatch(.sync, queue: jobQueue) {
-        return self._subscriptions
-      }!
+      return self._subscriptions
     }
     set {
-      internalDispatch(.sync, queue: jobQueue) {
-        self._subscriptions = newValue
-      }
+      self._subscriptions = newValue
     }
   }
   private let middlewares: [Middlewares<StateType>]
@@ -38,7 +32,7 @@ public class Store<StateType: CopyableState> {
   }
 
   // MARK: - Publish
-  
+
   public func notifyStateChange() {
     subscriptions.forEach { $0.notify(with: state, prevState: prevState) }
   }
@@ -48,12 +42,10 @@ public class Store<StateType: CopyableState> {
   public func subscribe(_ subscriber: AnySubscriber,
                         notifyOnQueue queue: DispatchQueue? = DispatchQueue.main,
                         selector: ((StateType) -> Any)? = nil) {
-    internalDispatch(.async, queue: jobQueue) {
-      guard !self.subscriptions.contains(where: {$0.subscriber === subscriber}) else { return }
-      let subscription = Subscription(subscriber: subscriber, selector: selector, notifyQueue: queue ?? self.jobQueue)
-      self.subscriptions.append(subscription)
-      subscription.notify(with: self.state, prevState: self.prevState)
-    }
+    guard !self.subscriptions.contains(where: {$0.subscriber === subscriber}) else { return }
+    let subscription = Subscription(subscriber: subscriber, selector: selector)
+    self.subscriptions.append(subscription)
+    subscription.notify(with: self.state, prevState: self.prevState)
   }
 
   public func remove(subscriber: AnySubscriber) {
@@ -65,32 +57,8 @@ public class Store<StateType: CopyableState> {
   public func dispatch(action: Action) {
     let actionString = String(describing: action).components(separatedBy: "\n").first
     dbgPrint("Reactor - Fired action: \(actionString!)")
-    internalDispatch(.async, queue: jobQueue) {
-      self.state.reduce(action: action)
-      let state = self.state
-      self.middlewares.forEach { $0.middleware._process(action: action, state: state) }
-    }
-  }
-}
-
-// MARK: - Internal Adapative Dispatch
-
-enum DispatchType {
-  case sync, async
-}
-
-func internalDispatch<T>(_ type: DispatchType,
-                                 queue: DispatchQueue,
-                                 closure: @escaping ()->T) -> T? {
-  if ReactiveListViewKit.useGCD {
-    switch type {
-    case .sync:
-      return queue.sync(execute: closure)
-    case .async:
-      queue.async(execute: { let _ = closure() })
-      return nil
-    }
-  } else {
-    return closure()
+    self.state.reduce(action: action)
+    let state = self.state
+    self.middlewares.forEach { $0.middleware._process(action: action, state: state) }
   }
 }
