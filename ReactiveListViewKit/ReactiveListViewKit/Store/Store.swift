@@ -13,12 +13,12 @@ public class Store<StateType: CopyableState> {
 
   // private var observers = ThreadSafeWeakArray<any StoreObserver<StateType>>(allowDuplicates: false)
   private var observers = [any StoreObserver<StateType>]()
-  private let middlewares: [Middlewares<StateType>]
+  private let middlewares: [any Middleware<StateType>]
 
   public init(state: StateType,
-              middlewares: [AnyMiddleware] = []) {
+              middlewares: [any Middleware<StateType>] = []) {
     self.state = state
-    self.middlewares = middlewares.map(Middlewares.init)
+    self.middlewares = middlewares
   }
 
   // MARK: - Publish State
@@ -49,6 +49,6 @@ public class Store<StateType: CopyableState> {
 
     self.state.reduce(action: action)
 
-    middlewares.forEach { $0.middleware._process(action: action, state: state) }
+    middlewares.forEach { $0.process(action: action, state: state) }
   }
 }

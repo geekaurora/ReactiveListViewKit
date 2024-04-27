@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CZUtils
 import ReactiveListViewKit
 
 protocol FeedListActionHandlerCoordinator {}
@@ -23,6 +24,6 @@ class FeedListActionHandler: NSObject, Middleware {
   // MARK: - Middleware
 
   func process(action: Action, state: FeedListState) {
-    dbgPrint("Received action: \(action)")
+    dbgPrintWithFunc(self, "Received action: \(action)")
   }
 }
