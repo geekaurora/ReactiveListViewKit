@@ -11,7 +11,8 @@ public class Store<StateType: CopyableState> {
   }
   public private (set) var previousState: StateType?
 
-  private var observers = ThreadSafeWeakArray<any StoreObserver<StateType>>(allowDuplicates: false)
+  // private var observers = ThreadSafeWeakArray<any StoreObserver<StateType>>(allowDuplicates: false)
+  private var observers = [any StoreObserver<StateType>]()
   private let middlewares: [Middlewares<StateType>]
 
   public init(state: StateType,
@@ -23,7 +24,9 @@ public class Store<StateType: CopyableState> {
   // MARK: - Publish State
 
   public func publishStateChange() {
-    observers.allObjects.forEach { $0.storeDidUpdate(state: state, previousState: previousState) }
+    observers.forEach {
+      $0.storeDidUpdate(state: state, previousState: previousState)
+    }
   }
 
   // MARK: - Observers
@@ -44,7 +47,7 @@ public class Store<StateType: CopyableState> {
   public func dispatch(action: Action) {
     dbgPrintWithFunc(self, "\(action)")
 
-    state.reduce(action: action)
+    self.state.reduce(action: action)
 
     middlewares.forEach { $0.middleware._process(action: action, state: state) }
   }
