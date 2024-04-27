@@ -30,8 +30,12 @@ public class Store<StateType: CopyableState> {
   }
   public private (set) var previousState: StateType?
 
-  // private var observers = ThreadSafeWeakArray<any StoreObserver<StateType>>(allowDuplicates: false)
-  private var observers = [any StoreObserver<StateType>]()
+  /// The observers of the store that get notified when the state changes.
+  ///
+  /// - Note: If defined as `ThreadSafeWeakArray<any StoreObserver<StateType>>`, it only appends nil when calling `observers.append()`.
+  private var observers = ThreadSafeWeakArray<Any>(allowDuplicates: false)
+
+  /// The middlewares of the store that processes the actions of the store.
   private let middlewares: [any Middleware<StateType>]
 
   public init(state: StateType,
@@ -44,6 +48,9 @@ public class Store<StateType: CopyableState> {
 
   /// Notifies the observers when the state changes.
   public func publishStateChange() {
+    guard let observers = (self.observers.allObjects as? [any StoreObserver<StateType>]).assertIfNil else {
+      return
+    }
     observers.forEach {
       $0.storeDidUpdate(state: state, previousState: previousState)
     }
