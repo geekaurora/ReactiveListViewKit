@@ -1,85 +1,5 @@
 import Foundation
 
-// MARK: - State
-
-public protocol State {
-  mutating func reduce(action: Action)
-}
-
-public protocol CopyableState: State, NSCopying {}
-
-// MARK: - Actions
-
-public protocol Action {}
-
-// MARK: - Middlewares
-
-public protocol AnyMiddleware {
-  func _process(action: Action,
-                state: Any)
-}
-
-public protocol Middleware: AnyMiddleware {
-  associatedtype StateType
-  func process(action: Action,
-               state: StateType)
-}
-
-extension Middleware {
-  public func _process(action: Action,
-                       state: Any) {
-    if let state = state as? StateType {
-      process(action: action, state: state)
-    }
-  }
-}
-
-public struct Middlewares<StateType: State> {
-  private(set) var middleware: AnyMiddleware
-}
-
-
-// MARK: - Subscribers
-
-public protocol AnySubscriber: class {
-  func _update(with state: Any,
-               prevState: Any?)
-}
-
-public protocol Subscriber: AnySubscriber {
-  associatedtype StateType
-  func update(with state: StateType,
-              prevState: StateType?)
-}
-
-extension Subscriber {
-  public func _update(with state: Any,
-                      prevState: Any?) {
-    if let state = state as? StateType {
-      update(with: state, prevState: prevState as? StateType)
-    }
-  }
-}
-
-public struct Subscription<StateType: State> {
-  private(set) weak var subscriber: AnySubscriber? = nil
-  let selector: ((StateType) -> Any)?
-  let notifyQueue: DispatchQueue
-
-  fileprivate func notify(with state: StateType,
-                          prevState: StateType?) {
-    internalDispatch(.async, queue: notifyQueue) {
-      if let selector = self.selector {
-        self.subscriber?._update(with: selector(state), prevState: prevState)
-      } else {
-        self.subscriber?._update(with: state, prevState: prevState)
-      }
-    }
-  }
-}
-
-// MARK: - Store
-
 public class Store<StateType: CopyableState> {
   public private (set) var prevState: StateType?
   /// Main State
@@ -155,10 +75,11 @@ public class Store<StateType: CopyableState> {
 
 // MARK: - Internal Adapative Dispatch
 
-private enum DispatchType {
+enum DispatchType {
   case sync, async
 }
-private func internalDispatch<T>(_ type: DispatchType,
+
+func internalDispatch<T>(_ type: DispatchType,
                                  queue: DispatchQueue,
                                  closure: @escaping ()->T) -> T? {
   if ReactiveListViewKit.useGCD {
