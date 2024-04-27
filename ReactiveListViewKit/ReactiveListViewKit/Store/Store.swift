@@ -1,28 +1,17 @@
 import Foundation
+import CZUtils
 
 public class Store<StateType: CopyableState> {
-  public private (set) var prevState: StateType?
-
   public private (set) var state: StateType {
     didSet {
-      subscriptions = subscriptions.filter { $0.subscriber != nil }
-      for subscription in subscriptions {
-        subscription.notify(with: state, prevState: prevState)
-      }
+      notifyStateChange()
       prevState = state.copy() as? StateType
-
     }
   }
 
-  private var _subscriptions = [Subscription<StateType>]()
-  private var subscriptions: [Subscription<StateType>] {
-    get {
-      return self._subscriptions
-    }
-    set {
-      self._subscriptions = newValue
-    }
-  }
+  public private (set) var prevState: StateType?
+
+  private var subscribers = ThreadSafeWeakArray<any Subscriber<StateType>>(allowDuplicates: false)
   private let middlewares: [Middlewares<StateType>]
 
   public init(state: StateType,
@@ -34,22 +23,22 @@ public class Store<StateType: CopyableState> {
   // MARK: - Publish
 
   public func notifyStateChange() {
-    subscriptions.forEach { $0.notify(with: state, prevState: prevState) }
+    subscribers.allObjects.forEach { $0.update(with: state, prevState: prevState) }
   }
 
   // MARK: - Subscriptions
 
-  public func subscribe(_ subscriber: AnySubscriber,
-                        notifyOnQueue queue: DispatchQueue? = DispatchQueue.main,
+  public func subscribe(_ subscriber: any Subscriber<StateType>,
                         selector: ((StateType) -> Any)? = nil) {
-    guard !self.subscriptions.contains(where: {$0.subscriber === subscriber}) else { return }
-    let subscription = Subscription(subscriber: subscriber, selector: selector)
-    self.subscriptions.append(subscription)
-    subscription.notify(with: self.state, prevState: self.prevState)
+//    let subscription = Subscription(subscriber: subscriber, selector: selector)
+//    self.subscriptions.append(subscription)
+
+    subscribers.append(subscriber)
+    // subscription.notify(with: self.state, prevState: self.prevState)
   }
 
-  public func remove(subscriber: AnySubscriber) {
-    subscriptions = subscriptions.filter { $0.subscriber !== subscriber }
+  public func remove(subscriber: any Subscriber<StateType>) {
+    subscribers.remove(subscriber)
   }
 
   // MARK: - Actions

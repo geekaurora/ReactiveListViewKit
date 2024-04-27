@@ -2,6 +2,13 @@ import Foundation
 
 // MARK: - Subscribers
 
+public protocol Subscriber<StateType> {
+  associatedtype StateType
+  func update(with state: StateType,
+              prevState: StateType?)
+}
+
+#if false
 public protocol AnySubscriber: class {
   func _update(with state: Any,
                prevState: Any?)
@@ -35,3 +42,4 @@ public struct Subscription<StateType: State> {
     }
   }  
 }
+#endif
