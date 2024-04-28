@@ -98,7 +98,7 @@ class FeedListViewModel: NSObject, CopyableState {
 
 extension FeedListViewModel: State {
   /// Reacts to action
-  func reduce(action: Action) {
+  func reduce(action: Action) -> Self {
     feeds.forEach { $0.reduce(action: action) }
     switch action {
     case let CZFeedListViewAction.selectedCell(feedModel):
@@ -106,5 +106,6 @@ extension FeedListViewModel: State {
     default:
       break
     }
+    return self
   }
 }

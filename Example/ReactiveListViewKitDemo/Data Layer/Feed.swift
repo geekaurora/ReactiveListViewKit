@@ -46,7 +46,7 @@ class Feed: ReactiveListDiffable {
 
 // MARK: - State
 extension Feed: State {
-  func reduce(action: Action) {
+  func reduce(action: Action) -> Self {
     switch action {
     case let action as LikeFeedAction:
       // React to `LikeFeedEvent`: flip `userHasLiked` flag
@@ -57,6 +57,7 @@ extension Feed: State {
     default:
       break
     }
+    return self
   }
 }
 
