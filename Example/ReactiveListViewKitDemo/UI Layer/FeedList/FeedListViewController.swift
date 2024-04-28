@@ -18,7 +18,7 @@ class FeedListViewController: UIViewController, FeedListActionHandlerCoordinator
   private var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?
   /// Store that maintains State
   private var store: Store<FeedListState>
-  /// Action handler: coordinator pattern that decouples user action handling from ViewController.
+  /// Action handler - coordinator pattern that decouples user action handling from ViewController.
   private lazy var actionHandler: FeedListActionHandler = {
     return FeedListActionHandler()
   }()

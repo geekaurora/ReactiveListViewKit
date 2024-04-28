@@ -28,7 +28,7 @@ class FeedListActionHandler: NSObject, StoreObserverProtocol {
     // No-op.
   }
 
-  /// Handle to the store action.
+  /// Handles the store `action`.
   func didReceiveStoreAction(_ action: CZActionProtocol) {
     dbgPrintWithFunc(self, "\(action)")
     
