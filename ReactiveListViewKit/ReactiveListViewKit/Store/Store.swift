@@ -66,7 +66,7 @@ public class Store<StateType: CopyableStateProtocol> {
     observer.storeDidUpdate(state: state, previousState: previousState)
   }
 
-  /// UnregisterObservers the `observer` from observing the state changes.
+  /// Unregisters the `observer` from observing the state changes.
   public func unregisterObserver(_ observer: any StoreObserverProtocol<StateType>) {
     observers.remove(observer)
   }
