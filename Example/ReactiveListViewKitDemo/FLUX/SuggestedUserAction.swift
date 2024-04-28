@@ -10,7 +10,7 @@ import UIKit
 import ReactiveListViewKit
 
 /// Action that follow/ignore `SuggestedUser`
-enum SuggestedUserAction: Action {
+enum SuggestedUserAction: CZActionProtocol {
   case follow(user: User)
   case ignore(user: User)        
 }

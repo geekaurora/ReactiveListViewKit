@@ -15,7 +15,7 @@ typealias FeedListState = FeedListViewModel
 /**
  State/ViewModel of `FeedListViewController`, composed of elements needed for UI populating
  */
-class FeedListViewModel: NSObject, CopyableState {
+class FeedListViewModel: NSObject, CopyableStateProtocol {
   /// List of feeds
   private(set) lazy var feeds: [Feed] = {
     return CZMocker.shared.feeds
@@ -98,7 +98,7 @@ class FeedListViewModel: NSObject, CopyableState {
 
 extension FeedListViewModel: StateProtocol {
   /// Reacts to action
-  func reduce(action: Action) -> Self {
+  func reduce(action: CZActionProtocol) -> Self {
     feeds.forEach { $0.reduce(action: action) }
     switch action {
     case let CZFeedListViewAction.selectedCell(feedModel):

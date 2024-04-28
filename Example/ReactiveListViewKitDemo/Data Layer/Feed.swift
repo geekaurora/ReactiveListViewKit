@@ -46,7 +46,7 @@ class Feed: ReactiveListDiffable {
 
 // MARK: - State
 extension Feed: StateProtocol {
-  func reduce(action: Action) -> Self {
+  func reduce(action: CZActionProtocol) -> Self {
     switch action {
     case let action as LikeFeedAction:
       // React to `LikeFeedEvent`: flip `userHasLiked` flag

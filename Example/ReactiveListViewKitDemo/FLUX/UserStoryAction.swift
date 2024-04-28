@@ -10,6 +10,6 @@ import UIKit
 import ReactiveListViewKit
 
 /// Action that User selects `UserStory`
-enum UserStoryAction: Action {
+enum UserStoryAction: CZActionProtocol {
   case selected(user: User)
 }

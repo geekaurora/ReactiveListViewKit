@@ -54,7 +54,7 @@ public class CZHorizontalSectionAdapterViewModel: NSObject, CZFeedViewModelable,
     let feedModelsCopy = feedModels.copy() as! [CZFeedModel]
     return CZHorizontalSectionAdapterViewModel(feedModelsCopy, viewHeight: viewHeight)
   }
-  public func reduce(action: Action) -> Self {
+  public func reduce(action: CZActionProtocol) -> Self {
     return self
   }
 }
