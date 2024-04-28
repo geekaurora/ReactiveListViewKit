@@ -31,9 +31,11 @@ public class Store<StateType: CopyableStateProtocol> {
   public private (set) var previousState: StateType?
 
   /// The observers of the store that get notified when the state changes.
-  ///
+  private var observers: [any StoreObserverProtocol<StateType>] {
+    return (_observers.allObjects as? [any StoreObserverProtocol<StateType>]).assertIfNil ?? []
+  }
   /// - Note: If defined as `ThreadSafeWeakArray<any StoreObserverProtocol<StateType>>`, it only appends nil when calling `observers.append()`.
-  private var observers = ThreadSafeWeakArray<Any>(allowDuplicates: false)
+  private var _observers = ThreadSafeWeakArray<Any>(allowDuplicates: false)
 
   /// The middlewares of the store that processes the actions of the store.
   private let middlewares: [any MiddlewareProtocol<StateType>]
@@ -48,9 +50,6 @@ public class Store<StateType: CopyableStateProtocol> {
 
   /// Notifies the observers when the state changes.
   public func publishStateChange() {
-    guard let observers = (self.observers.allObjects as? [any StoreObserverProtocol<StateType>]).assertIfNil else {
-      return
-    }
     observers.forEach {
       $0.storeDidUpdate(state: state, previousState: previousState)
     }
@@ -60,7 +59,7 @@ public class Store<StateType: CopyableStateProtocol> {
 
   /// Registers `observer` to observe the state changes.
   public func registerObserver(_ observer: any StoreObserverProtocol<StateType>) {
-    observers.append(observer)
+    _observers.append(observer)
 
     // Notify the `observer` with current `state` and `previousState`.
     observer.storeDidUpdate(state: state, previousState: previousState)
@@ -68,7 +67,7 @@ public class Store<StateType: CopyableStateProtocol> {
 
   /// Unregisters the `observer` from observing the state changes.
   public func unregisterObserver(_ observer: any StoreObserverProtocol<StateType>) {
-    observers.remove(observer)
+    _observers.remove(observer)
   }
 
   // MARK: - Actions
@@ -77,8 +76,9 @@ public class Store<StateType: CopyableStateProtocol> {
   public func dispatch(action: CZActionProtocol) {
     dbgPrintWithFunc(self, "\(action)")
 
-    middlewares.forEach {
-      $0.process(action: action, state: state)
+    // Notify the observers with the `action`.
+    observers.forEach {
+      $0.didReceiveStoreAction(action)
     }
 
     // Update the state and notifies the observers with the state change.

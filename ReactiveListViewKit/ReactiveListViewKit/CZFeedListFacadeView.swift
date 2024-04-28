@@ -475,7 +475,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
     // TODO(cnzhang): Add loadMore Action back after fix incremental updates issue.
     if allowLoadMore &&
         !isLoadingMore &&
-        (distanceFromBottom <= loadMoreThreshold) &&
+        distanceFromBottom <= loadMoreThreshold &&
         !viewedIndexPaths.contains(indexPath) {
       isLoadingMore = true
       onAction?(CZFeedListViewAction.loadMore)
