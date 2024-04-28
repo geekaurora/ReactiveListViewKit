@@ -97,15 +97,9 @@ class FeedListViewModel: NSObject, CopyableStateProtocol {
 }
 
 extension FeedListViewModel: StateProtocol {
-  /// Reacts to action
+  /// Reacts to action.
   func reduce(action: CZActionProtocol) -> Self {
-    feeds.forEach { $0.reduce(action: action) }
-    switch action {
-    case let CZFeedListViewAction.selectedCell(feedModel):
-      break
-    default:
-      break
-    }
+    self.feeds = feeds.map { $0.reduce(action: action) }
     return self
   }
 }

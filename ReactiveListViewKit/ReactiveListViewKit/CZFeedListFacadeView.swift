@@ -472,11 +472,11 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
       return prevSum + currSum
     }
 
-    // TODO(cnzhang): Add loadMoreAction back after fix incremental updates issue.
+    // TODO(cnzhang): Add loadMore Action back after fix incremental updates issue.
     if allowLoadMore &&
-        (distanceFromBottom >= loadMoreThreshold) &&
+        distanceFromBottom <= loadMoreThreshold &&
         !viewedIndexPaths.contains(indexPath) {
-      // onAction?(CZFeedListViewAction.loadMore)
+      onAction?(CZFeedListViewAction.loadMore)
     }
 
     if !hasInvokedWillDisplayCell && collectionView.indexPathsForVisibleItems.count > 0 {
@@ -493,14 +493,14 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
 
 extension CZFeedListFacadeView: UIScrollViewDelegate {
   public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    isLoadingMore = false
+    // isLoadingMore = false
   }
   public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
   }
   public func scrollViewDidEndDragging(_ scrollView: UIScrollView,
                                        willDecelerate decelerate: Bool) {
     if !decelerate {
-      isLoadingMore = false
+      // isLoadingMore = false
     }
   }
 }

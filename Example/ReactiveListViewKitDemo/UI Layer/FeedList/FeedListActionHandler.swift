@@ -17,13 +17,26 @@ protocol FeedListActionHandlerCoordinator {}
 
  Coordinator pattern decouples user action handling from ViewController to make it less massive
  */
-class FeedListActionHandler: NSObject, MiddlewareProtocol {
+class FeedListActionHandler: NSObject, StoreObserverProtocol {
 
   var coordinator: FeedListActionHandlerCoordinator?
 
-  // MARK: - MiddlewareProtocol
+  // MARK: - StoreObserverProtocol
 
-  func process(action: CZActionProtocol, state: FeedListState) {
-    dbgPrintWithFunc(self, "Received action: \(action)")
+  func storeDidUpdate(state: FeedListState,
+                      previousState: FeedListState?) {
+    // No-op.
+  }
+
+  /// Handle to the store action.
+  func didReceiveStoreAction(_ action: CZActionProtocol) {
+    dbgPrintWithFunc(self, "\(action)")
+    
+    switch action {
+    case let CZFeedListViewAction.selectedCell(feedModel):
+      break
+    default:
+      break
+    }
   }
 }

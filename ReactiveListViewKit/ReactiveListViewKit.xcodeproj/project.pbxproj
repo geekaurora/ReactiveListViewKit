@@ -40,7 +40,6 @@
 		2AF920E71F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF920E61F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift */; };
 		C37523AC27AAC9FB00690D69 /* CZUtils in Frameworks */ = {isa = PBXBuildFile; productRef = C37523AB27AAC9FB00690D69 /* CZUtils */; };
 		DF8794F52B9FCB8200881CB3 /* CZFacadeViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8794F42B9FCB8200881CB3 /* CZFacadeViewHelper.swift */; };
-		DFA943B92BDD7EC2000C724B /* MiddlewareProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA943B52BDD7EC1000C724B /* MiddlewareProtocol.swift */; };
 		DFA943BB2BDD7EC2000C724B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA943B72BDD7EC2000C724B /* Store.swift */; };
 		DFA943BE2BDD7F24000C724B /* StoreObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA943BC2BDD7F24000C724B /* StoreObserverProtocol.swift */; };
 		DFA943C02BDD8318000C724B /* CZUtils in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C37523AB27AAC9FB00690D69 /* CZUtils */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -113,7 +112,6 @@
 		C3C4FA4C24010FDA009C49A0 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C4FA4E24010FFB009C49A0 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8794F42B9FCB8200881CB3 /* CZFacadeViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZFacadeViewHelper.swift; path = Utils/CZFacadeViewHelper.swift; sourceTree = "<group>"; };
-		DFA943B52BDD7EC1000C724B /* MiddlewareProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiddlewareProtocol.swift; path = Store/MiddlewareProtocol.swift; sourceTree = "<group>"; };
 		DFA943B72BDD7EC2000C724B /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = Store/Store.swift; sourceTree = "<group>"; };
 		DFA943BC2BDD7F24000C724B /* StoreObserverProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreObserverProtocol.swift; path = Store/StoreObserverProtocol.swift; sourceTree = "<group>"; };
 		DFE04B1220D46A7500428D0A /* ListDiffTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDiffTests.swift; sourceTree = "<group>"; };
@@ -282,7 +280,6 @@
 				DF9E06332BDECB74009D5B46 /* Actions */,
 				DFA943B72BDD7EC2000C724B /* Store.swift */,
 				DFA943BC2BDD7F24000C724B /* StoreObserverProtocol.swift */,
-				DFA943B52BDD7EC1000C724B /* MiddlewareProtocol.swift */,
 			);
 			name = Store;
 			sourceTree = "<group>";
@@ -432,7 +429,6 @@
 				044E03661F74464200849AA2 /* CZReactiveFeedListFacadeView.swift in Sources */,
 				2AF920E71F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift in Sources */,
 				044E035C1F74464200849AA2 /* CZFeedListFacadeView.swift in Sources */,
-				DFA943B92BDD7EC2000C724B /* MiddlewareProtocol.swift in Sources */,
 				2A14FA3E1FCF50B800914C8E /* CZFeedDetailsModel.swift in Sources */,
 				2AB3DB9C1F7EC3D8009A5EF9 /* CZTextFeedCellView.swift in Sources */,
 				2AB3DB991F7EC3D8009A5EF9 /* CZFeedListSupplementaryView.swift in Sources */,
