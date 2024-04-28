@@ -37,13 +37,8 @@ public class Store<StateType: CopyableStateProtocol> {
   /// - Note: If defined as `ThreadSafeWeakArray<any StoreObserverProtocol<StateType>>`, it only appends nil when calling `observers.append()`.
   private var _observers = ThreadSafeWeakArray<Any>(allowDuplicates: false)
 
-  /// The middlewares of the store that processes the actions of the store.
-  private let middlewares: [any MiddlewareProtocol<StateType>]
-
-  public init(state: StateType,
-              middlewares: [any MiddlewareProtocol<StateType>] = []) {
+  public init(state: StateType) {
     self.state = state
-    self.middlewares = middlewares
   }
 
   // MARK: - Publish State

@@ -18,17 +18,18 @@ class FeedListViewController: UIViewController, FeedListActionHandlerCoordinator
   private var feedListFacadeView: CZReactiveFeedListFacadeView<FeedListState>?
   /// Store that maintains State
   private var store: Store<FeedListState>
+  /// Action handler: coordinator pattern that decouples user action handling from ViewController.
+  private lazy var actionHandler: FeedListActionHandler = {
+    return FeedListActionHandler()
+  }()
 
   required init?(coder aDecoder: NSCoder) {
     // Set up `Store` for FLUX pattern
     let feedListState = FeedListState()
-    // Action handler: coordinator pattern decouples user action handling from ViewController
-    let actionHandler = FeedListActionHandler()
-    store = Store<FeedListState>(state: feedListState, middlewares: [actionHandler])
+    store = Store<FeedListState>(state: feedListState)
     feedListState.store = store
 
     super.init(coder: aDecoder)
-    actionHandler.coordinator = self
   }
 
   override func viewDidLoad() {
@@ -36,7 +37,13 @@ class FeedListViewController: UIViewController, FeedListActionHandlerCoordinator
 
     setupFeedListView()
     setupAccessibility()
+
+    // Register self as an observer to the store.
     store.registerObserver(self)
+
+    // Register `actionHandler` as an observer to the store.
+    actionHandler.coordinator = self
+    store.registerObserver(actionHandler)
   }
 }
 
@@ -58,7 +65,7 @@ private extension FeedListViewController {
   }
 }
 
-// MARK: - Subscriber
+// MARK: - StoreObserverProtocol
 
 extension FeedListViewController: StoreObserverProtocol {
   /// Notify FacadeListView to batch update automatically
