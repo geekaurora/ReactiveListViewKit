@@ -96,7 +96,7 @@ class FeedListViewModel: NSObject, CopyableState {
   }
 }
 
-extension FeedListViewModel: State {
+extension FeedListViewModel: StateProtocol {
   /// Reacts to action
   func reduce(action: Action) -> Self {
     feeds.forEach { $0.reduce(action: action) }

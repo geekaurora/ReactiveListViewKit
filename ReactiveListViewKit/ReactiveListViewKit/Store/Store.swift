@@ -3,11 +3,11 @@ import CZUtils
 
 // MARK: - State
 
-public protocol State {
+public protocol StateProtocol {
   func reduce(action: Action) -> Self
 }
 
-public protocol CopyableState: State, NSCopying {}
+public protocol CopyableState: StateProtocol, NSCopying {}
 
 // MARK: - Action
 

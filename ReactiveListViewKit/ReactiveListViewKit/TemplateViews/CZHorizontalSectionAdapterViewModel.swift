@@ -11,7 +11,7 @@ import UIKit
 /**
  ViewModel class of `CZHorizontalSectionAdapterView`
  */
-public class CZHorizontalSectionAdapterViewModel: NSObject, CZFeedViewModelable, State {
+public class CZHorizontalSectionAdapterViewModel: NSObject, CZFeedViewModelable, StateProtocol {
   public lazy var diffId: String = self.currentClassName
   private(set) var feedModels: [CZFeedModel]
   private(set) var headerModel: CZFeedModel?

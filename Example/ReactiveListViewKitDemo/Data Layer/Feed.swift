@@ -45,7 +45,7 @@ class Feed: ReactiveListDiffable {
 }
 
 // MARK: - State
-extension Feed: State {
+extension Feed: StateProtocol {
   func reduce(action: Action) -> Self {
     switch action {
     case let action as LikeFeedAction:

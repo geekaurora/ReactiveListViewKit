@@ -38,7 +38,7 @@ class HotUserCellViewModel: NSObject, CZFeedViewModelable {
   }
 }
 
-extension HotUserCellViewModel: State {
+extension HotUserCellViewModel: StateProtocol {
   func reduce(action: Action) -> Self {
     return self
   }

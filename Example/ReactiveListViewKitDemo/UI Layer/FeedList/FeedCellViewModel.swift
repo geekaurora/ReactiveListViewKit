@@ -54,7 +54,7 @@ class FeedCellViewModel: NSObject, CZFeedViewModelable {
     }
 }
 
-extension FeedCellViewModel: State {
+extension FeedCellViewModel: StateProtocol {
     func reduce(action: Action) -> Self {
       return self
     }
