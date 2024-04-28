@@ -12,6 +12,6 @@ import ReactiveListViewKit
 // MARK: - Events
 
 /// Action that User likes one `Feed`
-struct LikeFeedAction: Action {
+struct LikeFeedAction: CZActionProtocol {
   var feed: Feed
 }

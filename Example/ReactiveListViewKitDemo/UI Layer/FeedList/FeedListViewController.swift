@@ -60,7 +60,7 @@ private extension FeedListViewController {
 
 // MARK: - Subscriber
 
-extension FeedListViewController: StoreObserver {
+extension FeedListViewController: StoreObserverProtocol {
   /// Notify FacadeListView to batch update automatically
   func storeDidUpdate(state: FeedListState,
                       previousState: FeedListState?) {

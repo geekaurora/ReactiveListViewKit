@@ -9,17 +9,17 @@
 import UIKit
 
 /**
- Action handler closure
+ CZActionProtocol handler closure
  */
-public typealias OnAction = (_ action: Action) -> Void
+public typealias OnAction = (_ action: CZActionProtocol) -> Void
 
 /**
  General ViewAction
  */
-public typealias CZViewAction = Action
+public typealias CZViewAction = CZActionProtocol
 
-public struct BaseState: State {
-  public func reduce(action: Action) -> Self {
+public struct BaseState: StateProtocol {
+  public func reduce(action: CZActionProtocol) -> Self {
     return self
   }
 }
