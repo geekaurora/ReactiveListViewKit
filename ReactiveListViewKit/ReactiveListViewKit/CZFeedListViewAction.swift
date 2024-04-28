@@ -19,7 +19,9 @@ public typealias OnAction = (_ action: Action) -> Void
 public typealias CZViewAction = Action
 
 public struct BaseState: State {
-  public func reduce(action: Action) {}
+  public func reduce(action: Action) -> Self {
+    return self
+  }
 }
 
 /**
