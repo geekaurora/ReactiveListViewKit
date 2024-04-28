@@ -163,23 +163,14 @@
 			isa = PBXGroup;
 			children = (
 				DFA943B32BDD7E78000C724B /* Store */,
-				044E034C1F74464200849AA2 /* CZFeedListFacadeView.swift */,
-				044E034A1F74464200849AA2 /* CZFeedDetailsFacadeView.swift */,
-				044E03561F74464200849AA2 /* CZReactiveFeedListFacadeView.swift */,
-				044E03551F74464200849AA2 /* CZReactiveFeedDetailsFacadeView.swift */,
-				044E034F1F74464200849AA2 /* CZFeedListViewModel.swift */,
-				2A14FA3A1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift */,
-				044E03571F74464200849AA2 /* CZSectionModel.swift */,
-				044E03491F74464200849AA2 /* CZFeedCellViewable.swift */,
-				044E034B1F74464200849AA2 /* CZFeedListCell.swift */,
-				044E03511F74464200849AA2 /* CZFeedModel.swift */,
-				2A14FA3D1FCF50B800914C8E /* CZFeedDetailsModel.swift */,
-				044E03531F74464200849AA2 /* CZFeedViewModelable.swift */,
-				044E03521F74464200849AA2 /* CZFeedListViewAction.swift */,
-				044E03501F74464200849AA2 /* CZFeedListViewStateMachine.swift */,
-				2A16074F1F7DAF0500FC3E9B /* Constants.swift */,
+				DF9E06312BDECAFE009D5B46 /* ListView */,
+				DF9E06322BDECB04009D5B46 /* DetailsView */,
 				044E03471F74463100849AA2 /* TemplateViews */,
 				044E036E1F74468800849AA2 /* Utils */,
+				044E03571F74464200849AA2 /* CZSectionModel.swift */,
+				044E03511F74464200849AA2 /* CZFeedModel.swift */,
+				044E03531F74464200849AA2 /* CZFeedViewModelable.swift */,
+				2A16074F1F7DAF0500FC3E9B /* Constants.swift */,
 				2A35A2411F7E01A7008CE3FB /* Support Files */,
 			);
 			path = ReactiveListViewKit;
@@ -245,9 +236,50 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DF9E06312BDECAFE009D5B46 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				DF9E06342BDECBCB009D5B46 /* ListCell */,
+				044E034C1F74464200849AA2 /* CZFeedListFacadeView.swift */,
+				044E034F1F74464200849AA2 /* CZFeedListViewModel.swift */,
+				044E03561F74464200849AA2 /* CZReactiveFeedListFacadeView.swift */,
+				044E03501F74464200849AA2 /* CZFeedListViewStateMachine.swift */,
+			);
+			name = ListView;
+			sourceTree = "<group>";
+		};
+		DF9E06322BDECB04009D5B46 /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				044E034A1F74464200849AA2 /* CZFeedDetailsFacadeView.swift */,
+				2A14FA3A1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift */,
+				2A14FA3D1FCF50B800914C8E /* CZFeedDetailsModel.swift */,
+				044E03551F74464200849AA2 /* CZReactiveFeedDetailsFacadeView.swift */,
+			);
+			name = DetailsView;
+			sourceTree = "<group>";
+		};
+		DF9E06332BDECB74009D5B46 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				044E03521F74464200849AA2 /* CZFeedListViewAction.swift */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		DF9E06342BDECBCB009D5B46 /* ListCell */ = {
+			isa = PBXGroup;
+			children = (
+				044E03491F74464200849AA2 /* CZFeedCellViewable.swift */,
+				044E034B1F74464200849AA2 /* CZFeedListCell.swift */,
+			);
+			name = ListCell;
+			sourceTree = "<group>";
+		};
 		DFA943B32BDD7E78000C724B /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				DF9E06332BDECB74009D5B46 /* Actions */,
 				DFA943B72BDD7EC2000C724B /* Store.swift */,
 				DFA943BC2BDD7F24000C724B /* StoreObserverProtocol.swift */,
 				DFA943B52BDD7EC1000C724B /* MiddlewareProtocol.swift */,
