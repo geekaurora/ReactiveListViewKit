@@ -78,6 +78,12 @@ public class Store<StateType: CopyableStateProtocol> {
 
     // Update the state and notifies the observers with the state change.
     // - Note: It will set a new state to self and trigger `publishStateChange()`.
-    self.state = state.reduce(action: action)
+    let newState = state.reduce(action: action)
+    switch(action) {
+    case CZFeedListViewAction.loadMore:
+      break
+    default:
+      self.state = newState
+    }
   }
 }
