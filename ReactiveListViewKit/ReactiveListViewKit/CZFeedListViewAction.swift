@@ -28,7 +28,7 @@ public struct BaseState: StateProtocol {
  ViewAction for container feedListView
  */
 public enum CZFeedListViewAction: CZViewAction {
-  case selectedCell(CZFeedModel)
+  case selectedCell(IndexPath, CZFeedModel)
   case loadMore
   case pullToRefresh(isFirst: Bool)
   case prefetch([IndexPath])

@@ -453,7 +453,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
       assertionFailure("Couldn't find matched cell/feedModel at \(indexPath)")
       return
     }
-    onAction?(CZFeedListViewAction.selectedCell(feedModel))
+    onAction?(CZFeedListViewAction.selectedCell(indexPath, feedModel))
   }
 
   // MARK: - Load More

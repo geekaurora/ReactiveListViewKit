@@ -268,8 +268,8 @@
 		DF9E06342BDECBCB009D5B46 /* ListCell */ = {
 			isa = PBXGroup;
 			children = (
-				044E03491F74464200849AA2 /* CZFeedCellViewable.swift */,
 				044E034B1F74464200849AA2 /* CZFeedListCell.swift */,
+				044E03491F74464200849AA2 /* CZFeedCellViewable.swift */,
 			);
 			name = ListCell;
 			sourceTree = "<group>";

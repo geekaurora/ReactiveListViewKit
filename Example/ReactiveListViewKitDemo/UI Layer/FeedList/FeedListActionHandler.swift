@@ -33,7 +33,7 @@ class FeedListActionHandler: NSObject, StoreObserverProtocol {
     dbgPrintWithFunc(self, "\(action)")
     
     switch action {
-    case let CZFeedListViewAction.selectedCell(feedModel):
+    case let CZFeedListViewAction.selectedCell(indexPath, feedModel):
       break
     default:
       break
