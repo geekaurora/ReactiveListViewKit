@@ -9,7 +9,7 @@
 import CZUtils
 import ReactiveListViewKit
 
-/// Model of feed
+/// Model of feed.
 class Feed: ReactiveListDiffable {
   let feedId: String
   let content: String?
@@ -19,32 +19,35 @@ class Feed: ReactiveListDiffable {
   var likesCount: Int
   
   // MARK: - NSCopying
+
   func copy(with zone: NSZone? = nil) -> Any {
     return codableCopy(with: zone)
   }
   
   // MARK: - Decodable
+
   required init(from decoder: Decoder) throws {
     /** Direct decode. */
     let values = try decoder.container(keyedBy: CodingKeys.self)
-    feedId = try values.decode(String.self, forKey: .feedId)
-    userHasLiked = try values.decode(Bool.self, forKey: .userHasLiked)
-    user = try values.decode(User.self, forKey: .user)
+    feedId = (try values.decodeIfPresent(String.self, forKey: .feedId)).assertIfNil ?? ""
+    userHasLiked = (try values.decodeIfPresent(Bool.self, forKey: .userHasLiked)).assertIfNil ?? false
+    user = try values.decodeIfPresent(User.self, forKey: .user)
     
     /** Nested decode. */
     // e.g. content = dict["caption"]["content"]
     let caption = try values.nestedContainer(keyedBy: CodingKeys.self, forKey: .caption)
-    content = try caption.decode(String.self, forKey: .content)
+    content = try caption.decodeIfPresent(String.self, forKey: .content)
     
     let likes = try values.nestedContainer(keyedBy: CodingKeys.self, forKey: .likes)
-    likesCount = try likes.decode(Int.self, forKey: .likesCount)
-    
+    likesCount = (try likes.decodeIfPresent(Int.self, forKey: .likesCount)) ?? 0
+
     let images = try values.nestedContainer(keyedBy: CodingKeys.self, forKey: .images)
-    imageInfo = try images.decode(ImageInfo.self, forKey: .imageInfo)
+    imageInfo = try images.decodeIfPresent(ImageInfo.self, forKey: .imageInfo)
   }
 }
 
 // MARK: - State
+
 extension Feed: StateProtocol {
   func reduce(action: CZActionProtocol) -> Self {
     switch action {
@@ -62,6 +65,7 @@ extension Feed: StateProtocol {
 }
 
 // MARK: - Encodable
+
 extension Feed {
   enum CodingKeys: String, CodingKey {
     case feedId = "id"
@@ -77,18 +81,18 @@ extension Feed {
   func encode(to encoder: Encoder) throws {
     /** Direct encode. */
     var container = encoder.container(keyedBy: CodingKeys.self)
-    try container.encode(feedId, forKey: .feedId)
-    try container.encode(userHasLiked, forKey: .userHasLiked)
-    try container.encode(user, forKey: .user)
+    try container.encodeIfPresent(feedId, forKey: .feedId)
+    try container.encodeIfPresent(userHasLiked, forKey: .userHasLiked)
+    try container.encodeIfPresent(user, forKey: .user)
     
     /** Nested encode. */
     var caption = container.nestedContainer(keyedBy: CodingKeys.self, forKey: .caption)
-    try caption.encode(content, forKey: .content)
+    try caption.encodeIfPresent(content, forKey: .content)
     
     var likes = container.nestedContainer(keyedBy: CodingKeys.self, forKey: .likes)
-    try likes.encode(likesCount, forKey: .likesCount)
+    try likes.encodeIfPresent(likesCount, forKey: .likesCount)
     
     var images = container.nestedContainer(keyedBy: CodingKeys.self, forKey: .images)
-    try images.encode(imageInfo, forKey: .imageInfo)
+    try images.encodeIfPresent(imageInfo, forKey: .imageInfo)
   }
 }
