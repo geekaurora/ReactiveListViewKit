@@ -337,8 +337,12 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
       containerViewSize = CGSize(width: collectionViewSize.width - sectionInset.left - sectionInset.right,
                                  height: collectionViewSize.height - sectionInset.top - sectionInset.bottom)
     }
+#if true // Self-sizing cell.
+    return containerViewSize
+#else
     let size = feedModel.viewClass.sizeThatFits(containerViewSize, viewModel: feedModel.viewModel)
     return size
+#endif
   }
 
   public func collectionView(_ collectionView: UICollectionView,
