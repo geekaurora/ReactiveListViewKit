@@ -17,9 +17,11 @@ open class CZFeedListSupplementaryLineFeedModel: CZFeedModel {
       viewClass: CZFeedListSupplementaryLineView.self,
       viewModel: CZFeedListSupplementaryLineViewModel(inset: inset))
   }
-  public required init(viewClass: CZFeedCellViewSizeCalculatable.Type, 
+
+  public required init(isHorizontal: Bool,
+                       viewClass: CZFeedCellViewSizeCalculatable.Type,
                        viewModel: CZFeedViewModelable) {
-    super.init(viewClass: viewClass, viewModel: viewModel)
+    super.init(isHorizontal: isHorizontal, viewClass: viewClass, viewModel: viewModel)
   }
 }
 

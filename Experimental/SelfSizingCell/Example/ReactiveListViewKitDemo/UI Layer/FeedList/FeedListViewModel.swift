@@ -70,23 +70,23 @@ class FeedListViewModel: NSObject, CopyableState {
           right: 5))
 
       sectionModels.append(storyUsersSectionModel)
-
-      // Feeds section
-      var feedModels = feeds.compactMap {
-        CZFeedModel(viewClass: FeedCellView.self,
-                    viewModel: FeedCellViewModel($0)) }
-
-      // SuggestedUsers - CellViewController
-      if feedModels.count > 0 {
-        let suggestedUsers = self.suggestedUsers
-        let suggestedUsersFeedModel = CZFeedModel(
-          viewClass: HotUsersCellViewController.self,
-          viewModel: HotUsersCellViewModel(suggestedUsers))
-        feedModels.insert(suggestedUsersFeedModel, at: 3)
-      }
-      let feedsSectionModel = CZSectionModel(feedModels: feedModels)
-
-      sectionModels.append(feedsSectionModel)
+//
+//      // Feeds section
+//      var feedModels = feeds.compactMap {
+//        CZFeedModel(viewClass: FeedCellView.self,
+//                    viewModel: FeedCellViewModel($0)) }
+//
+//      // SuggestedUsers - CellViewController
+//      if feedModels.count > 0 {
+//        let suggestedUsers = self.suggestedUsers
+//        let suggestedUsersFeedModel = CZFeedModel(
+//          viewClass: HotUsersCellViewController.self,
+//          viewModel: HotUsersCellViewModel(suggestedUsers))
+//        feedModels.insert(suggestedUsersFeedModel, at: 3)
+//      }
+//      let feedsSectionModel = CZSectionModel(feedModels: feedModels)
+//
+//      sectionModels.append(feedsSectionModel)
       return sectionModels
     }
   }
