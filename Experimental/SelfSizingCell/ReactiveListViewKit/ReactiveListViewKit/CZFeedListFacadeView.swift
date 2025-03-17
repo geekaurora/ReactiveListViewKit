@@ -123,7 +123,6 @@ open class CZFeedListFacadeView: UIView {
   public func batchUpdate(withFeedModels feedModels: [CZFeedModel],
                           animated: Bool = true) {
     batchUpdate(withSectionModels: [CZSectionModel(
-      // isHorizontal: isHorizontal,
       feedModels: feedModels)])
   }
 

@@ -79,7 +79,6 @@ internal class CZFeedListCell: UICollectionViewCell {
   override func systemLayoutSizeFitting(_ targetSize: CGSize,
                                         withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
                                         verticalFittingPriority: UILayoutPriority) -> CGSize {
-    dbgPrintWithFunc(self, "isHorizontal = \(isHorizontal)")
     return super.systemLayoutSizeFitting(
       CGSize(
         width: targetSize.width,

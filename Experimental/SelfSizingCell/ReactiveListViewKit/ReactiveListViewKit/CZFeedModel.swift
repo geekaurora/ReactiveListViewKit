@@ -23,13 +23,7 @@ public protocol CZFeedModelable: class, NSObjectProtocol, CZListDiffable, NSCopy
 /// - viewModel: CZFeedViewModelable
 ///
 open class CZFeedModel: NSObject, CZFeedModelable {
-  public var isHorizontal: Bool {
-    didSet {
-      if !isHorizontal {
-        
-      }
-    }
-  }
+  public var isHorizontal: Bool
   let viewClass: CZFeedCellViewSizeCalculatable.Type
   public let viewModel: CZFeedViewModelable
   
