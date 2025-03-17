@@ -52,11 +52,12 @@ open class CZFeedModel: NSObject, CZFeedModelable {
   }
   
   public func copy(with zone: NSZone? = nil) -> Any {
-    let viewClassCopy = viewClass
-    let viewModelCopy = viewModel.copy(with: zone) as! CZFeedViewModelable
-    return type(of: self).init(isHorizontal: isHorizontal,
-                               viewClass: viewClassCopy,
-                               viewModel: viewModelCopy)
+    return self
+//    let viewClassCopy = viewClass
+//    let viewModelCopy = viewModel.copy(with: zone) as! CZFeedViewModelable
+//    return type(of: self).init(isHorizontal: isHorizontal,
+//                               viewClass: viewClassCopy,
+//                               viewModel: viewModelCopy)
   }
   
   public func buildView(onAction: OnAction?) -> UIView {
