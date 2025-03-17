@@ -36,7 +36,8 @@ public class CZHorizontalSectionAdapterCell: UICollectionViewCell, CZFeedCellVie
   public func setupViewsIfNeeded() {
     guard !hasSetup else {return}
     hasSetup = true
-    translatesAutoresizingMaskIntoConstraints = false
+    // Self-sizing cell isn't supported to change `translatesAutoresizingMaskIntoConstraints`.
+    // translatesAutoresizingMaskIntoConstraints = false
     horizontalSectionAdapterView = CZHorizontalSectionAdapterView(onAction: onAction)
     horizontalSectionAdapterView.overlayOnSuperview(contentView)
   }
