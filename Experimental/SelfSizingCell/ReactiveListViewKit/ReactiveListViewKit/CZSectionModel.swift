@@ -48,6 +48,10 @@ public class CZSectionModel: NSObject, NSCopying, CZListDiffable {
     self.minimumInteritemSpacing = minimumInteritemSpacing
     self.sectionInset = sectionInset
     super.init()
+
+//    for feedModel in self.feedModels {
+//      feedModel.isHorizontal = isHorizontal
+//    }
   }
   
   public class func sectionModel(with aSectionModel: CZSectionModel, 

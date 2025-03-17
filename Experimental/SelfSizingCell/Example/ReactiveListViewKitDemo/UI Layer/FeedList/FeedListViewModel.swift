@@ -49,8 +49,10 @@ class FeedListViewModel: NSObject, CopyableState {
 
       // StoryUsers section
       let storyUsersFeedModels = self.storyUsers.compactMap {
-        CZFeedModel(viewClass: HotUserCellView.self,
-                    viewModel: HotUserCellViewModel($0)) }
+        CZFeedModel(
+          isHorizontal: true,
+          viewClass: HotUserCellView.self,
+          viewModel: HotUserCellViewModel($0)) }
 
       let storyUsersSectionModel = CZSectionModel(
         isHorizontal: true,

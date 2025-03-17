@@ -10,7 +10,7 @@ import UIKit
 
 /// Fundamental protocol defines common behavior of `FeedModel`
 public protocol CZFeedModelable: class, NSObjectProtocol, CZListDiffable, NSCopying {
-  var isHorizontal: Bool { get }
+  var isHorizontal: Bool { get set }
   var viewModel: CZFeedViewModelable { get }
   func isEqual(toDiffableObj object: AnyObject) -> Bool
   func copy(with zone: NSZone?) -> Any
@@ -23,7 +23,13 @@ public protocol CZFeedModelable: class, NSObjectProtocol, CZListDiffable, NSCopy
 /// - viewModel: CZFeedViewModelable
 ///
 open class CZFeedModel: NSObject, CZFeedModelable {
-  public let isHorizontal: Bool
+  public var isHorizontal: Bool {
+    didSet {
+      if !isHorizontal {
+        
+      }
+    }
+  }
   let viewClass: CZFeedCellViewSizeCalculatable.Type
   public let viewModel: CZFeedViewModelable
   
