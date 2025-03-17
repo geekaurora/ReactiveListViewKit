@@ -145,9 +145,11 @@ open class CZFeedListFacadeView: UIView {
     var res = sectionModels.filter { !$0.isEmpty }
     res = res.compactMap { sectionModel in
       if sectionModel.isHorizontal {
-        let horizontalFeedModel = CZFeedModel(viewClass: CZHorizontalSectionAdapterCell.self,
-                                              viewModel: CZHorizontalSectionAdapterViewModel(sectionModel.feedModels,
-                                                                                             viewHeight: sectionModel.heightForHorizontal)
+        let horizontalFeedModel = CZFeedModel(
+          viewClass: CZHorizontalSectionAdapterCell.self,
+          viewModel: CZHorizontalSectionAdapterViewModel(
+            sectionModel.feedModels,
+            viewHeight: sectionModel.heightForHorizontal)
         )
         let horizontalSectionModel = CZSectionModel.sectionModel(with: sectionModel, feedModels: [horizontalFeedModel])
         return horizontalSectionModel
@@ -347,7 +349,8 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
     }
 
     // Support self-sizing cells for the vertical horizontal.
-    if ReactiveListViewKit.enableSelfSizingCellsForHorizontalOrientation {
+    if ReactiveListViewKit.enableSelfSizingCellsForHorizontalOrientation,
+       !isCZHorizontalSectionAdapterCell {
       return containerViewSize
     }
 
