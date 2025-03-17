@@ -346,6 +346,11 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
       return containerViewSize
     }
 
+    // Support self-sizing cells for the vertical horizontal.
+    if ReactiveListViewKit.enableSelfSizingCellsForHorizontalOrientation {
+      return containerViewSize
+    }
+
     let size = feedModel.viewClass.sizeThatFits(containerViewSize, viewModel: feedModel.viewModel)
     return size
   }
