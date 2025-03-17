@@ -41,7 +41,7 @@ open class CZFeedModel: NSObject, CZFeedModelable {
       return false
     }
     return viewClass == object.viewClass &&
-    isHorizontal &&
+    isHorizontal == object.isHorizontal &&
     viewModel.isEqual(toDiffableObj: object.viewModel)
   }
   
