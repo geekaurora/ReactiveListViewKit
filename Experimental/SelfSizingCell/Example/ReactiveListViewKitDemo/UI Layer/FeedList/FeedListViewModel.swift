@@ -47,15 +47,17 @@ class FeedListViewModel: NSObject, CopyableState {
       guard let feeds = feeds as? [Feed] else { fatalError() }
       var sectionModels = [CZSectionModel]()
 
-      // HotUsers section
-      let hotUsersFeedModels = self.storyUsers.compactMap {
-        CZFeedModel(viewClass: HotUserCellView.self,
-                    viewModel: HotUserCellViewModel($0)) }
+      // StoryUsers section
+      let storyUsersFeedModels = self.storyUsers.compactMap {
+        CZFeedModel(
+          isHorizontal: true,
+          viewClass: HotUserCellView.self,
+          viewModel: HotUserCellViewModel($0)) }
 
-      let hotUsersSectionModel = CZSectionModel(
+      let storyUsersSectionModel = CZSectionModel(
         isHorizontal: true,
         heightForHorizontal: HotUserSection.heightForHorizontal,
-        feedModels: hotUsersFeedModels,
+        feedModels: storyUsersFeedModels,
         headerModel: CZFeedListSupplementaryTextFeedModel(
           title: "Stories",
           inset: UIEdgeInsets(top: 8,
@@ -69,7 +71,7 @@ class FeedListViewModel: NSObject, CopyableState {
           bottom: 0,
           right: 5))
 
-      sectionModels.append(hotUsersSectionModel)
+      sectionModels.append(storyUsersSectionModel)
 
       // Feeds section
       var feedModels = feeds.compactMap {

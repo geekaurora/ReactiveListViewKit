@@ -122,7 +122,8 @@ open class CZFeedListFacadeView: UIView {
 
   public func batchUpdate(withFeedModels feedModels: [CZFeedModel],
                           animated: Bool = true) {
-    batchUpdate(withSectionModels: [CZSectionModel(feedModels: feedModels)])
+    batchUpdate(withSectionModels: [CZSectionModel(
+      feedModels: feedModels)])
   }
 
   public func batchUpdate(withSectionModels sectionModels: [CZSectionModel],
@@ -145,9 +146,11 @@ open class CZFeedListFacadeView: UIView {
     var res = sectionModels.filter { !$0.isEmpty }
     res = res.compactMap { sectionModel in
       if sectionModel.isHorizontal {
-        let horizontalFeedModel = CZFeedModel(viewClass: CZHorizontalSectionAdapterCell.self,
-                                              viewModel: CZHorizontalSectionAdapterViewModel(sectionModel.feedModels,
-                                                                                             viewHeight: sectionModel.heightForHorizontal)
+        let horizontalFeedModel = CZFeedModel(
+          viewClass: CZHorizontalSectionAdapterCell.self,
+          viewModel: CZHorizontalSectionAdapterViewModel(
+            sectionModel.feedModels,
+            viewHeight: sectionModel.heightForHorizontal)
         )
         let horizontalSectionModel = CZSectionModel.sectionModel(with: sectionModel, feedModels: [horizontalFeedModel])
         return horizontalSectionModel
@@ -342,6 +345,12 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
     // Note: Skip `CZHorizontalSectionAdapterCell` for self-sizing for now.
     let isCZHorizontalSectionAdapterCell = feedModel.viewClass == CZHorizontalSectionAdapterCell.self
     if !isHorizontal && ReactiveListViewKit.enableSelfSizingCellsForVerticalOrientation,
+       !isCZHorizontalSectionAdapterCell {
+      return containerViewSize
+    }
+
+    // Support self-sizing cells for the vertical horizontal.
+    if ReactiveListViewKit.enableSelfSizingCellsForHorizontalOrientation,
        !isCZHorizontalSectionAdapterCell {
       return containerViewSize
     }

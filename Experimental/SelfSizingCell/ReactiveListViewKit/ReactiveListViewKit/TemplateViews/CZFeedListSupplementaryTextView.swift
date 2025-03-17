@@ -29,9 +29,10 @@ open class CZFeedListSupplementaryTextFeedModel: CZFeedModel {
         showBottomDivider: showBottomDivider)
     )
   }
-  required public init(viewClass: CZFeedCellViewSizeCalculatable.Type,
+  required public init(isHorizontal: Bool,
+                       viewClass: CZFeedCellViewSizeCalculatable.Type,
                        viewModel: CZFeedViewModelable) {
-    super.init(viewClass: viewClass, viewModel: viewModel)
+    super.init(isHorizontal: isHorizontal, viewClass: viewClass, viewModel: viewModel)
   }
 }
 

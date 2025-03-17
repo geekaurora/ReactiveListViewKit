@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CZUtils
 
 /**
  Internal convenience `UICollectionViewCell` class wrapping input CellView
@@ -15,6 +16,9 @@ internal class CZFeedListCell: UICollectionViewCell {
   private var model: CZFeedModel?
   // Adaptive to `UIView`/`UIViewController`
   private var cellComponent: CZFeedCellViewSizeCalculatable?
+  private var isHorizontal: Bool {
+    model?.isHorizontal ?? false
+  }
 
   open func config(with model: CZFeedModel,
                    onAction: OnAction?,
@@ -79,7 +83,7 @@ internal class CZFeedListCell: UICollectionViewCell {
       CGSize(
         width: targetSize.width,
         height: targetSize.height),
-      withHorizontalFittingPriority: .required,
-      verticalFittingPriority: .fittingSizeLevel)
+      withHorizontalFittingPriority: isHorizontal ? .fittingSizeLevel: .required,
+      verticalFittingPriority: isHorizontal ? .required : .fittingSizeLevel)
   }
 }

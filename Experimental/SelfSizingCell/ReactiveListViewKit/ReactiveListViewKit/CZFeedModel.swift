@@ -10,7 +10,8 @@ import UIKit
 
 /// Fundamental protocol defines common behavior of `FeedModel`
 public protocol CZFeedModelable: class, NSObjectProtocol, CZListDiffable, NSCopying {
-  var  viewModel: CZFeedViewModelable {get}
+  var isHorizontal: Bool { get set }
+  var viewModel: CZFeedViewModelable { get }
   func isEqual(toDiffableObj object: AnyObject) -> Bool
   func copy(with zone: NSZone?) -> Any
 }
@@ -22,11 +23,14 @@ public protocol CZFeedModelable: class, NSObjectProtocol, CZListDiffable, NSCopy
 /// - viewModel: CZFeedViewModelable
 ///
 open class CZFeedModel: NSObject, CZFeedModelable {
+  public var isHorizontal: Bool
   let viewClass: CZFeedCellViewSizeCalculatable.Type
-  public let  viewModel: CZFeedViewModelable
+  public let viewModel: CZFeedViewModelable
   
-  public required init(viewClass: CZFeedCellViewSizeCalculatable.Type, 
+  public required init(isHorizontal: Bool = false,
+                       viewClass: CZFeedCellViewSizeCalculatable.Type,
                        viewModel: CZFeedViewModelable) {
+    self.isHorizontal = isHorizontal
     self.viewClass = viewClass
     self.viewModel = viewModel
     super.init()
@@ -37,14 +41,17 @@ open class CZFeedModel: NSObject, CZFeedModelable {
       return false
     }
     return viewClass == object.viewClass &&
+    isHorizontal == object.isHorizontal &&
     viewModel.isEqual(toDiffableObj: object.viewModel)
   }
   
   public func copy(with zone: NSZone? = nil) -> Any {
-    let viewClassCopy = viewClass
-    let viewModelCopy = viewModel.copy(with: zone) as! CZFeedViewModelable
-    return type(of: self).init(viewClass: viewClassCopy,
-                               viewModel: viewModelCopy)
+    return self
+//    let viewClassCopy = viewClass
+//    let viewModelCopy = viewModel.copy(with: zone) as! CZFeedViewModelable
+//    return type(of: self).init(isHorizontal: isHorizontal,
+//                               viewClass: viewClassCopy,
+//                               viewModel: viewModelCopy)
   }
   
   public func buildView(onAction: OnAction?) -> UIView {
