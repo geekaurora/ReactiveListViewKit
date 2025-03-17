@@ -341,19 +341,15 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
                                  height: collectionViewSize.height - sectionInset.top - sectionInset.bottom)
     }
 
-    // For CZHorizontalSectionAdapterCell, should set its height with `viewModel.viewHeight`.
+    // For CZHorizontalSectionAdapterCell, set its height with `viewModel.viewHeight`.
     if feedModel.viewClass == CZHorizontalSectionAdapterCell.self {
       assert(feedModel.viewModel.viewHeight != -1)
       return CGSize(width: containerViewSize.width, height: feedModel.viewModel.viewHeight)
     }
 
-    // Support self-sizing cells for the vertical orientation.
-    if !isHorizontal && ReactiveListViewKit.enableSelfSizingCellsForVerticalOrientation {
-      return containerViewSize
-    }
-
-    // Support self-sizing cells for the vertical horizontal.
-    if ReactiveListViewKit.enableSelfSizingCellsForHorizontalOrientation {
+    // Support self-sizing cells.
+    if (isHorizontal && ReactiveListViewKit.enableSelfSizingCellsForHorizontalOrientation) ||
+       (!isHorizontal && ReactiveListViewKit.enableSelfSizingCellsForVerticalOrientation) {
       return containerViewSize
     }
 
