@@ -16,7 +16,7 @@ public class CZHorizontalSectionAdapterViewModel: NSObject, CZFeedViewModelable,
   private(set) var feedModels: [CZFeedModel]
   private(set) var headerModel: CZFeedModel?
   private(set) var footerModel: CZFeedModel?
-  private(set) var viewHeight: CGFloat
+  public private(set) var viewHeight: CGFloat
   private(set) var backgroundColor: UIColor
   private(set) var showTopDivider: Bool
   private(set) var showBottomDivider: Bool

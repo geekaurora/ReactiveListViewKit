@@ -14,13 +14,21 @@ import CZUtils
 public protocol CZFeedViewModelable: class, NSObjectProtocol, CZListDiffable, NSCopying {
   /// `diffId` is used for diff algorithm of batch update, verify whether two involved viewModels equal
   var diffId: String {get}
+
+  var viewHeight: CGFloat {get}
+
   func isEqual(toDiffableObj object: AnyObject) -> Bool
+
   func copy(with zone: NSZone?) -> Any
 }
 
-extension CZFeedViewModelable {
-  public var diffId: String {
-    return currentClassName
+public extension CZFeedViewModelable {
+  var diffId: String {
+    currentClassName
+  }
+  
+  var viewHeight: CGFloat {
+    -1
   }
 }
 
