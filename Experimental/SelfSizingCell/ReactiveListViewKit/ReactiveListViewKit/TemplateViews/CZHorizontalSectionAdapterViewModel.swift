@@ -40,6 +40,10 @@ public class CZHorizontalSectionAdapterViewModel: NSObject, CZFeedViewModelable,
     self.isUserInteractionEnabled = isUserInteractionEnabled
     super.init()
     self.diffId = currentClassName
+
+    for feedModel in self.feedModels {
+      feedModel.isHorizontal = true
+    }
   }
   
   public func isEqual(toDiffableObj object: AnyObject) -> Bool {
