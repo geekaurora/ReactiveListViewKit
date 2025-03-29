@@ -11,6 +11,7 @@
 		DF7E24AF2D985FA1000715BA /* CZUtils in Embed Frameworks */ = {isa = PBXBuildFile; productRef = DF7E24AC2D985FA1000715BA /* CZUtils */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		DF7E24BB2D986032000715BA /* ReactiveListViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF7E24B82D98602A000715BA /* ReactiveListViewKit.framework */; };
 		DF7E24BE2D986066000715BA /* CZWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DF7E24BD2D986066000715BA /* CZWebImage */; };
+		DF7E24CA2D9862A9000715BA /* KIF in Frameworks */ = {isa = PBXBuildFile; productRef = DF7E24C92D9862A9000715BA /* KIF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF7E24CA2D9862A9000715BA /* KIF in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +224,7 @@
 			);
 			name = ReactiveListViewKitDemoUITests;
 			packageProductDependencies = (
+				DF7E24C92D9862A9000715BA /* KIF */,
 			);
 			productName = ReactiveListViewKitDemoUITests;
 			productReference = DF7E23832D985D34000715BA /* ReactiveListViewKitDemoUITests.xctest */;
@@ -262,6 +265,7 @@
 			packageReferences = (
 				DF7E24AA2D985F8F000715BA /* XCRemoteSwiftPackageReference "CZUtils" */,
 				DF7E24BC2D986066000715BA /* XCRemoteSwiftPackageReference "CZWebImage" */,
+				DF7E24C82D9862A9000715BA /* XCRemoteSwiftPackageReference "KIF" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DF7E23642D985D31000715BA /* Products */;
@@ -664,6 +668,14 @@
 				minimumVersion = 3.6.7;
 			};
 		};
+		DF7E24C82D9862A9000715BA /* XCRemoteSwiftPackageReference "KIF" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kif-framework/KIF.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -676,6 +688,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DF7E24BC2D986066000715BA /* XCRemoteSwiftPackageReference "CZWebImage" */;
 			productName = CZWebImage;
+		};
+		DF7E24C92D9862A9000715BA /* KIF */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF7E24C82D9862A9000715BA /* XCRemoteSwiftPackageReference "KIF" */;
+			productName = KIF;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
