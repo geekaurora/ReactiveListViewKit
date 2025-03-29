@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DF7E24AD2D985FA1000715BA /* CZUtils in Frameworks */ = {isa = PBXBuildFile; productRef = DF7E24AC2D985FA1000715BA /* CZUtils */; };
+		DF7E24AF2D985FA1000715BA /* CZUtils in Embed Frameworks */ = {isa = PBXBuildFile; productRef = DF7E24AC2D985FA1000715BA /* CZUtils */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		DF7E237A2D985D34000715BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -22,6 +27,20 @@
 			remoteInfo = ReactiveListViewKitDemo;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DF7E24AE2D985FA1000715BA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DF7E24AF2D985FA1000715BA /* CZUtils in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DF7E23632D985D31000715BA /* ReactiveListViewKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveListViewKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF7E24AD2D985FA1000715BA /* CZUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +112,7 @@
 				DF7E23652D985D31000715BA /* ReactiveListViewKitDemo */,
 				DF7E237C2D985D34000715BA /* ReactiveListViewKitDemoTests */,
 				DF7E23862D985D34000715BA /* ReactiveListViewKitDemoUITests */,
+				DF7E24AB2D985FA1000715BA /* Frameworks */,
 				DF7E23642D985D31000715BA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -113,6 +134,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		DF7E24AB2D985FA1000715BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +151,7 @@
 				DF7E235F2D985D31000715BA /* Sources */,
 				DF7E23602D985D31000715BA /* Frameworks */,
 				DF7E23612D985D31000715BA /* Resources */,
+				DF7E24AE2D985FA1000715BA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +162,7 @@
 			);
 			name = ReactiveListViewKitDemo;
 			packageProductDependencies = (
+				DF7E24AC2D985FA1000715BA /* CZUtils */,
 			);
 			productName = ReactiveListViewKitDemo;
 			productReference = DF7E23632D985D31000715BA /* ReactiveListViewKitDemo.app */;
@@ -216,6 +246,9 @@
 			);
 			mainGroup = DF7E235A2D985D31000715BA;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DF7E24AA2D985F8F000715BA /* XCRemoteSwiftPackageReference "CZUtils" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DF7E23642D985D31000715BA /* Products */;
 			projectDirPath = "";
@@ -583,6 +616,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DF7E24AA2D985F8F000715BA /* XCRemoteSwiftPackageReference "CZUtils" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/geekaurora/CZUtils.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DF7E24AC2D985FA1000715BA /* CZUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF7E24AA2D985F8F000715BA /* XCRemoteSwiftPackageReference "CZUtils" */;
+			productName = CZUtils;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF7E235B2D985D31000715BA /* Project object */;
 }
