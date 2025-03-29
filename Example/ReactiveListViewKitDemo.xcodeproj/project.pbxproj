@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DF7E24AD2D985FA1000715BA /* CZUtils in Frameworks */ = {isa = PBXBuildFile; productRef = DF7E24AC2D985FA1000715BA /* CZUtils */; };
 		DF7E24AF2D985FA1000715BA /* CZUtils in Embed Frameworks */ = {isa = PBXBuildFile; productRef = DF7E24AC2D985FA1000715BA /* CZUtils */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		DF7E24BB2D986032000715BA /* ReactiveListViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF7E24B82D98602A000715BA /* ReactiveListViewKit.framework */; };
+		DF7E24BE2D986066000715BA /* CZWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DF7E24BD2D986066000715BA /* CZWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +27,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = DF7E23622D985D31000715BA;
 			remoteInfo = ReactiveListViewKitDemo;
+		};
+		DF7E24B72D98602A000715BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF7E24B02D986029000715BA /* ReactiveListViewKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 044E032C1F74458B00849AA2;
+			remoteInfo = ReactiveListViewKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -47,6 +56,7 @@
 		DF7E23792D985D34000715BA /* ReactiveListViewKitDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveListViewKitDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF7E23832D985D34000715BA /* ReactiveListViewKitDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveListViewKitDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF7E23D32D985E37000715BA /* CommonCrypto.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = CommonCrypto.xcodeproj; sourceTree = "<group>"; };
+		DF7E24B02D986029000715BA /* ReactiveListViewKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveListViewKit.xcodeproj; path = ../ReactiveListViewKit/ReactiveListViewKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -85,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF7E24BE2D986066000715BA /* CZWebImage in Frameworks */,
+				DF7E24BB2D986032000715BA /* ReactiveListViewKit.framework in Frameworks */,
 				DF7E24AD2D985FA1000715BA /* CZUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +121,7 @@
 		DF7E235A2D985D31000715BA = {
 			isa = PBXGroup;
 			children = (
+				DF7E24B02D986029000715BA /* ReactiveListViewKit.xcodeproj */,
 				DF7E23652D985D31000715BA /* ReactiveListViewKitDemo */,
 				DF7E237C2D985D34000715BA /* ReactiveListViewKitDemoTests */,
 				DF7E23862D985D34000715BA /* ReactiveListViewKitDemoUITests */,
@@ -141,6 +154,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DF7E24B32D98602A000715BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF7E24B82D98602A000715BA /* ReactiveListViewKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,6 +184,7 @@
 			name = ReactiveListViewKitDemo;
 			packageProductDependencies = (
 				DF7E24AC2D985FA1000715BA /* CZUtils */,
+				DF7E24BD2D986066000715BA /* CZWebImage */,
 			);
 			productName = ReactiveListViewKitDemo;
 			productReference = DF7E23632D985D31000715BA /* ReactiveListViewKitDemo.app */;
@@ -248,6 +270,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				DF7E24AA2D985F8F000715BA /* XCRemoteSwiftPackageReference "CZUtils" */,
+				DF7E24BC2D986066000715BA /* XCRemoteSwiftPackageReference "CZWebImage" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DF7E23642D985D31000715BA /* Products */;
@@ -256,6 +279,10 @@
 				{
 					ProductGroup = DF7E23E72D985E37000715BA /* Products */;
 					ProjectRef = DF7E23D32D985E37000715BA /* CommonCrypto.xcodeproj */;
+				},
+				{
+					ProductGroup = DF7E24B32D98602A000715BA /* Products */;
+					ProjectRef = DF7E24B02D986029000715BA /* ReactiveListViewKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -266,6 +293,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DF7E24B82D98602A000715BA /* ReactiveListViewKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveListViewKit.framework;
+			remoteRef = DF7E24B72D98602A000715BA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DF7E23612D985D31000715BA /* Resources */ = {
@@ -344,6 +381,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -372,6 +410,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -626,6 +665,14 @@
 				minimumVersion = 4.5.1;
 			};
 		};
+		DF7E24BC2D986066000715BA /* XCRemoteSwiftPackageReference "CZWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/geekaurora/CZWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.6.7;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -633,6 +680,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DF7E24AA2D985F8F000715BA /* XCRemoteSwiftPackageReference "CZUtils" */;
 			productName = CZUtils;
+		};
+		DF7E24BD2D986066000715BA /* CZWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF7E24BC2D986066000715BA /* XCRemoteSwiftPackageReference "CZWebImage" */;
+			productName = CZWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
