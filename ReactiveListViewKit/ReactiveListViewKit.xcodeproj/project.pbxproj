@@ -21,6 +21,7 @@
 		044E03651F74464200849AA2 /* CZReactiveFeedDetailsFacadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E03551F74464200849AA2 /* CZReactiveFeedDetailsFacadeView.swift */; };
 		044E03661F74464200849AA2 /* CZReactiveFeedListFacadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E03561F74464200849AA2 /* CZReactiveFeedListFacadeView.swift */; };
 		044E03671F74464200849AA2 /* CZSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E03571F74464200849AA2 /* CZSectionModel.swift */; };
+		2A0647271F7F61CE00354083 /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0647261F7F61CE00354083 /* Reactor.swift */; };
 		2A101AFE1FEF0305001AC915 /* ReactiveListViewKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 2A101AFD1FEF0305001AC915 /* ReactiveListViewKit.podspec */; };
 		2A14FA3B1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14FA3A1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift */; };
 		2A14FA3E1FCF50B800914C8E /* CZFeedDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14FA3D1FCF50B800914C8E /* CZFeedDetailsModel.swift */; };
@@ -40,9 +41,6 @@
 		2AF920E71F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF920E61F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift */; };
 		C37523AC27AAC9FB00690D69 /* CZUtils in Frameworks */ = {isa = PBXBuildFile; productRef = C37523AB27AAC9FB00690D69 /* CZUtils */; };
 		DF8794F52B9FCB8200881CB3 /* CZFacadeViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8794F42B9FCB8200881CB3 /* CZFacadeViewHelper.swift */; };
-		DFA943BB2BDD7EC2000C724B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA943B72BDD7EC2000C724B /* Store.swift */; };
-		DFA943BE2BDD7F24000C724B /* StoreObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA943BC2BDD7F24000C724B /* StoreObserverProtocol.swift */; };
-		DFA943C02BDD8318000C724B /* CZUtils in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C37523AB27AAC9FB00690D69 /* CZUtils */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		DFE04B1320D46A7500428D0A /* ListDiffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE04B1220D46A7500428D0A /* ListDiffTests.swift */; };
 		DFE04B1620D4764800428D0A /* CZListDiff+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE04B1520D4764800428D0A /* CZListDiff+.swift */; };
 /* End PBXBuildFile section */
@@ -64,7 +62,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DFA943C02BDD8318000C724B /* CZUtils in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +85,7 @@
 		044E03551F74464200849AA2 /* CZReactiveFeedDetailsFacadeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZReactiveFeedDetailsFacadeView.swift; sourceTree = "<group>"; };
 		044E03561F74464200849AA2 /* CZReactiveFeedListFacadeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZReactiveFeedListFacadeView.swift; sourceTree = "<group>"; };
 		044E03571F74464200849AA2 /* CZSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZSectionModel.swift; sourceTree = "<group>"; };
+		2A0647261F7F61CE00354083 /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
 		2A101AFD1FEF0305001AC915 /* ReactiveListViewKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReactiveListViewKit.podspec; sourceTree = SOURCE_ROOT; };
 		2A14FA3A1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZFeedDetailsViewModel.swift; sourceTree = "<group>"; };
 		2A14FA3D1FCF50B800914C8E /* CZFeedDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZFeedDetailsModel.swift; sourceTree = "<group>"; };
@@ -112,8 +110,6 @@
 		C3C4FA4C24010FDA009C49A0 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C4FA4E24010FFB009C49A0 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8794F42B9FCB8200881CB3 /* CZFacadeViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZFacadeViewHelper.swift; path = Utils/CZFacadeViewHelper.swift; sourceTree = "<group>"; };
-		DFA943B72BDD7EC2000C724B /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = Store/Store.swift; sourceTree = "<group>"; };
-		DFA943BC2BDD7F24000C724B /* StoreObserverProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreObserverProtocol.swift; path = Store/StoreObserverProtocol.swift; sourceTree = "<group>"; };
 		DFE04B1220D46A7500428D0A /* ListDiffTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDiffTests.swift; sourceTree = "<group>"; };
 		DFE04B1520D4764800428D0A /* CZListDiff+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CZListDiff+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,15 +156,24 @@
 		044E032E1F74458B00849AA2 /* ReactiveListViewKit */ = {
 			isa = PBXGroup;
 			children = (
-				DFA943B32BDD7E78000C724B /* Store */,
-				DF9E06312BDECAFE009D5B46 /* ListView */,
-				DF9E06322BDECB04009D5B46 /* DetailsView */,
+				2A0647261F7F61CE00354083 /* Reactor.swift */,
+				044E034C1F74464200849AA2 /* CZFeedListFacadeView.swift */,
+				044E034A1F74464200849AA2 /* CZFeedDetailsFacadeView.swift */,
+				044E03561F74464200849AA2 /* CZReactiveFeedListFacadeView.swift */,
+				044E03551F74464200849AA2 /* CZReactiveFeedDetailsFacadeView.swift */,
+				044E034F1F74464200849AA2 /* CZFeedListViewModel.swift */,
+				2A14FA3A1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift */,
+				044E03571F74464200849AA2 /* CZSectionModel.swift */,
+				044E03491F74464200849AA2 /* CZFeedCellViewable.swift */,
+				044E034B1F74464200849AA2 /* CZFeedListCell.swift */,
+				044E03511F74464200849AA2 /* CZFeedModel.swift */,
+				2A14FA3D1FCF50B800914C8E /* CZFeedDetailsModel.swift */,
+				044E03531F74464200849AA2 /* CZFeedViewModelable.swift */,
+				044E03521F74464200849AA2 /* CZFeedListViewAction.swift */,
+				044E03501F74464200849AA2 /* CZFeedListViewStateMachine.swift */,
+				2A16074F1F7DAF0500FC3E9B /* Constants.swift */,
 				044E03471F74463100849AA2 /* TemplateViews */,
 				044E036E1F74468800849AA2 /* Utils */,
-				044E03571F74464200849AA2 /* CZSectionModel.swift */,
-				044E03511F74464200849AA2 /* CZFeedModel.swift */,
-				044E03531F74464200849AA2 /* CZFeedViewModelable.swift */,
-				2A16074F1F7DAF0500FC3E9B /* Constants.swift */,
 				2A35A2411F7E01A7008CE3FB /* Support Files */,
 			);
 			path = ReactiveListViewKit;
@@ -232,56 +237,6 @@
 				2ADEE4771F7F6F7D00EC6969 /* CZUtils.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DF9E06312BDECAFE009D5B46 /* ListView */ = {
-			isa = PBXGroup;
-			children = (
-				DF9E06342BDECBCB009D5B46 /* ListCell */,
-				044E034C1F74464200849AA2 /* CZFeedListFacadeView.swift */,
-				044E034F1F74464200849AA2 /* CZFeedListViewModel.swift */,
-				044E03561F74464200849AA2 /* CZReactiveFeedListFacadeView.swift */,
-				044E03501F74464200849AA2 /* CZFeedListViewStateMachine.swift */,
-			);
-			name = ListView;
-			sourceTree = "<group>";
-		};
-		DF9E06322BDECB04009D5B46 /* DetailsView */ = {
-			isa = PBXGroup;
-			children = (
-				044E034A1F74464200849AA2 /* CZFeedDetailsFacadeView.swift */,
-				2A14FA3A1FCF4CB900914C8E /* CZFeedDetailsViewModel.swift */,
-				2A14FA3D1FCF50B800914C8E /* CZFeedDetailsModel.swift */,
-				044E03551F74464200849AA2 /* CZReactiveFeedDetailsFacadeView.swift */,
-			);
-			name = DetailsView;
-			sourceTree = "<group>";
-		};
-		DF9E06332BDECB74009D5B46 /* Actions */ = {
-			isa = PBXGroup;
-			children = (
-				044E03521F74464200849AA2 /* CZFeedListViewAction.swift */,
-			);
-			name = Actions;
-			sourceTree = "<group>";
-		};
-		DF9E06342BDECBCB009D5B46 /* ListCell */ = {
-			isa = PBXGroup;
-			children = (
-				044E034B1F74464200849AA2 /* CZFeedListCell.swift */,
-				044E03491F74464200849AA2 /* CZFeedCellViewable.swift */,
-			);
-			name = ListCell;
-			sourceTree = "<group>";
-		};
-		DFA943B32BDD7E78000C724B /* Store */ = {
-			isa = PBXGroup;
-			children = (
-				DF9E06332BDECB74009D5B46 /* Actions */,
-				DFA943B72BDD7EC2000C724B /* Store.swift */,
-				DFA943BC2BDD7F24000C724B /* StoreObserverProtocol.swift */,
-			);
-			name = Store;
 			sourceTree = "<group>";
 		};
 		DFE04B1720D47C7C00428D0A /* Utils */ = {
@@ -419,9 +374,7 @@
 				2AB3DB9B1F7EC3D8009A5EF9 /* CZHorizontalSectionAdapterViewModel.swift in Sources */,
 				2AB3DB971F7EC3D8009A5EF9 /* CZFeedListSupplementaryLineView.swift in Sources */,
 				044E03641F74464200849AA2 /* CZListDiff.swift in Sources */,
-				DFA943BE2BDD7F24000C724B /* StoreObserverProtocol.swift in Sources */,
 				044E03671F74464200849AA2 /* CZSectionModel.swift in Sources */,
-				DFA943BB2BDD7EC2000C724B /* Store.swift in Sources */,
 				2AB3DB9F1F7EC407009A5EF9 /* Array+Extension.swift in Sources */,
 				2A465C761F7F01B800406343 /* CZListDiffableHelper.swift in Sources */,
 				044E03631F74464200849AA2 /* CZFeedViewModelable.swift in Sources */,
@@ -429,6 +382,7 @@
 				044E03661F74464200849AA2 /* CZReactiveFeedListFacadeView.swift in Sources */,
 				2AF920E71F7F50DE00A5160F /* CZHorizontalSectionAdapterCell.swift in Sources */,
 				044E035C1F74464200849AA2 /* CZFeedListFacadeView.swift in Sources */,
+				2A0647271F7F61CE00354083 /* Reactor.swift in Sources */,
 				2A14FA3E1FCF50B800914C8E /* CZFeedDetailsModel.swift in Sources */,
 				2AB3DB9C1F7EC3D8009A5EF9 /* CZTextFeedCellView.swift in Sources */,
 				2AB3DB991F7EC3D8009A5EF9 /* CZFeedListSupplementaryView.swift in Sources */,
@@ -517,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -572,7 +526,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -596,7 +550,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Supported Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -622,7 +576,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Supported Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

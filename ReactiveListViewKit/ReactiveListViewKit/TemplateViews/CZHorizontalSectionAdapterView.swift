@@ -14,11 +14,7 @@ import UIKit
 open class CZHorizontalSectionAdapterView: UIView, CZFeedCellViewSizeCalculatable {
   private var viewModel: CZHorizontalSectionAdapterViewModel?
   open var diffId: String {return viewModel?.diffId ?? ""}
-  open var onAction: OnAction? {
-    didSet {
-      nestedFeedListView.onAction = onAction
-    }
-  }
+  open var onAction: OnAction?
   private var containerStackView: UIStackView!
   private var nestedFeedListView: CZFeedListFacadeView!
   private var headerView: UIView?

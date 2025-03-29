@@ -13,8 +13,13 @@ import UIKit
  */
 public enum ReactiveListViewKit {
   public static var isDebugMode = true
-  public static var isIncrementalUpdateEnabled = false
+  public static var isIncrementalUpdateEnabled = true
   public static var useGCD = false
+
+  // MARK: - Self Sizing Cells
+
+  public static var enableSelfSizingCellsForVerticalOrientation = true
+  public static var enableSelfSizingCellsForHorizontalOrientation = true
 
   public static let ClearBGColor = UIColor.clear
   public static let GreyBGColor = UIColor(white: 240.0 / 255.0, alpha: 1.0)

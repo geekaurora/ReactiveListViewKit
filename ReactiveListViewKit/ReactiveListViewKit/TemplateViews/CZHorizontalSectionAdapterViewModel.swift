@@ -11,12 +11,12 @@ import UIKit
 /**
  ViewModel class of `CZHorizontalSectionAdapterView`
  */
-public class CZHorizontalSectionAdapterViewModel: NSObject, CZFeedViewModelable, StateProtocol {
+public class CZHorizontalSectionAdapterViewModel: NSObject, CZFeedViewModelable, State {
   public lazy var diffId: String = self.currentClassName
   private(set) var feedModels: [CZFeedModel]
   private(set) var headerModel: CZFeedModel?
   private(set) var footerModel: CZFeedModel?
-  private(set) var viewHeight: CGFloat
+  public private(set) var viewHeight: CGFloat
   private(set) var backgroundColor: UIColor
   private(set) var showTopDivider: Bool
   private(set) var showBottomDivider: Bool
@@ -40,6 +40,10 @@ public class CZHorizontalSectionAdapterViewModel: NSObject, CZFeedViewModelable,
     self.isUserInteractionEnabled = isUserInteractionEnabled
     super.init()
     self.diffId = currentClassName
+
+    for feedModel in self.feedModels {
+      feedModel.isHorizontal = true
+    }
   }
   
   public func isEqual(toDiffableObj object: AnyObject) -> Bool {
@@ -54,7 +58,5 @@ public class CZHorizontalSectionAdapterViewModel: NSObject, CZFeedViewModelable,
     let feedModelsCopy = feedModels.copy() as! [CZFeedModel]
     return CZHorizontalSectionAdapterViewModel(feedModelsCopy, viewHeight: viewHeight)
   }
-  public func reduce(action: CZActionProtocol) -> Self {
-    return self
-  }
+  public func reduce(action: Action) { }
 }

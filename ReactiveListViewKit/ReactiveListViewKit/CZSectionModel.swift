@@ -31,7 +31,7 @@ public class CZSectionModel: NSObject, NSCopying, CZListDiffable {
     footerModel == nil
   }
   
-  public init(isHorizontal: Bool = false,
+  public init(isHorizontal: Bool? = nil,
               heightForHorizontal: CGFloat = 40,
               feedModels: [CZFeedModel],
               headerModel: CZFeedModel? = nil,
@@ -39,7 +39,7 @@ public class CZSectionModel: NSObject, NSCopying, CZListDiffable {
               minimumLineSpacing: CGFloat? = nil,
               minimumInteritemSpacing: CGFloat? = nil,
               sectionInset: UIEdgeInsets? = nil) {
-    self.isHorizontal = isHorizontal
+    self.isHorizontal = isHorizontal ?? false
     self.heightForHorizontal = heightForHorizontal
     self.feedModels = feedModels
     self.headerModel = headerModel
@@ -48,6 +48,12 @@ public class CZSectionModel: NSObject, NSCopying, CZListDiffable {
     self.minimumInteritemSpacing = minimumInteritemSpacing
     self.sectionInset = sectionInset
     super.init()
+
+    if let isHorizontal {
+      for feedModel in self.feedModels {
+        feedModel.isHorizontal = isHorizontal
+      }
+    }
   }
   
   public class func sectionModel(with aSectionModel: CZSectionModel, 
@@ -70,12 +76,13 @@ public class CZSectionModel: NSObject, NSCopying, CZListDiffable {
   }
   
   public func copy(with zone: NSZone? = nil) -> Any {
-    return CZSectionModel(isHorizontal: isHorizontal,
-                          feedModels: feedModels.copy() as! [CZFeedModel],
-                          headerModel: headerModel?.copy() as? CZFeedModel,
-                          footerModel: footerModel?.copy() as? CZFeedModel,
-                          minimumLineSpacing: minimumLineSpacing,
-                          minimumInteritemSpacing: minimumInteritemSpacing,
-                          sectionInset: sectionInset)
+    return self
+//    return CZSectionModel(isHorizontal: isHorizontal,
+//                          feedModels: feedModels.copy() as! [CZFeedModel],
+//                          headerModel: headerModel?.copy() as? CZFeedModel,
+//                          footerModel: footerModel?.copy() as? CZFeedModel,
+//                          minimumLineSpacing: minimumLineSpacing,
+//                          minimumInteritemSpacing: minimumInteritemSpacing,
+//                          sectionInset: sectionInset)
   }
 }

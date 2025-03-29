@@ -9,26 +9,24 @@
 import UIKit
 
 /**
- CZActionProtocol handler closure
+ Action handler closure
  */
-public typealias OnAction = (_ action: CZActionProtocol) -> Void
+public typealias OnAction = (_ action: Action) -> Void
 
 /**
  General ViewAction
  */
-public typealias CZViewAction = CZActionProtocol
+public typealias CZViewAction = Action
 
-public struct BaseState: StateProtocol {
-  public func reduce(action: CZActionProtocol) -> Self {
-    return self
-  }
+public struct BaseState: State {
+  public func reduce(action: Action) {}
 }
 
 /**
  ViewAction for container feedListView
  */
 public enum CZFeedListViewAction: CZViewAction {
-  case selectedCell(IndexPath, CZFeedModel)
+  case selectedCell(CZFeedModel)
   case loadMore
   case pullToRefresh(isFirst: Bool)
   case prefetch([IndexPath])

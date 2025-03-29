@@ -19,7 +19,7 @@ import UIKit
 open class CZFeedListFacadeView: UIView {
   // Transformer closure that transforms `Feed` array to `CZSectionModel` array
   public typealias SectionModelsTransformer = ([Any]) -> [CZSectionModel]
-  public var onAction: OnAction?
+  private(set) var onAction: OnAction?
   private(set) lazy var viewModel = CZFeedListViewModel()
   private(set) lazy var newViewModel = CZFeedListViewModel()
   public private(set) var collectionView: UICollectionView!
@@ -122,7 +122,8 @@ open class CZFeedListFacadeView: UIView {
 
   public func batchUpdate(withFeedModels feedModels: [CZFeedModel],
                           animated: Bool = true) {
-    batchUpdate(withSectionModels: [CZSectionModel(feedModels: feedModels)])
+    batchUpdate(withSectionModels: [CZSectionModel(
+      feedModels: feedModels)])
   }
 
   public func batchUpdate(withSectionModels sectionModels: [CZSectionModel],
@@ -145,9 +146,11 @@ open class CZFeedListFacadeView: UIView {
     var res = sectionModels.filter { !$0.isEmpty }
     res = res.compactMap { sectionModel in
       if sectionModel.isHorizontal {
-        let horizontalFeedModel = CZFeedModel(viewClass: CZHorizontalSectionAdapterCell.self,
-                                              viewModel: CZHorizontalSectionAdapterViewModel(sectionModel.feedModels,
-                                                                                             viewHeight: sectionModel.heightForHorizontal)
+        let horizontalFeedModel = CZFeedModel(
+          viewClass: CZHorizontalSectionAdapterCell.self,
+          viewModel: CZHorizontalSectionAdapterViewModel(
+            sectionModel.feedModels,
+            viewHeight: sectionModel.heightForHorizontal)
         )
         let horizontalSectionModel = CZSectionModel.sectionModel(with: sectionModel, feedModels: [horizontalFeedModel])
         return horizontalSectionModel
@@ -278,7 +281,10 @@ private extension CZFeedListFacadeView  {
   func setupCollectionView() {
     let collectionViewLayout = UICollectionViewFlowLayout()
     collectionViewLayout.scrollDirection = isHorizontal ? .horizontal : .vertical
+    // NOTE: Setting `estimatedItemSize` as `automaticSize` enables cells auto-sizing.
+    collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+
     translatesAutoresizingMaskIntoConstraints = false
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     collectionView.backgroundColor = .clear
@@ -315,6 +321,8 @@ private extension CZFeedListFacadeView  {
 // MARK: - UICollectionViewFlowLayout
 
 extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
+  /// Returns the containerSize for the cell at `indexPath`, it will be used by
+  /// `Cell.systemLayoutSizeFitting()` for self-sizing.
   public func collectionView(_ collectionView: UICollectionView,
                              layout collectionViewLayout: UICollectionViewLayout,
                              sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -332,6 +340,20 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
       containerViewSize = CGSize(width: collectionViewSize.width - sectionInset.left - sectionInset.right,
                                  height: collectionViewSize.height - sectionInset.top - sectionInset.bottom)
     }
+
+    // For CZHorizontalSectionAdapterCell, set its height with `viewModel.viewHeight`.
+    if feedModel.viewClass == CZHorizontalSectionAdapterCell.self {
+      assert(feedModel.viewModel.viewHeight != -1)
+      return CGSize(width: containerViewSize.width, height: feedModel.viewModel.viewHeight)
+    }
+
+    // Support self-sizing cells.
+    if (isHorizontal && ReactiveListViewKit.enableSelfSizingCellsForHorizontalOrientation) ||
+       (!isHorizontal && ReactiveListViewKit.enableSelfSizingCellsForVerticalOrientation) {
+      return containerViewSize
+    }
+
+    assertionFailure("For self-sizing cells, shouldn't call `sizeThatFits()`.")
     let size = feedModel.viewClass.sizeThatFits(containerViewSize, viewModel: feedModel.viewModel)
     return size
   }
@@ -381,6 +403,13 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
     if (refreshControl.isRefreshing) {
       onAction?(CZFeedListViewAction.pullToRefresh(isFirst: !hasPulledToRefresh))
     }
+  }
+
+  // MARK: - Screen Rotation
+
+  open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+      super.traitCollectionDidChange(previousTraitCollection)
+      collectionView.collectionViewLayout.invalidateLayout()
   }
 }
 
@@ -453,9 +482,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
       assertionFailure("Couldn't find matched cell/feedModel at \(indexPath)")
       return
     }
-
-    assert(onAction != nil)
-    onAction?(CZFeedListViewAction.selectedCell(indexPath, feedModel))
+    onAction?(CZFeedListViewAction.selectedCell(feedModel))
   }
 
   // MARK: - Load More
@@ -474,11 +501,11 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
       return prevSum + currSum
     }
 
-    // TODO(cnzhang): Add loadMore Action back after fix incremental updates issue.
+    // TODO(cnzhang): Add loadMoreAction back after fix incremental updates issue.
     if allowLoadMore &&
-        distanceFromBottom <= loadMoreThreshold &&
+        (distanceFromBottom >= loadMoreThreshold) &&
         !viewedIndexPaths.contains(indexPath) {
-      onAction?(CZFeedListViewAction.loadMore)
+      // onAction?(CZFeedListViewAction.loadMore)
     }
 
     if !hasInvokedWillDisplayCell && collectionView.indexPathsForVisibleItems.count > 0 {
@@ -495,14 +522,14 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
 
 extension CZFeedListFacadeView: UIScrollViewDelegate {
   public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    // isLoadingMore = false
+    isLoadingMore = false
   }
   public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
   }
   public func scrollViewDidEndDragging(_ scrollView: UIScrollView,
                                        willDecelerate decelerate: Bool) {
     if !decelerate {
-      // isLoadingMore = false
+      isLoadingMore = false
     }
   }
 }

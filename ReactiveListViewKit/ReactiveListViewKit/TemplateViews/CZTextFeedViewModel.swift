@@ -13,14 +13,20 @@ open class CZSimpleTextFeedModel: CZFeedModel {
               isHorizontal: Bool = false,
               model: Any? = nil) {
     super.init(
+      isHorizontal: isHorizontal,
       viewClass: CZTextFeedCellView.self,
       viewModel: CZTextFeedViewModel(text: text,
                                      isHorizontal: isHorizontal,
                                      model: model))
   }
-
-  public required init(viewClass: CZFeedCellViewSizeCalculatable.Type, viewModel: CZFeedViewModelable) {
-    super.init(viewClass: viewClass, viewModel: viewModel)
+  
+  public required init(isHorizontal: Bool,
+                       viewClass: CZFeedCellViewSizeCalculatable.Type,
+                       viewModel: CZFeedViewModelable) {
+    super.init(
+      isHorizontal: isHorizontal,
+      viewClass: viewClass,
+      viewModel: viewModel)
   }
 }
 
