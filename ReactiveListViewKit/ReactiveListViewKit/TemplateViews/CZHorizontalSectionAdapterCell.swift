@@ -40,7 +40,10 @@ public class CZHorizontalSectionAdapterCell: UICollectionViewCell, CZFeedCellVie
   public func setupViewsIfNeeded() {
     guard !hasSetup else {return}
     hasSetup = true
-    translatesAutoresizingMaskIntoConstraints = false
+    if !ReactiveListViewKit.enableSelfSizingCellsForVerticalOrientation {
+      // Self-sizing cell isn't supported to change `translatesAutoresizingMaskIntoConstraints`.
+      translatesAutoresizingMaskIntoConstraints = false
+    }
     horizontalSectionAdapterView = CZHorizontalSectionAdapterView(onAction: onAction)
     horizontalSectionAdapterView.overlayOnSuperview(contentView)
   }
@@ -62,4 +65,20 @@ public class CZHorizontalSectionAdapterCell: UICollectionViewCell, CZFeedCellVie
   
   public func config(with viewModel: CZFeedViewModelable?, 
                      prevViewModel: CZFeedViewModelable?) {}
+
+  // MARK: - Self sizing
+
+  /// Returns the optimal size of the view based on its current constraints.
+  ///
+  /// - Note: `targetSize` is set from `collectionView(_ collectionView: layout:sizeForItemAt:)`.
+  public override func systemLayoutSizeFitting(_ targetSize: CGSize,
+                                        withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
+                                        verticalFittingPriority: UILayoutPriority) -> CGSize {
+    return super.systemLayoutSizeFitting(
+      CGSize(
+        width: targetSize.width,
+        height: targetSize.height),
+      withHorizontalFittingPriority: .fittingSizeLevel,
+      verticalFittingPriority: .required)
+  }
 }
