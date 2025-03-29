@@ -78,11 +78,6 @@
 			path = ReactiveListViewKitDemo;
 			sourceTree = "<group>";
 		};
-		DF7E237C2D985D34000715BA /* ReactiveListViewKitDemoTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ReactiveListViewKitDemoTests;
-			sourceTree = "<group>";
-		};
 		DF7E23862D985D34000715BA /* ReactiveListViewKitDemoUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ReactiveListViewKitDemoUITests;
@@ -123,7 +118,6 @@
 			children = (
 				DF7E24B02D986029000715BA /* ReactiveListViewKit.xcodeproj */,
 				DF7E23652D985D31000715BA /* ReactiveListViewKitDemo */,
-				DF7E237C2D985D34000715BA /* ReactiveListViewKitDemoTests */,
 				DF7E23862D985D34000715BA /* ReactiveListViewKitDemoUITests */,
 				DF7E24AB2D985FA1000715BA /* Frameworks */,
 				DF7E23642D985D31000715BA /* Products */,
@@ -202,9 +196,6 @@
 			);
 			dependencies = (
 				DF7E237B2D985D34000715BA /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				DF7E237C2D985D34000715BA /* ReactiveListViewKitDemoTests */,
 			);
 			name = ReactiveListViewKitDemoTests;
 			packageProductDependencies = (
