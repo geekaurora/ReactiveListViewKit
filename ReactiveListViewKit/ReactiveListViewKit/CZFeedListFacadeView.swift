@@ -19,7 +19,7 @@ import UIKit
 open class CZFeedListFacadeView: UIView {
   // Transformer closure that transforms `Feed` array to `CZSectionModel` array
   public typealias SectionModelsTransformer = ([Any]) -> [CZSectionModel]
-  private(set) var onAction: OnAction?
+  public var onAction: OnAction?
   private(set) lazy var viewModel = CZFeedListViewModel()
   private(set) lazy var newViewModel = CZFeedListViewModel()
   public private(set) var collectionView: UICollectionView!
@@ -482,6 +482,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
       assertionFailure("Couldn't find matched cell/feedModel at \(indexPath)")
       return
     }
+    assert(onAction != nil)
     onAction?(CZFeedListViewAction.selectedCell(feedModel))
   }
 
