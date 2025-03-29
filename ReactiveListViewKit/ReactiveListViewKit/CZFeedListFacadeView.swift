@@ -483,7 +483,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegate {
       return
     }
     assert(onAction != nil)
-    onAction?(CZFeedListViewAction.selectedCell(feedModel))
+    onAction?(CZFeedListViewAction.selectedCell(indexPath, feedModel))
   }
 
   // MARK: - Load More
