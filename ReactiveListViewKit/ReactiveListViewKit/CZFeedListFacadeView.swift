@@ -343,7 +343,7 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
                                  height: collectionViewSize.height - sectionInset.top - sectionInset.bottom)
     }
 
-    // For CZHorizontalSectionAdapterCell, set its height with `viewModel.viewHeight`.
+    // For `CZHorizontalSectionAdapterCell`, set its height with `viewModel.viewHeight`.
     if feedModel.viewClass == CZHorizontalSectionAdapterCell.self {
       assert(feedModel.viewModel.viewHeight != -1)
       return CGSize(width: containerViewSize.width, height: feedModel.viewModel.viewHeight)
