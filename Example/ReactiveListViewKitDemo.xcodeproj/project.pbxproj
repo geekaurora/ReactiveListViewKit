@@ -27,6 +27,7 @@
 		DF7E23632D985D31000715BA /* ReactiveListViewKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveListViewKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF7E23792D985D34000715BA /* ReactiveListViewKitDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveListViewKitDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF7E23832D985D34000715BA /* ReactiveListViewKitDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveListViewKitDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF7E23D32D985E37000715BA /* CommonCrypto.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = CommonCrypto.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -101,6 +102,13 @@
 				DF7E23632D985D31000715BA /* ReactiveListViewKitDemo.app */,
 				DF7E23792D985D34000715BA /* ReactiveListViewKitDemoTests.xctest */,
 				DF7E23832D985D34000715BA /* ReactiveListViewKitDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DF7E23E72D985E37000715BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,6 +219,12 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DF7E23642D985D31000715BA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DF7E23E72D985E37000715BA /* Products */;
+					ProjectRef = DF7E23D32D985E37000715BA /* CommonCrypto.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DF7E23622D985D31000715BA /* ReactiveListViewKitDemo */,
