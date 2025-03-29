@@ -11,7 +11,11 @@ import CZUtils
 public class CZHorizontalSectionAdapterCell: UICollectionViewCell, CZFeedCellViewSizeCalculatable {
   private var viewModel: CZHorizontalSectionAdapterViewModel?
   open var diffId: String { return viewModel?.diffId ?? "" }
-  open var onAction: OnAction?
+  open var onAction: OnAction? {
+    didSet {
+      horizontalSectionAdapterView.onAction = onAction
+    }
+  }
   private var horizontalSectionAdapterView: CZHorizontalSectionAdapterView!
   private var hasSetup: Bool = false
   
