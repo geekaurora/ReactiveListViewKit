@@ -281,8 +281,10 @@ private extension CZFeedListFacadeView  {
   func setupCollectionView() {
     let collectionViewLayout = UICollectionViewFlowLayout()
     collectionViewLayout.scrollDirection = isHorizontal ? .horizontal : .vertical
-    // NOTE: Setting `estimatedItemSize` as `automaticSize` enables cells auto-sizing.
-    collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+    if self.isSelfSizingCellsEnabled {
+      // NOTE: Setting `estimatedItemSize` as `automaticSize` enables cells auto-sizing.
+      collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+    }
     collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
 
     translatesAutoresizingMaskIntoConstraints = false
@@ -348,15 +350,10 @@ extension CZFeedListFacadeView: UICollectionViewDelegateFlowLayout {
     }
 
     // Support self-sizing cells.
-    if (isHorizontal && ReactiveListViewKit.enableSelfSizingCellsForHorizontalOrientation) ||
-       (!isHorizontal && ReactiveListViewKit.enableSelfSizingCellsForVerticalOrientation) {
+    if self.isSelfSizingCellsEnabled {
       return containerViewSize
     }
-    assert(
-      !ReactiveListViewKit.enableSelfSizingCellsForHorizontalOrientation ||
-      !ReactiveListViewKit.enableSelfSizingCellsForVerticalOrientation ,
-      "For self-sizing cells, shouldn't call `sizeThatFits()`.")
-
+    
     let size = feedModel.viewClass.sizeThatFits(containerViewSize, viewModel: feedModel.viewModel)
     return size
   }
@@ -537,5 +534,12 @@ extension CZFeedListFacadeView: UIScrollViewDelegate {
     if !decelerate {
       // isLoadingMore = false
     }
+  }
+
+  // MARK: - Helper methods
+
+  var isSelfSizingCellsEnabled: Bool {
+    (isHorizontal && ReactiveListViewKit.enableSelfSizingCellsForHorizontalOrientation) ||
+    (!isHorizontal && ReactiveListViewKit.enableSelfSizingCellsForVerticalOrientation)
   }
 }
